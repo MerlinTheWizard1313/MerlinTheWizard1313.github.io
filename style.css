@@ -1,0 +1,90 @@
+/*
+All commented code is from a website project created from my time in my Level 3
+Software Development course and such is being used as a base for now. 
+This will change later
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+body {
+    background-image: url("https://codeinstitute.s3.amazonaws.com/l3assets/js/cafe.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+h1, h2 {
+    color: darkslategrey;
+}
+
+#heading {
+    transition: 1s;
+}
+
+#tipulator-wrapper {
+    position: relative;
+    left: 0px;
+    max-width: 400px;
+    margin: 15px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: 2s;
+}
+
+#tipulator-wrapper > p {
+    margin-bottom: 32px;
+}
+
+form > div {
+    margin: 1rem 0;
+}
+
+input {
+    height: 30px;
+    border-radius: 8px;
+    margin: 8px;
+    border: 1px solid grey;
+    font-size: 20px;
+    padding: 3px 10px;
+}
+
+#submitButton {
+    font-size: 20px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border: 2px solid darkgreen;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+}
+
+#results > p {
+    font-weight: bold;
+}
+
+#closeButton,
+#rightButton,
+#leftButton {
+    font-size: 20px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: darkorange;
+    color: white;
+    font-weight: bold;
+    border: 2px solid darkorange;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+}
+
+#controls {
+    text-align: left;
+    margin-left: 15px;
+}*/
