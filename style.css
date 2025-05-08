@@ -101,9 +101,7 @@
   
   /* Change color of dropdown links on hover */
   .project-dropdown-content a:hover {background-color: #ddd;}
-  
-  /* Show the dropdown menu when it is clicked with js */
-  .show {display:block;}
+
 /*
 All commented code is from a website project created from my time in my Level 3
 Software Development course and such is being used as a base for now. 
