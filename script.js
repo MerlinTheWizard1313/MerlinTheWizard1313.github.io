@@ -10,11 +10,10 @@ function showNav() {
 
 function dropdownIconChange(id) {
     const iconClassName = document.getElementById(id);
-    console.log(iconClassName.classList);
-    if(iconClassName.classList.contains("fa-solid fa-caret-down")){
-        iconClassName.classList.replace("fa-solid fa-caret-down","fa-solid fa-caret-up");
-    } else if (iconClassName.classList.contains("fa-solid fa-caret-up")){
-        iconClassName.classList.replace("fa-solid fa-caret-up","fa-solid fa-caret-down");
+    if(iconClassName.classList.contains("fa-caret-down")){
+        iconClassName.classList.replace("fa-caret-down","fa-caret-up");
+    } else if (iconClassName.classList.contains("fa-caret-up")){
+        iconClassName.classList.replace("fa-caret-up","fa-caret-down");
     }
 }
 /*
