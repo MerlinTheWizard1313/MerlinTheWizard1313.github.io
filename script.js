@@ -10,6 +10,7 @@ function showNav() {
 
 //Toggle showing the project dropdown options in topnav
 function projectsDropdown() {
+    console.log("pressed");
     document.getElementById("projectsDropdown").classList.toggle("show");
   }
   
