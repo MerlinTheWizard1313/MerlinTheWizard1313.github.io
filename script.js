@@ -12,6 +12,7 @@ function showNav() {
 function projectsDropdown() {
     console.log("pressed");
     document.getElementById("projectsDropdown").classList.toggle("show");
+    console.log(document.getElementById("projectsDropdown").classList);
   }
   
   // Close the dropdown menu if the user clicks outside of it
