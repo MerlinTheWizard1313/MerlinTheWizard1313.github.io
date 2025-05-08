@@ -29,8 +29,8 @@ function projectsDropdown() {
         dropdown.style.display = 'none';
         dropdown.style.overflow = 'hidden';
       }
+      document.getElementById("projectButtonIcon").className = "fa-solid fa-caret-down";
     }
-    document.getElementById("projectButtonIcon").className = "fa-solid fa-caret-down";
   }
 /*
 All commented code is from a website project created from my time in my Level 3
