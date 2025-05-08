@@ -8,30 +8,15 @@ function showNav() {
     }
 }
 
-//Toggle showing the project dropdown options in topnav
-function projectsDropdown() {
-    var elements = document.getElementsByClassName("project-dropdown-content")
-    for (var i = 0; i < elements.length; i++) {
-        var element = elements[i];
-        element.style.display = 'block';
-        element.style.overflow = 'visible';
-      }
-    document.getElementById("projectButtonIcon").className = "fa-solid fa-caret-up";
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbutton')) {
-      var dropdowns = document.getElementsByClassName("project-dropdown-content");
-      var i;
-      for (var i = 0; i < dropdowns.length; i++) {
-        var dropdown = dropdowns[i];
-        dropdown.style.display = 'none';
-        dropdown.style.overflow = 'hidden';
-      }
-      document.getElementById("projectButtonIcon").className = "fa-solid fa-caret-down";
+
+function dropdownIconChange(id) {
+    var iconClassName = document.getElementById(id);
+    if(iconClassName === "fa-solid fa-caret-down"){
+        iconClassName.classList.replace("fa-solid fa-caret-down","fa-solid fa-caret-up");
+    } else if (iconClassName === "fa-solid fa-caret-up"){
+        iconClassName.classList.replace("fa-solid fa-caret-up","fa-solid fa-caret-down");
     }
-  }
+}
 /*
 All commented code is from a website project created from my time in my Level 3
 Software Development course and such is being used as a base for now. 

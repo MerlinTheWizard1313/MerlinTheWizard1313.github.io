@@ -10,10 +10,11 @@
 <div class="topnav" id="myTopnav">
     <a href="#home" class="active">Home</a>
     <div class="dropdown">
-        <button onclick="projectsDropdown()" class="dropbutton">Projects
+        <button onmouseover="dropdownIconChange('projectButtonIcon')" onmouseleave="dropdownIconChange('projectButtonIcon')"class="dropbutton">
+            Projects
             <i id="projectButtonIcon" class="fa-solid fa-caret-down"></i>
         </button>
-        <div id="projectsDropdown" class="project-dropdown-content">
+        <div id="projectsDropdown" class="dropdown-content">
             <a href="#Project1">Project 1</a>
             <a href="#Project2">Project 2</a>
         </div>
