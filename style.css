@@ -33,7 +33,7 @@
   }
   
   /* Fit the dropdown and style it */
-  .dropdown .dropbtn {
+  .dropdown .dropbutton {
     font-size: 17px;
     border: none;
     outline: none;
@@ -65,7 +65,7 @@
   }
   
   /* Add a dark background to topnav links/button on hover */
-  .topnav a:hover, .dropdown:hover .dropbtn {
+  .topnav a:hover, .dropdown:hover .dropbutton {
     background-color: #555;
     color: white;
   }
@@ -83,7 +83,7 @@
   
   /* When the screen is less than 600 pixels wide, hide all links, except for the first one. Show the topnav toggle */
   @media screen and (max-width: 600px) {
-    .topnav a:not(:first-child), .dropdown .dropbtn {
+    .topnav a:not(:first-child), .dropdown .dropbutton {
       display: none;
     }
     .topnav a.icon {
@@ -107,7 +107,7 @@
     }
     .topnav.responsive .dropdown {float: none;}
     .topnav.responsive .dropdown-content {position: relative;}
-    .topnav.responsive .dropdown .dropbtn {
+    .topnav.responsive .dropdown .dropbutton {
       display: block;
       width: 100%;
       text-align: left;
