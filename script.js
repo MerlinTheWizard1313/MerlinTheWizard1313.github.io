@@ -11,20 +11,21 @@ function showNav() {
 //Toggle showing the project dropdown options in topnav
 function projectsDropdown() {
     console.log("pressed");
-    document.getElementById("projectsDropdown").classList.toggle("show");
-    console.log(document.getElementById("projectsDropdown").classList);
+    var elements = document.getElementsByClassName("project-dropdown-content")
+    for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        element.style.display = 'block';
+      }
   }
   
   // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropbutton')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var dropdowns = document.getElementsByClassName("project-dropdown-content");
       var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
+      for (var i = 0; i < dropdowns.length; i++) {
+        var dropdown = dropdowns[i];
+        dropdown.style.display = 'none';
       }
     }
   }
