@@ -14,6 +14,7 @@ function projectsDropdown() {
     for (var i = 0; i < elements.length; i++) {
         var element = elements[i];
         element.style.display = 'block';
+        element.style.overflow = 'visible';
       }
   }
   
@@ -25,6 +26,7 @@ function projectsDropdown() {
       for (var i = 0; i < dropdowns.length; i++) {
         var dropdown = dropdowns[i];
         dropdown.style.display = 'none';
+        dropdown.style.overflow = 'hidden';
       }
     }
   }
