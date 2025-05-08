@@ -9,7 +9,8 @@ function showNav() {
 }
 
 function dropdownIconChange(id) {
-    var iconClassName = document.getElementById(id);
+    const iconClassName = document.getElementById(id);
+    console.log(iconClassName.classList);
     if(iconClassName.classList.contains("fa-solid fa-caret-down")){
         iconClassName.classList.replace("fa-solid fa-caret-down","fa-solid fa-caret-up");
     } else if (iconClassName.classList.contains("fa-solid fa-caret-up")){
