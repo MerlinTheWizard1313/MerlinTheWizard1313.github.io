@@ -22,7 +22,7 @@ All commented code is from a website project created from my time in my Level 3
 Software Development course and such is being used as a base for now. 
 This will change later
 
-function headingHover() {
+function headingHover() { 
     let heading = document.getElementById("heading");
     heading.style = "color: darkorange"; //Change title text color
 }
