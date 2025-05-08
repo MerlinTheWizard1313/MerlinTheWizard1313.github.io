@@ -81,7 +81,7 @@
     display: block;
   }
   
-  /* When the screen is less than 600 pixels wide, hide all links, except for the first one. Show the topnav toggle */
+  /* When screen is less than 600 pixels wide, hide all links, except for the first one. Show the topnav toggle */
   @media screen and (max-width: 600px) {
     .topnav a:not(:first-child), .dropdown .dropbutton {
       display: none;

@@ -8,7 +8,6 @@ function showNav() {
     }
 }
 
-
 function dropdownIconChange(id) {
     var iconClassName = document.getElementById(id);
     if(iconClassName === "fa-solid fa-caret-down"){
