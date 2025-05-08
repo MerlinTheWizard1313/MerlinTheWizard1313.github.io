@@ -16,7 +16,7 @@
   }
   
   /* Change the color of links on hover */
-  .topnav a:hover {
+  .topnav a:hover, .dropdown:hover, .dropbutton {
     background-color: #ddd;
     color: black;
   }
@@ -34,8 +34,9 @@
 
   /* When the screen is less than 600 pixels wide, hide all links, except for the first one. Show the nav toggle button */
 @media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {display: none;}
-    .topnav div:not(:first-child) {display: none;}
+    .topnav a:not(:first-child), .dropdown .dropbutton {
+        display: none;
+    }
     .topnav a.icon {
       float: right;
       display: block;
@@ -55,18 +56,25 @@
       display: block;
       text-align: left;
     }
-    .topnav.responsive div:not(.dropdown-content)  {
-        display: block;
+    .topnav.responsive .dropdown {float: none;}
+    .topnav.responsive .project-dropdown-content {position: relative;}
+    .topnav.responsive .dropdown .dropbutton {
+      display: block;
+      width: 100%;
+      text-align: left;
     }
   }
 
   /* Dropdown Button */
 .dropbutton {
-    background-color: #3498DB;
+    background-color: inherit;
     color: white;
     padding: 14px;
     font-size: 17px;
     border: none;
+    outline: none;
+    font-family: inherit;
+    margin: 0;
     cursor: pointer;
   }
   
@@ -77,8 +85,8 @@
   
   /* The container which positions dropdown content */
   .dropdown {
-    position: relative;
-    display: inline-block;
+    float: left;
+    overflow: hidden;
   }
   
   /* Dropdown Content */
@@ -97,8 +105,15 @@
     padding: 14px 16px;
     text-decoration: none;
     display: block;
+    float: none;
+    text-align: left;
   }
   
+  /*Show the dropdown menu on hover*/
+  .dropdown:hover .project-dropdown-content {
+    display: block;
+  }
+
   /* Change color of dropdown links on hover */
   .project-dropdown-content a:hover {background-color: #ddd;}
 

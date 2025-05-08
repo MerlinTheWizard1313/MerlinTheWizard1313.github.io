@@ -16,6 +16,7 @@ function projectsDropdown() {
         element.style.display = 'block';
         element.style.overflow = 'visible';
       }
+    document.getElementById("projectButtonIcon").className = "fa-solid fa-caret-up";
   }
   
   // Close the dropdown menu if the user clicks outside of it
@@ -29,6 +30,7 @@ function projectsDropdown() {
         dropdown.style.overflow = 'hidden';
       }
     }
+    document.getElementById("projectButtonIcon").className = "fa-solid fa-caret-down";
   }
 /*
 All commented code is from a website project created from my time in my Level 3
