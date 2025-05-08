@@ -9,10 +9,16 @@
 
 <div class="topnav" id="myTopnav">
     <a href="#home" class="active">Home</a>
-    <a href="#projects">Projects</a>
+    <div class="dropdown">
+        <button onclick="projectsDropdown()" class="dropbutton">Projects</button>
+        <div id="projectsDropdown" class="dropdown-content">
+            <a href="#Project1">Project 1</a>
+            <a href="#Project2">Project 2</a>
+        </div>
+    </div>
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <a href="javascript:void(0);" class="icon" onclick="showNav()">
         <i class="fa-solid fa-bars"></i>
     </a>
 </div>

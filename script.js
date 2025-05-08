@@ -1,5 +1,5 @@
-/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-function myFunction() {
+//When clicking the topnav icon, toggle between showing the navigation options
+function showNav() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
       x.className += " responsive";
@@ -8,6 +8,24 @@ function myFunction() {
     }
 }
 
+//Toggle showing the project dropdown options in topnav
+function projectsDropdown() {
+    document.getElementById("projectsDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbutton')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
 /*
 All commented code is from a website project created from my time in my Level 3
 Software Development course and such is being used as a base for now. 
