@@ -8,14 +8,6 @@ function showNav() {
     }
 }
 
-function dropdownIconChange(id) {
-    const iconClassName = document.getElementById(id);
-    if(iconClassName.classList.contains("fa-caret-down")){
-        iconClassName.classList.replace("fa-caret-down","fa-caret-up");
-    } else if (iconClassName.classList.contains("fa-caret-up")){
-        iconClassName.classList.replace("fa-caret-up","fa-caret-down");
-    }
-}
 /*
 All commented code is from a website project created from my time in my Level 3
 Software Development course and such is being used as a base for now. 
