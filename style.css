@@ -21,6 +21,10 @@
   color: white;
 }
 
+.active:hover {
+  background-color:#048354
+}
+
 /* Hide menu toggle when it fits the screen*/
 .topnav .icon {
   display: none;
@@ -65,13 +69,13 @@
 }
 
 /* Add a dark background to topnav links/button on hover */
-.topnav a:hover, .dropdown:hover .dropbutton {
+.topnav a:hover:not(.active), .dropdown:hover:not(.active) .dropbutton:not(.active) {
   background-color: #555;
   color: white;
 }
 
 /* Add a grey background to dropdown links on hover */
-.dropdown-content a:hover {
+.dropdown-content a:hover:not(.active) {
   background-color: #ddd;
   color: black;
 }
