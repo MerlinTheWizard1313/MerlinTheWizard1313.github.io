@@ -1,0 +1,114 @@
+//Global array of winning rows
+const winArr = [
+			[1, 2, 3],
+			[4, 5, 6],
+			[7, 8, 9],
+			[1, 4, 7],
+			[2, 5, 8],
+			[3, 6, 9],
+			[1, 5, 9],
+			[3, 5, 7]
+];
+
+//Global varaible to store current player turn for use in all boards
+var currentTurn = "";
+
+//Noughts and Crosses board class for use by eahc of the 9 boards inside the large board
+class N_C {
+    constructor(game){
+        this.box = game;
+        this.win_status = false; //Has the current board won?
+        this.winner = ""; //Winner of the current board?
+        this.genBoard();
+        this.xArr = []; //Current Player moves
+        this.oArr = []; //Current Ai moves
+        this.emptyArr = [1,2,3,4,5,6,7,8,9]; //Moves Remaining
+        
+    }
+    
+    //Turn toggle to flip between player and ai turn
+    setTurn(){
+        currentTurn = (currentTurn == "xTurn" ? "oTurn" : "xTurn");
+    }
+
+    //Initial randomiser of turn order once the game begins
+    turnRandom(){
+        const random = Math.random();
+        return random >= 0.5 ? true : false;
+    }
+
+    //Upon the call of the XN_C class, this will intitialise the game board and game state
+    //so the game can begin
+    startBoard(){
+
+    }
+
+    //After each move, this is called to check if the current move has caused a win on the board
+    //If successful, it updates the win status, winner and stores the winning row
+    winRowCheck(){
+        if(this.win_status == false){
+            let row, arrayToCheck;
+            arrayToCheck = (currentTurn == "xTurn" ? this.xArr : this.oArr);
+            if (arrayToCheck.length >= 3){
+                winArr.forEach((winRow)=>{
+                    if (winRow.every(x => this.xArr.includes(x))) {
+                        this.winner = currentTurn;
+                        //row = winRow.slice();
+                        this.win_status = true;
+                    }
+                })
+            }
+        }
+    }
+
+    //Used in the case that the big board does not get a winning row
+    //If the big board has no row, it will call this function in each of the boards
+    //If the board has not won yet, it determines the winner of the board by a majority vote
+    //Then it sets the winner and win status based off the majority vote
+    totalWinCheck(){
+        if (this.win_status == false){
+            this.winner = (this.xArr.length > this.oArr.length ? "xTurn" : "oTurn");
+            this.win_status = true;
+        }
+    }
+
+    //Update the board when a move is made
+    boardUpdate(){
+
+    }
+
+    //Create the visual grid in html with event listeners to the grid spaces
+    genBoard(){
+
+    }
+
+    //Actions taken when it is the player's turn to move
+    playerTurn(){
+        if(currentTurn == "xTurn"){
+
+        }
+    }
+
+    //Used to add a small buffer time for ai moves, before a player moves, and other functions
+    randomWaitTime(){
+        let waitTime = 0; //set a random wait time here
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve();
+            }, waitTime);
+        });
+    }
+
+    //Actions taken when it is the ai's turn to move
+    aiTurn(){
+        if(currentTurn == "oTurn"){
+
+        }
+    }
+}
+
+//Find the div in project2.html which will house the game board
+const box = document.querySelector(".game-box");
+//Create a new Xtreme Noughts and Crosses board class 
+//Which will call the creation of 9 other mini boards through the N_C class
+const game = new XN_C(box);
