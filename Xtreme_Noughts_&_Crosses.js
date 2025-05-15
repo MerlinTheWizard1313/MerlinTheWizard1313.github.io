@@ -129,6 +129,11 @@ const box = document.querySelector(".game-box-1");
 const box2 = document.querySelector(".game-box-2");
 const box3 = document.querySelector(".game-box-3");
 const box4 = document.querySelector(".game-box-4");
+const box5 = document.querySelector(".game-box-5");
+const box6 = document.querySelector(".game-box-6");
+const box7 = document.querySelector(".game-box-7");
+const box8 = document.querySelector(".game-box-8");
+const box9 = document.querySelector(".game-box-9");
 //Create a new Xtreme Noughts and Crosses board class 
 //Which will call the creation of 9 other mini boards through the N_C class
 //const game = new N_C(box,1);
@@ -138,3 +143,8 @@ const game = new N_C(box,1);
 const game2 = new N_C(box2,2);
 const game3 = new N_C(box3,3);
 const game4 = new N_C(box4,4);
+const game5 = new N_C(box5,5);
+const game6 = new N_C(box6,6);
+const game7 = new N_C(box7,7);
+const game8 = new N_C(box8,8);
+const game9 = new N_C(box9,9);

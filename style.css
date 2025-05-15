@@ -135,6 +135,76 @@
 }
 
 /*edit game board style here*/
+#large-game-board {
+  position: absolute;
+  width: 474px;
+  height: 474px;
+  outline: black solid 1px;
+}
+
+.game-box-1 {
+  position: absolute;
+  width: 150px;
+  left: 0px;
+  top: 0px;
+}
+
+.game-box-2 {
+  position: absolute;
+  width: 150px;
+  top: 0px;
+  left: 158px;
+}
+
+.game-box-3 {
+  position: absolute;
+  width: 150px;
+  top: 0px;
+  left: 316px;
+}
+
+.game-box-4 {
+  position: absolute;
+  width: 150px;
+  top: 158px;
+  left: 0px;
+}
+
+.game-box-5 {
+  position: absolute;
+  width: 150px;
+  top: 158px;
+  left: 158px;
+}
+
+.game-box-6 {
+  position: absolute;
+  width: 150px;
+  top: 158px;
+  left: 316px;
+}
+
+.game-box-7 {
+  position: absolute;
+  width: 150px;
+  top: 316px;
+  left: 0px;
+}
+
+.game-box-8 {
+  position: absolute;
+  width: 150px;
+  top: 316px;
+  left: 158px;
+}
+
+.game-box-9 {
+  position: absolute;
+  width: 150px;
+  top: 316px;
+  left: 316px;
+}
+
 .game-board{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -176,34 +246,6 @@
     bottom: 0;
     background: rgba(255,255,255,0.3);
     content: "";
-}
-
-.large-game-board {
-  position: relative;
-  outline: black solid 1px;
-}
-
-.large-game-board > .game-box-1 {
-  position: absolute;
-  top: 0px;
-}
-
-.large-game-board > .game-box-2 {
-  position: absolute;
-  top: 0px;
-  left: 160px;
-}
-
-.large-game-board > .game-box-3 {
-  position: absolute;
-  top: 0px;
-  left: 400px;
-}
-
-.large-game-board > .game-box-4 {
-  position: absolute;
-  top: 300px;
-  left: 0px;
 }
 /*
 All commented code is from a website project created from my time in my Level 3
