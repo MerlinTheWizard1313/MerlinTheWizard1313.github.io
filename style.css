@@ -180,8 +180,6 @@
 
 .large-game-board {
   position: relative;
-  width: 450px;
-  height: 450px;
   outline: black solid 1px;
 }
 
@@ -193,18 +191,18 @@
 .large-game-board > .game-box-2 {
   position: absolute;
   top: 0px;
-  left: 150px;
+  left: 160px;
 }
 
 .large-game-board > .game-box-3 {
   position: absolute;
   top: 0px;
-  left: 300px;
+  left: 400px;
 }
 
 .large-game-board > .game-box-4 {
   position: absolute;
-  top: 150px;
+  top: 300px;
   left: 0px;
 }
 /*
