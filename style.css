@@ -248,88 +248,90 @@
     content: "";
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 486px){
   #large-game-box {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 96%;
+  height: 0;
+  padding-top: 100%;
   outline: black solid 1px;}
 
   .game-box-1 {
   position: absolute;
-  width: 30%;
-  height: 30%;
-  left: 0%;
-  top: 0%;
+  width: 32.5%;
+  height: 32.5%;
+  left: 0;
+  top: 0;
   }
 
   .game-box-2 {
     position: absolute;
-    width: 30%;
-    height: 30%;
+    width: 32.5%;
+    height: 32.5%;
     top: 0%;
-    left: 33%;
+    left: 33.5%;
   }
 
   .game-box-3 {
     position: absolute;
-    width: 30%;
-    height: 30%;
+    width: 32.5%;
+    height: 32.5%;
     top: 0%;
-    left: 66%;
+    left: 67%;
   }
 
   .game-box-4 {
     position: absolute;
-    width: 30%;
-    height: 30%;
-    top: 33%;
+    width: 32.5%;
+    height: 32.5%;
+    top: 33.5%;
     left: 0%;
   }
 
   .game-box-5 {
     position: absolute;
-    width: 30%;
-    height: 30%;
-    top: 33%;
-    left: 33%;
+    width: 32.5%;
+    height: 32.5%;
+    top: 33.5%;
+    left: 33.5%;
   }
 
   .game-box-6 {
     position: absolute;
-    width: 30%;
-    height: 30%;
-    top: 33%;
-    left: 66%;
+    width: 32.5%;
+    height: 32.5%;
+    top: 33.5%;
+    left: 67%;
   }
 
   .game-box-7 {
     position: absolute;
-    width: 30%;
-    height: 30%;
-    top: 66%;
+    width: 32.5%;
+    height: 32.5%;
+    top: 67%;
     left: 0%;
   }
 
   .game-box-8 {
     position: absolute;
-    width: 30%;
-    height: 30%;
-    top: 66%;
-    left: 33%;
+    width: 32.5%;
+    height: 32.5%;
+    top: 67%;
+    left: 33.5%;
   }
 
   .game-box-9 {
     position: absolute;
-    width: 30%;
-    height: 30%;
-    top: 66%;
-    left: 66%;
+    width: 32.5%;
+    height: 32.5%;
+    top: 67%;
+    left: 67%;
   }
   .game-board{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      width: 30%;
+      width: 100%;
+      height: 100%;
   }
 
   .game-board > div {
@@ -337,13 +339,13 @@
       font-family: sans-serif;
       justify-content: center;
       align-items: center;
-      font-size: 0.06%;
+      font-size: 0.2%; /*will need changing*/
       transition: font-size 100ms ease-in-out;
       color: white;
       background: steelblue;
-      width: 33%;
-      height: 33%;
-      border: 0.16% solid white;
+      width: 100%;
+      height: 100%;
+      border: 2% solid white; /*will need changing*/
       position: relative;
   }
 }
