@@ -125,7 +125,16 @@ class N_C {
 }
 
 //Find the div in project2.html which will house the game board
-const box = document.querySelector(".game-box");
+const box = document.querySelector(".game-box-1");
+const box2 = document.querySelector(".game-box-2");
+const box3 = document.querySelector(".game-box-3");
+const box4 = document.querySelector(".game-box-4");
 //Create a new Xtreme Noughts and Crosses board class 
 //Which will call the creation of 9 other mini boards through the N_C class
+//const game = new N_C(box,1);
+
+//delete this
 const game = new N_C(box,1);
+const game2 = new N_C(box2,2);
+const game3 = new N_C(box3,3);
+const game4 = new N_C(box4,4);
