@@ -121,14 +121,61 @@
 #project1 {
   color: red;
 }
+
 #project2 {
   color: blue;
 }
+
 #contact {
   color: green;
 }
+
 #about {
   color: purple;
+}
+
+/*edit game board style here*/
+.game-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 150px;
+}
+
+.game-board > div {
+    display: flex;
+    font-family: sans-serif;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.1px;
+    transition: font-size 100ms ease-in-out;
+    color: white;
+    background: steelblue;
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    position: relative;
+}
+
+.game-board > div:not(.selected) {
+    cursor: pointer;
+}
+
+.game-board > div.selected {
+    cursor: default;
+}
+
+.game-board > div.win {
+		background: indianred;
+}
+
+.game-board > div:not(.selected):hover::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.3);
+    content: "";
 }
 /*
 All commented code is from a website project created from my time in my Level 3

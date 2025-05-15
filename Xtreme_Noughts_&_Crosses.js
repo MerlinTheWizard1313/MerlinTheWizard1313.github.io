@@ -15,8 +15,10 @@ var currentTurn = "";
 
 //Noughts and Crosses board class for use by eahc of the 9 boards inside the large board
 class N_C {
-    constructor(game){
+    constructor(game, number){
         this.box = game;
+        this.boardNumber = number; //Set the board number from 1-9 from input
+        this.boardNumberClass = "game-board-" + this.boardNumber.toString(); //Set name of board class
         this.win_status = false; //Has the current board won?
         this.winner = ""; //Winner of the current board?
         this.genBoard();
@@ -79,7 +81,19 @@ class N_C {
 
     //Create the visual grid in html with event listeners to the grid spaces
     genBoard(){
+        const board = document.createElement("div");
+        board.classList.add(this.boardNumberClass);
+        for (let i = 0; i < 9; i++){
+            const div = document.createElement("div");
+            div.setAttribute("data-id", i + 1);
+            board.appendChild(div);
+        }
+        board.addEventListener("click", this.playerTurn.bind(this));
+        this.box.appendChild(board);
 
+        /*const winnerOutput = document.createElement("div"); will keep this here for later when a position is decided
+		winnerOutput.classList.add("winner-output");
+		this.winnerOutput = this.container.appendChild(winnerOutput);*/
     }
 
     //Actions taken when it is the player's turn to move
