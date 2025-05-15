@@ -42,7 +42,10 @@ class N_C {
     //Upon the call of the XN_C class, this will intitialise the game board and game state
     //so the game can begin
     startBoard(){
-
+        currentTurn = this.turnRandom();
+        this.setTurn();
+        this.win_status = false;
+        console.log(currentTurn);
     }
 
     //After each move, this is called to check if the current move has caused a win on the board
