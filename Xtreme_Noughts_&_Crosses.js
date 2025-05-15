@@ -128,4 +128,4 @@ class N_C {
 const box = document.querySelector(".game-box");
 //Create a new Xtreme Noughts and Crosses board class 
 //Which will call the creation of 9 other mini boards through the N_C class
-const game = new N_C(box);
+const game = new N_C(box,1);
