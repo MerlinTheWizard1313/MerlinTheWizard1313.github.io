@@ -142,106 +142,6 @@
   outline: black solid 1px;
 }
 
-@media screen and (max-width: 600px){
-  #large-game-box {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  outline: black solid 1px;}
-
-  .game-box-1 {
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  left: 0%;
-  top: 0%;
-}
-
-.game-box-2 {
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  top: 0%;
-  left: 33%;
-}
-
-.game-box-3 {
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  top: 0%;
-  left: 66%;
-}
-
-.game-box-4 {
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  top: 33%;
-  left: 0%;
-}
-
-.game-box-5 {
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  top: 33%;
-  left: 33%;
-}
-
-.game-box-6 {
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  top: 33%;
-  left: 66%;
-}
-
-.game-box-7 {
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  top: 66%;
-  left: 0%;
-}
-
-.game-box-8 {
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  top: 66%;
-  left: 33%;
-}
-
-.game-box-9 {
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  top: 66%;
-  left: 66%;
-}
-.game-board{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 30%;
-}
-
-.game-board > div {
-    display: flex;
-    font-family: sans-serif;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.06%;
-    transition: font-size 100ms ease-in-out;
-    color: white;
-    background: steelblue;
-    width: 33%;
-    height: 33%;
-    border: 0.16% solid white;
-    position: relative;
-}
-}
-
 .game-box-1 {
   position: absolute;
   width: 150px;
@@ -346,6 +246,106 @@
     bottom: 0;
     background: rgba(255,255,255,0.3);
     content: "";
+}
+
+@media screen and (max-width: 600px){
+  #large-game-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  outline: black solid 1px;}
+
+  .game-box-1 {
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  left: 0%;
+  top: 0%;
+  }
+
+  .game-box-2 {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 0%;
+    left: 33%;
+  }
+
+  .game-box-3 {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 0%;
+    left: 66%;
+  }
+
+  .game-box-4 {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 33%;
+    left: 0%;
+  }
+
+  .game-box-5 {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 33%;
+    left: 33%;
+  }
+
+  .game-box-6 {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 33%;
+    left: 66%;
+  }
+
+  .game-box-7 {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 66%;
+    left: 0%;
+  }
+
+  .game-box-8 {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 66%;
+    left: 33%;
+  }
+
+  .game-box-9 {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 66%;
+    left: 66%;
+  }
+  .game-board{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 30%;
+  }
+
+  .game-board > div {
+      display: flex;
+      font-family: sans-serif;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.06%;
+      transition: font-size 100ms ease-in-out;
+      color: white;
+      background: steelblue;
+      width: 33%;
+      height: 33%;
+      border: 0.16% solid white;
+      position: relative;
+  }
 }
 /*
 All commented code is from a website project created from my time in my Level 3
