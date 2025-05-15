@@ -85,7 +85,7 @@ class N_C {
     //Create the visual grid in html with event listeners to the grid spaces
     genBoard(){
         const board = document.createElement("div");
-        board.classList.add(this.boardNumberClass);
+        board.classList.add("game-board", this.boardNumberClass);
         for (let i = 0; i < 9; i++){
             const div = document.createElement("div");
             div.setAttribute("data-id", i + 1);

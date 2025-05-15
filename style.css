@@ -135,7 +135,7 @@
 }
 
 /*edit game board style here*/
-.game-board {
+.game-board{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: 150px;
