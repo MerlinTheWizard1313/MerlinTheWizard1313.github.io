@@ -177,6 +177,36 @@
     background: rgba(255,255,255,0.3);
     content: "";
 }
+
+.large-game-board {
+  width: 450px;
+  height: 450px;
+  outline-style: solid;
+}
+
+.large-game-board > .game-box-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.large-game-board > .game-box-2 {
+  position: absolute;
+  top: 0;
+  left: 150;
+}
+
+.large-game-board > .game-box-3 {
+  position: absolute;
+  top: 0;
+  left: 300;
+}
+
+.large-game-board > .game-box-4 {
+  position: absolute;
+  top: 150;
+  left: 0;
+}
 /*
 All commented code is from a website project created from my time in my Level 3
 Software Development course and such is being used as a base for now. 
