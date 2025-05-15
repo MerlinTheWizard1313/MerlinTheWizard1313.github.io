@@ -179,6 +179,7 @@
 }
 
 .large-game-board {
+  position: relative;
   width: 450px;
   height: 450px;
   outline: black solid 1px;
@@ -186,21 +187,25 @@
 
 .large-game-board > .game-box-1 {
   position: absolute;
+  top: 0px;
 }
 
 .large-game-board > .game-box-2 {
   position: absolute;
+  top: 0px;
   left: 150px;
 }
 
 .large-game-board > .game-box-3 {
   position: absolute;
+  top: 0px;
   left: 300px;
 }
 
 .large-game-board > .game-box-4 {
   position: absolute;
   top: 150px;
+  left: 0px;
 }
 /*
 All commented code is from a website project created from my time in my Level 3
