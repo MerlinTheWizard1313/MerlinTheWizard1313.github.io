@@ -124,7 +124,7 @@ class XN_C extends N_C{
     constructor(box){
         super(box, 0);
         currentTurn = this.turnRandom();
-
+        this.genBoards();
     }
 
     genBoards(){
