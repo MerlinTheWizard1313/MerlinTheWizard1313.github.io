@@ -389,7 +389,7 @@
   }
   
   .reset-button {
-    display: block;
+    display: none;
     position: absolute;
     width: 20%;
     transform: translateX(200%);
