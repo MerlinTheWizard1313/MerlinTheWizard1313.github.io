@@ -74,7 +74,7 @@ class N_C {
                         this.win_status = true;
                         //currently only works for first game board, change this
 			            row.forEach(x => {
-                            const boardSquare = document.querySelector("[data-id='" + ((9 * (boardNumber - 1)) + x) + "']");
+                            const boardSquare = document.querySelector("[data-id='" + ((9 * (this.boardNumber - 1)) + x) + "']");
                             console.log(boardSquare.classList);
                             boardSquare.classList.add("win");
 			            });
@@ -121,7 +121,7 @@ class N_C {
             board.classList.add("game-board", this.boardNumberClass);
             for (let i = 0; i < 9; i++){
                 const div = document.createElement("div");
-                div.setAttribute("data-id", (9 * (boardNumber - 1)) + i + 1);
+                div.setAttribute("data-id", (9 * (this.boardNumber - 1)) + i + 1);
                 board.appendChild(div);
             }
             board.addEventListener("click", this.playerTurn.bind(this));
