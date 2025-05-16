@@ -241,6 +241,7 @@ class XN_C extends N_C{
         boardStore = 4;
         currentTurn = this.turnRandom();
         this.resetButton.style.display = "none";
+        document.querySelector(".game-prompt").innerHTML = "";
         this.resetBoards();
         this.setBoardActive();
     }
