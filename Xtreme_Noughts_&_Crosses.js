@@ -58,7 +58,6 @@ class N_C {
 
     startBoard(){
         if (currentTurn == "oTurn") this.randomWaitTime().then(() => this.aiTurn());
-        console.log("I am active on board" + boardStore);
     }
 
     //After each move, this is called to check if the current move has caused a win on the board
@@ -73,9 +72,10 @@ class N_C {
                         this.winner = currentTurn;
                         row = winRow;
                         this.win_status = true;
-                        //check later if this works properly
+                        //currently only works for first game board, change this
 			            row.forEach(x => {
                             const boardSquare = document.querySelector("[data-id='" + x + "']");
+                            console.log(boardSquare.classList);
                             boardSquare.classList.add("win");
 			            });
                     }
