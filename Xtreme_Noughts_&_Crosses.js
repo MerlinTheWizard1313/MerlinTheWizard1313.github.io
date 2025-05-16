@@ -18,10 +18,10 @@ var turnAmount = 0;
 
 //Global variable to store the board move for use in all boards which has a setter
 var boardObj = {
-    boardValue: 0,
+    boardStore: 0,
     boardListener: function(val) {},
     set bv(val) {
-        this.boardValue = val;
+        this.boardStore = val;
         this.boardListener(val);
     },
     registerListener: function(listener) {
@@ -30,6 +30,7 @@ var boardObj = {
 };
 
 boardObj.registerListener(function(val){
+    console.log("boardStore Updated Successfully");
     game0.gameBoardArr[boardStore].boardActive = true;
     game0.gameBoardArr[boardStore].box.classList.add(".current-board-active");
     game0.gameBoardArr[boardStore].startBoard();
@@ -139,7 +140,7 @@ class N_C {
 		move.target.innerHTML = "X";
 		move.target.classList.add("selected");
         this.boardUpdate();
-        boardStore = square;
+        boardObj.boardStore = square;
         this.randomWaitTime();
     }
 
@@ -199,7 +200,7 @@ class XN_C extends N_C{
         this.xArr = []; 
         this.oArr = []; 
         turnAmount = 0;
-        boardStore = 4;
+        boardObj.boardStore = 4;
         currentTurn = this.turnRandom();
         /*gameBoardArr[boardStore].boardActive = true;
         box5.classList.add(".current-board-active");
