@@ -74,7 +74,7 @@ class N_C {
                         this.win_status = true;
                         //currently only works for first game board, change this
 			            row.forEach(x => {
-                            const boardSquare = document.querySelector("[data-id='" + x + "']");
+                            const boardSquare = document.querySelectorAll(".game-board-" + this.boardNumber.toString() +" > div").querySelector("[data-id='" + x + "']");
                             console.log(boardSquare.classList);
                             boardSquare.classList.add("win");
 			            });
