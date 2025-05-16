@@ -216,7 +216,7 @@
     font-family: sans-serif;
     justify-content: center;
     align-items: center;
-    font-size: 0.1px;
+    font-size: 30px;
     transition: font-size 100ms ease-in-out;
     color: white;
     background: steelblue;
@@ -246,10 +246,6 @@
     bottom: 0;
     background: rgba(255,255,255,0.3);
     content: "";
-}
-
-.current-board-active > div{
-  background: green
 }
 
 @media screen and (max-width: 486px){
@@ -343,13 +339,18 @@
       font-family: sans-serif;
       justify-content: center;
       align-items: center;
-      font-size: 0.2%; /*will need changing*/
+      line-height: 0;
+      font-size: 6vw;
       transition: font-size 100ms ease-in-out;
       width: 100%;
       height: 100%;
       border: 2% solid white; /*will need changing*/
       position: relative;
   }
+}
+
+.current-board-active .game-board > div{
+  background: green
 }
 /*
 All commented code is from a website project created from my time in my Level 3
