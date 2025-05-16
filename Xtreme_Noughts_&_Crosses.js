@@ -75,7 +75,7 @@ class N_C {
                         //currently only works for first game board, change this
 			            row.forEach(x => {
                             const boardSquare = document.querySelector("[data-id='" + ((9 * (this.boardNumber - 1)) + x) + "']");
-                            console.log(boardSquare.classList);
+                            console.log(boardSquare.dataset.id);
                             boardSquare.classList.add("win");
 			            });
                     }
@@ -136,7 +136,7 @@ class N_C {
     playerTurn(move){
         if(currentTurn == "oTurn" || !this.boardActive || move.target.classList.contains("selected")) return false;
         const square = parseInt(move.target.dataset.id, 10);
-		this.xArr.push(square);
+		this.xArr.push(square - 1 - (9 * (this.boardNumber - 1)));
 		move.target.innerHTML = "X";
 		move.target.classList.add("selected");
         this.boardUpdate();
