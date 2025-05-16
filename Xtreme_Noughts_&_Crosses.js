@@ -202,11 +202,11 @@ class XN_C extends N_C{
             if (currentTurn == "xTurn"){
                 boardStore = 10;
                 document.querySelector(".game-prompt").innerHTML = "Choose a move on any of the other boards!";
-                for(let i = 0; i > 9; i++){
-                    if (i != 4){
-                        gameBoardArr[i].boardActive = true;
-                        gameBoardArr[i].box.classList.add("current-board-active");
-                        gameBoardArr[i].startBoard();
+                for(let j = 0; j > 9; j++){
+                    if (j != 4){
+                        gameBoardArr[j].boardActive = true;
+                        gameBoardArr[j].box.classList.add("current-board-active");
+                        gameBoardArr[j].startBoard();
                     }
                 }
             } else {

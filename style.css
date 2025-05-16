@@ -248,6 +248,11 @@
     content: "";
 }
 
+.game-prompt {
+  position: absolute;
+  padding-top: 480px;
+}
+
 @media screen and (max-width: 486px){
   #large-game-box {
   position: absolute;
@@ -346,6 +351,11 @@
       height: 100%;
       border: 2% solid white; /*will need changing*/
       position: relative;
+  }
+
+  .game-prompt {
+    position: absolute;
+    padding-top: 101%;
   }
 }
 
