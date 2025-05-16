@@ -250,14 +250,26 @@
 
 .game-prompt {
   position: absolute;
-  height: 480px;
-  align-content: flex-end;
+  margin-top: 484px;
+  margin-left: 200px;
   z-index: -1;
 }
 
-.reset-button {
-  display: none;
+.game-button {
   position: absolute;
+  width: 474px;
+  height: 20px;
+  margin-top: 510px;
+  justify-content: center;
+  z-index: 1;
+}
+
+.reset-button {
+  display: block;
+  position: absolute;
+  width: 100px;
+  transform: translateX(187px);
+  z-index: 1;
 }
 
 @media screen and (max-width: 486px){
@@ -362,8 +374,25 @@
 
   .game-prompt {
     position: absolute;
-    height: 102vw;
-    z-index:1;
+    width: 96%;
+    margin-left: 0;
+    margin-top: 102%;
+    text-align: center;
+  }
+
+  .game-button {
+    position: absolute;
+    width: 96%;
+    margin-top: 110%;
+    justify-content: center;
+    z-index: 1;
+  }
+  
+  .reset-button {
+    display: block;
+    position: absolute;
+    width: 20%;
+    transform: translateX(200%);
   }
 }
 
