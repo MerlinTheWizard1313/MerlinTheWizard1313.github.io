@@ -191,6 +191,8 @@ class XN_C extends N_C{
         const game8 = new N_C(box8,8);
         const game9 = new N_C(box9,9); 
         gameBoardArr = [game1, game2, game3, game4, game5, game6, game7, game8, game9];
+        const resetButton = document.querySelector(".reset-button");
+        resetButton.addEventListener("click", this.startBoard.bind(this));
     }
     
     resetBoards(){
@@ -198,6 +200,7 @@ class XN_C extends N_C{
             gameBoardArr[i].resetBoard();
         }
     }
+
     setBoardActive(){
         if(gameBoardArr[boardStore].xArr.length + gameBoardArr[boardStore].oArr.length == 9){
             if (currentTurn == "xTurn"){
@@ -271,8 +274,7 @@ class XN_C extends N_C{
                 gameBoardArr[i].boardActive = false;
                 gameBoardArr[i].box.classList.remove("current-board-active");
             }
-            const resetButton = document.querySelector(".reset-button");
-            resetButton.style.display = "block";
+            this.resetButton.style.display = "block";
         }
     }
 }
