@@ -249,9 +249,11 @@ class XN_C extends N_C{
 
     //
     winRowCheck(){
-        for(let i = 0; i < 9; i++){
-            if (gameBoardArr[i].win_status == false){
-                gameBoardArr[i].totalWinCheck();
+        if(turnAmount > 81){
+            for(let i = 0; i < 9; i++){
+                if (gameBoardArr[i].win_status == false){
+                    gameBoardArr[i].totalWinCheck();
+                }
             }
         }
         let row, arrayToCheck;
@@ -267,7 +269,6 @@ class XN_C extends N_C{
             })
         }
     }
-
 }
 
 //Create a new Xtreme Noughts and Crosses board class 
