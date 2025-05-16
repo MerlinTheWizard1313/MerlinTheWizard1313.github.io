@@ -54,6 +54,8 @@ class N_C {
 			boardSquare.innerHTML = "";
 			boardSquare.className = "";
 		});
+        this.boardActive = false;
+        this.box.classList.remove("current-board-active");
     }
 
     startBoard(){
@@ -238,7 +240,7 @@ class XN_C extends N_C{
         turnAmount = 0;
         boardStore = 4;
         currentTurn = this.turnRandom();
-        this.resetButton.setAttribute("hidden", true);
+        this.resetButton.setAttribute("display", "none");
         this.resetBoards();
         this.setBoardActive();
     }
@@ -275,7 +277,7 @@ class XN_C extends N_C{
                 gameBoardArr[i].boardActive = false;
                 gameBoardArr[i].box.classList.remove("current-board-active");
             }
-            this.resetButton.setAttribute("hidden", false);
+            this.resetButton.setAttribute("display", "block");
         }
     }
 }
