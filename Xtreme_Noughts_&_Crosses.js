@@ -74,7 +74,8 @@ class N_C {
                         this.win_status = true;
                         //currently only works for first game board, change this
 			            row.forEach(x => {
-                            const boardSquare = document.querySelectorAll(".game-board-" + this.boardNumber.toString() +" > div").querySelector("[data-id='" + x + "']");
+                            const boardSquareTest = document.querySelectorAll(".game-board-" + this.boardNumber.toString() +" > div");
+                            const boardSquare = boardSquareTest.querySelector("[data-id='" + x + "']");
                             console.log(boardSquare.classList);
                             boardSquare.classList.add("win");
 			            });
@@ -100,8 +101,18 @@ class N_C {
         turnAmount++;
         this.winRowCheck();
         this.toggleTurn();
-        this.boardActive = false;
-        this.box.classList.remove("current-board-active");
+        if (boardStore == 10){
+            document.querySelector(".game-prompt").innerHTML = "";
+            for(let i = 0; i > 9; i++){
+                if (i != 4){
+                    gameBoardArr[i].boardActive = false;
+                    gameBoardArr[i].box.classList.remove("current-board-active");
+                }
+            }
+        } else {
+            this.boardActive = false;
+            this.box.classList.remove("current-board-active");
+        }
     }
 
     //Create the visual grid in html with event listeners to the grid spaces
@@ -188,9 +199,30 @@ class XN_C extends N_C{
         }
     }
     setBoardActive(){
-        gameBoardArr[boardStore].boardActive = true;
-        gameBoardArr[boardStore].box.classList.add("current-board-active");
-        gameBoardArr[boardStore].startBoard();
+        if(gameBoardArr[boardStore].xArr.length + gameBoardArr[boardStore].oArr.length == 9){
+            if (currentTurn == "xTurn"){
+                boardStore = 10;
+                document.querySelector(".game-prompt").innerHTML = "Choose a move on any of the other boards!";
+                for(let i = 0; i > 9; i++){
+                    if (i != 4){
+                        gameBoardArr[i].boardActive = true;
+                        gameBoardArr[i].box.classList.add("current-board-active");
+                        gameBoardArr[i].startBoard();
+                    }
+                }
+            } else {
+                const randomBoard = Math.floor(Math.random() * 8);
+                const randomArray = [0,1,2,3,5,6,7,8,9]
+                boardStore =  randomArray(randomBoard);
+                gameBoardArr[boardStore].boardActive = true;
+                gameBoardArr[boardStore].box.classList.add("current-board-active");
+                gameBoardArr[boardStore].startBoard();
+            }
+        } else {
+            gameBoardArr[boardStore].boardActive = true;
+            gameBoardArr[boardStore].box.classList.add("current-board-active");
+            gameBoardArr[boardStore].startBoard();
+        }
     }
 
     //Upon the call of the XN_C class, this will intitialise the game board and game state
