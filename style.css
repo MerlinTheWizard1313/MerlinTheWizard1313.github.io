@@ -248,6 +248,10 @@
     content: "";
 }
 
+.current-board-active > div{
+  background: green
+}
+
 @media screen and (max-width: 486px){
   #large-game-box {
   position: absolute;
@@ -341,8 +345,6 @@
       align-items: center;
       font-size: 0.2%; /*will need changing*/
       transition: font-size 100ms ease-in-out;
-      color: white;
-      background: steelblue;
       width: 100%;
       height: 100%;
       border: 2% solid white; /*will need changing*/
