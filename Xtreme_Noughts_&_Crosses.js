@@ -40,7 +40,7 @@ class N_C {
 
     //Turn toggle to flip between player and ai turn
     toggleTurn(){
-        currentTurn = currentTurn == "xTurn" ? "oTurn" : "xTurn";
+        //currentTurn = currentTurn == "xTurn" ? "oTurn" : "xTurn";
     }
 
     //Upon the call of the N_C class, this will intitialise the game board and game state
@@ -130,7 +130,7 @@ class N_C {
 		move.target.innerHTML = "X";
 		move.target.classList.add("selected");
         this.boardUpdate();
-        boardStore = square;
+        boardStore = square - 1;
         this.randomWaitTime();
         game0.setBoardActive();
     }
