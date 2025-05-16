@@ -167,6 +167,7 @@ class N_C {
 class XN_C extends N_C{
     constructor(box){
         super(box, 0);
+        this.resetButton = document.querySelector(".reset-button");
         this.genBoards();
         this.startBoard();
     }
@@ -191,8 +192,6 @@ class XN_C extends N_C{
         const game8 = new N_C(box8,8);
         const game9 = new N_C(box9,9); 
         gameBoardArr = [game1, game2, game3, game4, game5, game6, game7, game8, game9];
-        const resetButton = document.querySelector(".reset-button");
-        resetButton.setAttribute("hidden", true);
         resetButton.addEventListener("click", this.startBoard.bind(this));
     }
     
