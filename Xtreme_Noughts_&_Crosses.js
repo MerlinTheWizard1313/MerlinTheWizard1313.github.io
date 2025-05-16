@@ -75,7 +75,6 @@ class N_C {
                         //currently only works for first game board, change this
 			            row.forEach(x => {
                             const boardSquare = document.querySelector("[data-id='" + ((9 * (this.boardNumber - 1)) + x) + "']");
-                            console.log(boardSquare.dataset.id);
                             boardSquare.classList.add("win");
 			            });
                     }
@@ -142,7 +141,11 @@ class N_C {
         this.boardUpdate();
         boardStore = square - 1;
         this.randomWaitTime();
-        game0.setBoardActive();
+        if (turnAmount != 81){
+            game0.setBoardActive();
+        } else {
+            game0.winRowCheck();
+        }
     }
 
     //Used to add a small buffer time for ai moves, before a player moves, and other functions
@@ -246,19 +249,8 @@ class XN_C extends N_C{
 
     //will be overidden
     winRowCheck(){
-        if(this.win_status == false){
-            let row, arrayToCheck;
-            arrayToCheck = (currentTurn == "xTurn" ? this.xArr : this.oArr);
-            if (arrayToCheck.length >= 3){
-                winArr.forEach((winRow)=>{
-                    if (winRow.every(x => this.xArr.includes(x))) {
-                        this.winner = currentTurn;
-                        //row = winRow.slice();
-                        this.win_status = true;
-                    }
-                })
-            }
-        }
+        //do something to check overall winning row
+        console.log("you won");
     }
 
 }

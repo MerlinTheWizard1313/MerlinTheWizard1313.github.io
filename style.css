@@ -251,6 +251,7 @@
 .game-prompt {
   position: absolute;
   padding-top: 480px;
+  z-index: -1;
 }
 
 @media screen and (max-width: 486px){
