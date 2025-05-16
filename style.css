@@ -265,7 +265,7 @@
 }
 
 .reset-button {
-  display: block;
+  display: none;
   position: absolute;
   width: 100px;
   transform: translateX(187px);
