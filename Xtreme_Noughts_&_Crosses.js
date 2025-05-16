@@ -16,25 +16,11 @@ var currentTurn = "";
 //Global variable to store turn amount for use in large board
 var turnAmount = 0;
 
-//Global variable to store the board move for use in all boards which has a setter
-var boardObj = {
-    boardStore: 0,
-    boardListener: function(val) {},
-    set bv(val) {
-        this.boardStore = val;
-        this.boardListener(val);
-    },
-    registerListener: function(listener) {
-        this.boardListener = listener;
-    }
-};
+//Global array variable to store each board
+var gameBoardArr = [];
 
-boardObj.registerListener(function(val){
-    console.log("boardStore Updated Successfully");
-    game0.gameBoardArr[boardStore].boardActive = true;
-    game0.gameBoardArr[boardStore].box.classList.add(".current-board-active");
-    game0.gameBoardArr[boardStore].startBoard();
-})
+//Global variable to store the current active board for use in all boards 
+var boardStore = 0;
 
 //Noughts and Crosses board class for use by eahc of the 9 boards inside the large board
 class N_C {
@@ -57,9 +43,9 @@ class N_C {
         currentTurn = currentTurn == "xTurn" ? "oTurn" : "xTurn";
     }
 
-    //Upon the call of the XN_C class, this will intitialise the game board and game state
+    //Upon the call of the N_C class, this will intitialise the game board and game state
     //so the game can begin
-    startBoard(){
+    resetBoard(){
         this.win_status = false;
         this.winner = "";
         this.xArr = []; 
@@ -68,6 +54,9 @@ class N_C {
 			boardSquare.innerHTML = "";
 			boardSquare.className = "";
 		});
+    }
+
+    startBoard(){
         if (currentTurn == "oTurn") this.randomWaitTime().then(() => this.aiTurn());
     }
 
@@ -140,7 +129,7 @@ class N_C {
 		move.target.innerHTML = "X";
 		move.target.classList.add("selected");
         this.boardUpdate();
-        boardObj.boardStore = square;
+        boardStore = square;
         this.randomWaitTime();
     }
 
@@ -165,7 +154,6 @@ class N_C {
 class XN_C extends N_C{
     constructor(box){
         super(box, 0);
-        this.gameBoardArr = [];
         this.genBoards();
         this.startBoard();
     }
@@ -189,7 +177,17 @@ class XN_C extends N_C{
         const game7 = new N_C(box7,7);
         const game8 = new N_C(box8,8);
         const game9 = new N_C(box9,9); 
-        this.gameBoardArr = [game1, game2, game3, game4, game5, game6, game7, game8, game9];
+        gameBoardArr = [game1, game2, game3, game4, game5, game6, game7, game8, game9];
+    }
+    
+    resetBoards(){
+        for(i = 0; i > 9; i++){
+            gameBoardArr[i].resetBoard();
+        }
+    }
+    setBoardActive(){
+        gameBoardArr[boardStore].boardActive = true;
+        gameBoardArr[boardStore].box.classList.add(".current-board-active");
     }
 
     //Upon the call of the XN_C class, this will intitialise the game board and game state
@@ -198,13 +196,13 @@ class XN_C extends N_C{
         this.win_status = false;
         this.winner = "";
         this.xArr = []; 
-        this.oArr = []; 
+        this.oArr = [];
         turnAmount = 0;
-        boardObj.boardStore = 4;
+        boardStore = 4;
         currentTurn = this.turnRandom();
-        /*gameBoardArr[boardStore].boardActive = true;
-        box5.classList.add(".current-board-active");
-        gameBoardArr[boardStore].startBoard();*/
+        this.resetBoards();
+        this.setBoardActive();
+        gameBoardArr[boardStore].startBoard();
     }
 
     //Initial randomiser of turn order once the game begins
