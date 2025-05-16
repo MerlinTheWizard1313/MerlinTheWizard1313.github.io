@@ -143,7 +143,7 @@ class N_C {
         this.boardUpdate();
         boardStore = square - 1;
         this.randomWaitTime();
-        if (turnAmount != 81 || !game0.win_status){
+        if (turnAmount != 81 && game0.win_status == false){
             game0.setBoardActive();
         }
     }
