@@ -192,7 +192,7 @@ class XN_C extends N_C{
         const game9 = new N_C(box9,9); 
         gameBoardArr = [game1, game2, game3, game4, game5, game6, game7, game8, game9];
         const resetButton = document.querySelector(".reset-button");
-        resetButton.setAttribute("hidden", "hidden");
+        resetButton.setAttribute("hidden", true);
         resetButton.addEventListener("click", this.startBoard.bind(this));
     }
     
@@ -239,7 +239,7 @@ class XN_C extends N_C{
         turnAmount = 0;
         boardStore = 4;
         currentTurn = this.turnRandom();
-        this.resetButton.setAttribute("hidden", "hidden");
+        this.resetButton.setAttribute("hidden", true);
         this.resetBoards();
         this.setBoardActive();
     }
@@ -276,7 +276,7 @@ class XN_C extends N_C{
                 gameBoardArr[i].boardActive = false;
                 gameBoardArr[i].box.classList.remove("current-board-active");
             }
-            this.resetButton.removeAttribute("hidden");
+            this.resetButton.setAttribute("hidden", false);
         }
     }
 }
