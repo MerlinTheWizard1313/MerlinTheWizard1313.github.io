@@ -72,11 +72,12 @@ class N_C {
                         this.winner = currentTurn;
                         row = winRow;
                         this.win_status = true;
-                        //currently only works for first game board, change this
 			            row.forEach(x => {
                             const boardSquare = document.querySelector("[data-id='" + ((9 * (this.boardNumber - 1)) + x) + "']");
                             boardSquare.classList.add("win");
 			            });
+                        this.winner == "xTurn" ? game0.xArr.push(this.boardNumber) : game0.oArr.push(this.boardNumber);
+                        game0.winRowCheck();
                     }
                 })
             }
@@ -88,10 +89,9 @@ class N_C {
     //If the board has not won yet, it determines the winner of the board by a majority vote
     //Then it sets the winner and win status based off the majority vote
     totalWinCheck(){
-        if (this.win_status == false){
-            this.winner = (this.xArr.length > this.oArr.length ? "xTurn" : "oTurn");
-            this.win_status = true;
-        }
+        this.winner = (this.xArr.length > this.oArr.length ? "xTurn" : "oTurn");
+        this.winner == "xTurn" ? game0.xArr.push(this.boardNumber) : game0.oArr.push(this.boardNumber);
+        this.win_status = true;
     }
 
     //Update the board when a move is made
@@ -247,10 +247,25 @@ class XN_C extends N_C{
         return random >= 0.5 ? "xTurn" : "oTurn";
     }
 
-    //will be overidden
+    //
     winRowCheck(){
-        //do something to check overall winning row
-        console.log("you won");
+        for(let i = 0; i < 9; i++){
+            if (gameBoardArr[i].win_status == false){
+                gameBoardArr[i].totalWinCheck();
+            }
+        }
+        let row, arrayToCheck;
+        arrayToCheck = (currentTurn == "xTurn" ? this.xArr : this.oArr);
+        if (arrayToCheck.length >= 3){
+            winArr.forEach((winRow)=>{
+                if (winRow.every(x => this.xArr.includes(x))) {
+                    this.winner = currentTurn == "xTurn" ? "Player" : "Ai";
+                    row = winRow;
+                    this.win_status = true;
+                    document.querySelector(".game-prompt").innerHTML = this.winner + " won!";
+                }
+            })
+        }
     }
 
 }
