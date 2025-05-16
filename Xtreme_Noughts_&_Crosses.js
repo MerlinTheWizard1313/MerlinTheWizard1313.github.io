@@ -58,6 +58,7 @@ class N_C {
 
     startBoard(){
         if (currentTurn == "oTurn") this.randomWaitTime().then(() => this.aiTurn());
+        console.log("I am active on board" + boardStore);
     }
 
     //After each move, this is called to check if the current move has caused a win on the board
@@ -131,6 +132,7 @@ class N_C {
         this.boardUpdate();
         boardStore = square;
         this.randomWaitTime();
+        game0.setBoardActive();
     }
 
     //Used to add a small buffer time for ai moves, before a player moves, and other functions
@@ -188,6 +190,7 @@ class XN_C extends N_C{
     setBoardActive(){
         gameBoardArr[boardStore].boardActive = true;
         gameBoardArr[boardStore].box.classList.add("current-board-active");
+        gameBoardArr[boardStore].startBoard();
     }
 
     //Upon the call of the XN_C class, this will intitialise the game board and game state
@@ -202,7 +205,6 @@ class XN_C extends N_C{
         currentTurn = this.turnRandom();
         this.resetBoards();
         this.setBoardActive();
-        gameBoardArr[boardStore].startBoard();
     }
 
     //Initial randomiser of turn order once the game begins
