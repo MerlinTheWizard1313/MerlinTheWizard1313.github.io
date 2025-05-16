@@ -140,7 +140,7 @@ class N_C {
 		move.target.innerHTML = "X";
 		move.target.classList.add("selected");
         this.boardUpdate();
-        boardStore = square;
+        boardStore = square - 1;
         this.randomWaitTime();
         game0.setBoardActive();
     }
