@@ -254,6 +254,11 @@
   z-index: -1;
 }
 
+.reset-button {
+  display: none;
+  position: absolute;
+}
+
 @media screen and (max-width: 486px){
   #large-game-box {
   position: absolute;

@@ -268,6 +268,14 @@ class XN_C extends N_C{
                 }
             })
         }
+        if (this.win_status){
+            for(let i = 0; i < 9; i++){
+                gameBoardArr[i].boardActive = false;
+                gameBoardArr[i].box.classList.remove("current-board-active");
+            }
+            const resetButton = document.querySelector(".reset-button");
+            resetButton.style.display = "block";
+        }
     }
 }
 
