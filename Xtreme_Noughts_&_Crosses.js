@@ -135,12 +135,12 @@ class N_C {
     //Actions taken when it is the player's turn to move
     playerTurn(move){
         if(currentTurn == "oTurn" || !this.boardActive || move.target.classList.contains("selected")) return false;
-        const square = parseInt(move.target.dataset.id, 10);
-		this.xArr.push(square - 1 - (9 * (this.boardNumber - 1)));
+        const square = parseInt(move.target.dataset.id, 10) - (9 * (this.boardNumber - 1));
+		this.xArr.push(square);
 		move.target.innerHTML = "X";
 		move.target.classList.add("selected");
         this.boardUpdate();
-        boardStore = square - 1 - (9 * (this.boardNumber - 1));
+        boardStore = square;
         this.randomWaitTime();
         game0.setBoardActive();
     }
