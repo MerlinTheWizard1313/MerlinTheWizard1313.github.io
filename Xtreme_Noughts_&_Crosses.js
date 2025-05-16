@@ -100,7 +100,7 @@ class N_C {
         this.winRowCheck();
         this.toggleTurn();
         this.boardActive = false;
-        this.box.classList.remove(".current-board-active");
+        this.box.classList.remove("current-board-active");
     }
 
     //Create the visual grid in html with event listeners to the grid spaces
@@ -187,7 +187,7 @@ class XN_C extends N_C{
     }
     setBoardActive(){
         gameBoardArr[boardStore].boardActive = true;
-        gameBoardArr[boardStore].box.classList.add(".current-board-active");
+        gameBoardArr[boardStore].box.classList.add("current-board-active");
     }
 
     //Upon the call of the XN_C class, this will intitialise the game board and game state
