@@ -207,7 +207,7 @@ class XN_C extends N_C{
 
     //Initial randomiser of turn order once the game begins
     turnRandom(){
-        const random = Math.random();
+        const random = 0.7;//Math.random();
         return random >= 0.5 ? "xTurn" : "oTurn";
     }
 
