@@ -40,7 +40,7 @@ class N_C {
 
     //Turn toggle to flip between player and ai turn
     toggleTurn(){
-        //currentTurn = currentTurn == "xTurn" ? "oTurn" : "xTurn";
+        currentTurn = currentTurn == "xTurn" ? "oTurn" : "xTurn";
     }
 
     //Upon the call of the N_C class, this will intitialise the game board and game state
@@ -66,23 +66,24 @@ class N_C {
     //If successful, it updates the win status, winner and stores the winning row
     winRowCheck(){
         if(this.win_status == false){
-            let row, arrayToCheck;
-            arrayToCheck = (currentTurn == "xTurn" ? this.xArr : this.oArr);
-            if (arrayToCheck.length >= 3){
-                winArr.forEach((winRow)=>{
-                    if (winRow.every(x => this.xArr.includes(x))) {
-                        this.winner = currentTurn;
-                        row = winRow;
-                        this.win_status = true;
-			            row.forEach(x => {
-                            const boardSquare = document.querySelector("[data-id='" + ((9 * (this.boardNumber - 1)) + x) + "']");
-                            boardSquare.classList.add("win");
-			            });
-                        this.winner == "xTurn" ? game0.xArr.push(this.boardNumber) : game0.oArr.push(this.boardNumber);
-                        game0.winRowCheck();
-                    }
-                })
-            }
+            return false;
+        }
+        let row, arrayToCheck;
+        arrayToCheck = (currentTurn == "xTurn" ? this.xArr : this.oArr);
+        if (arrayToCheck.length >= 3){
+            winArr.forEach((winRow)=>{
+                if (winRow.every(x => this.xArr.includes(x))) {
+                    this.winner = currentTurn;
+                    row = winRow;
+                    this.win_status = true;
+                    row.forEach(x => {
+                        const boardSquare = document.querySelector("[data-id='" + ((9 * (this.boardNumber - 1)) + x) + "']");
+                        boardSquare.classList.add("win");
+                    });
+                    this.winner == "xTurn" ? game0.xArr.push(this.boardNumber) : game0.oArr.push(this.boardNumber);
+                    game0.winRowCheck();
+                }
+            })
         }
     }
 
@@ -118,16 +119,17 @@ class N_C {
     //Create the visual grid in html with event listeners to the grid spaces
     genBoard(number){
         if (number != 0){
-            const board = document.createElement("div");
-            board.classList.add("game-board", this.boardNumberClass);
-            for (let i = 0; i < 9; i++){
-                const div = document.createElement("div");
-                div.setAttribute("data-id", (9 * (this.boardNumber - 1)) + i + 1);
-                board.appendChild(div);
-            }
-            board.addEventListener("click", this.playerTurn.bind(this));
-            this.box.appendChild(board);
+            return false;
         }
+        const board = document.createElement("div");
+        board.classList.add("game-board", this.boardNumberClass);
+        for (let i = 0; i < 9; i++){
+            const div = document.createElement("div");
+            div.setAttribute("data-id", (9 * (this.boardNumber - 1)) + i + 1);
+            board.appendChild(div);
+        }
+        board.addEventListener("click", this.playerTurn.bind(this));
+        this.box.appendChild(board);
         /*const winnerOutput = document.createElement("div"); will keep this here for later when a position is decided
 		winnerOutput.classList.add("winner-output");
 		this.winnerOutput = this.container.appendChild(winnerOutput);*/
@@ -135,7 +137,9 @@ class N_C {
 
     //Actions taken when it is the player's turn to move
     playerTurn(move){
-        if(currentTurn == "oTurn" || !this.boardActive || move.target.classList.contains("selected")) return false;
+        if(currentTurn == "oTurn" || !this.boardActive || move.target.classList.contains("selected")) {
+            return false;
+        }
         const square = parseInt(move.target.dataset.id, 10) - (9 * (this.boardNumber - 1));
 		this.xArr.push(square);
 		move.target.innerHTML = "X";
@@ -150,7 +154,7 @@ class N_C {
 
     //Used to add a small buffer time for ai moves, before a player moves, and other functions
     randomWaitTime(){
-        let waitTime = 0; //set a random wait time here
+        let waitTime = 2000; //set a random wait time here
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve();
@@ -160,8 +164,87 @@ class N_C {
 
     //Actions taken when it is the ai's turn to move
     aiTurn(){
-        if(currentTurn == "oTurn"){
+        if (this.win_status == true || currentTurn == "xTurn") {
+            return false;
+        }
+        let aiMoves = [], selection;
+        const firstAiMove = () => {
+            if (this.xArr.length === 0){
+                aiMoves = [1, 3, 5, 7, 9];
+            } else if ([1, 3, 7, 9].includes(this.xArr[0])) {
+                selection = 5
+            } else {
+                aiMoves = [1, 3, 7, 9];
+            }
+        };
+        const checkWin = cT => {
+            let turnArr = cT === "oTurn" ? xArr : oArr;
+            console.log("Running checkWin for " + cT);
+            winArr.forEach(winRow => {
+                let counter = 0;
+                turnArr.forEach(x => {
+                    // O = single number to check
+                    if (winRow.includes(x)) {
+                        counter++;
+                    }
+                    if (counter == 2 && !selection){
+                        selection = winRow.filter(m => !this.oArr.includes(m) && !this.xArr.includes(m))[0];
+                    }
+                });
+                console.log(cT.toUpperCase() + ": Win " + winRow.toString() +" has " + counter +" matches");
+            });
+        };
+        const generalMove = () => {
+            console.log("Running generalMove");
+            let potentialMoves = new Set();
+            winArr.forEach(winRow => {
+                winRow.forEach(x => {
+                    if (this.xArr.includes(x)) {
+                        return true;
+                    }
+                });
 
+                this.oArr.forEach(o => {
+                    if (winRow.includes(o)) {
+                        winRow.filter(m => !this.oArr.includes(m) && !this.xArr.includes(m)).forEach(p => potentialMoves.add(p));
+                    }
+                });
+            });
+            aiMoves = [...potentialMoves];
+        };
+
+        if (this.oArr.length == 0) {
+            firstAiMove();
+        }
+        else {
+            checkWin("oTurn");
+            if (!selection) {
+                checkWin("xTurn");
+            }
+            if (!selection) {
+                generalMove();
+            }
+        }
+
+        let errorCheck = 0;
+        while (errorCheck < 20 && (!selection || this.xArr.includes(selection) || this.oArr.includes(selection))
+        ) {
+            selection = aiMoves[Math.floor(Math.random() * aiMoves.length)];
+            errorCheck++;
+        }
+        if (errorCheck >= 10) {
+            alert("Error");
+        }
+
+        this.oArr.push(selection);
+        const boardSquare = document.querySelector("[data-id='" + ((9 * (this.boardNumber - 1)) + selection) + "']");
+        boardSquare.innerHTML = "O";
+        boardSquare.classList.add("selected");
+        this.boardUpdate();
+        boardStore = boardSquare - (9 * (this.boardNumber - 1)) - 1;
+        this.randomWaitTime();
+        if (turnAmount != 81 && game0.win_status == false){
+            game0.setBoardActive();
         }
     }
 }
