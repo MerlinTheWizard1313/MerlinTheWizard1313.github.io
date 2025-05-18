@@ -41,6 +41,7 @@ class N_C {
     //Turn toggle to flip between player and ai turn
     toggleTurn(){
         currentTurn = currentTurn == "xTurn" ? "oTurn" : "xTurn";
+        //document.querySelector(".game-prompt").innerHTML = currentTurn == "xTurn" ? "Ai's Turn" : "Player's Turn";
     }
 
     //Upon the call of the N_C class, this will intitialise the game board and game state
@@ -119,20 +120,16 @@ class N_C {
     //Create the visual grid in html with event listeners to the grid spaces
     genBoard(number){
         if (number != 0){
-            return false;
+            const board = document.createElement("div");
+            board.classList.add("game-board", this.boardNumberClass);
+            for (let i = 0; i < 9; i++){
+                const div = document.createElement("div");
+                div.setAttribute("data-id", (9 * (this.boardNumber - 1)) + i + 1);
+                board.appendChild(div);
+            }
+            board.addEventListener("click", this.playerTurn.bind(this));
+            this.box.appendChild(board);
         }
-        const board = document.createElement("div");
-        board.classList.add("game-board", this.boardNumberClass);
-        for (let i = 0; i < 9; i++){
-            const div = document.createElement("div");
-            div.setAttribute("data-id", (9 * (this.boardNumber - 1)) + i + 1);
-            board.appendChild(div);
-        }
-        board.addEventListener("click", this.playerTurn.bind(this));
-        this.box.appendChild(board);
-        /*const winnerOutput = document.createElement("div"); will keep this here for later when a position is decided
-		winnerOutput.classList.add("winner-output");
-		this.winnerOutput = this.container.appendChild(winnerOutput);*/
     }
 
     //Actions taken when it is the player's turn to move
@@ -183,7 +180,6 @@ class N_C {
             winArr.forEach(winRow => {
                 let counter = 0;
                 turnArr.forEach(x => {
-                    // O = single number to check
                     if (winRow.includes(x)) {
                         counter++;
                     }
