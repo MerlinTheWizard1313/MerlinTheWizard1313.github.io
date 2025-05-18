@@ -56,7 +56,7 @@ class N_C {
 			boardSquare.className = "";
 		});
         this.boardActive = false;
-        this.box.classList.remove("current-board-active");
+        this.box.classList.remove("current-board-active-");
     }
 
     startBoard(){
@@ -102,19 +102,19 @@ class N_C {
     boardUpdate(){
         turnAmount++;
         this.winRowCheck();
-        this.toggleTurn();
         if (boardStore == 10){
             document.querySelector(".game-prompt").innerHTML = "";
             for(let i = 0; i < 9; i++){
                 if (i != 4){
                     gameBoardArr[i].boardActive = false;
-                    gameBoardArr[i].box.classList.remove("current-board-active");
+                    gameBoardArr[i].box.classList.remove("current-board-active-" + currentTurn);
                 }
             }
         } else {
             this.boardActive = false;
-            this.box.classList.remove("current-board-active");
+            this.box.classList.remove("current-board-active-" + currentTurn);
         }
+        this.toggleTurn();
     }
 
     //Create the visual grid in html with event listeners to the grid spaces
@@ -175,7 +175,7 @@ class N_C {
             }
         };
         const checkWin = cT => {
-            let turnArr = cT === "oTurn" ? xArr : oArr;
+            let turnArr = cT === "oTurn" ? this.xArr : this.oArr;
             console.log("Running checkWin for " + cT);
             winArr.forEach(winRow => {
                 let counter = 0;
@@ -290,7 +290,7 @@ class XN_C extends N_C{
                 for(let i = 0; i < 9; i++){
                     if (i != 4){
                         gameBoardArr[i].boardActive = true;
-                        gameBoardArr[i].box.classList.add("current-board-active");
+                        gameBoardArr[i].box.classList.add("current-board-active-" + currentTurn);
                         gameBoardArr[i].startBoard();
                     }
                 }
@@ -299,12 +299,12 @@ class XN_C extends N_C{
                 const randomArray = [0,1,2,3,5,6,7,8]
                 boardStore =  randomArray(randomBoard);
                 gameBoardArr[boardStore].boardActive = true;
-                gameBoardArr[boardStore].box.classList.add("current-board-active");
+                gameBoardArr[boardStore].box.classList.add("current-board-active-" + currentTurn);
                 gameBoardArr[boardStore].startBoard();
             }
         } else {
             gameBoardArr[boardStore].boardActive = true;
-            gameBoardArr[boardStore].box.classList.add("current-board-active");
+            gameBoardArr[boardStore].box.classList.add("current-board-active-" + currentTurn);
             gameBoardArr[boardStore].startBoard();
         }
     }
@@ -355,7 +355,7 @@ class XN_C extends N_C{
         if (this.win_status){
             for(let i = 0; i < 9; i++){
                 gameBoardArr[i].boardActive = false;
-                gameBoardArr[i].box.classList.remove("current-board-active");
+                gameBoardArr[i].box.classList.remove("current-board-active-" + currentTurn);
             }
             this.resetButton.style.display = "block";
         }

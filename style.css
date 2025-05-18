@@ -396,8 +396,12 @@
   }
 }
 
-.current-board-active .game-board > div{
+.current-board-active-xTurn .game-board > div{
   background: green
+}
+
+.current-board-active-oTurn .game-board > div{
+  background: purple
 }
 /*
 All commented code is from a website project created from my time in my Level 3
