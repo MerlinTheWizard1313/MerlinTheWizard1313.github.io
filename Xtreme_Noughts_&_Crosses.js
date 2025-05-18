@@ -73,7 +73,7 @@ class N_C {
         arrayToCheck = (currentTurn == "xTurn" ? this.xArr : this.oArr);
         if (arrayToCheck.length >= 3){
             winArr.forEach((winRow)=>{
-                if (winRow.every(x => this.xArr.includes(x))) {
+                if (winRow.every(x => arrayToCheck.includes(x))) {
                     this.winner = currentTurn;
                     row = winRow;
                     this.win_status = true;
@@ -176,7 +176,6 @@ class N_C {
         };
         const checkWin = cT => {
             let turnArr = cT === "oTurn" ? this.xArr : this.oArr;
-            console.log("Running checkWin for " + cT);
             winArr.forEach(winRow => {
                 let counter = 0;
                 turnArr.forEach(x => {
@@ -187,11 +186,9 @@ class N_C {
                         selection = winRow.filter(m => !this.oArr.includes(m) && !this.xArr.includes(m))[0];
                     }
                 });
-                console.log(cT.toUpperCase() + ": Win " + winRow.toString() +" has " + counter +" matches");
             });
         };
         const generalMove = () => {
-            console.log("Running generalMove");
             let potentialMoves = new Set();
             winArr.forEach(winRow => {
                 winRow.forEach(x => {
