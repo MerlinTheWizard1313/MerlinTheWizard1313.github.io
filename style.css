@@ -397,11 +397,13 @@
 }
 
 .current-board-active-xTurn .game-board > div{
-  background: orange
+  background: #f2c693;
+  color: white;
 }
 
 .current-board-active-oTurn .game-board > div{
-  background: purple
+  background: #1a46ab;
+  color: black;
 }
 /*
 All commented code is from a website project created from my time in my Level 3

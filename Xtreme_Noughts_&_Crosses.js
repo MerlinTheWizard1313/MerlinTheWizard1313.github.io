@@ -161,7 +161,7 @@ class N_C {
 
     //Actions taken when it is the ai's turn to move
     aiTurn(){
-        if (this.win_status == true || currentTurn == "xTurn") {
+        if (currentTurn == "xTurn") {
             return false;
         }
         let aiMoves = [], selection;
