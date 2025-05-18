@@ -232,14 +232,12 @@ class N_C {
             alert("Error");
         }
 
-        console.log(selection);
         this.oArr.push(selection);
         const boardSquare = document.querySelector("[data-id='" + ((9 * (this.boardNumber - 1)) + selection) + "']");
         boardSquare.innerHTML = "O";
         boardSquare.classList.add("selected");
         this.boardUpdate();
-        boardStore = boardSquare - (9 * (this.boardNumber - 1)) - 1;
-        console.log(boardStore);
+        boardStore = selection;
         this.randomWaitTime();
         if (turnAmount != 81 && game0.win_status == false){
             game0.setBoardActive();
