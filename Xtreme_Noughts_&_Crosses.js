@@ -237,7 +237,7 @@ class N_C {
         boardSquare.innerHTML = "O";
         boardSquare.classList.add("selected");
         this.boardUpdate();
-        boardStore = selection;
+        boardStore = selection - 1;
         this.randomWaitTime();
         if (turnAmount != 81 && game0.win_status == false){
             game0.setBoardActive();
