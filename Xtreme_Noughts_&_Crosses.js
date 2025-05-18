@@ -84,7 +84,11 @@ class N_C {
                     this.win_status = true;
                     row.forEach(x => {
                         const boardSquare = document.querySelector("[data-id='" + ((9 * (this.boardNumber - 1)) + x) + "']");
-                        boardSquare.classList.add("win");
+                        if(currentTurn == "xTurn"){
+                            boardSquare.classList.add("win-player");
+                        } else {
+                            boardSquare.classList.add("win-ai");
+                        }
                     });
                     this.winner == "xTurn" ? game0.xArr.push(this.boardNumber) : game0.oArr.push(this.boardNumber);
                     game0.winRowCheck();
@@ -115,7 +119,7 @@ class N_C {
                     gameBoardArr[i].box.classList.remove("current-board-active-" + currentTurn);
                 }
             }
-        } else {
+        } else if(!game0.win_status) {
             this.boardActive = false;
             this.box.classList.remove("current-board-active-" + currentTurn);
         }
@@ -241,7 +245,7 @@ class N_C {
         this.boardUpdate();
         boardStore = selection - 1;
         this.randomWaitTime();
-        if (turnAmount != 81 && game0.win_status == false){
+        if (turnAmount != 81 && !game0.win_status){
             game0.setBoardActive();
         }
     }
@@ -302,8 +306,8 @@ class XN_C extends N_C{
                     }
                 }
             } else {
-                const randomBoard = Math.floor(Math.random() * (randomArray.length - 1));
-                boardStore =  randomArray[randomBoard];
+                const randomBoard = Math.floor(Math.random() * (this.randomArray.length - 1));
+                boardStore =  this.randomArray[randomBoard];
                 gameBoardArr[boardStore].boardActive = true;
                 gameBoardArr[boardStore].box.classList.add("current-board-active-" + currentTurn);
                 gameBoardArr[boardStore].startBoard();
@@ -366,6 +370,7 @@ class XN_C extends N_C{
                     if (winRow.every(x => arrayToCheck.includes(x))) {
                         this.winner = currentTurn;
                         this.winningRow = winRow.slice();
+                        this.winByRow = true;
                         this.win_status = true;
                         document.querySelector(".game-prompt").innerHTML = (currentTurn == "xTurn" ? "Player" : "Ai") + " won!";
                     }

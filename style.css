@@ -234,8 +234,12 @@
     cursor: default;
 }
 
-.game-board > div.win {
-		background: indianred;
+.game-board > div.win-player {
+		background: #1a46ab;
+}
+
+.game-board > div.win-ai {
+		background: #f2c693;
 }
 
 .game-board > div:not(.selected):hover::after {
@@ -249,17 +253,18 @@
 }
 
 .game-prompt {
-  position: absolute;
+  position: relative;
+  width: 474px;
+  text-align: center;
   margin-top: 484px;
-  margin-left: 200px;
   z-index: -1;
 }
 
 .game-button {
-  position: absolute;
+  position: relative;
   width: 474px;
   height: 20px;
-  margin-top: 510px;
+  margin-top: 20px;
   justify-content: center;
   z-index: 1;
 }
@@ -310,29 +315,24 @@
   background: #f2c693;
 }
 
-.turn-display .pointer::after {
+.turn-display .pointer {
   display: flex;
   position: absolute;
   margin-left: 50%;
   width: 0;
   height: 0;
-  border-top: none;
-  border-bottom: none;
-  border-left: none;
-  content: "";
-  transform: scale(1);
-  transition: transform 200ms ease-in-out;
-  transform-origin: center;
+  border: none;
 }
 
 .turn-display .pointer.left::after {
   transform: scale(1);
-  transition: transform 200ms ease-in-out;
+  transition: 200ms ease-in-out;
   transform-origin: center;
   content: "";
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 20px solid red;
+  border-left: 0px solid transparent;
 }
 
 .turn-display .pointer.right::after {
@@ -343,6 +343,7 @@
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-left: 20px solid red;
+  border-right: 0px solid transparent;
 }
 
 @media screen and (max-width: 486px){
