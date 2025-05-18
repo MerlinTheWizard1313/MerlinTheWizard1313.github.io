@@ -252,7 +252,7 @@ class XN_C extends N_C{
         super(box, 0);
         this.randomArray = [0,1,2,3,4,5,6,7,8];
         this.resetButton = document.querySelector(".reset-button");
-        this.turnDisplayPointer = document.querySelector("pointer");
+        this.turnDisplayPointer = document.querySelector(".pointer");
         this.winningRow = [];
         this.winByRow = false;
         this.genBoards();
