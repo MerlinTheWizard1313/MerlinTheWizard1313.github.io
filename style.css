@@ -397,7 +397,7 @@
 }
 
 .current-board-active-xTurn .game-board > div{
-  background: green
+  background: orange
 }
 
 .current-board-active-oTurn .game-board > div{

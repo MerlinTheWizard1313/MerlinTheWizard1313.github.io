@@ -66,7 +66,7 @@ class N_C {
     //After each move, this is called to check if the current move has caused a win on the board
     //If successful, it updates the win status, winner and stores the winning row
     winRowCheck(){
-        if(this.win_status == false){
+        if(this.win_status == true){
             return false;
         }
         let row, arrayToCheck;
