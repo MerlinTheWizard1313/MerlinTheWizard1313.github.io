@@ -236,10 +236,12 @@
 
 .game-board > div.win-player {
 		background: #1a46ab;
+    color: white;
 }
 
 .game-board > div.win-ai {
 		background: #f2c693;
+    color: black;
 }
 
 .game-board > div:not(.selected):hover::after {
@@ -331,7 +333,7 @@
   content: "";
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-right: 20px solid red;
+  border-right: 20px solid black;
   border-left: 0px solid transparent;
 }
 
@@ -342,7 +344,7 @@
   content: "";
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left: 20px solid red;
+  border-left: 20px solid black;
   border-right: 0px solid transparent;
 }
 
