@@ -34,14 +34,19 @@ class N_C {
         this.genBoard(number); //Generate the board grid unless number = 0
         this.xArr = []; //Current Player moves
         this.oArr = []; //Current Ai moves
-        
     }
     
 
     //Turn toggle to flip between player and ai turn
     toggleTurn(){
         currentTurn = currentTurn == "xTurn" ? "oTurn" : "xTurn";
-        //document.querySelector(".game-prompt").innerHTML = currentTurn == "xTurn" ? "Ai's Turn" : "Player's Turn";
+        if (currentTurn == "xTurn"){
+            game0.turnDisplayPointer.classList.remove(".right");
+            game0.turnDisplayPointer.classList.add(".left");
+        } else {
+            game0.turnDisplayPointer.classList.remove(".left");
+            game0.turnDisplayPointer.classList.add(".right");
+        }
     }
 
     //Upon the call of the N_C class, this will intitialise the game board and game state
@@ -56,7 +61,7 @@ class N_C {
 			boardSquare.className = "";
 		});
         this.boardActive = false;
-        this.box.classList.remove("current-board-active-");
+        this.box.classList.remove("current-board-active-xTurn", "current-board-active-oTurn");
     }
 
     startBoard(){
@@ -247,6 +252,9 @@ class XN_C extends N_C{
         super(box, 0);
         this.randomArray = [0,1,2,3,4,5,6,7,8];
         this.resetButton = document.querySelector(".reset-button");
+        this.turnDisplayPointer = document.querySelector("pointer");
+        this.winningRow = [];
+        this.winByRow = false;
         this.genBoards();
         this.startBoard();
     }
@@ -312,11 +320,20 @@ class XN_C extends N_C{
     startBoard(){
         this.win_status = false;
         this.winner = "";
+        this.winByRow = false;
         this.xArr = []; 
         this.oArr = [];
+        this.winningRow = [];
         turnAmount = 0;
         boardStore = 4;
         currentTurn = this.turnRandom();
+        if (currentTurn == "xTurn"){
+            this.turnDisplayPointer.classList.remove(".right");
+            this.turnDisplayPointer.classList.add(".left");
+        } else {
+            this.turnDisplayPointer.classList.remove(".left");
+            this.turnDisplayPointer.classList.add(".right");
+        }
         this.resetButton.style.display = "none";
         document.querySelector(".game-prompt").innerHTML = "";
         this.resetBoards();
@@ -325,7 +342,7 @@ class XN_C extends N_C{
 
     //Initial randomiser of turn order once the game begins
     turnRandom(){
-        const random = 0.7;//Math.random();
+        const random = Math.random();
         return random >= 0.5 ? "xTurn" : "oTurn";
     }
 
@@ -337,23 +354,37 @@ class XN_C extends N_C{
                     gameBoardArr[i].totalWinCheck();
                 }
             }
+            this.winner = this.xArr.length > this.oArr.length ? "xTurn" : "oTurn";
+            this.win_status = true;
+            document.querySelector(".game-prompt").innerHTML = (currentTurn == "xTurn" ? "Player" : "Ai") + " won!";
         }
-        let row, arrayToCheck;
-        arrayToCheck = (currentTurn == "xTurn" ? this.xArr : this.oArr);
-        if (arrayToCheck.length >= 3){
-            winArr.forEach((winRow)=>{
-                if (winRow.every(x => arrayToCheck.includes(x))) {
-                    this.winner = currentTurn == "xTurn" ? "Player" : "Ai";
-                    row = winRow;
-                    this.win_status = true;
-                    document.querySelector(".game-prompt").innerHTML = this.winner + " won!";
-                }
-            })
+        if (!this.win_status){
+            let arrayToCheck;
+            arrayToCheck = (currentTurn == "xTurn" ? this.xArr : this.oArr);
+            if (arrayToCheck.length >= 3){
+                winArr.forEach((winRow)=>{
+                    if (winRow.every(x => arrayToCheck.includes(x))) {
+                        this.winner = currentTurn;
+                        this.winningRow = winRow.slice();
+                        this.win_status = true;
+                        document.querySelector(".game-prompt").innerHTML = (currentTurn == "xTurn" ? "Player" : "Ai") + " won!";
+                    }
+                })
+            }
         }
         if (this.win_status){
             for(let i = 0; i < 9; i++){
                 gameBoardArr[i].boardActive = false;
-                gameBoardArr[i].box.classList.remove("current-board-active-" + currentTurn);
+                gameBoardArr[i].box.classList.remove("current-board-active-xTurn", "current-board-active-oTurn");
+            }
+            if (winByRow){
+                for(let i = 0; i < this.winningRow.length; i++){
+                    gameBoardArr[this.winningRow[i] - 1].box.classList.add("current-board-active-" + this.winner);
+                }
+            } else {
+                for(let i = 0; i < 9; i++){
+                    gameBoardArr[i].box.classList.add("current-board-active-" + gameBoardArr[i].winner);
+                }
             }
             this.resetButton.style.display = "block";
         }

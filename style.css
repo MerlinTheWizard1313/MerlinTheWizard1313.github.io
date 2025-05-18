@@ -218,11 +218,11 @@
     align-items: center;
     font-size: 30px;
     transition: font-size 100ms ease-in-out;
-    color: white;
-    background: steelblue;
+    color: black;
+    background: white;
     width: 50px;
     height: 50px;
-    border: 1px solid white;
+    border: 1px solid black;
     position: relative;
 }
 
@@ -404,6 +404,45 @@
 .current-board-active-oTurn .game-board > div{
   background: #f2c693;
   color: black;
+}
+
+#player-color {
+  height: 10px;
+  width: 10px;
+  background: #1a46ab;
+}
+
+#ai-color {
+  height: 10px;
+  width: 10px;
+  background: #f2c693;
+}
+
+.pointer {
+  display: flex;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.pointer::after {
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 200ms ease-in-out;
+}
+
+.left::after {
+  transform: scale(1);
+  transition: transform 200ms ease-in-out;
+  border-right: 20px solid red;
+}
+
+.right::after {
+  transform: scale(1);
+  transition: 200ms ease-in-out;
+  border-left: 20px solid red;
 }
 /*
 All commented code is from a website project created from my time in my Level 3
