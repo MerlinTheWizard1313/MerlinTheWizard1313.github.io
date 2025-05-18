@@ -245,6 +245,7 @@ class N_C {
 class XN_C extends N_C{
     constructor(box){
         super(box, 0);
+        this.randomArray = [0,1,2,3,4,5,6,7,8];
         this.resetButton = document.querySelector(".reset-button");
         this.genBoards();
         this.startBoard();
@@ -281,6 +282,7 @@ class XN_C extends N_C{
 
     setBoardActive(){
         if(gameBoardArr[boardStore].xArr.length + gameBoardArr[boardStore].oArr.length == 9){
+            this.randomArray.splice(boardStore, 1);
             if (currentTurn == "xTurn"){
                 boardStore = 10;
                 document.querySelector(".game-prompt").innerHTML = "Choose a move on any of the other boards!";
@@ -292,9 +294,8 @@ class XN_C extends N_C{
                     }
                 }
             } else {
-                const randomBoard = Math.floor(Math.random() * 7);
-                const randomArray = [0,1,2,3,5,6,7,8]
-                boardStore =  randomArray(randomBoard);
+                const randomBoard = Math.floor(Math.random() * (randomArray.length - 1));
+                boardStore =  randomArray[randomBoard];
                 gameBoardArr[boardStore].boardActive = true;
                 gameBoardArr[boardStore].box.classList.add("current-board-active-" + currentTurn);
                 gameBoardArr[boardStore].startBoard();
