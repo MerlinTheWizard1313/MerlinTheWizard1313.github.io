@@ -41,11 +41,11 @@ class N_C {
     toggleTurn(){
         currentTurn = currentTurn == "xTurn" ? "oTurn" : "xTurn";
         if (currentTurn == "xTurn"){
-            game0.turnDisplayPointer.classList.remove(".right");
-            game0.turnDisplayPointer.classList.add(".left");
+            game0.turnDisplayPointer.classList.remove("right");
+            game0.turnDisplayPointer.classList.add("left");
         } else {
-            game0.turnDisplayPointer.classList.remove(".left");
-            game0.turnDisplayPointer.classList.add(".right");
+            game0.turnDisplayPointer.classList.remove("left");
+            game0.turnDisplayPointer.classList.add("right");
         }
     }
 
@@ -328,11 +328,11 @@ class XN_C extends N_C{
         boardStore = 4;
         currentTurn = this.turnRandom();
         if (currentTurn == "xTurn"){
-            this.turnDisplayPointer.classList.remove(".right");
-            this.turnDisplayPointer.classList.add(".left");
+            this.turnDisplayPointer.classList.remove("right");
+            this.turnDisplayPointer.classList.add("left");
         } else {
-            this.turnDisplayPointer.classList.remove(".left");
-            this.turnDisplayPointer.classList.add(".right");
+            this.turnDisplayPointer.classList.remove("left");
+            this.turnDisplayPointer.classList.add("right");
         }
         this.resetButton.style.display = "none";
         document.querySelector(".game-prompt").innerHTML = "";

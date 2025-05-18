@@ -277,10 +277,9 @@
   width: 474px;
 }
 
-
 #current-turn-display{
-  position: absolute;
   margin: auto;
+  text-align: center;
 }
 
 #player{
@@ -305,30 +304,37 @@
   background: #f2c693;
 }
 
-.pointer {
+.turn-display .pointer {
   display: flex;
   position: absolute;
+  margin-left: 49%;
   width: 0;
   height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  transition: 200ms ease-in-out;
 }
 
-.pointer::after {
+.turn-display .pointer::after {
   transform-origin: center;
   transform: scale(0);
   transition: transform 200ms ease-in-out;
 }
 
-.left::after {
+.turn-display .pointer.left::after {
   transform: scale(1);
   transition: transform 200ms ease-in-out;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
   border-right: 20px solid red;
 }
 
-.right::after {
+.turn-display .pointer.right::after {
   transform: scale(1);
   transition: 200ms ease-in-out;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
   border-left: 20px solid red;
 }
 
