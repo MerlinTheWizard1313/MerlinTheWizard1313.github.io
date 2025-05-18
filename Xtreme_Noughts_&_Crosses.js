@@ -232,12 +232,14 @@ class N_C {
             alert("Error");
         }
 
+        console.log(selection);
         this.oArr.push(selection);
         const boardSquare = document.querySelector("[data-id='" + ((9 * (this.boardNumber - 1)) + selection) + "']");
         boardSquare.innerHTML = "O";
         boardSquare.classList.add("selected");
         this.boardUpdate();
         boardStore = boardSquare - (9 * (this.boardNumber - 1)) - 1;
+        console.log(boardStore);
         this.randomWaitTime();
         if (turnAmount != 81 && game0.win_status == false){
             game0.setBoardActive();
@@ -295,8 +297,8 @@ class XN_C extends N_C{
                     }
                 }
             } else {
-                const randomBoard = Math.floor(Math.random() * 8);
-                const randomArray = [0,1,2,3,5,6,7,8,9]
+                const randomBoard = Math.floor(Math.random() * 7);
+                const randomArray = [0,1,2,3,5,6,7,8]
                 boardStore =  randomArray(randomBoard);
                 gameBoardArr[boardStore].boardActive = true;
                 gameBoardArr[boardStore].box.classList.add("current-board-active");
