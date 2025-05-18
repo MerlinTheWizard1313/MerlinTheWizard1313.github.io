@@ -377,7 +377,7 @@ class XN_C extends N_C{
                 gameBoardArr[i].boardActive = false;
                 gameBoardArr[i].box.classList.remove("current-board-active-xTurn", "current-board-active-oTurn");
             }
-            if (winByRow){
+            if (this.winByRow){
                 for(let i = 0; i < this.winningRow.length; i++){
                     gameBoardArr[this.winningRow[i] - 1].box.classList.add("current-board-active-" + this.winner);
                 }

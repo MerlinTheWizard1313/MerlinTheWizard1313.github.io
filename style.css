@@ -275,26 +275,32 @@
 .turn-display{
   position: relative;
   width: 474px;
+  padding-bottom: 8px;
 }
 
 #current-turn-display{
   margin: auto;
   text-align: center;
+  padding-bottom: 3px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#player-color {
+  display: inline-block;
+  margin-left: 35%;
+  height: 10px;
+  width: 10px;
+  background: #1a46ab;
 }
 
 #player{
   display: inline-block;
 }
 
-#player-color {
-  display: inline-block;
-  height: 10px;
-  width: 10px;
-  background: #1a46ab;
-}
-
 #ai {
-  display: absolute;
+  display: inline-block;
+  margin-left: 10%;
 }
 
 #ai-color {
@@ -304,27 +310,26 @@
   background: #f2c693;
 }
 
-.turn-display .pointer {
+.turn-display .pointer::after {
   display: flex;
   position: absolute;
-  margin-left: 49%;
+  margin-left: 50%;
   width: 0;
   height: 0;
   border-top: none;
   border-bottom: none;
   border-left: none;
-  transition: 200ms ease-in-out;
-}
-
-.turn-display .pointer::after {
-  transform-origin: center;
-  transform: scale(0);
+  content: "";
+  transform: scale(1);
   transition: transform 200ms ease-in-out;
+  transform-origin: center;
 }
 
 .turn-display .pointer.left::after {
   transform: scale(1);
   transition: transform 200ms ease-in-out;
+  transform-origin: center;
+  content: "";
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 20px solid red;
@@ -333,6 +338,8 @@
 .turn-display .pointer.right::after {
   transform: scale(1);
   transition: 200ms ease-in-out;
+  transform-origin: center;
+  content: "";
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-left: 20px solid red;
