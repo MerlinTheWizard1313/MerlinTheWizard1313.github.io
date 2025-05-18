@@ -341,7 +341,7 @@ class XN_C extends N_C{
         arrayToCheck = (currentTurn == "xTurn" ? this.xArr : this.oArr);
         if (arrayToCheck.length >= 3){
             winArr.forEach((winRow)=>{
-                if (winRow.every(x => this.xArr.includes(x))) {
+                if (winRow.every(x => arrayToCheck.includes(x))) {
                     this.winner = currentTurn == "xTurn" ? "Player" : "Ai";
                     row = winRow;
                     this.win_status = true;

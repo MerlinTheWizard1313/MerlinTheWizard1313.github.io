@@ -397,12 +397,12 @@
 }
 
 .current-board-active-xTurn .game-board > div{
-  background: #f2c693;
+  background: #1a46ab;
   color: white;
 }
 
 .current-board-active-oTurn .game-board > div{
-  background: #1a46ab;
+  background: #f2c693;
   color: black;
 }
 /*
