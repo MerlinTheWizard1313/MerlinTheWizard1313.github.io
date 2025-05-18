@@ -470,6 +470,77 @@
     width: 20%;
     transform: translateX(200%);
   }
+
+  .turn-display{
+    position: relative;
+    width: 96%;
+    padding-bottom: 3%;
+  }
+
+  #current-turn-display{
+    margin: auto;
+    text-align: center;
+    padding-bottom: 1%;
+    font-size: 5vw;
+    font-weight: bold;
+  }
+
+  #player-color {
+    display: inline-block;
+    margin-left: 33%;
+    height: 10px;
+    width: 10px;
+    background: #1a46ab;
+  }
+
+  #player{
+    display: inline-block;
+    font-size: 4vw;
+  }
+
+  #ai {
+    display: inline-block;
+    margin-left: 10%;
+    font-size: 4vw;
+  }
+
+  #ai-color {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    background: #f2c693;
+  }
+
+  .turn-display .pointer {
+    display: flex;
+    position: absolute;
+    margin-left: 50%;
+    width: 0;
+    height: 0;
+    border: none;
+  }
+
+  .turn-display .pointer.left::after {
+    transform: scale(1);
+    transition: 200ms ease-in-out;
+    transform-origin: center;
+    content: "";
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 20px solid black;
+    border-left: 0px solid transparent;
+  }
+
+  .turn-display .pointer.right::after {
+    transform: scale(1);
+    transition: 200ms ease-in-out;
+    transform-origin: center;
+    content: "";
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 20px solid black;
+    border-right: 0px solid transparent;
+  }
 }
 
 .current-board-active-xTurn .game-board > div{
