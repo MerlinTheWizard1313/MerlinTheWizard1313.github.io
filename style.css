@@ -668,10 +668,27 @@
   transform: scale(4);
 }
 
-.contact-box i {
+.contact-box h2{
+  display: inline-block;
+  position: relative;
+}
+
+.contact-box a:not(.social-box){
+  display: block;
+  position: relative;
+}
+
+.contact-box i:not(.social-box){
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  transform: scale(4);
+}
+
+.contact-box div.social-box {
   position: relative;
   width: 20px;
   height: 20px;
-  margin-top: 20px;
   transform: scale(4);
 }
