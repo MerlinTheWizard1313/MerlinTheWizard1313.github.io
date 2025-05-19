@@ -620,11 +620,16 @@
 
 .main-title{
   text-align: center;
+  font-size: 36px;
+  line-height: 0px;
 }
 
 .main-subtitle {
-  text-align: center;
-  width: 96%;
+  display: block;
+  font-size: 36px;
+  width: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .typing {
@@ -632,14 +637,16 @@
   white-space: nowrap; 
   border-right: .15em solid blue; 
   animation: 
-    typing 3.5s steps(40, end) 1s 1, 
+    typing 1.5s steps(20, end) 1s 1, 
     blink-caret .75s steps(30, end) infinite;
+  width: 294px;
 }
 @keyframes typing {
-  from { width: 0; }
-  to { width: max-content; }
+  from { width: 0px; }
+  to { width: 294px; }
 }
 @keyframes blink-caret {
   from, to { border-color: transparent; }
   50% { border-color: blue; }
 }
+
