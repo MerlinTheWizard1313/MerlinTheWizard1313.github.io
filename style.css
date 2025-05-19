@@ -648,10 +648,7 @@
 
 .skill-box i {
   position: relative;
-  width: 20px;
-  height: 20px;
-  margin-top: 20px;
-  transform: scale(4);
+  font-size: 60px;
 }
 
 .social-box {
@@ -665,30 +662,41 @@
   display: inline-block;
   width: 100px;
   height: 10px;
-  transform: scale(4);
+  font-size: 60px;
+}
+
+.contact-box{
+  outline: solid black;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-box h2{
   display: inline-block;
   position: relative;
+  margin-left: 6px;
 }
 
 .contact-box a:not(.social-box){
   display: block;
   position: relative;
+  padding-bottom: 10px;
+  margin-left: 10px;
 }
 
 .contact-box i:not(.social-box){
   position: relative;
   display: inline-block;
-  width: 10px;
+  width: 20px;
   height: 10px;
-  transform: scale(4);
 }
 
 .contact-box div.social-box {
   position: relative;
-  width: 20px;
+  display: block;
+  width: 40px;
   height: 20px;
-  transform: scale(4);
+  font-size: 8px;
+  margin-left: 8px;
 }
