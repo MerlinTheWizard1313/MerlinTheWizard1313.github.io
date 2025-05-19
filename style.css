@@ -651,13 +651,16 @@
   font-size: 60px;
 }
 
+.skill-box p{
+  margin-bottom: 2px;
+}
+
 .main-body h2 {
-  background: red;
   text-align: center;
 }
 
 .main-body #about-text {
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .main-body #skill-title {
@@ -683,18 +686,21 @@
 }
 
 .contact-box{
-  outline: solid red;
-  border-top:  8px solid red;
+  outline: solid black;
+  border-top:  8px solid black;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  margin-bottom: 14px;
 }
 
 .contact-box h2{
   display: block;
   position: relative;
   margin-left: 6px;
+  margin-top: 2px;
+  margin-bottom: 6px;
   padding-top: 6px;
 }
 
