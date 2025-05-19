@@ -42,6 +42,7 @@
   overflow: hidden;
   font-size: 20px;
   font-weight: bold;
+  width: 98%;
   border: none;
   outline: none;
   color: black;
@@ -52,7 +53,7 @@
 .rules-box {
   display: none;
   font-weight: normal;
-  width: 462px;
+  width: 100%;
   font-size: 16px;
   text-align: left;
   color: black;
@@ -169,6 +170,13 @@
   width: 474px;
   height: 474px;
   background: black;
+}
+
+#box-align{
+  width: 474px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .game-box-1 {
@@ -310,23 +318,28 @@
 
 .turn-display{
   position: relative;
-  width: 474px;
+  width: 96%;
   margin-top: 50px;
   padding-bottom: 8px;
   z-index: -1;
 }
 
 #current-turn-display{
-  margin: auto;
   text-align: center;
+  margin: auto;
+  width: 96%;
   padding-bottom: 3px;
   font-size: 20px;
   font-weight: bold;
 }
 
+#turn-pointer {
+  width: 100%;
+  text-align: center;
+}
+
 #player-color {
   display: inline-block;
-  margin-left: 35%;
   height: 10px;
   width: 10px;
   background: #1a46ab;
@@ -600,7 +613,7 @@ h1 {
 }
 
 #page-content{
-  margin:auto;
+  left: 50%;
 }
 
 .typing {
