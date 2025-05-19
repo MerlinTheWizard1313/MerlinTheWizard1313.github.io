@@ -638,3 +638,19 @@
   from, to { width:294px;}
 }
 
+.skill-box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  display: inline-block;
+  outline: solid black;
+  text-align: center;
+}
+
+.skill-box i {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-top: 20px;
+  transform: scale(4);
+}
