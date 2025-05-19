@@ -618,8 +618,13 @@
   color: black;
 }
 
-h1 h2{
+.main-title{
   text-align: center;
+}
+
+.main-subtitle {
+  text-align: center;
+  width: 96%;
 }
 
 .typing {
@@ -632,7 +637,7 @@ h1 h2{
 }
 @keyframes typing {
   from { width: 0; }
-  to { width: fit-content(100%); }
+  to { width: max-content; }
 }
 @keyframes blink-caret {
   from, to { border-color: transparent; }
