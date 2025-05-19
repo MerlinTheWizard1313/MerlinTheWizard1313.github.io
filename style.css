@@ -168,8 +168,8 @@
 /*edit game board style here*/
 #large-game-box {
   position: relative;
-  width: 474px;
-  height: 474px;
+  width: 472px;
+  height: 472px;
   background: black;
 }
 
@@ -297,7 +297,7 @@
   position: relative;
   width: 474px;
   text-align: center;
-  margin-top: 484px;
+  margin-top: 10px;
   z-index: -1;
 }
 
@@ -305,7 +305,7 @@
   position: relative;
   width: 474px;
   height: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
   justify-content: center;
   z-index: 1;
 }
@@ -618,13 +618,8 @@
   color: black;
 }
 
-h1 {
+h1 h2{
   text-align: center;
-}
-
-#page-content{
-  left: 50%;
-  height: 0px;
 }
 
 .typing {
@@ -632,12 +627,12 @@ h1 {
   white-space: nowrap; 
   border-right: .15em solid blue; 
   animation: 
-    typing 3.5s steps(40, end) 1s infinite,
-    blink-caret .75s step(30, end) infinite;
+    typing 3.5s steps(40, end) 1s 1, 
+    blink-caret .75s steps(30, end) infinite;
 }
 @keyframes typing {
   from { width: 0; }
-  to { width: 100%; }
+  to { width: fit-content(100%); }
 }
 @keyframes blink-caret {
   from, to { border-color: transparent; }
