@@ -219,9 +219,11 @@ class N_C {
             firstAiMove();
         }
         else {
-            checkWin("oTurn");
-            if (!selection) {
-                checkWin("xTurn");
+            if(!this.win_status){
+                checkWin("oTurn");
+                if (!selection) {
+                    checkWin("xTurn");
+                }
             }
             if (!selection) {
                 generalMove();
