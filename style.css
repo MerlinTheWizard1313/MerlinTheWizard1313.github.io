@@ -654,10 +654,17 @@
   transform: scale(4);
 }
 
-.social-box i {
+.social-box {
   position: relative;
-  width: 20px;
-  height: 20px;
+  display: inline-block;
+}
+
+.social-box i {
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 10px;
   transform: scale(4);
 }
 
