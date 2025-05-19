@@ -651,6 +651,19 @@
   font-size: 60px;
 }
 
+.main-body h2 {
+  background: red;
+  text-align: center;
+}
+
+.main-body #about-text {
+  font-size: 14px;
+}
+
+.main-body #skill-title {
+  margin-bottom: 0px;
+}
+
 .social-box {
   position: relative;
   display: block;
@@ -665,8 +678,13 @@
   font-size: 60px;
 }
 
+#contact-title {
+  text-align: center;
+}
+
 .contact-box{
-  outline: solid black;
+  outline: solid red;
+  border-top:  8px solid red;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -689,4 +707,5 @@
 
 .contact-box div.social-box{
   display: inline-block;
+  padding-bottom: 60px;
 }
