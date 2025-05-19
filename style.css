@@ -36,6 +36,32 @@
   overflow: hidden;
 }
 
+.rules {
+  float: left;
+  overflow: hidden;
+  font-size: 17px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.rules-box {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.rules:hover .dropdown-content {
+  display: block;
+}
+
 /* Fit the dropdown and style it */
 .dropdown .dropbutton {
   font-size: 17px;
