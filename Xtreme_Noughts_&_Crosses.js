@@ -215,7 +215,7 @@ class N_C {
             aiMoves = [...potentialMoves];
         };
 
-        if (this.oArr.length == 0 && this.xArr.length == 0) {
+        if (this.oArr.length == 0) {
             firstAiMove();
         }
         else {
