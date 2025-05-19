@@ -24,56 +24,58 @@
             <i class="fa-solid fa-bars"></i>
         </a>
     </div>
-    <div>
-        <h1>Xtreme Noughts and Crosses</h1>
-        <button class="rules">Rules
-            <div class="rules-box"> 
-                On your turn, you pick a grid square that is highlighted in your colour to make an X in that square.
-                <br>
-                <br>
-                Your opponent is sent into the grid square that corresponds to your move.
-                So if my first move is in the center square, it will send my opponent to the center board!
-                <br>
-                <br>
-                If you make the first row on small board, you claim that big board square.
-                Aim for a row on the big square!
-                <br>
-                <br>
-                You will win by either getting a row in the big board, 
-                or by having the most won boards by the end of the game. 
-                <br>
-                <br>
-                If no possible moves exist on the large board, the game will check each board.
-                In a non winning board, if you made more moves than your opponent, you win that board square!
-                <br>
-                <br>
-                Finally, if you send your opponent to a board where no move is possible, 
-                they get to choose any board to make a move in and vice versa. 
-            </div>
-        </button>
-    </div>
-    <div class="turn-display">
-        <div id="current-turn-display">Current Turn</div>
-        <div class="pointer left"></div>
-        <div id="player-color"></div>
-        <div id="player">Player</div>
-        <div id="ai">AI</div>
-        <div id="ai-color"></div>
-    </div>
-    <div id="large-game-box">
-        <div class="game-box-1"></div>
-        <div class="game-box-2"></div>
-        <div class="game-box-3"></div>
-        <div class="game-box-4"></div>
-        <div class="game-box-5"></div>
-        <div class="game-box-6"></div>
-        <div class="game-box-7"></div>
-        <div class="game-box-8"></div>
-        <div class="game-box-9"></div>
-    </div>
-    <div class="game-prompt"></div>
-    <div class="game-button">
-        <button class="reset-button">New Game</button>
+    <div id="page-content">
+        <div>
+            <h1>Xtreme Noughts and Crosses</h1>
+            <button class="rules">Rules
+                <div class="rules-box"> 
+                    On your turn, you pick a grid square that is highlighted in your colour to make an X in that square.
+                    <br>
+                    <br>
+                    Your opponent is sent into the grid square that corresponds to your move.
+                    So if my first move is in the center square, it will send my opponent to the center board!
+                    <br>
+                    <br>
+                    If you make the first row on small board, you claim that big board square.
+                    Aim for a row on the big square!
+                    <br>
+                    <br>
+                    You will win by either getting a row in the big board, 
+                    or by having the most won boards by the end of the game. 
+                    <br>
+                    <br>
+                    If no possible moves exist on the large board, the game will check each board.
+                    In a non winning board, if you made more moves than your opponent, you win that board square!
+                    <br>
+                    <br>
+                    Finally, if you send your opponent to a board where no move is possible, 
+                    they get to choose any board to make a move in and vice versa. 
+                </div>
+            </button>
+        </div>
+        <div class="turn-display">
+            <div id="current-turn-display">Current Turn</div>
+            <div class="pointer left"></div>
+            <div id="player-color"></div>
+            <div id="player">Player</div>
+            <div id="ai">AI</div>
+            <div id="ai-color"></div>
+        </div>
+        <div id="large-game-box">
+            <div class="game-box-1"></div>
+            <div class="game-box-2"></div>
+            <div class="game-box-3"></div>
+            <div class="game-box-4"></div>
+            <div class="game-box-5"></div>
+            <div class="game-box-6"></div>
+            <div class="game-box-7"></div>
+            <div class="game-box-8"></div>
+            <div class="game-box-9"></div>
+        </div>
+        <div class="game-prompt"></div>
+        <div class="game-button">
+            <button class="reset-button">New Game</button>
+        </div>
     </div>
     <script src="script.js"></script>
     <script src="Xtreme_Noughts_&_Crosses.js"></script>

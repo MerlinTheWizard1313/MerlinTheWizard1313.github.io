@@ -52,6 +52,7 @@
 .rules-box {
   display: none;
   font-weight: normal;
+  width: 462px;
   font-size: 16px;
   text-align: left;
   color: black;
@@ -310,6 +311,7 @@
 .turn-display{
   position: relative;
   width: 474px;
+  margin-top: 50px;
   padding-bottom: 8px;
   z-index: -1;
 }
@@ -503,6 +505,7 @@
   .turn-display{
     position: relative;
     width: 96%;
+    margin-top: 14%;
     padding-bottom: 3%;
   }
 
@@ -570,6 +573,16 @@
     border-left: 20px solid black;
     border-right: 0px solid transparent;
   }
+
+  .rules {
+    width: 96%;
+    font-size: 5vw;
+  }
+
+  .rules-box {
+    font-size: 4vw;
+    width: 100%;
+  }
 }
 
 .current-board-active-xTurn .game-board > div{
@@ -580,6 +593,14 @@
 .current-board-active-oTurn .game-board > div{
   background: #f2c693;
   color: black;
+}
+
+h1 {
+  text-align: center;
+}
+
+#page-content{
+  margin:auto;
 }
 
 .typing {
