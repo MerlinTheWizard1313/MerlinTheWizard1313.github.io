@@ -1,3 +1,7 @@
+body {
+  font-family: Verdana, sans-serif;
+}
+
 /* Topnav Background */
 .topnav {
   background-color: #1e23b1;
@@ -159,7 +163,6 @@
   }
 }
 
-/*edit game board style here*/
 #large-game-box {
   position: relative;
   width: 472px;
@@ -418,14 +421,14 @@
 }
 @keyframes typing {
   from { width: 0px; }
-  to { width: 294px; }
+  to { width: 360px; }
 }
 @keyframes blink-caret {
   from, to { border-color: transparent; }
   50% { border-color: #3341de; }
 }
 @keyframes remain {
-  from, to { width:294px;}
+  from, to { width:360px;}
 }
 
 .skill-box {
@@ -509,6 +512,14 @@
   text-align: left;
 }
 
+.bnp-main-body #main-body-box p a{
+  color: black;
+}
+
+.bnp-main-body #main-body-box p a:hover{
+  color: #1e23b1;
+}
+
 .bnp-main-body #main-body-box .social-box a{
   position: relative;
   color: black;
@@ -519,7 +530,7 @@
 }
 
 .bnp-slideshow {
-  max-width: 100%;
+  max-width: 500px;
   position: relative;
   margin: auto;
 }
@@ -575,7 +586,7 @@
   cursor: pointer;
   height: 15px;
   width: 15px;
-  margin: 0 2px;
+  margin: 0 2px 8px;
   background-color: #b5b8f4;
   border-radius: 50%;
   display: inline-block;
@@ -868,12 +879,12 @@
 
   .main-title{
     text-align: center;
-    font-size: 11vw;
+    font-size: 10vw;
     line-height: 0px;
   }
 
   .main-subtitle {
-    font-size: 11vw;
+    font-size: 9vw;
   }
 
   .typing {
@@ -894,7 +905,85 @@
     50% { border-color: #3341de; }
   }
   @keyframes remain {
-    from, to { width:95%;}
+    from, to { width:94%;}
+  }
+
+  .bnp-slideshow {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+  }
+  
+  .bnp-slides {
+    display: none;
+  }
+  
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  .captiontext {
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .5)
+  }
+  
+  .numbertext {
+    color: white;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, .5)
+  }
+  
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px 8px;
+    background-color: #b5b8f4;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .bnp-active, .dot:hover {
+    background-color: #3341de;
+  }
+  
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
   }
 }
 
