@@ -1,6 +1,6 @@
 /* Topnav Background */
 .topnav {
-    background-color: #333;
+    background-color: #1e23b1;
     overflow: hidden;
 }
 
@@ -8,7 +8,7 @@
 .topnav a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -17,12 +17,12 @@
 
 /* Highlight current page */
 .active {
-  background-color: #04AA6D;
+  background-color: #3341de;
   color: white;
 }
 
 .active:hover {
-  background-color:#048354
+  background-color:#2932c7
 }
 
 /* Hide menu toggle when it fits the screen*/
@@ -46,7 +46,8 @@
   width: 98%;
   border: none;
   outline: none;
-  color: black;
+  color: white;
+  background: black;
   margin: 0;
   z-index: 1;
 }
@@ -54,11 +55,13 @@
 .rules-box {
   display: none;
   font-weight: normal;
-  width: 100%;
+  width: 99%;
   font-size: 16px;
   text-align: left;
   color: black;
-  background-color: #f9f9f9;
+  background-color: #b5b8f4;
+  padding-left: 4px;
+  margin-bottom: 4px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -83,7 +86,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #b5b8f4;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -101,13 +104,13 @@
 
 /* Add a dark background to topnav links/button on hover */
 .topnav a:hover:not(.active), .dropdown:hover:not(.active) .dropbutton:not(.active) {
-  background-color: #555;
+  background-color: #2932c7;
   color: white;
 }
 
 /* Add a grey background to dropdown links on hover */
 .dropdown-content a:hover:not(.active) {
-  background-color: #ddd;
+  background-color: #8d92eb;
   color: black;
 }
 
@@ -155,6 +158,7 @@
   width: 472px;
   height: 472px;
   background: black;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 #box-align{
@@ -589,6 +593,7 @@
   .rules-box {
     font-size: 4vw;
     width: 100%;
+    padding-left:0.2vw;
   }
 }
 
@@ -620,7 +625,7 @@
 .typing {
   overflow: hidden; 
   white-space: nowrap; 
-  border-right: .15em solid blue; 
+  border-right: .15em solid #3341de; 
   animation: 
     typing 1.5s steps(20, end) 1s 1, 
     blink-caret .75s steps(30, end) infinite,
@@ -632,7 +637,7 @@
 }
 @keyframes blink-caret {
   from, to { border-color: transparent; }
-  50% { border-color: blue; }
+  50% { border-color: #3341de; }
 }
 @keyframes remain {
   from, to { width:294px;}
@@ -668,10 +673,27 @@
   border-bottom: solid black;
   margin-top: 0px;
   margin-bottom: 14px;
+  padding-bottom: 5px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #b5b8f4;
+}
+
+.main-body #main-body-box a{
+  color: black;
+}
+
+.main-body #main-body-box a:hover{
+  color: #1e23b1;
 }
 
 .main-body #about-text {
   font-size: 17px;
+  margin-bottom: 0px;
+  margin-top: 6px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .main-body #skill-title {
@@ -704,6 +726,7 @@
   margin-right: auto;
   text-align: center;
   margin-bottom: 14px;
+  background: #b5b8f4;
 }
 
 .contact-box h2{
@@ -720,6 +743,11 @@
   position: relative;
   padding-bottom: 10px;
   margin-left: 10px;
+  color: black;
+}
+
+.contact-box a:not(.social-box):hover{
+  color: #1e23b1;
 }
 
 .contact-box div.social-box{
