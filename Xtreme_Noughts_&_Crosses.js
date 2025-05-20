@@ -214,9 +214,12 @@ class N_C {
             });
             aiMoves = [...potentialMoves];
         };
-        
+
         if(this.xArr.length == 2 && this.oArr.length == 0){
             checkWin("xTurn");
+            if (!selection) {
+                generalMove();
+            }
         } else if (this.oArr.length == 0) {
             firstAiMove();
         } else {
