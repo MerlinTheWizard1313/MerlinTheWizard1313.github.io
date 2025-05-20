@@ -160,7 +160,7 @@ class N_C {
 
     //Used to add a small buffer time for ai moves, before a player moves, and other functions
     randomWaitTime(){
-        let waitTime = (Math.random() * 2000) + 100; 
+        let waitTime = (Math.random() * 2000) + 500; 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve();
