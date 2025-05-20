@@ -421,14 +421,14 @@ body {
 }
 @keyframes typing {
   from { width: 0px; }
-  to { width: 360px; }
+  to { width: fit-content; }
 }
 @keyframes blink-caret {
   from, to { border-color: transparent; }
   50% { border-color: #3341de; }
 }
 @keyframes remain {
-  from, to { width:360px;}
+  from, to { width:fit-content;}
 }
 
 .skill-box {
@@ -898,14 +898,14 @@ body {
   }
   @keyframes typing {
     from { width: 0px; }
-    to { width: 95%; }
+    to { width: fit-content; }
   }
   @keyframes blink-caret {
     from, to { border-color: transparent; }
     50% { border-color: #3341de; }
   }
   @keyframes remain {
-    from, to { width:94%;}
+    from, to { width:fit-content;}
   }
 
   .bnp-slideshow {
