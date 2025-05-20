@@ -657,6 +657,17 @@
 
 .main-body h2 {
   text-align: center;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.main-body #main-body-box{
+  border-top:  8px solid black;
+  border-left: solid black;
+  border-right: solid black;
+  border-bottom: solid black;
+  margin-top: 0px;
+  margin-bottom: 14px;
 }
 
 .main-body #about-text {
