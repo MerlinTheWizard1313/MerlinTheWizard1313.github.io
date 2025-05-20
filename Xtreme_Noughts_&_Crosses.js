@@ -175,12 +175,37 @@ class N_C {
         }
         let aiMoves = [], selection;
         const firstAiMove = () => {
-            if (this.xArr.length === 0){
-                aiMoves = [1, 3, 5, 7, 9];
-            } else if ([1, 3, 7, 9].includes(this.xArr[0])) {
-                selection = 5
-            } else {
-                aiMoves = [1, 3, 7, 9];
+            switch (this.xArr.length){
+                case 0:
+                    aiMoves = [1, 3, 5, 7, 9];
+                    break;
+                case 1: case 2: case 3: case 4:
+                    if([1, 3, 7, 9].includes(this.xArr[0]) && !this.xArr.includes(5)){
+                        selection = 5;
+                        break;
+                    } else {
+                        aiMoves = [1, 3, 7, 9];
+                        let j = 0, check;
+                        for(let i = 1; i< 9; i += 2){
+                            if(this.xArr.includes(i)){
+                                check++;
+                                aiMoves.splice(j,1);
+                            }
+                            j++;
+                        }
+                        break;
+                    }
+                default:
+                    aiMoves = [1,2,3,4,5,6,7,8,9];
+                    let j = 0, check;
+                    for(let i = 1; i< 9; i++){
+                        if(this.xArr.includes(i)){
+                            check++;
+                            aiMoves.splice(j,1);
+                        }
+                        j++;
+                    }
+                    break;
             }
         };
         const checkWin = cT => {
@@ -215,13 +240,15 @@ class N_C {
             aiMoves = [...potentialMoves];
         };
 
-        if(this.xArr.length == 2 && this.oArr.length == 0){
-            checkWin("xTurn");
-            if (!selection) {
-                generalMove();
+        if (this.oArr.length == 0) {
+            if(this.xArr.length == 2){
+                checkWin("xTurn");
+                if (!selection) {
+                    firstAiMove();
+                }
+            } else {
+                firstAiMove();
             }
-        } else if (this.oArr.length == 0) {
-            firstAiMove();
         } else {
             if(!this.win_status){
                 checkWin("oTurn");
