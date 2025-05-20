@@ -421,7 +421,7 @@ body {
 }
 @keyframes typing {
   from { width: 0px; }
-  to { width: fit-content; }
+  to { width: 360px; }
 }
 @keyframes blink-caret {
   from, to { border-color: transparent; }
@@ -898,7 +898,7 @@ body {
   }
   @keyframes typing {
     from { width: 0px; }
-    to { width: fit-content; }
+    to { width: 95%; }
   }
   @keyframes blink-caret {
     from, to { border-color: transparent; }
