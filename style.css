@@ -607,7 +607,7 @@ body {
   to {opacity: 1}
 }
 
-.aws-main-body #main-body-box{
+#aws-main-body{
   border-top:  8px solid black;
   border-left: solid black;
   border-right: solid black;
@@ -622,7 +622,7 @@ body {
   text-align: center;
 }
 
-.aws-main-body #audio{
+#aws-audio{
   position: relative;
   margin: auto;
 }
