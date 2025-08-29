@@ -11,6 +11,8 @@ function handlePartnerAnswers(event){
 function partnerValidation(partner1,partner2) {
     let partner1Check = partner1.toLowerCase();
     let partner2Check = partner2.toLowerCase();
+    console.log(partner1Check);
+    console.log(partner2Check);
     if (partner1Check == "joseph") {
         if (partner2Check == "perceval"){
             console.log("true");
