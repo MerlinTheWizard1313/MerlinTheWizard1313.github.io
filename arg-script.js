@@ -9,8 +9,8 @@ function handlePartnerAnswers(event){
 }
 
 function partnerValidation(partner1,partner2) {
-    partner1Check = partner1.toLowerCase();
-    partner2Check = partner2.toLowerCase();
+    let partner1Check = partner1.toLowerCase();
+    let partner2Check = partner2.toLowerCase();
     if (partner1Check == "joseph") {
         if (partner2Check == "perceval"){
             return true;
