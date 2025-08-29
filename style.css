@@ -627,6 +627,10 @@ body {
   margin: auto;
 }
 
+#aws-h1{
+  text-align: center;
+}
+
 .social-box {
   position: relative;
   display: block;
