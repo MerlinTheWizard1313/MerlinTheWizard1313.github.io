@@ -607,6 +607,21 @@ body {
   to {opacity: 1}
 }
 
+.aws-main-body #main-body-box{
+  border-top:  8px solid black;
+  border-left: solid black;
+  border-right: solid black;
+  border-bottom: solid black;
+  margin-top: 0px;
+  margin-bottom: 14px;
+  padding-bottom: 5px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #b5b8f4;
+  text-align: center;
+}
+
 .social-box {
   position: relative;
   display: block;
