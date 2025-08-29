@@ -622,6 +622,11 @@ body {
   text-align: center;
 }
 
+.aws-main-body #audio{
+  position: relative;
+  margin: auto;
+}
+
 .social-box {
   position: relative;
   display: block;
