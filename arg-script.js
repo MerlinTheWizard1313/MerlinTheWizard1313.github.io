@@ -13,13 +13,16 @@ function partnerValidation(partner1,partner2) {
     let partner2Check = partner2.toLowerCase();
     if (partner1Check == "joseph") {
         if (partner2Check == "perceval"){
+            console.log("true");
             return true;
         }
     } else if (partner1Check == "perceval"){
         if (partner2Check == "joseph"){
+            console.log("true");
             return true;
         }
     } else {
+        console.log("false");
         return false;
     }
 }
