@@ -1,7 +1,7 @@
 function handlePartnerAnswers(event){
     event.preventDefault();
-    let partner1Answer = document.getElementById("partner1");
-    let partner2Answer = document.getElementById("partner1");
+    let partner1Answer = document.getElementById("partner1").innerText;
+    let partner2Answer = document.getElementById("partner1").innerText;
     let partnerAnswerValidated = partnerValidation(partner1Answer,partner2Answer);
     if (partnerAnswerValidated){
         setPartnerEquation();
