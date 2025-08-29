@@ -1,7 +1,9 @@
 function handlePartnerAnswers(event){
     event.preventDefault();
-    let partner1Answer = document.getElementById("partner1").innerText;
-    let partner2Answer = document.getElementById("partner2").innerText;
+    let partner1Answer = document.getElementById("partner1").value.toLowerCase();
+    let partner2Answer = document.getElementById("partner2").value.toLowerCase();
+    console.log(partner1Answer);
+    console.log(partner2Answer);
     let partnerAnswerValidated = partnerValidation(partner1Answer,partner2Answer);
     if (partnerAnswerValidated){
         setPartnerEquation();
@@ -9,17 +11,13 @@ function handlePartnerAnswers(event){
 }
 
 function partnerValidation(partner1,partner2) {
-    let partner1Check = partner1.toLowerCase();
-    let partner2Check = partner2.toLowerCase();
-    console.log(partner1Check);
-    console.log(partner2Check);
-    if (partner1Check == "joseph") {
-        if (partner2Check == "perceval"){
+    if (partner1 == "joseph") {
+        if (partner2 == "perceval"){
             console.log("true");
             return true;
         }
-    } else if (partner1Check == "perceval"){
-        if (partner2Check == "joseph"){
+    } else if (partner1 == "perceval"){
+        if (partner2 == "joseph"){
             console.log("true");
             return true;
         }
