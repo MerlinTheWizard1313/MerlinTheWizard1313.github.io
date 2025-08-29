@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://kit.fontawesome.com/cefa5b4116.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="./">Home</a>
+        <div class="dropdown active">
+            <button class="dropbutton active">
+                Projects
+                <i id="projectButtonIcon" class="fa-solid fa-caret-down"></i>
+            </button>
+            <div id="projectsDropdown" class="dropdown-content">
+                <a href="Bound-and-Pound.html">Bound & Pound</a>
+                <a href="Xtreme-Noughts-and-Crosses.html">Xtreme Noughts and Crosses</a>
+                <a href="A-Weird-Sound.html" class="active">A Weird Sound</a>
+            </div>
+        </div>
+        <a href="contact.html">Contact</a>
+        <a href="javascript:void(0);" class="icon" onclick="showNav()">
+            <i class="fa-solid fa-bars"></i>
+        </a>
+    </div>
+    <div id="main-body-box">
+        <p>You are going about your normal day and some weird sound starts playing?</p>
+    </div>
+    <audio controls>
+        <source src="images/SecretAssets/AWeirdSound.wav" type="audio/wav">
+        Your browser does not support the audio tag.
+    </audio>
+    <div id="main-body-box">
+        <p>I wonder what it could mean, is it a message of some kind? What information does this hold?</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
