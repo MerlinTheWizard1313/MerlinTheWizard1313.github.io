@@ -1,5 +1,6 @@
 class MazeSquare {
-    constructor(rowValue, columnValue){
+    constructor(box,rowValue, columnValue){
+        this.gridSquare = box;
         this.rowLetter = rowValue;
         this.columnNumber = columnValue;
         this.wallArray = ["North", "East", "South", "West"];
@@ -24,6 +25,7 @@ class MazeSquare {
                 this.gridContent = "NPC"
                 break;           
         }
+        this.gridSquare.innerText = this.gridContent;
     }
 }
 
@@ -37,10 +39,10 @@ class Maze{
         for(var child of this.mainGrid.children){
             if (child.dataset.id == "A" || child.dataset.id == "B"){
                 child.style.color = "blue";
-                child = new MazeSquare(child.dataset.id,0)
+                child = new MazeSquare(child, child.dataset.id, 0)
             } else {
                 child.style.color = "red";
-                child = new MazeSquare("test",child.dataset.id)
+                child = new MazeSquare(child, "test", child.dataset.id)
             }
         }
     }
