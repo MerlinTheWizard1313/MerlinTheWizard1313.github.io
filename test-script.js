@@ -1,13 +1,11 @@
 class MazeSquare {
-    constructor(box){
-        this.gridSquare = box;
+    constructor(rowValue, columnValue){
 
     }
 }
 
-class Maze extends MazeSquare{
+class Maze{
     constructor(grid){
-        super(0);
         this.mainGrid = grid;
         
     }
