@@ -1,0 +1,16 @@
+body {
+  font-family: Verdana, sans-serif;
+  background-color:black; 
+  color: white;
+  font-size: 36px;
+}
+
+.maze-container {
+    display: grid;
+    grid-template-rows: 100px 100px;
+}
+
+/* For mobile phones
+@media screen and (max-width: 499px){
+
+} */
