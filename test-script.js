@@ -10,8 +10,8 @@ class MazeSquare {
         this.genGridContent();
     }
 
-    genGridContent(rowLetter,columnNumber){
-        if(columnNumber != 0){
+    genGridContent(){
+        if(this.columnNumber != 0){
             var randomNumber = Math.random();
             switch(true){
                 case (randomNumber <= 0.25):
