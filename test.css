@@ -13,6 +13,12 @@ body {
     outline: 4px green solid;
 }
 
+.maze-square {
+    background-color: white;
+    color: black;
+    outline: 2px green solid;
+}
+
 /* For mobile phones
 @media screen and (max-width: 499px){
 
