@@ -35,12 +35,12 @@ class Maze{
 
     genGrid(){
         for(var child of this.mainGrid.children){
-            if (child.dataset.id != "A" && child.dataset.id != "B"){
-                child.style.color = "red";
-                child = new MazeSquare("test",child.dataset.id)
-            } else {
+            if (child.dataset.id == "A" || child.dataset.id == "B"){
                 child.style.color = "blue";
                 child = new MazeSquare(child.dataset.id,0)
+            } else {
+                child.style.color = "red";
+                child = new MazeSquare("test",child.dataset.id)
             }
         }
     }
