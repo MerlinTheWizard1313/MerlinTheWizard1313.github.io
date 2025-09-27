@@ -2,7 +2,7 @@ class MazeSquare {
     constructor(rowValue, columnValue){
         this.rowLetter = rowValue;
         this.columnNumber = columnValue;
-        this.wallArray = [North, East, South, West];
+        this.wallArray = ["North", "East", "South", "West"];
         this.lightLevelNumber = 0;
         this.lightColour = "black";
         this.genGridContent();
