@@ -7,7 +7,9 @@ class MazeSquare {
 
 class Maze extends MazeSquare{
     constructor(grid){
+        super(0);
         this.mainGrid = grid;
+        
     }
 
     genGrid(){

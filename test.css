@@ -10,7 +10,7 @@ body {
     grid-template-columns: 100px 100px 100px 100px;
     background-color: white;
     color: black;
-    outline: 2px green;
+    outline: 4px green solid;
 }
 
 /* For mobile phones
