@@ -8,25 +8,19 @@ class MazeSquare {
         this.lightColour = "black";
         this.gridCoordinateR;
         this.gridCoordinateC;
-        this.mazeSquareClass;
         this.genGridContent();
         this.gridContent = this.gridSquare.innerText;
     }
 
     genGridContent(){
-        this.gridCoordinateR = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
-        this.gridCoordinateC = this.columnNumber;
         if(this.columnNumber != 0){
-           this.gridSquare.innerText = "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
+            this.gridCoordinateR = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
+            this.gridCoordinateC = this.columnNumber;
+            this.gridSquare.innerText = "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
+            this.gridSquare.classList.add("row" + this.gridCoordinateR + "Column" + this.gridCoordinateC);
         } else {
             this.gridSquare.innerText = this.rowLetter;
         }
-        this.mazeSquareClass = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
-        console.log(this.gridSquare.classlist);
-        this.gridSquare.classlist.add("TEST");
-        console.log(this.gridSquare.classlist);
-        this.gridSquare.classlist.add(this.mazeSquareClass);
-        console.log(this.gridSquare.classlist);
     }
 
     getGridCoordinate(){
@@ -66,7 +60,7 @@ class Maze{
     }
 
     gridSquareInfo(row, column){
-        var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate(), "ClassName:" + this.gridSquareArray[row][column].mazeSquareClass]
+        var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate(), "ClassNames:" + this.gridSquareArray[row][column].classList];
         return gridSquareInfo;
     }
 }
