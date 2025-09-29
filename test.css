@@ -12,6 +12,7 @@ body {
   background-color: white;
   color: black;
   outline: 4px green solid;
+  grid-column-gap: 2px;
 }
 
 .maze-square {
@@ -19,11 +20,12 @@ body {
   color: black;
   width: 100px;
   height: 100px;
-  /*outline: 2px green solid;*/
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align:center;
+
 }
 
 [data-id="Label"]{
@@ -32,6 +34,7 @@ body {
   color: green;
   outline: none;
   font-size: 40px;
+  border-right: 2px black solid;
 }
 
 .rowLabel{
@@ -41,7 +44,6 @@ body {
 .columnLabel{
   border-top: 2px green solid;
 }
-
 
 /* For mobile phones
 @media screen and (max-width: 499px){
