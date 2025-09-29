@@ -37,7 +37,6 @@ class MazeSquare {
 class Maze{
     constructor(grid){
         this.mainGrid = grid;
-        this.rowCheck = "Label";
         this.rowLabels = ["1","2","3","4","5","6","7","8","9","10","11","12"]
         this.genGrid();
     }
@@ -45,14 +44,14 @@ class Maze{
     genGrid(){
         var i = -1;
         for(var child of this.mainGrid.children){
-            if (this.rowCheck == child.dataset.id){
+            if (child.dataset.id == "Label"){
                 i++;
                 child.style.color = "blue";
-                child.innerText = this.rowLabels(i);
-                child = new MazeSquare(child, this.rowLabels(i), 0);
+                child.innerText = this.rowLabels[i];
+                child = new MazeSquare(child, this.rowLabels[i], 0);
             } else {
                 child.style.color = "red";
-                child = new MazeSquare(child, this.rowLabels(i), child.dataset.id);
+                child = new MazeSquare(child, this.rowLabels[i], child.dataset.id);
             }
         }
     }
