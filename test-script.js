@@ -22,6 +22,8 @@ class MazeSquare {
             this.gridSquare.innerText = this.rowLetter;
         }
         this.mazeSquareClass = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
+        console.log(this.mazeSquareClass);
+        console.log(this.gridSquare.classlist);
         this.gridSquare.classlist.add(this.mazeSquareClass);
     }
 
