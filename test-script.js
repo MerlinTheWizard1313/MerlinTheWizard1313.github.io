@@ -9,20 +9,16 @@ class MazeSquare {
         this.gridContent = "";
         this.gridCoordinate = [0,0];
         this.genGridContent();
-        this.getGridCoordinate();
     }
 
     genGridContent(){
         if(this.columnNumber != 0){
            this.gridCoordinate[0] = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
            this.gridCoordinate[1] = this.columnNumber;
+           this.gridSquare.innerText = "(" + this.gridCoordinate[0] + "," + this.gridCoordinate[1] + ")";
         } else {
             this.gridSquare.innerText = this.rowLetter;
         }
-    }
-
-    getGridCoordinate(){
-        console.log(this.gridCoordinate);
     }
 }
 
