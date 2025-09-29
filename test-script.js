@@ -49,10 +49,12 @@ class Maze{
                 currentRow = gridElement.innerText;
                 this.gridSquareArray[j].push(new MazeSquare(gridElement, currentRow, 0));
                 gridElement = this.gridSquareArray[j][i];
+                gridElement.classlist.add(("row"+ j + "Column" + i));
                 i++;
             } else {
                 this.gridSquareArray[j].push(new MazeSquare(gridElement, currentRow, gridElement.dataset.id));
                 gridElement = this.gridSquareArray[j][i];
+                gridElement.classlist.add(("row"+ j + "Column" + i));
                 i++;
             }
         }
@@ -66,7 +68,6 @@ class Maze{
 
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);
-gridTest.gridArrayCheck(6,2);
 /*var randomNumber = Math.random();
             switch(true){
                 case (randomNumber <= 0.25):
