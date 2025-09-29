@@ -6,10 +6,10 @@ class MazeSquare {
         this.wallArray = ["North", "East", "South", "West"];
         this.lightLevelNumber = 0;
         this.lightColour = "black";
-        this.gridContent = box.innerText;
         this.gridCoordinateR;
         this.gridCoordinateC;
         this.genGridContent();
+        this.gridContent = gridSquare.innerText;
     }
 
     genGridContent(){
@@ -23,7 +23,7 @@ class MazeSquare {
     }
 
     getGridCoordinate(){
-        console.log("(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")");
+        return "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
     }
 }
 
@@ -58,8 +58,9 @@ class Maze{
         }
     }
 
-    gridArrayCheck(row, column){
-        console.log(this.gridSquareArray[row][column].gridContent);
+    gridSquareInfo(row, column){
+        var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate()]
+        return gridSquareInfo;
     }
 }
 
