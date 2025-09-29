@@ -7,15 +7,16 @@ class MazeSquare {
         this.lightLevelNumber = 0;
         this.lightColour = "black";
         this.gridContent = "";
-        this.gridCoordinate = [0,0];
+        this.gridCoordinateR;
+        this.gridCoordinateC;
         this.genGridContent();
     }
 
     genGridContent(){
         if(this.columnNumber != 0){
-           this.gridCoordinate[0] = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
-           this.gridCoordinate[1] = this.columnNumber;
-           this.gridSquare.innerText = "(" + this.gridCoordinate[0] + "," + this.gridCoordinate[1] + ")";
+           this.gridCoordinateR = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
+           this.gridCoordinateC = this.columnNumber;
+           this.gridSquare.innerText = "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
         } else {
             this.gridSquare.innerText = this.rowLetter;
         }
@@ -25,27 +26,34 @@ class MazeSquare {
 class Maze{
     constructor(grid){
         this.mainGrid = grid;
-        this.rowLabels = ["H","G","F","E","D","C","B","A"," ","1","2","3","4","5","6","7","8","9","10"]
+        this.gridSquareArray = [[],[],[],[],[],[],[],[],[]];
         this.genGrid();
     }
 
     genGrid(){
-        var i = -1;
-        for(var child of this.mainGrid.children){
-            if (child.dataset.id == "Label"){
-                i++;
-                child.innerText = this.rowLabels[i];
-                child = new MazeSquare(child, this.rowLabels[i], 0);
+        var j = 9;
+        var currentRow = "";
+        for(var gridElement of this.mainGrid.children){
+            if (gridElement.dataset.id == "Label"){
+                j--;
+                currentRow = gridElement.innerText;
+                gridElement = new MazeSquare(gridElement, currentRow, 0);
+                this.gridSquareArray[j].push(gridElement);
             } else {
-                child = new MazeSquare(child, this.rowLabels[i], child.dataset.id);
+                gridElement = new MazeSquare(gridElement, currentRow, gridElement.dataset.id);
+                this.gridSquareArray[j].push(gridElement);
             }
         }
+    }
+
+    gridArrayCheck(row, column){
+        console.log(gridSquareArray[row][column].innerText);
     }
 }
 
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);
-
+gridTest.gridArrayCheck(6,2);
 /*var randomNumber = Math.random();
             switch(true){
                 case (randomNumber <= 0.25):
