@@ -2,35 +2,27 @@ class MazeSquare {
     constructor(box, rowValue, columnValue){
         this.gridSquare = box;
         this.rowLetter = rowValue;
-        this.columnNumber = columnValue;
+        this.columnNumber = parseInt(columnValue, 10);
         this.wallArray = ["North", "East", "South", "West"];
         this.lightLevelNumber = 0;
         this.lightColour = "black";
         this.gridContent = "";
+        this.gridCoordinate = [0,0];
         this.genGridContent();
+        this.getGridCoordinate();
     }
 
     genGridContent(){
         if(this.columnNumber != 0){
-            var randomNumber = Math.random();
-            switch(true){
-                case (randomNumber <= 0.25):
-                    this.gridContent = "Empty"
-                    break;
-                case (randomNumber <= 0.5):
-                    this.gridContent = "Unlit Torch"
-                    break;
-                case (randomNumber <= 0.75):
-                    this.gridContent = "Enemy"
-                    break;
-                case (randomNumber <= 1):
-                    this.gridContent = "NPC"
-                    break;     
-            }      
+           this.gridCoordinate[0] = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
+           this.gridCoordinate[1] = this.columnNumber;
         } else {
-            this.gridContent = this.rowLetter;
+            this.gridSquare.innerText = this.rowLetter;
         }
-        this.gridSquare.innerText = this.gridContent;
+    }
+
+    getGridCoordinate(){
+        console.log(this.gridCoordinate);
     }
 }
 
@@ -57,3 +49,19 @@ class Maze{
 
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);
+
+/*var randomNumber = Math.random();
+            switch(true){
+                case (randomNumber <= 0.25):
+                    this.gridSquare.innerText = "Empty"
+                    break;
+                case (randomNumber <= 0.5):
+                    this.gridSquare.innerText = "Unlit Torch"
+                    break;
+                case (randomNumber <= 0.75):
+                    this.gridSquare.innerText = "Enemy"
+                    break;
+                case (randomNumber <= 1):
+                    this.gridSquare.innerText = "NPC"
+                    break;     
+            }*/
