@@ -48,11 +48,11 @@ class Maze{
             if (this.rowCheck == child.dataset.id){
                 i++;
                 child.style.color = "blue";
-                child.innerText = rowLabels(i);
-                child = new MazeSquare(child, rowLabels(i), 0);
+                child.innerText = this.rowLabels(i);
+                child = new MazeSquare(child, this.rowLabels(i), 0);
             } else {
                 child.style.color = "red";
-                child = new MazeSquare(child, rowLabels(i), child.dataset.id);
+                child = new MazeSquare(child, this.rowLabels(i), child.dataset.id);
             }
         }
     }
