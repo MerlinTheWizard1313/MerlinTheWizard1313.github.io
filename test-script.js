@@ -35,13 +35,18 @@ class Maze{
         var currentRow = "";
         for(var gridElement of this.mainGrid.children){
             if (gridElement.dataset.id == "Label"){
+                if (i != 0){
+                    i = 0;
+                }
                 j--;
                 currentRow = gridElement.innerText;
-                gridElement = new MazeSquare(gridElement, currentRow, 0);
-                this.gridSquareArray[j].push(gridElement);
+                this.gridSquareArray[j].push(new MazeSquare(gridElement, currentRow, 0));
+                gridElement = this.gridSquareArray[j][i];
+                i++;
             } else {
-                gridElement = new MazeSquare(gridElement, currentRow, gridElement.dataset.id);
-                this.gridSquareArray[j].push(gridElement);
+                this.gridSquareArray[j].push(new MazeSquare(gridElement, currentRow, gridElement.dataset.id));
+                gridElement = this.gridSquareArray[j][i];
+                i++;
             }
         }
     }
