@@ -8,6 +8,7 @@ class MazeSquare {
         this.lightColour = "black";
         this.gridCoordinateR;
         this.gridCoordinateC;
+        this.mazeSquareClass;
         this.genGridContent();
         this.gridContent = this.gridSquare.innerText;
     }
@@ -20,7 +21,8 @@ class MazeSquare {
         } else {
             this.gridSquare.innerText = this.rowLetter;
         }
-        this.gridSquare.classlist.add(("row"+ this.gridCoordinateR + "Column" + this.gridCoordinateC));
+        this.mazeSquareClass = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
+        this.gridSquare.classlist.add(this.mazeSquareClass);
     }
 
     getGridCoordinate(){
@@ -60,13 +62,14 @@ class Maze{
     }
 
     gridSquareInfo(row, column){
-        var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate()]
+        var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate(), "ClassName:" + this.gridSquareArray[row][column].mazeSquareClass]
         return gridSquareInfo;
     }
 }
 
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);
+gridTest.gridSquareInfo(6,2);
 /*var randomNumber = Math.random();
             switch(true){
                 case (randomNumber <= 0.25):
