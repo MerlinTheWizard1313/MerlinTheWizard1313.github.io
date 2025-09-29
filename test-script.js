@@ -9,7 +9,7 @@ class MazeSquare {
         this.gridCoordinateR;
         this.gridCoordinateC;
         this.genGridContent();
-        this.gridContent = gridSquare.innerText;
+        this.gridContent = this.gridSquare.innerText;
     }
 
     genGridContent(){
