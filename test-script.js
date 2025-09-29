@@ -37,18 +37,23 @@ class MazeSquare {
 class Maze{
     constructor(grid){
         this.mainGrid = grid;
-        this.rowLetters = ["A","B","C","D"];
+        this.rowLabels = ["Label"];
         this.genGrid();
     }
 
     genGrid(){
+        var currentRow = "";
         for(var child of this.mainGrid.children){
-            if (this.rowLetters.indexOf(child.dataset.id) != -1){
+            if (this.rowLabels.indexOf(child.dataset.id) != -1){
                 child.style.color = "blue";
                 child = new MazeSquare(child, child.dataset.id, 0)
+                currentRow = child.innerText;
+                if (currentRow == ""){
+                    currentRow = "Label";
+                }
             } else {
                 child.style.color = "red";
-                child = new MazeSquare(child, "test", child.dataset.id)
+                child = new MazeSquare(child, currentRow, child.dataset.id)
             }
         }
     }
