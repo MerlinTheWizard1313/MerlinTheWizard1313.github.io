@@ -8,7 +8,7 @@ body {
   display: grid;
   grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
   grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
-  justify-self: center;
+  width: 1118px;
   background-color: white;
   color: black;
   outline: 4px green solid;
