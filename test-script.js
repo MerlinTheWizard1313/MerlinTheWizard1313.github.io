@@ -31,14 +31,17 @@ class Maze{
     }
 
     genGrid(){
+        var i = 0;
         var j = 9;
         var currentRow = "";
         for(var gridElement of this.mainGrid.children){
             if (gridElement.dataset.id == "Label"){
-                if (i != 0){
+                if (i != 0 && j != 0){
                     i = 0;
                 }
-                j--;
+                if (j > 0){
+                    j--;
+                }
                 currentRow = gridElement.innerText;
                 this.gridSquareArray[j].push(new MazeSquare(gridElement, currentRow, 0));
                 gridElement = this.gridSquareArray[j][i];
