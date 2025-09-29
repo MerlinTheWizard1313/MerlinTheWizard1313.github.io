@@ -14,17 +14,19 @@ class MazeSquare {
     }
 
     genGridContent(){
+        this.gridCoordinateR = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
+        this.gridCoordinateC = this.columnNumber;
         if(this.columnNumber != 0){
-           this.gridCoordinateR = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
-           this.gridCoordinateC = this.columnNumber;
            this.gridSquare.innerText = "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
         } else {
             this.gridSquare.innerText = this.rowLetter;
         }
         this.mazeSquareClass = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
-        console.log(this.mazeSquareClass);
+        console.log(this.gridSquare.classlist);
+        this.gridSquare.classlist.add("TEST");
         console.log(this.gridSquare.classlist);
         this.gridSquare.classlist.add(this.mazeSquareClass);
+        console.log(this.gridSquare.classlist);
     }
 
     getGridCoordinate(){
