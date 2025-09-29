@@ -20,6 +20,7 @@ class MazeSquare {
         } else {
             this.gridSquare.innerText = this.rowLetter;
         }
+        this.gridSquare.classlist.add(("row"+ this.gridCoordinateR + "Column" + this.gridCoordinateC));
     }
 
     getGridCoordinate(){
@@ -49,12 +50,10 @@ class Maze{
                 currentRow = gridElement.innerText;
                 this.gridSquareArray[j].push(new MazeSquare(gridElement, currentRow, 0));
                 gridElement = this.gridSquareArray[j][i];
-                gridElement.classlist.add(("row"+ j + "Column" + i));
                 i++;
             } else {
                 this.gridSquareArray[j].push(new MazeSquare(gridElement, currentRow, gridElement.dataset.id));
                 gridElement = this.gridSquareArray[j][i];
-                gridElement.classlist.add(("row"+ j + "Column" + i));
                 i++;
             }
         }
