@@ -55,7 +55,7 @@ class Maze{
     }
 
     gridArrayCheck(row, column){
-        console.log(gridSquareArray[row][column].innerText);
+        console.log(this.gridSquareArray[row][column].innerText);
     }
 }
 
