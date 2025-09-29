@@ -3,7 +3,7 @@ class MazeSquare {
         this.gridSquare = box;
         this.rowLetter = rowValue;
         this.columnNumber = parseInt(columnValue, 10);
-        this.wallArray = ["North", "East", "South", "West"];
+        this.wallArray = ["North", "East", "South", "West"]; /*dotted and dashed make cracked wall*/
         this.lightLevelNumber = 0;
         this.lightColour = "black";
         this.gridCoordinateR;
