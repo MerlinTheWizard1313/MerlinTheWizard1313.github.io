@@ -37,7 +37,7 @@ class MazeSquare {
 class Maze{
     constructor(grid){
         this.mainGrid = grid;
-        this.rowLabels = ["1","2","3","4","5","6","7","8","9","10","11","12"]
+        this.rowLabels = ["H","G","F","E","D","C","B","A"," ","1","2","3","4","5","6","7","8","9","10"]
         this.genGrid();
     }
 

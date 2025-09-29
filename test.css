@@ -6,18 +6,25 @@ body {
 }
 
 .maze-container {
-    display: grid;
-    grid-template-columns: 100px 100px 100px 100px;
-    background-color: white;
-    color: black;
-    outline: 4px green solid;
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  background-color: white;
+  color: black;
+  outline: 4px green solid;
 }
 
 .maze-square {
-    background-color: white;
-    color: black;
-    outline: 2px green solid;
+  background-color: white;
+  color: black;
+  outline: 2px green solid;
 }
+
+[data-id="Label"]{
+  background-color: black;
+  text-align: center;
+  color: yellow;
+}
+
 
 /* For mobile phones
 @media screen and (max-width: 499px){
