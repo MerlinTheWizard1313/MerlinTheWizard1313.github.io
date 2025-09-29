@@ -8,6 +8,8 @@ body {
 .maze-container {
   display: grid;
   grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+  justify-self: center;
   background-color: white;
   color: black;
   outline: 4px green solid;
@@ -23,6 +25,7 @@ body {
   background-color: black;
   text-align: center;
   color: green;
+  outline: none;
 }
 
 
