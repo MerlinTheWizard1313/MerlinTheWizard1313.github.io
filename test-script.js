@@ -46,11 +46,9 @@ class Maze{
         for(var child of this.mainGrid.children){
             if (child.dataset.id == "Label"){
                 i++;
-                child.style.color = "blue";
                 child.innerText = this.rowLabels[i];
                 child = new MazeSquare(child, this.rowLabels[i], 0);
             } else {
-                child.style.color = "red";
                 child = new MazeSquare(child, this.rowLabels[i], child.dataset.id);
             }
         }
