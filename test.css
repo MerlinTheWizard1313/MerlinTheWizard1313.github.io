@@ -2,7 +2,6 @@ body {
   font-family: Verdana, sans-serif;
   background-color:black; 
   color: white;
-  font-size: 36px;
 }
 
 .maze-container {
@@ -18,7 +17,13 @@ body {
 .maze-square {
   background-color: white;
   color: black;
-  outline: 2px green solid;
+  width: 100px;
+  height: 100px;
+  /*outline: 2px green solid;*/
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 [data-id="Label"]{
@@ -26,6 +31,15 @@ body {
   text-align: center;
   color: green;
   outline: none;
+  font-size: 40px;
+}
+
+.rowLabel{
+  border-right: 2px green solid;
+}
+
+.columnLabel{
+  border-top: 2px green solid;
 }
 
 
