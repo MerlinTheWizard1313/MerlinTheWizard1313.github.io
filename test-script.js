@@ -96,10 +96,14 @@ class Walls{
     }
 
     lightUpdate(colourChange){
+        console.log(!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)|| this.gridSquareElement.tileHasLitTorch == false);
+        console.log(!(colourChange > 0 && this.currentColourIndex == 2));
+        console.log(!(colourChange < 0 && this.currentColourIndex == 0));
+        console.log(this.gridSquareElement.tileHasLitTorch == false);
         if(this.gridSquareElement.tileHasLitTorch && tileTorchLit == false){
             this.currentColourIndex == 2;
             this.updateWalls();
-        } else if (!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)|| !this.gridSquareElement.tileHasLitTorch){
+        } else if (!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)|| this.gridSquareElement.tileHasLitTorch == false){
             this.currentColourIndex += colourChange;
             this.updateWalls();
         }
