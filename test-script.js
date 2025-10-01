@@ -7,8 +7,13 @@ class MazeSquare {
         this.lightColour = "black";
         this.gridCoordinateR;
         this.gridCoordinateC;
+        this.gridSquareClassName = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
+        this.gridSquareClassNameForWalls = ".row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
         this.genGridContent();
-        this.gridWalls = new Walls(".row" + this.gridCoordinateR + "Column" + this.gridCoordinateC);
+        this.gridWalls;
+        /*this.gridWalls = new Walls(this.gridSquareClassNameForWalls);
+        this.gridWalls = new Walls(("." + this.gridSquareClassName));
+        this.gridWalls = new Walls((".row" + this.gridCoordinateR + "Column" + this.gridCoordinateC));*/
         this.gridContent = this.gridSquare.innerText;
     }
 
@@ -17,7 +22,7 @@ class MazeSquare {
             this.gridCoordinateR = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
             this.gridCoordinateC = this.columnNumber;
             this.gridSquare.innerText = "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
-            this.gridSquare.classList.add("row" + this.gridCoordinateR + "Column" + this.gridCoordinateC);
+            this.gridSquare.classList.add(this.gridSquareClassName);
         } else {
             this.gridSquare.innerText = this.rowLetter;
         }
@@ -25,6 +30,21 @@ class MazeSquare {
 
     getGridCoordinate(){
         return "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
+    }
+
+    gridWalls1(){
+        this.gridWalls = new Walls((".row" + this.gridCoordinateR + "Column" + this.gridCoordinateC));
+        return "completed gridWalls1";
+    }
+
+    gridWalls2(){
+        this.gridWalls = new Walls(("." + this.gridSquareClassName));
+        return "completed gridWalls2";
+    }
+
+    gridWalls3(){
+        this.gridWalls = new Walls(this.gridSquareClassNameForWalls);
+        return "completed gridWalls3";
     }
 }
 
