@@ -91,7 +91,7 @@ class Walls{
             if(styleCheck.charAt(0) != 0){
                 this.actualWalls.push(styleCheck);
             } else {
-                this.actualWalls.push("None");
+                this.actualWalls.push("none");
             }
         }
     }
@@ -110,25 +110,23 @@ class Walls{
         for(let i = 0; i < this.propertyArray.length; i++){
             if(this.actualWalls[i] != "none"){
                 this.actualWalls[i].replace(this.currentColour,this.wallColours[this.currentColourIndex]);
-                console.log(this.actualWalls[i]);
                 this.currentColour = this.wallColours[this.currentColourIndex];
-                console.log(this.currentColour);
                 switch (i){
                     case 0:
-                        this.gridSquareElement.style.borderTopColour = this.wallColours[this.currentColourIndex];
-                        console.log(this.gridSquareElement.style.borderTopColour);
+                        this.gridSquareElement.style.borderTopColor = this.wallColours[this.currentColourIndex];
+                        console.log(this.gridSquareElement.style.borderTopColor);
                         break;
                     case 1:
-                        this.gridSquareElement.style.borderRightColour = this.wallColours[this.currentColourIndex];
-                        console.log(this.gridSquareElement.style.borderRightColour);
+                        this.gridSquareElement.style.borderRightColor = this.wallColours[this.currentColourIndex];
+                        console.log(this.gridSquareElement.style.borderRightColor);
                         break;
                     case 2:
-                        this.gridSquareElement.style.borderBottomColour = this.wallColours[this.currentColourIndex];
-                        console.log(this.gridSquareElement.style.borderBottomColour);
+                        this.gridSquareElement.style.borderBottomColor = this.wallColours[this.currentColourIndex];
+                        console.log(this.gridSquareElement.style.borderBottomColor);
                         break;
                     case 3:
-                        this.gridSquareElement.style.borderLeftColour = this.wallColours[this.currentColourIndex];
-                        console.log(this.gridSquareElement.style.borderLeftColour);
+                        this.gridSquareElement.style.borderLeftColor = this.wallColours[this.currentColourIndex];
+                        console.log(this.gridSquareElement.style.borderLeftColor);
                         break;
                 }
             }
