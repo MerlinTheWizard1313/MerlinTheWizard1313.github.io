@@ -100,7 +100,7 @@ class Walls{
         if(this.tileTorchLit && tileTorchLock == false){
             this.currentColourIndex == 2;
             this.updateWalls();
-        } else if ((!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)) && this.tileTorchLit == false){
+        } else if ((colourChange > 0 && this.currentColourIndex == 2) == false && (colourChange < 0 && this.currentColourIndex == 0) == false && this.tileTorchLit == false){
             this.currentColourIndex += colourChange;
             this.updateWalls();
         }
