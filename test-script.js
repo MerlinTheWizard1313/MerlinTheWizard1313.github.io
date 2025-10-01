@@ -97,11 +97,6 @@ class Walls{
     }
 
     lightUpdate(colourChange){
-        console.log(!(colourChange > 0 && this.currentColourIndex == 2));
-        console.log(!(colourChange < 0 && this.currentColourIndex == 0));
-        console.log(this.tileTorchLit == false);
-        console.log((!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)));
-        console.log((!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)) && this.tileTorchLit == false);
         if(this.tileTorchLit && tileTorchLock == false){
             this.currentColourIndex == 2;
             this.updateWalls();
@@ -115,19 +110,25 @@ class Walls{
         for(let i = 0; i < this.propertyArray.length; i++){
             if(this.actualWalls[i] != "none"){
                 this.actualWalls[i].replace(this.currentColour,this.wallColours[this.currentColourIndex]);
+                console.log(this.actualWalls[i]);
                 this.currentColour = this.wallColours[this.currentColourIndex];
+                console.log(this.currentColour);
                 switch (i){
                     case 0:
                         this.gridSquareElement.style.borderTopColour = this.wallColours[this.currentColourIndex];
+                        console.log(this.gridSquareElement.style.borderTopColour);
                         break;
                     case 1:
                         this.gridSquareElement.style.borderRightColour = this.wallColours[this.currentColourIndex];
+                        console.log(this.gridSquareElement.style.borderRightColour);
                         break;
                     case 2:
                         this.gridSquareElement.style.borderBottomColour = this.wallColours[this.currentColourIndex];
+                        console.log(this.gridSquareElement.style.borderBottomColour);
                         break;
                     case 3:
                         this.gridSquareElement.style.borderLeftColour = this.wallColours[this.currentColourIndex];
+                        console.log(this.gridSquareElement.style.borderLeftColour);
                         break;
                 }
             }
