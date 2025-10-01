@@ -9,6 +9,7 @@ class MazeSquare {
         this.gridCoordinateC;
         this.gridSquareClassName;
         this.gridWalls;
+        this.tileHasLitTorch = false;
         this.genGridContent();
         this.gridContent = this.gridSquare.innerText;
     }
@@ -63,7 +64,10 @@ class Maze{
     }
 
     gridSquareInfo(row, column){
-        var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate(), "ClassNames:" + this.gridSquareArray[row][column].classList, "WallArray:" + this.gridSquareArray[row][column].gridWalls.actualWalls];
+        var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, 
+                                "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate(), 
+                                "ClassNames:" + this.gridSquareArray[row][column].classList, 
+                                "TileWalls:" + this.gridSquareArray[row][column].gridWalls.actualWalls];
         return gridSquareInfo;
     }
 }
@@ -73,37 +77,138 @@ class Walls{
         this.gridSquareElement = document.querySelector(gridSquareClassName);
         this.propertyArray = ["border-top", "border-right", "border-bottom", "border-left"];
         this.actualWalls = [];
-        this.checkWalls();
+        this.currentColourIndex = 0;
+        this.currentColour = "rgb(0,0,0)";
+        this.tileTorchLit = false;
+        this.wallColours = ["rgb(0,0,0)","rgb(0,32,0)","rgb(0,128,0)"]
+        this.initialiseWalls();
     }
     /*dotted and dashed make cracked wall, double for jail wall*/
-    checkWalls(){
+    initialiseWalls(){
         for (let i = 0; i < this.propertyArray.length; i++){
             var styleCheck = window.getComputedStyle(this.gridSquareElement, null).getPropertyValue(this.propertyArray[i]);
-            console.log(styleCheck);
             if(styleCheck.charAt(0) != 0){
                 this.actualWalls.push(styleCheck);
             } else {
                 this.actualWalls.push("None");
             }
         }
-        return this.actualWalls;
+    }
+
+    lightUpdate(colourChange){
+        if(this.gridSquareElement.tileHasLitTorch && tileTorchLit == false){
+            this.currentColourIndex == 2;
+            this.updateWalls();
+        } else if (!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)|| !this.gridSquareElement.tileHasLitTorch){
+            this.currentColourIndex += colourChange;
+            this.updateWalls();
+        }
+    }
+
+    updateWalls(){
+        for(let i = 0; i < this.propertyArray.length; i++){
+            if(this.actualWalls[i] != "none"){
+                this.actualWalls[i].replace(this.currentColour,this.wallColours[this.currentColourIndex]);
+                this.currentColour = this.wallColours[this.currentColourIndex];
+                window.getComputedStyle(this.gridSquareElement, null).setProperty(this.propertyArray[i],this.wallColours[this.currentColourIndex]);
+            }
+        }
     }
 }
 
+/*class Player {
+    constructor(spawnTile){
+        this.currentTile = spawnTile;
+        this.northTile;
+        this.eastTile;
+        this.southTile;
+        this.westTile;
+    }
+
+    initialisePlayer(){
+        //update each adjacent tile to start and update their light levels
+    }
+
+    playerMove(){
+
+    }
+
+    tileUpdate(tileChoice){
+        this.currentTile.lightUpdate(-2);
+        for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
+            switch(i){
+                case 0:
+                    if(this.northTile == ""){
+                        break;
+                    } else if(tileChoice != this.northTile) {
+                        this.northTile.lightUpdate(-1);
+                        break;
+                    }
+                case 1:
+                    if(this.eastTile == ""){
+                        break;
+                    } else if(tileChoice != this.eastTile){
+                        this.eastTile.lightUpdate(-1);
+                        break;
+                    }
+                case 2:
+                    if(this.southTile == ""){
+                        break;
+                    } else if(tileChoice != this.southTile){
+                        this.southTile.lightUpdate(-1);
+                    }
+                case 3:
+                    if(this.westTile == ""){
+                        break;
+                    } else if(tileChoice != this.westTile){
+                        this.westTile.lightUpdate(-1);
+                    }
+            }
+        }
+        this.currentTile = tileChoice;
+        for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
+            switch(i){
+                case 0:
+                    if(this.currentTile.gridWalls.actualWalls[i] != "none"){
+                        this.northTile = "";
+                        break;
+                    } else {
+                        this.northTile = document.querySelector((".row" + (this.currentTile.gridCoordinateR + 1) + "Column" + this.currentTile.gridCoordinateC));
+                        this.northTile.lightUpdate(1);
+                        break;
+                    }
+                case 1:
+                    if(this.currentTile.gridWalls.actualWalls[i] != "none"){
+                        this.eastTile = "";
+                        break;
+                    } else {
+                        this.eastTile = document.querySelector((".row" + this.currentTile.gridCoordinateR + "Column" + (this.currentTile.gridCoordinateC + 1)));
+                        this.eastTile.lightUpdate(1);
+                        break;
+                    }
+                case 2:
+                    if(this.currentTile.gridWalls.actualWalls[i] != "none"){
+                        this.southTile = "";
+                        break;
+                    } else {
+                        this.southTile = document.querySelector((".row" + (this.currentTile.gridCoordinateR - 1) + "Column" + this.currentTile.gridCoordinateC));
+                        this.southTile.lightUpdate(1);
+                        break;
+                    }
+                case 3:
+                    if(this.currentTile.gridWalls.actualWalls[i] != "none"){
+                        this.westTile = "";
+                        break;
+                    } else {
+                        this.westTile = document.querySelector((".row" + this.currentTile.gridCoordinateR  + "Column" + (this.currentTile.gridCoordinateC - 1)));
+                        this.westTile.lightUpdate(1);
+                        break;
+                    }
+            }
+        }
+        this.currentTile.lightUpdate(1);
+    }
+}*/
+
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);
-/*var randomNumber = Math.random();
-            switch(true){
-                case (randomNumber <= 0.25):
-                    this.gridSquare.innerText = "Empty"
-                    break;
-                case (randomNumber <= 0.5):
-                    this.gridSquare.innerText = "Unlit Torch"
-                    break;
-                case (randomNumber <= 0.75):
-                    this.gridSquare.innerText = "Enemy"
-                    break;
-                case (randomNumber <= 1):
-                    this.gridSquare.innerText = "NPC"
-                    break;     
-            }*/
