@@ -97,6 +97,11 @@ class Walls{
     }
 
     lightUpdate(colourChange){
+        console.log(!(colourChange > 0 && this.currentColourIndex == 2));
+        console.log(!(colourChange < 0 && this.currentColourIndex == 0));
+        console.log(this.tileTorchLit == false);
+        console.log((!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)));
+        console.log((!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)) && this.tileTorchLit == false);
         if(this.tileTorchLit && tileTorchLock == false){
             this.currentColourIndex == 2;
             this.updateWalls();
