@@ -75,7 +75,7 @@ class Walls{
 
     checkWalls(){
         for (let i = 0; i < this.propertyArray.length; i++){
-            var styleCheck = window.getComputedStyle(this.gridSquareElement, null).getPropertyValue(propertyArray[i]);
+            var styleCheck = window.getComputedStyle(this.gridSquareElement, null).getPropertyValue(this.propertyArray[i]);
             if(styleCheck.charAt(0) != 0){
                 this.actualWalls.push(styleCheck);
                 console.log(styleCheck);
