@@ -69,6 +69,7 @@ class Maze{
 class Walls{
     constructor(gridSquareClassName){
         this.gridSquareElement = document.querySelector(gridSquareClassName);
+        console.log(gridSquareClassName);
         this.propertyArray = ["border-top", "border-right", "border-bottom", "border-left"];
         this.actualWalls = [];
         this.checkWalls();
@@ -76,6 +77,7 @@ class Walls{
     /*dotted and dashed make cracked wall, double for jail wall*/
     checkWalls(){
         console.log(this.propertyArray);
+        console.log(this.gridSquareElement);
         for (let i = 0; i < this.propertyArray.length; i++){
             var styleCheck = window.getComputedStyle(this.gridSquareElement, null).getPropertyValue(this.propertyArray[i]);
             console.log(styleCheck.charAt(0));
