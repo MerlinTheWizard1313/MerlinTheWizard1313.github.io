@@ -8,12 +8,8 @@ class MazeSquare {
         this.gridCoordinateR;
         this.gridCoordinateC;
         this.gridSquareClassName = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
-        this.gridSquareClassNameForWalls = ".row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
         this.genGridContent();
-        this.gridWalls;
-        /*this.gridWalls = new Walls(this.gridSquareClassNameForWalls);
         this.gridWalls = new Walls(("." + this.gridSquareClassName));
-        this.gridWalls = new Walls((".row" + this.gridCoordinateR + "Column" + this.gridCoordinateC));*/
         this.gridContent = this.gridSquare.innerText;
     }
 
@@ -30,21 +26,6 @@ class MazeSquare {
 
     getGridCoordinate(){
         return "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
-    }
-
-    gridWalls1(){
-        this.gridWalls = new Walls((".row" + this.gridCoordinateR + "Column" + this.gridCoordinateC));
-        return "completed gridWalls1";
-    }
-
-    gridWalls2(){
-        this.gridWalls = new Walls(("." + this.gridSquareClassName));
-        return "completed gridWalls2";
-    }
-
-    gridWalls3(){
-        this.gridWalls = new Walls(this.gridSquareClassNameForWalls);
-        return "completed gridWalls3";
     }
 }
 
@@ -94,13 +75,17 @@ class Walls{
     }
     /*dotted and dashed make cracked wall, double for jail wall*/
     checkWalls(){
+        console.log(this.propertyArray);
         for (let i = 0; i < this.propertyArray.length; i++){
             var styleCheck = window.getComputedStyle(this.gridSquareElement, null).getPropertyValue(this.propertyArray[i]);
+            console.log(styleCheck.charAt(0));
+            console.log(i);
             if(styleCheck.charAt(0) != 0){
                 this.actualWalls.push(styleCheck);
             } else {
                 this.actualWalls.push("None");
             }
+            console.log(i);
         }
         return this.actualWalls;
     }
