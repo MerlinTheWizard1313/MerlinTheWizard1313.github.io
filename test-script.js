@@ -9,7 +9,7 @@ class MazeSquare {
         this.gridCoordinateC;
         this.gridSquareClassName = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
         this.genGridContent();
-        this.gridWalls = new Walls(("." + this.gridSquareClassName));
+        this.gridWalls;
         this.gridContent = this.gridSquare.innerText;
     }
 
@@ -19,6 +19,7 @@ class MazeSquare {
             this.gridCoordinateC = this.columnNumber;
             this.gridSquare.innerText = "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
             this.gridSquare.classList.add(this.gridSquareClassName);
+            this.gridWalls = new Walls(("." + this.gridSquareClassName));
         } else {
             this.gridSquare.innerText = this.rowLetter;
         }
@@ -69,7 +70,6 @@ class Maze{
 class Walls{
     constructor(gridSquareClassName){
         this.gridSquareElement = document.querySelector(gridSquareClassName);
-        console.log(gridSquareClassName);
         this.propertyArray = ["border-top", "border-right", "border-bottom", "border-left"];
         this.actualWalls = [];
         this.checkWalls();
@@ -77,10 +77,10 @@ class Walls{
     /*dotted and dashed make cracked wall, double for jail wall*/
     checkWalls(){
         console.log(this.propertyArray);
-        console.log(this.gridSquareElement);
         for (let i = 0; i < this.propertyArray.length; i++){
             var styleCheck = window.getComputedStyle(this.gridSquareElement, null).getPropertyValue(this.propertyArray[i]);
             console.log(styleCheck.charAt(0));
+            console.log(styleCheck);
             console.log(i);
             if(styleCheck.charAt(0) != 0){
                 this.actualWalls.push(styleCheck);
