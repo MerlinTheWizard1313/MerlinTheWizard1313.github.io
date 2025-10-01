@@ -9,6 +9,7 @@ class MazeSquare {
         this.gridCoordinateC;
         this.gridSquareClassName;
         this.gridWalls;
+        this.playerOnTile = false;
         this.tileHasLitTorch = false;
         this.genGridContent();
         this.gridContent = this.gridSquare.innerText;
@@ -29,6 +30,14 @@ class MazeSquare {
 
     getGridCoordinate(){
         return "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
+    }
+
+    playerUpdate(){
+        if(this.playerOnTile){
+            //display player icon
+        } else {
+            //remove player icon
+        }
     }
 }
 
@@ -99,6 +108,7 @@ class Walls{
     lightUpdate(colourChange){
         if(this.tileTorchLit && tileTorchLock == false){
             this.currentColourIndex == 2;
+            this.tileTorchLock = true;
             this.updateWalls();
         } else if ((colourChange > 0 && this.currentColourIndex == 2) == false && (colourChange < 0 && this.currentColourIndex == 0) == false && this.tileTorchLit == false){
             this.currentColourIndex += colourChange;
@@ -130,53 +140,105 @@ class Walls{
     }
 }
 
-/*class Player {
-    constructor(spawnTile){
+class Player {
+    constructor(gridSquareArray, spawnTile){
+        this.mazeArray;
         this.currentTile = spawnTile;
         this.northTile;
         this.eastTile;
         this.southTile;
         this.westTile;
+        this.hasSword = false;
+        this.hasHammer = false;
     }
 
     initialisePlayer(){
         //update each adjacent tile to start and update their light levels
+        this.currentTile.playerOnTile = true;
     }
 
-    playerMove(){
+    playerMove(tileChoice){
+        if(this.tileChoice == ""){
+            return "Choose a valid tile";
+        } else if (this.tileChoice.hasEnemy){
+            //looks like an enemy is blocking the path
+        } else {
+            this.currentTile.playerOnTile = false;
+            this.currentTile.playerUpdate();
+            tileUpdate(tileChoice);
+            this.currentTile.playerOnTile = true;
+            this.currentTile.playerUpdate();
+        }
+    }
 
+    interact(object){
+        switch(object){
+            case torch:
+                if (this.currentTile.tileHasLitTorch == false){
+                    this.currentTile.tileHasLitTorch = true;
+                    this.currentTile.gridWalls.lightUpdate(0);
+                }
+                break;
+            case speech:
+                break; 
+            default:
+                //there seems to be nothing here, let's journey on!
+                break;
+        }
+    }
+
+    attack(){
+        if(this.hasSword && this.currentTile.hasEnemy){
+            //do killing
+        } else if (this.hasSword && this.currentTile.hasEnemy == false){
+            //flavortext
+        } else if (this.hasSword == false){
+            //flavortext
+        }
+    }
+    
+    hammer(){
+        if(this.hasHammer && this.currentTile.hasCrackedWall){
+            //do breaking
+        } else if (this.hasHammer && this.currentTile.hasCrackedWall == false){
+            //you swing the hammer around but you there is nothing to break
+        } else if (this.hasHammer == false){
+            //flavortext
+        }
     }
 
     tileUpdate(tileChoice){
         this.currentTile.lightUpdate(-2);
-        for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
-            switch(i){
-                case 0:
-                    if(this.northTile == ""){
-                        break;
-                    } else if(tileChoice != this.northTile) {
-                        this.northTile.lightUpdate(-1);
-                        break;
-                    }
-                case 1:
-                    if(this.eastTile == ""){
-                        break;
-                    } else if(tileChoice != this.eastTile){
-                        this.eastTile.lightUpdate(-1);
-                        break;
-                    }
-                case 2:
-                    if(this.southTile == ""){
-                        break;
-                    } else if(tileChoice != this.southTile){
-                        this.southTile.lightUpdate(-1);
-                    }
-                case 3:
-                    if(this.westTile == ""){
-                        break;
-                    } else if(tileChoice != this.westTile){
-                        this.westTile.lightUpdate(-1);
-                    }
+        if(this.currentTile.tileHasLitTorch == false){
+            for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
+                switch(i){
+                    case 0:
+                        if(this.northTile == ""){
+                            break;
+                        } else if(tileChoice != this.northTile) {
+                            this.northTile.lightUpdate(-1);
+                            break;
+                        }
+                    case 1:
+                        if(this.eastTile == ""){
+                            break;
+                        } else if(tileChoice != this.eastTile){
+                            this.eastTile.lightUpdate(-1);
+                            break;
+                        }
+                    case 2:
+                        if(this.southTile == ""){
+                            break;
+                        } else if(tileChoice != this.southTile){
+                            this.southTile.lightUpdate(-1);
+                        }
+                    case 3:
+                        if(this.westTile == ""){
+                            break;
+                        } else if(tileChoice != this.westTile){
+                            this.westTile.lightUpdate(-1);
+                        }
+                }
             }
         }
         this.currentTile = tileChoice;
@@ -222,7 +284,24 @@ class Walls{
         }
         this.currentTile.lightUpdate(1);
     }
-}*/
+}
+
+class TextTerminal{
+    constructor(){
+        this.currentMessage
+        this.messageStore = ["","",""];
+    }
+    
+    updateTerminal(){
+    
+    }
+
+    chooseTerminalColour(){
+        // r g or b colour schemes, g default (maybe add a light mode which is white back and black for text and borders)
+        //maybe have this update the grid?
+    }
+}
+
 
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);
