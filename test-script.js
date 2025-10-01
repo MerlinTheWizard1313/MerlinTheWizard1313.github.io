@@ -21,7 +21,7 @@ class MazeSquare {
             this.gridSquare.innerText = "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
             this.gridSquareClassName = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
             this.gridSquare.classList.add(this.gridSquareClassName);
-            this.gridWalls = new Walls(("." + this.gridSquareClassName));
+            this.gridWalls = new Walls(("." + this.gridSquareClassName), this.tileHasLitTorch);
         } else {
             this.gridSquare.innerText = this.rowLetter;
         }
@@ -73,13 +73,14 @@ class Maze{
 }
 
 class Walls{
-    constructor(gridSquareClassName){
+    constructor(gridSquareClassName, tileHasLitTorch){
         this.gridSquareElement = document.querySelector(gridSquareClassName);
         this.propertyArray = ["border-top", "border-right", "border-bottom", "border-left"];
         this.actualWalls = [];
         this.currentColourIndex = 0;
         this.currentColour = "rgb(0,0,0)";
-        this.tileTorchLit = false;
+        this.tileTorchLit = tileHasLitTorch;
+        this.tileTorchLock = false;
         this.wallColours = ["rgb(0,0,0)","rgb(0,32,0)","rgb(0,128,0)"]
         this.initialiseWalls();
     }
@@ -96,14 +97,10 @@ class Walls{
     }
 
     lightUpdate(colourChange){
-        console.log(!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)|| this.gridSquareElement.tileHasLitTorch == false);
-        console.log(!(colourChange > 0 && this.currentColourIndex == 2));
-        console.log(!(colourChange < 0 && this.currentColourIndex == 0));
-        console.log(this.gridSquareElement.tileHasLitTorch == false);
-        if(this.gridSquareElement.tileHasLitTorch && tileTorchLit == false){
+        if(this.tileTorchLit && tileTorchLock == false){
             this.currentColourIndex == 2;
             this.updateWalls();
-        } else if (!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)|| this.gridSquareElement.tileHasLitTorch == false){
+        } else if ((!(colourChange > 0 && this.currentColourIndex == 2) || !(colourChange < 0 && this.currentColourIndex == 0)) && this.tileTorchLit == false){
             this.currentColourIndex += colourChange;
             this.updateWalls();
         }
