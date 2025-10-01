@@ -3,12 +3,12 @@ class MazeSquare {
         this.gridSquare = box;
         this.rowLetter = rowValue;
         this.columnNumber = parseInt(columnValue, 10);
-        this.wallArray = ["North", "East", "South", "West"]; /*dotted and dashed make cracked wall, double for jail wall*/
         this.lightLevelNumber = 0;
         this.lightColour = "black";
         this.gridCoordinateR;
         this.gridCoordinateC;
         this.genGridContent();
+        this.gridWalls = new Walls(".row" + this.gridCoordinateR + "Column" + this.gridCoordinateC);
         this.gridContent = this.gridSquare.innerText;
     }
 
@@ -72,21 +72,22 @@ class Walls{
         this.actualWalls = [];
         this.checkWalls();
     }
-
+    /*dotted and dashed make cracked wall, double for jail wall*/
     checkWalls(){
         for (let i = 0; i < this.propertyArray.length; i++){
             var styleCheck = window.getComputedStyle(this.gridSquareElement, null).getPropertyValue(this.propertyArray[i]);
             if(styleCheck.charAt(0) != 0){
                 this.actualWalls.push(styleCheck);
-                console.log(styleCheck);
+            } else {
+                this.actualWalls.push("None");
             }
         }
+        return this.actualWalls;
     }
 }
 
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);
-const wallTest = new Walls(".row1Column1");
 /*var randomNumber = Math.random();
             switch(true){
                 case (randomNumber <= 0.25):
