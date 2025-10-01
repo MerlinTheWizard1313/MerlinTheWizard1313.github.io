@@ -7,9 +7,9 @@ class MazeSquare {
         this.lightColour = "black";
         this.gridCoordinateR;
         this.gridCoordinateC;
-        this.gridSquareClassName = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
-        this.genGridContent();
+        this.gridSquareClassName;
         this.gridWalls;
+        this.genGridContent();
         this.gridContent = this.gridSquare.innerText;
     }
 
@@ -18,6 +18,7 @@ class MazeSquare {
             this.gridCoordinateR = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
             this.gridCoordinateC = this.columnNumber;
             this.gridSquare.innerText = "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
+            this.gridSquareClassName = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
             this.gridSquare.classList.add(this.gridSquareClassName);
             this.gridWalls = new Walls(("." + this.gridSquareClassName));
         } else {
@@ -62,7 +63,7 @@ class Maze{
     }
 
     gridSquareInfo(row, column){
-        var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate(), "ClassNames:" + this.gridSquareArray[row][column].classList];
+        var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate(), "ClassNames:" + this.gridSquareArray[row][column].classList, "WallArray:" + this.gridSquareArray[row][column].gridWalls.actualWalls];
         return gridSquareInfo;
     }
 }
@@ -76,18 +77,14 @@ class Walls{
     }
     /*dotted and dashed make cracked wall, double for jail wall*/
     checkWalls(){
-        console.log(this.propertyArray);
         for (let i = 0; i < this.propertyArray.length; i++){
             var styleCheck = window.getComputedStyle(this.gridSquareElement, null).getPropertyValue(this.propertyArray[i]);
-            console.log(styleCheck.charAt(0));
             console.log(styleCheck);
-            console.log(i);
             if(styleCheck.charAt(0) != 0){
                 this.actualWalls.push(styleCheck);
             } else {
                 this.actualWalls.push("None");
             }
-            console.log(i);
         }
         return this.actualWalls;
     }
