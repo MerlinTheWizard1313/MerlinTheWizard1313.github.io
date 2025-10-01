@@ -68,21 +68,16 @@ class Maze{
 class Walls{
     constructor(gridSquareClassName){
         this.gridSquareElement = document.querySelector(gridSquareClassName);
-        this.propertyArray = ["border-top", "border-right", "border-bottom", "border-left", "border-top-right-radius", "border-bottom-right-radius", "border-top-left-radius", "border-top-left-radius"];
+        this.propertyArray = ["border-top", "border-right", "border-bottom", "border-left"];
         this.actualWalls = [];
-        this.actualCorners = [];
-        this.checkWallsAndCorners();
+        this.checkWalls();
     }
 
-    checkWallsAndCorners(){
+    checkWalls(){
         for (let i = 0; i < this.propertyArray.length; i++){
-            var styleCheck = window.getComputedStyle(this.gridSquareElement,null).getPropertyValue(propertyArray[i]);
+            var styleCheck = window.getComputedStyle(this.gridSquareElement, null).getPropertyValue(propertyArray[i]);
             if(styleCheck.charAt(0) != 0){
-                if(i < 4){
-                    this.actualWalls.push(i + " " + styleCheck);
-                } else {
-                    this.actualCorners.push(i + " " + styleCheck);
-                }
+                this.actualWalls.push(styleCheck);
                 console.log(styleCheck);
             }
         }
@@ -91,7 +86,7 @@ class Walls{
 
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);
-const wallTest = new Walls("row1Column1");
+const wallTest = new Walls(".row1Column1");
 /*var randomNumber = Math.random();
             switch(true){
                 case (randomNumber <= 0.25):

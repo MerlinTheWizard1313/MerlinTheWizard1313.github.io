@@ -67,9 +67,9 @@ body {
 
 .row1Column1{
   border: black;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row1Column2{
@@ -78,9 +78,9 @@ body {
 
 .row1Column3{
   border: black;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row1Column4{
@@ -97,102 +97,94 @@ body {
 
 .row1Column7{
   border: black;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-top: 3px black double;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row1Column8{
   border: black;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-top: 3px black double;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row1Column9{
   border: black;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-top: 3px black double;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row1Column10{
   border: black;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-top: 3px black double;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row2Column1{
   border: black;
-  border-top: 2px solid;
-  border-left: 2px solid;
-  border-bottom-right-radius: 2px solid;
+  border-top: 4px solid;
+  border-left: 4px solid;
 }
 
 .row2Column2{
   border: black;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-  border-top-left-radius: 2px solid;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row2Column3{
   border: black;
-  border-left: 2px solid;
-  border-top-right-radius: 2px solid;
-  border-bottom-right-radius: 2px solid;
+  border-left: 4px solid;
 }
 
 .row2Column4{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row2Column5{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row2Column6{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
+  border-right: 4px solid;
 }
 
 .row2Column7{
   border: black;
-  border-left: 2px solid;
-  border-bottom: 2px grey double;
-  border-top-right-radius: 2px solid;
-  border-bottom-right-radius: 2px solid;
+  border-left: 4px solid;
+  border-bottom: 3px black double;
 }
 
 .row2Column8{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px grey double;
-  border-bottom-right-radius: 2px solid;
-  border-bottom-left-radius: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 3px black double;
 }
 
 .row2Column9{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px grey double;
-  border-bottom-right-radius: 2px solid;
-  border-bottom-left-radius: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 3px black double;
 }
 
 .row2Column10{
   border: black;
-  border-right: 2px solid;
-  border-bottom: 2px grey double;
-  border-top-left-radius: 2px solid;
-  border-bottom-left-radius: 2px solid;
+  border-right: 4px solid;
+  border-bottom: 3px black double;
 }
 
 .row3Column1{
@@ -201,14 +193,14 @@ body {
 
 .row3Column2{
   border: black;
-  border-right: 2px solid;
-  border-left: 2px solid;
+  border-right: 4px solid;
+  border-left: 4px solid;
 }
 
 .row3Column3{
   border: black;
-  border-right: 2px solid;
-  border-left: 2px solid;
+  border-right: 4px solid;
+  border-left: 4px solid;
 }
 
 .row3Column4{
@@ -225,238 +217,214 @@ body {
 
 .row3Column7{
   border: black;
-  border-right: 2px solid;
-  border-left: 2px solid;
+  border-right: 4px solid;
+  border-left: 4px solid;
 }
 
 .row3Column8{
   border: black;
   background-color: purple;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row3Column9{
   border: black;
   background-color: purple;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row3Column10{
   border: black;
-  border-right: 2px solid;
-  border-left: 2px solid;
+  border-right: 4px solid;
+  border-left: 4px solid;
 }
 
 .row4Column1{
   border: black;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
-  border-top-right-radius: 2px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row4Column2{
   border: black;
-  border-top: 2px solid;
-  border-bottom-right-radius: 2px solid;
-  border-bottom-left-radius: 2px solid;
+  border-top: 4px solid;
 }
 
 .row4Column3{
   border: black;
-  border-right: 2px solid;
-  border-top-left-radius: 2px solid;
-  border-bottom-left-radius: 2px solid;
+  border-right: 4px solid;
 }
 
 .row4Column4{
   border: black;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
-  border-top-right-radius: 2px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row4Column5{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row4Column6{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row4Column7{
   border: black;
-  border-top-right-radius: 2px solid;
-  border-bottom-right-radius: 2px solid;
-  border-top-left-radius: 2px solid;
-  border-bottom-left-radius: 2px solid;
 }
 
 .row4Column8{
   border: black;
-  border-top: 0px solid;
-  border-right: 2px dashed;
-  border-bottom: 2px solid;
-  border-top-right-radius: 2px solid;
-  border-top-left-radius: 2px solid;
+  border-right: 4px dashed;
+  border-bottom: 4px solid;
 }
 
 .row4Column9{
   border: black;
   background-color: purple;
-  border-top: 2px solid;
-  border-right: 2px solid;
-  border-left: 2px solid;
+  border-top: 4px solid;
+  border-right: 4px solid;
+  border-left: 4px solid;
 }
 
 .row4Column10{
   border: black;
-  border-right: 2px solid;
-  border-left: 2px solid;
+  border-right: 4px solid;
+  border-left: 4px solid;
 }
 
 .row5Column1{
   border: black;
-  border-right: 2px solid;
-  border-left: 2px solid;
+  border-right: 4px solid;
+  border-left: 4px solid;
 }
 
 .row5Column2{
   border: black;
   background-color: purple;
-  border-top: 2px solid;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-top: 4px solid;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row5Column3{
   border: black;
-  border-left: 2px solid;
-  border-top-right-radius: 2px solid;
-  border-bottom-right-radius: 2px solid;
+  border-left: 4px solid;
 }
 
 .row5Column4{
   border: black;
-  border-top: 2px dashed;
-  border-right: 2px solid;
-  border-bottom-left-radius: 2px solid;
+  border-top: 4px dashed;
+  border-right: 4px solid;
 }
 
 .row5Column5{
   border: black;
-  border-right: 2px dashed;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-right: 4px dashed;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row5Column6{
   border: black;
   background-color: purple;
-  border-top: 2px solid;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-top: 4px solid;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row5Column7{
   border: black;
-  border-right: 2px solid;
-  border-left: 2px solid;
+  border-right: 4px solid;
+  border-left: 4px solid;
 }
 
 .row5Column8{
   border: black;
-  border-top: 2px solid;
-  border-left: 2px solid;
-  border-bottom-right-radius: 2px solid;
+  border-top: 4px solid;
+  border-left: 4px solid;
 }
 
 .row5Column9{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row5Column10{
   border: black;
-  border-right: 2px solid;
-  border-top-left-radius: 2px solid;
-  border-bottom-left-radius: 2px solid;
+  border-right: 4px solid;
 }
 
 .row6Column1{
   border: black;
-  border-top: 2px solid;
-  border-left: 2px solid;
-  border-bottom-right-radius: 2px solid;
+  border-top: 4px solid;
+  border-left: 4px solid;
 }
 
 .row6Column2{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px dashed;
+  border-top: 4px solid;
+  border-bottom: 4px dashed;
 }
 
 .row6Column3{
   border: black;
-  border-top: 2px solid;
-  border-right: 2px solid;
-  border-bottom-left-radius: 2px solid;
+  border-top: 4px solid;
+  border-right: 4px solid;
 }
 
 .row6Column4{
   border: black;
-  border-top: 2px solid;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-right: 4px solid;
+  border-left: 4px solid;
 }
 
 .row6Column5{
   border: black;
-  border-top: 2px solid;
-  border-left: 2px solid;
-  border-bottom-right-radius: 2px solid;
+  border-top: 4px solid;
+  border-left: 4px solid;
 }
 
 .row6Column6{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row6Column7{
   border: black;
-  border-top: 2px solid;
-  border-right: 2px solid;
-  border-bottom-left-radius: 2px solid;
+  border-top: 4px solid;
+  border-right: 4px solid;
 }
 
 .row6Column8{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row6Column9{
   border: black;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row6Column10{
   border: black;
-  border-top: 2px solid;
-  border-right: 2px solid;
-  border-bottom-left-radius: 2px solid;
+  border-top: 4px solid;
+  border-right: 4px solid;
 }
 
 .row7Column1{
@@ -474,31 +442,29 @@ body {
 .row7Column4{
   border: black;
   background-color: purple;
-  border-top: 2px solid;
-  border-left: 2px solid;
-  border-bottom-right-radius: 2px solid;
+  border-top: 4px solid;
+  border-left: 4px solid;
 }
 
 .row7Column5{
   border: black;
   background-color: purple;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row7Column6{
   border: black;
   background-color: purple;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row7Column7{
   border: black;
   background-color: purple;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-  border-top-left-radius: 2px solid;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row7Column8{
@@ -540,29 +506,28 @@ body {
 .row8Column7{
   border: black;
   background-color: purple;
-  border-top: 2px solid;
-  border-left: 2px solid;
-  border-bottom-right-radius: 2px solid;
+  border-top: 4px solid;
+  border-left: 4px solid;
 }
 
 .row8Column8{
   border: black;
   background-color: purple;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row8Column9{
   border: black;
   background-color: purple;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
 }
 
 .row8Column10{
   border: black;
   background-color: purple;
-  border-top: 2px solid;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
+  border-top: 4px solid;
+  border-right: 4px solid;
+  border-bottom: 4px solid;
 }
