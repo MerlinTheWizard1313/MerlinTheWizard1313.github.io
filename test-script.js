@@ -114,19 +114,15 @@ class Walls{
                 switch (i){
                     case 0:
                         this.gridSquareElement.style.borderTopColor = this.wallColours[this.currentColourIndex];
-                        console.log(this.gridSquareElement.style.borderTopColor);
                         break;
                     case 1:
                         this.gridSquareElement.style.borderRightColor = this.wallColours[this.currentColourIndex];
-                        console.log(this.gridSquareElement.style.borderRightColor);
                         break;
                     case 2:
                         this.gridSquareElement.style.borderBottomColor = this.wallColours[this.currentColourIndex];
-                        console.log(this.gridSquareElement.style.borderBottomColor);
                         break;
                     case 3:
                         this.gridSquareElement.style.borderLeftColor = this.wallColours[this.currentColourIndex];
-                        console.log(this.gridSquareElement.style.borderLeftColor);
                         break;
                 }
             }

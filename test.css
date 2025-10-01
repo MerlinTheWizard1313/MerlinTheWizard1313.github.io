@@ -15,8 +15,8 @@ body {
 }
 
 .maze-square {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   width: 100px;
   height: 100px;
   font-size: 20px;
