@@ -110,7 +110,20 @@ class Walls{
             if(this.actualWalls[i] != "none"){
                 this.actualWalls[i].replace(this.currentColour,this.wallColours[this.currentColourIndex]);
                 this.currentColour = this.wallColours[this.currentColourIndex];
-                window.getComputedStyle(this.gridSquareElement, null).setProperty(this.propertyArray[i],this.wallColours[this.currentColourIndex]);
+                switch (i){
+                    case 0:
+                        this.gridSquareElement.style.borderTop = this.wallColours[this.currentColourIndex];
+                        break;
+                    case 1:
+                        this.gridSquareElement.style.borderRight = this.wallColours[this.currentColourIndex];
+                        break;
+                    case 2:
+                        this.gridSquareElement.style.borderBottom = this.wallColours[this.currentColourIndex];
+                        break;
+                    case 3:
+                        this.gridSquareElement.style.borderLeft = this.wallColours[this.currentColourIndex];
+                        break;
+                }
             }
         }
     }
