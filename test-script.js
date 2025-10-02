@@ -85,7 +85,7 @@ class Maze{
     }
 
     placeTorches(){
-        for(let i = 0; i < torchArray[i]; i++){
+        for(let i = 0; i < this.torchArray[i]; i++){
             this.gridSquareArray[this.torchArray[i][0],this.torchArray[i][1]].tileHasUnlitTorch == true;
         }
     }
@@ -113,7 +113,7 @@ class Walls{
         this.wallColours = ["rgb(0,0,0)","rgb(0,64,0)","rgb(0,128,0)"];
         this.initialiseWalls();
     }
-    
+
     /*dotted and dashed make cracked wall, double for jail wall*/
     initialiseWalls(){
         for (let i = 0; i < this.propertyArray.length; i++){
