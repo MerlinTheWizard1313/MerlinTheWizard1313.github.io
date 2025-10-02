@@ -39,6 +39,10 @@ class MazeSquare {
         this.tileHasUnlitTorch = true;
     }
 
+    lightMinimumUpdate(){
+        this.lightLevelMinimum = 1;
+    }
+
     tileLightUpdate(colourChange, torchUpdate){
         if (this.lightLevelNumber < this.lightLevelMinimum){
             this.lightLevelNumber = this.lightLevelMinimum;
@@ -272,22 +276,26 @@ class Player {
                 switch(i){
                     case 0:
                         if(this.currentTile.gridWalls.actualWalls[i] == "none"){
-                            this.northTile.lightLevelMinimum = 1;
+                            this.northTile.lightMinimumUpdate();
+                            console.log(this.northTile.lightLevelMinimum);
                             break;
                         }
                     case 1:
                         if(this.currentTile.gridWalls.actualWalls[i] == "none"){
-                            this.eastTile.lightLevelMinimum = 1;
+                            this.eastTile.lightMinimumUpdate();
+                            console.log(this.eastTile.lightLevelMinimum);
                             break;
                         }
                     case 2:
                         if(this.currentTile.gridWalls.actualWalls[i] == "none"){
-                            this.southTile.lightLevelMinimum = 1;
+                            this.southTile.lightMinimumUpdate();
+                            console.log(this.southTile.lightLevelMinimum);
                             break;
                         }
                     case 3:
                         if(this.currentTile.gridWalls.actualWalls[i] == "none"){
-                            this.westTile.lightLevelMinimum = 1;
+                            this.westTile.lightMinimumUpdate();
+                            console.log(this.westTile.lightLevelMinimum);
                             break;
                         }
                 }
