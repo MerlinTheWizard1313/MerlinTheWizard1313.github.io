@@ -24,7 +24,7 @@ class MazeSquare {
             this.gridSquare.innerText = "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
             this.gridSquareClassName = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
             this.gridSquare.classList.add(this.gridSquareClassName);
-            this.gridWalls = new Walls(("." + this.gridSquareClassName), this.tileHasLitTorch);
+            this.gridWalls = new Walls(("." + this.gridSquareClassName));
         } else {
             this.gridSquare.innerText = this.rowLetter;
         }
@@ -108,13 +108,12 @@ class Maze{
 }
 
 class Walls{
-    constructor(gridSquareClassName, tileHasLitTorch){
+    constructor(gridSquareClassName){
         this.gridSquareElement = document.querySelector(gridSquareClassName);
         this.propertyArray = ["border-top", "border-right", "border-bottom", "border-left"];
         this.actualWalls = [];
         this.currentColourIndex = 0;
         this.currentColour = "rgb(0,0,0)";
-        this.tileTorchLit = tileHasLitTorch;
         this.tileTorchLock = false;
         this.wallColours = ["rgb(0,0,0)","rgb(0,64,0)","rgb(0,128,0)"];
         this.initialiseWalls();
@@ -137,7 +136,7 @@ class Walls{
             this.currentColourIndex == 2;
             this.tileTorchLock = true;
             this.updateWalls();
-        } else if ((colourChange > 0 && this.currentColourIndex == 2) == false && (colourChange < 0 && this.currentColourIndex == 0) == false && this.tileTorchLit == false){
+        } else if ((colourChange > 0 && this.currentColourIndex == 2) == false && (colourChange < 0 && this.currentColourIndex == 0) == false && this.tileTorchLock == false){
             this.currentColourIndex += colourChange;
             this.updateWalls();
         }
@@ -258,6 +257,7 @@ class Player {
             this.currentTile.tileHasLitTorch = true;
             this.currentTile.tileHasUnlitTorch = false;
             this.currentTile.tileLightUpdate(0);
+            console.log(this.currentTile.tileHasLitTorch);
             return "Torch lit"
         } else {
             //do speech things
