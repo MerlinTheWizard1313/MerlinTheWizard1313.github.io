@@ -306,6 +306,8 @@ class Player {
                     } else {
                         this.northTile = this.mazeArray[(this.currentTile.gridCoordinateR + 1)][this.currentTile.gridCoordinateC];
                         this.northTile.gridWalls.lightUpdate(1);
+                        console.log(this.northTile);
+                        console.log(this.northTile.gridWalls.currentColourIndex);
                         break;
                     }
                 case 1:
@@ -315,6 +317,8 @@ class Player {
                     } else {
                         this.eastTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC + 1)];
                         this.eastTile.gridWalls.lightUpdate(1);
+                        console.log(this.eastTile);
+                        console.log(this.eastTile.gridWalls.currentColourIndex);
                         break;
                     }
                 case 2:
@@ -324,6 +328,8 @@ class Player {
                     } else {
                         this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];                        this.southTile.gridWalls.lightUpdate(1);
                         this.southTile.gridWalls.lightUpdate(1);
+                        console.log(this.southTile);
+                        console.log(this.southTile.gridWalls.currentColourIndex);
                         break;
                     }
                 case 3:
@@ -333,6 +339,8 @@ class Player {
                     } else {
                         this.westTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC - 1)];
                         this.westTile.gridWalls.lightUpdate(1);
+                        console.log(this.westTile);
+                        console.log(this.westTile.gridWalls.currentColourIndex);
                         break;
                     }
             }
