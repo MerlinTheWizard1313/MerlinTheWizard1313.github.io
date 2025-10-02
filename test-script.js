@@ -44,7 +44,7 @@ class MazeSquare {
     }
 
     tileLightUpdate(colourChange, torchUpdate){
-        if (this.lightLevelNumber < this.lightLevelMinimum){
+        if ((this.lightLevelNumber + colourChange) < this.lightLevelMinimum){
             this.lightLevelNumber = this.lightLevelMinimum;
             this.gridWalls.lightUpdate(colourChange,torchUpdate, this.lightLevelMinimum);
             this.currentLightColour = this.lightColours[this.lightLevelNumber]
@@ -267,7 +267,6 @@ class Player {
     }
 
     interact(){
-        console.log(this.currentTile.tileHasUnlitTorch);
         if (this.currentTile.tileHasUnlitTorch == true){
             this.currentTile.tileHasLitTorch = true;
             this.currentTile.tileHasUnlitTorch = false;
@@ -277,25 +276,21 @@ class Player {
                     case 0:
                         if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                             this.northTile.lightMinimumUpdate();
-                            console.log(this.northTile.lightLevelMinimum);
                             break;
                         }
                     case 1:
                         if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                             this.eastTile.lightMinimumUpdate();
-                            console.log(this.eastTile.lightLevelMinimum);
                             break;
                         }
                     case 2:
                         if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                             this.southTile.lightMinimumUpdate();
-                            console.log(this.southTile.lightLevelMinimum);
                             break;
                         }
                     case 3:
                         if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                             this.westTile.lightMinimumUpdate();
-                            console.log(this.westTile.lightLevelMinimum);
                             break;
                         }
                 }
