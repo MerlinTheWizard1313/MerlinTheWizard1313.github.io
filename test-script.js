@@ -268,27 +268,27 @@ class Player {
             for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
                 switch(i){
                     case 0:
-                        if(this.northTile == ""){
+                        if(this.northTile == "" || this.northTile == undefined){
                             break;
                         } else if(tileChoice != this.northTile) {
                             this.northTile.gridWalls.lightUpdate(-1);
                             break;
                         }
                     case 1:
-                        if(this.eastTile == ""){
+                        if(this.eastTile == "" || this.eastTile == undefined){
                             break;
                         } else if(tileChoice != this.eastTile){
                             this.eastTile.gridWalls.lightUpdate(-1);
                             break;
                         }
                     case 2:
-                        if(this.southTile == ""){
+                        if(this.southTile == "" || this.southTile == undefined){
                             break;
                         } else if(tileChoice != this.southTile){
                             this.southTile.gridWalls.lightUpdate(-1);
                         }
                     case 3:
-                        if(this.westTile == ""){
+                        if(this.westTile == "" || this.westTile == undefined){
                             break;
                         } else if(tileChoice != this.westTile){
                             this.westTile.gridWalls.lightUpdate(-1);
