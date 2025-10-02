@@ -4,12 +4,14 @@ class MazeSquare {
         this.rowLetter = rowValue;
         this.columnNumber = parseInt(columnValue, 10);
         this.lightLevelNumber = 0;
-        this.lightColours = ["rgb(0,0,0)","rgb(0,16,0)","rgb(0,72,0)"];
+        this.lightColours = ["rgb(0,0,0)","rgb(0,32,0)","rgb(0,72,0)"];
+        this.currentLightColour = "rgb(0,0,0)";
         this.gridCoordinateR;
         this.gridCoordinateC;
         this.gridSquareClassName;
         this.gridWalls;
         this.playerOnTile = false;
+        this.tileHasUnlitTorch = false;
         this.tileHasLitTorch = false;
         this.genGridContent();
         this.gridContent = this.gridSquare.innerText;
@@ -35,7 +37,8 @@ class MazeSquare {
     tileLightUpdate(colourChange){
         this.gridWalls.lightUpdate(colourChange);
         this.lightLevelNumber = this.gridWalls.currentColourIndex;
-        this.gridSquare.style.backgroundColor = this.lightColours[this.lightLevelNumber];
+        this.currentLightColour = this.lightColours[this.lightLevelNumber]
+        this.gridSquare.style.backgroundColor = this.currentLightColour;
     }
 
     playerUpdate(){
@@ -51,7 +54,9 @@ class Maze{
     constructor(grid){
         this.mainGrid = grid;
         this.gridSquareArray = [[],[],[],[],[],[],[],[],[]];
+        this.torchArray = [[2,1],[2,5],[2,7],[2,10],[3,3],[4,2],[4,6],[5,4],[5,7],[5,10],[6,1],[6,5],[6,9]]
         this.genGrid();
+        this.placeTorches();
         this.player = new Player(this.gridSquareArray, this.gridSquareArray[2][6]);
     }
 
@@ -79,11 +84,19 @@ class Maze{
         }
     }
 
+    placeTorches(){
+        for(let i = 0; i < torchArray[i]; i++){
+            this.gridSquareArray[this.torchArray[i][0],this.torchArray[i][1]].tileHasUnlitTorch == true;
+        }
+    }
+
     gridSquareInfo(row, column){
         var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, 
                                 "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate(), 
                                 "ClassNames:" + this.gridSquareArray[row][column].classList, 
-                                "TileWalls:" + this.gridSquareArray[row][column].gridWalls.actualWalls];
+                                "TileWalls:" + this.gridSquareArray[row][column].gridWalls.actualWalls,
+                                "TileColor:" + this.gridSquareArray[row][column].currentLightColour,
+                            ];
         return gridSquareInfo;
     }
 }
@@ -97,9 +110,10 @@ class Walls{
         this.currentColour = "rgb(0,0,0)";
         this.tileTorchLit = tileHasLitTorch;
         this.tileTorchLock = false;
-        this.wallColours = ["rgb(0,0,0)","rgb(0,32,0)","rgb(0,128,0)"];
+        this.wallColours = ["rgb(0,0,0)","rgb(0,64,0)","rgb(0,128,0)"];
         this.initialiseWalls();
     }
+    
     /*dotted and dashed make cracked wall, double for jail wall*/
     initialiseWalls(){
         for (let i = 0; i < this.propertyArray.length; i++){
@@ -232,19 +246,14 @@ class Player {
         }
     }
 
-    interact(object){
-        switch(object){
-            case torch:
-                if (this.currentTile.tileHasLitTorch == false){
-                    this.currentTile.tileHasLitTorch = true;
-                    this.currentTile.tileLightUpdate(0);
-                }
-                break;
-            case speech:
-                break; 
-            default:
-                //there seems to be nothing here, let's journey on!
-                break;
+    interact(){
+        if (this.currentTile.tileHasUnlitTorch == true){
+            this.currentTile.tileHasLitTorch = true;
+            this.currentTile.tileHasUnlitTorch = false;
+            this.currentTile.tileLightUpdate(0);
+            return "Torch lit"
+        } else {
+            //do speech things
         }
     }
 
