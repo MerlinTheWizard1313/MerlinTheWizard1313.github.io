@@ -132,7 +132,7 @@ class Walls{
     }
 
     lightUpdate(colourChange, torchUpdate){
-        if(torchUpdate && tileTorchLock == false){
+        if(torchUpdate && this.tileTorchLock == false){
             this.currentColourIndex == 2;
             this.tileTorchLock = true;
             this.updateWalls();
