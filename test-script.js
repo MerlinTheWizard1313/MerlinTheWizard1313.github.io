@@ -223,7 +223,8 @@ class Player {
                 default:
                     return "Choose a valid tile";
         }
-        if(this.tileChoice == ""){
+        console.log(this.tileChoice);
+        if(this.tileChoice == undefined || this.tileChoice == ""){
             return "Choose a valid tile";
         } else if (this.tileChoice.hasEnemy){
             //looks like an enemy is blocking the path
