@@ -34,6 +34,10 @@ class MazeSquare {
         return "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
     }
 
+    instantiateTorch(){
+        this.tileHasUnlitTorch = true;
+    }
+
     tileLightUpdate(colourChange){
         this.gridWalls.lightUpdate(colourChange);
         this.lightLevelNumber = this.gridWalls.currentColourIndex;
@@ -87,7 +91,7 @@ class Maze{
     placeTorches(){
         for(let i = 0; i < this.torchArray.length; i++){
             console.log(this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]]);
-            this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]].tileHasUnlitTorch == true;
+            this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]].instantiateTorch();
             console.log(this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]].tileHasUnlitTorch);
         }
     }
