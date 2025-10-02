@@ -159,7 +159,7 @@ class Player {
         this.currentTile.playerOnTile = true;
         console.log(this.mazeArray);
         console.log(this.currentTile);
-        this.currentTile.lightUpdate(2);
+        this.currentTile.gridWalls.lightUpdate(2);
         for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
             switch(i){
                 case 0:
@@ -167,7 +167,7 @@ class Player {
                         console.log("Made it north");
                         this.northTile = this.mazeArray[(this.currentTile.gridCoordinateR + 1)][this.currentTile.gridCoordinateC];
                         console.log(this.northTile);
-                        this.northTile.lightUpdate(1);
+                        this.northTile.gridWalls.lightUpdate(1);
                         break;
                     } else {
                         break;
@@ -177,7 +177,7 @@ class Player {
                         console.log("Made it east");
                         this.eastTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC + 1)];
                         console.log(this.eastTile);
-                        this.eastTile.lightUpdate(1);
+                        this.eastTile.gridWalls.lightUpdate(1);
                         break;
                     } else {
                         break;
@@ -187,7 +187,7 @@ class Player {
                         console.log("Made it south");
                         this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];
                         console.log(this.southTile);
-                        this.southTile.lightUpdate(1);
+                        this.southTile.gridWalls.lightUpdate(1);
                         break;
                     } else {
                         break;
@@ -197,7 +197,7 @@ class Player {
                         console.log("Made it west");
                         this.westTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC - 1)];
                         console.log(this.westTile);
-                        this.westTile.lightUpdate(1);
+                        this.westTile.gridWalls.lightUpdate(1);
                         break;
                     } else {
                         break;
@@ -257,7 +257,7 @@ class Player {
     }
 
     tileUpdate(tileChoice){
-        this.currentTile.lightUpdate(-2);
+        this.currentTile.gridWalls.lightUpdate(-2);
         if(this.currentTile.tileHasLitTorch == false){
             for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
                 switch(i){
@@ -265,27 +265,27 @@ class Player {
                         if(this.northTile == ""){
                             break;
                         } else if(tileChoice != this.northTile) {
-                            this.northTile.lightUpdate(-1);
+                            this.northTile.gridWalls.lightUpdate(-1);
                             break;
                         }
                     case 1:
                         if(this.eastTile == ""){
                             break;
                         } else if(tileChoice != this.eastTile){
-                            this.eastTile.lightUpdate(-1);
+                            this.eastTile.gridWalls.lightUpdate(-1);
                             break;
                         }
                     case 2:
                         if(this.southTile == ""){
                             break;
                         } else if(tileChoice != this.southTile){
-                            this.southTile.lightUpdate(-1);
+                            this.southTile.gridWalls.lightUpdate(-1);
                         }
                     case 3:
                         if(this.westTile == ""){
                             break;
                         } else if(tileChoice != this.westTile){
-                            this.westTile.lightUpdate(-1);
+                            this.westTile.gridWalls.lightUpdate(-1);
                         }
                 }
             }
@@ -300,7 +300,7 @@ class Player {
                     } else {
                         //potentially update this if initialise player works perfectly
                         this.northTile = document.querySelector((".row" + (this.currentTile.gridCoordinateR + 1) + "Column" + this.currentTile.gridCoordinateC));
-                        this.northTile.lightUpdate(1);
+                        this.northTile.gridWalls.lightUpdate(1);
                         break;
                     }
                 case 1:
@@ -309,7 +309,7 @@ class Player {
                         break;
                     } else {
                         this.eastTile = document.querySelector((".row" + this.currentTile.gridCoordinateR + "Column" + (this.currentTile.gridCoordinateC + 1)));
-                        this.eastTile.lightUpdate(1);
+                        this.eastTile.gridWalls.lightUpdate(1);
                         break;
                     }
                 case 2:
@@ -318,7 +318,7 @@ class Player {
                         break;
                     } else {
                         this.southTile = document.querySelector((".row" + (this.currentTile.gridCoordinateR - 1) + "Column" + this.currentTile.gridCoordinateC));
-                        this.southTile.lightUpdate(1);
+                        this.southTile.gridWalls.lightUpdate(1);
                         break;
                     }
                 case 3:
@@ -327,12 +327,12 @@ class Player {
                         break;
                     } else {
                         this.westTile = document.querySelector((".row" + this.currentTile.gridCoordinateR  + "Column" + (this.currentTile.gridCoordinateC - 1)));
-                        this.westTile.lightUpdate(1);
+                        this.westTile.gridWalls.lightUpdate(1);
                         break;
                     }
             }
         }
-        this.currentTile.lightUpdate(1);
+        this.currentTile.gridWalls.lightUpdate(1);
     }
 }
 
