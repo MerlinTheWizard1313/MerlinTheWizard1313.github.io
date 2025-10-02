@@ -324,38 +324,36 @@ class Player {
 
     tileUpdate(tileChoice){
         this.currentTile.tileLightUpdate(-2, false);
-        if(this.currentTile.tileHasLitTorch == false){
-            for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
-                switch(i){
-                    case 0:
-                        if(this.northTile == "" || this.northTile == undefined){
-                            break;
-                        } else if(tileChoice != this.northTile) {
-                            this.northTile.tileLightUpdate(-1, false);
-                            break;
-                        }
-                    case 1:
-                        if(this.eastTile == "" || this.eastTile == undefined){
-                            break;
-                        } else if(tileChoice != this.eastTile){
-                            this.eastTile.tileLightUpdate(-1, false);
-                            break;
-                        }
-                    case 2:
-                        if(this.southTile == "" || this.southTile == undefined){
-                            break;
-                        } else if(tileChoice != this.southTile){
-                            this.southTile.tileLightUpdate(-1, false);
-                            break;
-                        }
-                    case 3:
-                        if(this.westTile == "" || this.westTile == undefined){
-                            break;
-                        } else if(tileChoice != this.westTile){
-                            this.westTile.tileLightUpdate(-1, false);
-                            break;
-                        }
-                }
+        for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
+            switch(i){
+                case 0:
+                    if(this.northTile == "" || this.northTile == undefined){
+                        break;
+                    } else if(tileChoice != this.northTile) {
+                        this.northTile.tileLightUpdate(-1, false);
+                        break;
+                    }
+                case 1:
+                    if(this.eastTile == "" || this.eastTile == undefined){
+                        break;
+                    } else if(tileChoice != this.eastTile){
+                        this.eastTile.tileLightUpdate(-1, false);
+                        break;
+                    }
+                case 2:
+                    if(this.southTile == "" || this.southTile == undefined){
+                        break;
+                    } else if(tileChoice != this.southTile){
+                        this.southTile.tileLightUpdate(-1, false);
+                        break;
+                    }
+                case 3:
+                    if(this.westTile == "" || this.westTile == undefined){
+                        break;
+                    } else if(tileChoice != this.westTile){
+                        this.westTile.tileLightUpdate(-1, false);
+                        break;
+                    }
             }
         }
         this.currentTile = tileChoice;
