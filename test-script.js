@@ -4,6 +4,7 @@ class MazeSquare {
         this.rowLetter = rowValue;
         this.columnNumber = parseInt(columnValue, 10);
         this.lightLevelNumber = 0;
+        this.lightLevelMinimum = 0;
         this.lightColours = ["rgb(0,0,0)","rgb(0,32,0)","rgb(0,72,0)"];
         this.currentLightColour = "rgb(0,0,0)";
         this.gridCoordinateR;
@@ -39,10 +40,17 @@ class MazeSquare {
     }
 
     tileLightUpdate(colourChange, torchUpdate){
-        this.gridWalls.lightUpdate(colourChange,torchUpdate);
-        this.lightLevelNumber = this.gridWalls.currentColourIndex;
-        this.currentLightColour = this.lightColours[this.lightLevelNumber]
-        this.gridSquare.style.backgroundColor = this.currentLightColour;
+        if (this.lightLevelNumber < this.lightLevelMinimum){
+            this.lightLevelNumber = this.lightLevelMinimum;
+            this.gridWalls.lightUpdate(colourChange,torchUpdate, this.lightLevelMinimum);
+            this.currentLightColour = this.lightColours[this.lightLevelNumber]
+            this.gridSquare.style.backgroundColor = this.currentLightColour;
+        } else {
+            this.gridWalls.lightUpdate(colourChange,torchUpdate);
+            this.lightLevelNumber = this.gridWalls.currentColourIndex;
+            this.currentLightColour = this.lightColours[this.lightLevelNumber]
+            this.gridSquare.style.backgroundColor = this.currentLightColour;
+        }
     }
 
     playerUpdate(){
@@ -131,13 +139,16 @@ class Walls{
         }
     }
 
-    lightUpdate(colourChange, torchUpdate){
+    lightUpdate(colourChange, torchUpdate, lightLevelMinimum){
         if(torchUpdate && this.tileTorchLock == false){
             this.currentColourIndex == 2;
             this.tileTorchLock = true;
             this.updateWalls();
         } else if ((colourChange > 0 && this.currentColourIndex == 2) == false && (colourChange < 0 && this.currentColourIndex == 0) == false && this.tileTorchLock == false){
             this.currentColourIndex += colourChange;
+            if (this.currentColourIndex < lightLevelMinimum){
+                this.currentColourIndex = lightLevelMinimum;
+            }
             this.updateWalls();
         }
     }
@@ -257,6 +268,30 @@ class Player {
             this.currentTile.tileHasLitTorch = true;
             this.currentTile.tileHasUnlitTorch = false;
             this.currentTile.tileLightUpdate(0, true);
+            for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
+                switch(i){
+                    case 0:
+                        if(this.currentTile.gridWalls.actualWalls[i] == "none"){
+                            this.northTile.lightLevelMinimum = 1;
+                            break;
+                        }
+                    case 1:
+                        if(this.currentTile.gridWalls.actualWalls[i] == "none"){
+                            this.eastTile.lightLevelMinimum = 1;
+                            break;
+                        }
+                    case 2:
+                        if(this.currentTile.gridWalls.actualWalls[i] == "none"){
+                            this.southTile.lightLevelMinimum = 1;
+                            break;
+                        }
+                    case 3:
+                        if(this.currentTile.gridWalls.actualWalls[i] == "none"){
+                            this.westTile.lightLevelMinimum = 1;
+                            break;
+                        }
+                }
+            }
             return "Torch lit"
         } else {
             //do speech things
