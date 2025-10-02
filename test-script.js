@@ -102,9 +102,7 @@ class Maze{
 
     placeTorches(){
         for(let i = 0; i < this.torchArray.length; i++){
-            console.log(this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]]);
             this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]].instantiateTorch();
-            console.log(this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]].tileHasUnlitTorch);
         }
     }
 
@@ -195,7 +193,6 @@ class Player {
     }
 
     initialisePlayer(){
-        //update each adjacent tile to start and update their light levels
         this.currentTile.playerOnTile = true;
         this.currentTile.tileLightUpdate(2, false);
         for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
