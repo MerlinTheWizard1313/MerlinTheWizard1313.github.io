@@ -86,6 +86,7 @@ class Maze{
 
     placeTorches(){
         for(let i = 0; i < this.torchArray.length; i++){
+            console.log(this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]]);
             this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]].tileHasUnlitTorch == true;
             console.log(this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]].tileHasUnlitTorch);
         }
