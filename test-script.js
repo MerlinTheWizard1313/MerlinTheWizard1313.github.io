@@ -206,7 +206,23 @@ class Player {
         }
     }
 
-    playerMove(tileChoice){
+    playerMove(tileNumber){
+        switch(tileNumber){
+                case 0:
+                    this.tileChoice = this.northTile;
+                    break;
+                case 1:
+                    this.tileChoice = this.eastTile;
+                    break;
+                case 2:
+                    this.tileChoice = this.southTile;
+                    break;
+                case 3:
+                    this.tileChoice = this.westTile;
+                    break;
+                default:
+                    return "Choose a valid tile";
+        }
         if(this.tileChoice == ""){
             return "Choose a valid tile";
         } else if (this.tileChoice.hasEnemy){
