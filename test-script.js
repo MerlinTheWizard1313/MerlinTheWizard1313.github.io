@@ -4,7 +4,7 @@ class MazeSquare {
         this.rowLetter = rowValue;
         this.columnNumber = parseInt(columnValue, 10);
         this.lightLevelNumber = 0;
-        this.lightColour = "black";
+        this.lightColours = ["rgb(0,0,0)","rgb(0,16,0)","rgb(0,72,0)"];
         this.gridCoordinateR;
         this.gridCoordinateC;
         this.gridSquareClassName;
@@ -30,6 +30,12 @@ class MazeSquare {
 
     getGridCoordinate(){
         return "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
+    }
+
+    tileLightUpdate(colourChange){
+        this.gridWalls.lightUpdate(colourChange);
+        this.lightLevelNumber = this.gridWalls.currentColourIndex;
+        this.gridSquare.style.backgroundColor = this.lightColours[this.lightLevelNumber];
     }
 
     playerUpdate(){
@@ -91,7 +97,7 @@ class Walls{
         this.currentColour = "rgb(0,0,0)";
         this.tileTorchLit = tileHasLitTorch;
         this.tileTorchLock = false;
-        this.wallColours = ["rgb(0,0,0)","rgb(0,32,0)","rgb(0,128,0)"]
+        this.wallColours = ["rgb(0,0,0)","rgb(0,32,0)","rgb(0,128,0)"];
         this.initialiseWalls();
     }
     /*dotted and dashed make cracked wall, double for jail wall*/
@@ -157,13 +163,13 @@ class Player {
     initialisePlayer(){
         //update each adjacent tile to start and update their light levels
         this.currentTile.playerOnTile = true;
-        this.currentTile.gridWalls.lightUpdate(2);
+        this.currentTile.tileLightUpdate(2);
         for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
             switch(i){
                 case 0:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                         this.northTile = this.mazeArray[(this.currentTile.gridCoordinateR + 1)][this.currentTile.gridCoordinateC];
-                        this.northTile.gridWalls.lightUpdate(1);
+                        this.northTile.tileLightUpdate(1);
                         break;
                     } else {
                         break;
@@ -171,7 +177,7 @@ class Player {
                 case 1:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                         this.eastTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC + 1)];
-                        this.eastTile.gridWalls.lightUpdate(1);
+                        this.eastTile.tileLightUpdate(1);
                         break;
                     } else {
                         break;
@@ -179,7 +185,7 @@ class Player {
                 case 2:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                         this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];
-                        this.southTile.gridWalls.lightUpdate(1);
+                        this.southTile.tileLightUpdate(1);
                         break;
                     } else {
                         break;
@@ -187,7 +193,7 @@ class Player {
                 case 3:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                         this.westTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC - 1)];
-                        this.westTile.gridWalls.lightUpdate(1);
+                        this.westTile.tileLightUpdate(1);
                         break;
                     } else {
                         break;
@@ -231,7 +237,7 @@ class Player {
             case torch:
                 if (this.currentTile.tileHasLitTorch == false){
                     this.currentTile.tileHasLitTorch = true;
-                    this.currentTile.gridWalls.lightUpdate(0);
+                    this.currentTile.tileLightUpdate(0);
                 }
                 break;
             case speech:
@@ -263,7 +269,7 @@ class Player {
     }
 
     tileUpdate(tileChoice){
-        this.currentTile.gridWalls.lightUpdate(-2);
+        this.currentTile.tileLightUpdate(-2);
         if(this.currentTile.tileHasLitTorch == false){
             for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
                 switch(i){
@@ -271,28 +277,28 @@ class Player {
                         if(this.northTile == "" || this.northTile == undefined){
                             break;
                         } else if(tileChoice != this.northTile) {
-                            this.northTile.gridWalls.lightUpdate(-1);
+                            this.northTile.tileLightUpdate(-1);
                             break;
                         }
                     case 1:
                         if(this.eastTile == "" || this.eastTile == undefined){
                             break;
                         } else if(tileChoice != this.eastTile){
-                            this.eastTile.gridWalls.lightUpdate(-1);
+                            this.eastTile.tileLightUpdate(-1);
                             break;
                         }
                     case 2:
                         if(this.southTile == "" || this.southTile == undefined){
                             break;
                         } else if(tileChoice != this.southTile){
-                            this.southTile.gridWalls.lightUpdate(-1);
+                            this.southTile.tileLightUpdate(-1);
                             break;
                         }
                     case 3:
                         if(this.westTile == "" || this.westTile == undefined){
                             break;
                         } else if(tileChoice != this.westTile){
-                            this.westTile.gridWalls.lightUpdate(-1);
+                            this.westTile.tileLightUpdate(-1);
                             break;
                         }
                 }
@@ -307,9 +313,7 @@ class Player {
                         break;
                     } else {
                         this.northTile = this.mazeArray[(this.currentTile.gridCoordinateR + 1)][this.currentTile.gridCoordinateC];
-                        this.northTile.gridWalls.lightUpdate(1);
-                        console.log(this.northTile);
-                        console.log(this.northTile.gridWalls.currentColourIndex);
+                        this.northTile.tileLightUpdate(1);
                         break;
                     }
                 case 1:
@@ -318,9 +322,7 @@ class Player {
                         break;
                     } else {
                         this.eastTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC + 1)];
-                        this.eastTile.gridWalls.lightUpdate(1);
-                        console.log(this.eastTile);
-                        console.log(this.eastTile.gridWalls.currentColourIndex);
+                        this.eastTile.tileLightUpdate(1);
                         break;
                     }
                 case 2:
@@ -329,9 +331,7 @@ class Player {
                         break;
                     } else {
                         this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];
-                        this.southTile.gridWalls.lightUpdate(1);
-                        console.log(this.southTile);
-                        console.log(this.southTile.gridWalls.currentColourIndex);
+                        this.southTile.tileLightUpdate(1);
                         break;
                     }
                 case 3:
@@ -340,14 +340,12 @@ class Player {
                         break;
                     } else {
                         this.westTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC - 1)];
-                        this.westTile.gridWalls.lightUpdate(1);
-                        console.log(this.westTile);
-                        console.log(this.westTile.gridWalls.currentColourIndex);
+                        this.westTile.tileLightUpdate(1);
                         break;
                     }
             }
         }
-        this.currentTile.gridWalls.lightUpdate(1);
+        this.currentTile.tileLightUpdate(1);
     }
 }
 
