@@ -86,8 +86,7 @@ class Maze{
 
     placeTorches(){
         for(let i = 0; i < this.torchArray[i]; i++){
-            console.log(this.gridSquareArray[this.torchArray[i][0],this.torchArray[i][1]]);
-            this.gridSquareArray[this.torchArray[i][0],this.torchArray[i][1]].tileHasUnlitTorch == true;
+            this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]].tileHasUnlitTorch == true;
         }
     }
 
@@ -248,7 +247,6 @@ class Player {
     }
 
     interact(){
-        console.log(this.currentTile);
         console.log(this.currentTile.tileHasUnlitTorch);
         if (this.currentTile.tileHasUnlitTorch == true){
             this.currentTile.tileHasLitTorch = true;
