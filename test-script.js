@@ -38,8 +38,8 @@ class MazeSquare {
         this.tileHasUnlitTorch = true;
     }
 
-    tileLightUpdate(colourChange){
-        this.gridWalls.lightUpdate(colourChange);
+    tileLightUpdate(colourChange, torchUpdate){
+        this.gridWalls.lightUpdate(colourChange,torchUpdate);
         this.lightLevelNumber = this.gridWalls.currentColourIndex;
         this.currentLightColour = this.lightColours[this.lightLevelNumber]
         this.gridSquare.style.backgroundColor = this.currentLightColour;
@@ -131,8 +131,8 @@ class Walls{
         }
     }
 
-    lightUpdate(colourChange){
-        if(this.tileTorchLit && tileTorchLock == false){
+    lightUpdate(colourChange, torchUpdate){
+        if(torchUpdate && tileTorchLock == false){
             this.currentColourIndex == 2;
             this.tileTorchLock = true;
             this.updateWalls();
@@ -182,13 +182,13 @@ class Player {
     initialisePlayer(){
         //update each adjacent tile to start and update their light levels
         this.currentTile.playerOnTile = true;
-        this.currentTile.tileLightUpdate(2);
+        this.currentTile.tileLightUpdate(2, false);
         for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
             switch(i){
                 case 0:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                         this.northTile = this.mazeArray[(this.currentTile.gridCoordinateR + 1)][this.currentTile.gridCoordinateC];
-                        this.northTile.tileLightUpdate(1);
+                        this.northTile.tileLightUpdate(1, false);
                         break;
                     } else {
                         break;
@@ -196,7 +196,7 @@ class Player {
                 case 1:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                         this.eastTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC + 1)];
-                        this.eastTile.tileLightUpdate(1);
+                        this.eastTile.tileLightUpdate(1, false);
                         break;
                     } else {
                         break;
@@ -204,7 +204,7 @@ class Player {
                 case 2:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                         this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];
-                        this.southTile.tileLightUpdate(1);
+                        this.southTile.tileLightUpdate(1, false);
                         break;
                     } else {
                         break;
@@ -212,7 +212,7 @@ class Player {
                 case 3:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
                         this.westTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC - 1)];
-                        this.westTile.tileLightUpdate(1);
+                        this.westTile.tileLightUpdate(1, false);
                         break;
                     } else {
                         break;
@@ -256,8 +256,7 @@ class Player {
         if (this.currentTile.tileHasUnlitTorch == true){
             this.currentTile.tileHasLitTorch = true;
             this.currentTile.tileHasUnlitTorch = false;
-            this.currentTile.tileLightUpdate(0);
-            console.log(this.currentTile.tileHasLitTorch);
+            this.currentTile.tileLightUpdate(0, true);
             return "Torch lit"
         } else {
             //do speech things
@@ -286,7 +285,7 @@ class Player {
     }
 
     tileUpdate(tileChoice){
-        this.currentTile.tileLightUpdate(-2);
+        this.currentTile.tileLightUpdate(-2, false);
         if(this.currentTile.tileHasLitTorch == false){
             for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
                 switch(i){
@@ -294,28 +293,28 @@ class Player {
                         if(this.northTile == "" || this.northTile == undefined){
                             break;
                         } else if(tileChoice != this.northTile) {
-                            this.northTile.tileLightUpdate(-1);
+                            this.northTile.tileLightUpdate(-1, false);
                             break;
                         }
                     case 1:
                         if(this.eastTile == "" || this.eastTile == undefined){
                             break;
                         } else if(tileChoice != this.eastTile){
-                            this.eastTile.tileLightUpdate(-1);
+                            this.eastTile.tileLightUpdate(-1, false);
                             break;
                         }
                     case 2:
                         if(this.southTile == "" || this.southTile == undefined){
                             break;
                         } else if(tileChoice != this.southTile){
-                            this.southTile.tileLightUpdate(-1);
+                            this.southTile.tileLightUpdate(-1, false);
                             break;
                         }
                     case 3:
                         if(this.westTile == "" || this.westTile == undefined){
                             break;
                         } else if(tileChoice != this.westTile){
-                            this.westTile.tileLightUpdate(-1);
+                            this.westTile.tileLightUpdate(-1, false);
                             break;
                         }
                 }
@@ -330,7 +329,7 @@ class Player {
                         break;
                     } else {
                         this.northTile = this.mazeArray[(this.currentTile.gridCoordinateR + 1)][this.currentTile.gridCoordinateC];
-                        this.northTile.tileLightUpdate(1);
+                        this.northTile.tileLightUpdate(1, false);
                         break;
                     }
                 case 1:
@@ -339,7 +338,7 @@ class Player {
                         break;
                     } else {
                         this.eastTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC + 1)];
-                        this.eastTile.tileLightUpdate(1);
+                        this.eastTile.tileLightUpdate(1, false);
                         break;
                     }
                 case 2:
@@ -348,7 +347,7 @@ class Player {
                         break;
                     } else {
                         this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];
-                        this.southTile.tileLightUpdate(1);
+                        this.southTile.tileLightUpdate(1, false);
                         break;
                     }
                 case 3:
@@ -357,12 +356,12 @@ class Player {
                         break;
                     } else {
                         this.westTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC - 1)];
-                        this.westTile.tileLightUpdate(1);
+                        this.westTile.tileLightUpdate(1, false);
                         break;
                     }
             }
         }
-        this.currentTile.tileLightUpdate(1);
+        this.currentTile.tileLightUpdate(1, false);
     }
 }
 
