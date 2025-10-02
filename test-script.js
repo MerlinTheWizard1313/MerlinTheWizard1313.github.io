@@ -46,6 +46,7 @@ class Maze{
         this.mainGrid = grid;
         this.gridSquareArray = [[],[],[],[],[],[],[],[],[]];
         this.genGrid();
+        this.player = new Player(this.gridSquareArray, this.gridSquareArray[2][6]);
     }
 
     genGrid(){
@@ -142,7 +143,7 @@ class Walls{
 
 class Player {
     constructor(gridSquareArray, spawnTile){
-        this.mazeArray;
+        this.mazeArray = gridSquareArray;
         this.currentTile = spawnTile;
         this.northTile;
         this.eastTile;
@@ -150,11 +151,59 @@ class Player {
         this.westTile;
         this.hasSword = false;
         this.hasHammer = false;
+        this.initialisePlayer();
     }
 
     initialisePlayer(){
         //update each adjacent tile to start and update their light levels
         this.currentTile.playerOnTile = true;
+        console.log(this.mazeArray);
+        console.log(this.currentTile);
+        this.currentTile.lightUpdate(2);
+        for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
+            switch(i){
+                case 0:
+                    if(this.currentTile.gridWalls.actualWalls[i] == "none"){
+                        console.log("Made it north");
+                        this.northTile = this.mazeArray[(this.currentTile.gridCoordinateR + 1)][this.currentTile.gridCoordinateC];
+                        console.log(this.northTile);
+                        this.northTile.lightUpdate(1);
+                        break;
+                    } else {
+                        break;
+                    }
+                case 1:
+                    if(this.currentTile.gridWalls.actualWalls[i] == "none"){
+                        console.log("Made it east");
+                        this.eastTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC + 1)];
+                        console.log(this.eastTile);
+                        this.eastTile.lightUpdate(1);
+                        break;
+                    } else {
+                        break;
+                    }
+                case 2:
+                    if(this.currentTile.gridWalls.actualWalls[i] == "none"){
+                        console.log("Made it south");
+                        this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];
+                        console.log(this.southTile);
+                        this.southTile.lightUpdate(1);
+                        break;
+                    } else {
+                        break;
+                    }
+                case 3:
+                    if(this.currentTile.gridWalls.actualWalls[i] == "none"){
+                        console.log("Made it west");
+                        this.westTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC - 1)];
+                        console.log(this.westTile);
+                        this.westTile.lightUpdate(1);
+                        break;
+                    } else {
+                        break;
+                    }
+            }
+        }
     }
 
     playerMove(tileChoice){
@@ -249,6 +298,7 @@ class Player {
                         this.northTile = "";
                         break;
                     } else {
+                        //potentially update this if initialise player works perfectly
                         this.northTile = document.querySelector((".row" + (this.currentTile.gridCoordinateR + 1) + "Column" + this.currentTile.gridCoordinateC));
                         this.northTile.lightUpdate(1);
                         break;
