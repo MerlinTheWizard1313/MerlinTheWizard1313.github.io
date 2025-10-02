@@ -157,16 +157,12 @@ class Player {
     initialisePlayer(){
         //update each adjacent tile to start and update their light levels
         this.currentTile.playerOnTile = true;
-        console.log(this.mazeArray);
-        console.log(this.currentTile);
         this.currentTile.gridWalls.lightUpdate(2);
         for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
             switch(i){
                 case 0:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
-                        console.log("Made it north");
                         this.northTile = this.mazeArray[(this.currentTile.gridCoordinateR + 1)][this.currentTile.gridCoordinateC];
-                        console.log(this.northTile);
                         this.northTile.gridWalls.lightUpdate(1);
                         break;
                     } else {
@@ -174,9 +170,7 @@ class Player {
                     }
                 case 1:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
-                        console.log("Made it east");
                         this.eastTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC + 1)];
-                        console.log(this.eastTile);
                         this.eastTile.gridWalls.lightUpdate(1);
                         break;
                     } else {
@@ -184,9 +178,7 @@ class Player {
                     }
                 case 2:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
-                        console.log("Made it south");
                         this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];
-                        console.log(this.southTile);
                         this.southTile.gridWalls.lightUpdate(1);
                         break;
                     } else {
@@ -194,9 +186,7 @@ class Player {
                     }
                 case 3:
                     if(this.currentTile.gridWalls.actualWalls[i] == "none"){
-                        console.log("Made it west");
                         this.westTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC - 1)];
-                        console.log(this.westTile);
                         this.westTile.gridWalls.lightUpdate(1);
                         break;
                     } else {
@@ -230,7 +220,7 @@ class Player {
         } else {
             this.currentTile.playerOnTile = false;
             this.currentTile.playerUpdate();
-            this.tileUpdate(tileChoice);
+            this.tileUpdate(this.tileChoice);
             this.currentTile.playerOnTile = true;
             this.currentTile.playerUpdate();
         }
