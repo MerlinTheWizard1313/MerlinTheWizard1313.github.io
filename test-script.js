@@ -286,12 +286,14 @@ class Player {
                             break;
                         } else if(tileChoice != this.southTile){
                             this.southTile.gridWalls.lightUpdate(-1);
+                            break;
                         }
                     case 3:
                         if(this.westTile == "" || this.westTile == undefined){
                             break;
                         } else if(tileChoice != this.westTile){
                             this.westTile.gridWalls.lightUpdate(-1);
+                            break;
                         }
                 }
             }
@@ -326,7 +328,7 @@ class Player {
                         this.southTile = "";
                         break;
                     } else {
-                        this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];                        this.southTile.gridWalls.lightUpdate(1);
+                        this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];
                         this.southTile.gridWalls.lightUpdate(1);
                         console.log(this.southTile);
                         console.log(this.southTile.gridWalls.currentColourIndex);
