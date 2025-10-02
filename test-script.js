@@ -223,7 +223,6 @@ class Player {
                 default:
                     return "Choose a valid tile";
         }
-        console.log(this.tileChoice);
         if(this.tileChoice == undefined || this.tileChoice == ""){
             return "Choose a valid tile";
         } else if (this.tileChoice.hasEnemy){
@@ -231,7 +230,7 @@ class Player {
         } else {
             this.currentTile.playerOnTile = false;
             this.currentTile.playerUpdate();
-            tileUpdate(tileChoice);
+            this.tileUpdate(tileChoice);
             this.currentTile.playerOnTile = true;
             this.currentTile.playerUpdate();
         }
@@ -315,8 +314,7 @@ class Player {
                         this.northTile = "";
                         break;
                     } else {
-                        //potentially update this if initialise player works perfectly
-                        this.northTile = document.querySelector((".row" + (this.currentTile.gridCoordinateR + 1) + "Column" + this.currentTile.gridCoordinateC));
+                        this.northTile = this.mazeArray[(this.currentTile.gridCoordinateR + 1)][this.currentTile.gridCoordinateC];
                         this.northTile.gridWalls.lightUpdate(1);
                         break;
                     }
@@ -325,7 +323,7 @@ class Player {
                         this.eastTile = "";
                         break;
                     } else {
-                        this.eastTile = document.querySelector((".row" + this.currentTile.gridCoordinateR + "Column" + (this.currentTile.gridCoordinateC + 1)));
+                        this.eastTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC + 1)];
                         this.eastTile.gridWalls.lightUpdate(1);
                         break;
                     }
@@ -334,7 +332,7 @@ class Player {
                         this.southTile = "";
                         break;
                     } else {
-                        this.southTile = document.querySelector((".row" + (this.currentTile.gridCoordinateR - 1) + "Column" + this.currentTile.gridCoordinateC));
+                        this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];                        this.southTile.gridWalls.lightUpdate(1);
                         this.southTile.gridWalls.lightUpdate(1);
                         break;
                     }
@@ -343,7 +341,7 @@ class Player {
                         this.westTile = "";
                         break;
                     } else {
-                        this.westTile = document.querySelector((".row" + this.currentTile.gridCoordinateR  + "Column" + (this.currentTile.gridCoordinateC - 1)));
+                        this.westTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC - 1)];
                         this.westTile.gridWalls.lightUpdate(1);
                         break;
                     }
