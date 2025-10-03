@@ -189,11 +189,11 @@ class Player {
         this.westTile;
         this.hasSword = false;
         this.hasHammer = false;
-        this.upButton = document.querySelector(".up-button");
-        this.rightButton = document.querySelector(".right-button");
-        this.downButton = document.querySelector(".down-button");
-        this.rightButton = document.querySelector(".right-button");
-        this.interactButton = document.querySelector(".interact-button");
+        this.upButton = document.getElementById("up-button");
+        this.rightButton = document.getElementById("right-button");
+        this.downButton = document.getElementById("down-button");
+        this.rightButton = document.getElementById("right-button");
+        this.interactButton = document.getElementById("interact-button");
         this.initialisePlayer();
     }
 

@@ -532,27 +532,27 @@ body {
   border-bottom: 4px solid;
 }
 
-.up-button{
+#up-button{
   color: black;
   background-color: white;
 }
 
-.right-button{
+#right-button{
   color: black;
   background-color: white;
 }
 
-.down-button{
+#down-button{
   color: black;
   background-color: white;
 }
 
-.left-button{
+#left-button{
   color: black;
   background-color: white;
 }
 
-.interact-button{
+#interact-button{
   color: black;
   background-color: white;
 }
