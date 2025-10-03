@@ -44,8 +44,6 @@ class MazeSquare {
     }
 
     instantiateNPC(npcLocationR, npcLocationC){
-        console.log(npcLocationR);
-        console.log(npcLocationC);
         this.tileHasNPC = true;
         switch ("npc" + npcLocationR + "-" + npcLocationC){
             case "npc1-1":
@@ -54,7 +52,7 @@ class MazeSquare {
             case "npc2-9":
                 this.npcDialogue = "'HEATHEN!!' A deranged woman behind the bars with long spindly white hair scream at you. 'You will not survive in this place, but should you wish to continue, you look in need of a weapon, yes? You may find one if you follow up the east corridor I assure you.' You sense her words are true but can't shake this odd feeling. She continues to stare at you intently while grasping the bars of her cell"
                 break;
-            case "npc2-8":
+            case "npc3-8":
                 this.npcDialogue = "This last cubby in the room had some hard to make out writing but it had another carved note which states 'F.C.G 1848'";
                 break;
             case "npc3-9":
@@ -71,9 +69,6 @@ class MazeSquare {
                 break;
             case "npc6-4":
                 this.npcDialogue = "A crazed man mumbles, his volume fluctuating as he speaks, his eyes white like he has was possessed. 'Exploration is key, do not flee. The length of moves you will see in the dead space, don't you agree?' What could he mean?";
-                break;
-            default:
-                console.log("error");
                 break;
         }
     }
