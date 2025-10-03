@@ -114,7 +114,7 @@ class Maze{
     constructor(grid){
         this.mainGrid = grid;
         this.gridSquareArray = [[],[],[],[],[],[],[],[],[]];
-        this.torchArray = [[2,1],[2,5],[2,7],[2,10],[3,3],[4,2],[4,6],[5,4],[5,7],[5,10],[6,1],[6,5],[6,9]];
+        this.torchArray = [[1,3],[2,1],[2,5],[2,7],[2,8],[2,9],[2,10],[3,3],[3,8],[3,9],[4,2],[4,6],[4,9],[5,2],[5,3],[5,4],[5,6],[5,7],[5,8],[5,10],[6,1],[6,5],[6,9]];
         this.npcArray = [[1,1],[2,9],[3,8],[3,9],[4,9],[5,2],[5,6],[6,4]];
         this.swordLocation = [6,8];
         this.hammerLocation = [1,1];
@@ -374,7 +374,7 @@ class Player {
     
     hammer(){
         if(this.hasHammer && this.currentTile.hasCrackedWall){
-            //do breaking
+            //do breaking and light the torch in the room cracked open
         } else if (this.hasHammer && this.currentTile.hasCrackedWall == false){
             //you swing the hammer around but you there is nothing to break
         } else if (this.hasHammer == false){
