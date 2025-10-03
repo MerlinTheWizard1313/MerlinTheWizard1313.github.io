@@ -240,7 +240,6 @@ class Player {
     }
 
     bindButtons(){
-        console.log(this.upButton, this.rightButton, this.downButton, this.leftButton, this.interactButton);
         this.upButton.addEventListener("click", () => this.playerMove(0));
         this.rightButton.addEventListener("click", () => this.playerMove(1));
         this.downButton.addEventListener("click", () => this.playerMove(2));
@@ -263,14 +262,13 @@ class Player {
                     this.tileChoice = this.westTile;
                     break;
                 default:
-                    return "Choose a valid tile";
+                    console.log("Choose a vaild tile");
         }
         if(this.tileChoice == undefined || this.tileChoice == ""){
-            return "Choose a valid tile";
+            console.log("Choose a vaild tile");
         } else if (this.tileChoice.hasEnemy){
             //looks like an enemy is blocking the path
         } else {
-            console.log("Moved to" + this.tileChoice);
             this.currentTile.playerOnTile = false;
             this.currentTile.playerUpdate();
             this.tileUpdate(this.tileChoice);
@@ -308,7 +306,7 @@ class Player {
                         }
                 }
             }
-            return "Torch lit"
+            console.log("Torch Lit");
         } else {
             //do speech things
             return "error for now"
