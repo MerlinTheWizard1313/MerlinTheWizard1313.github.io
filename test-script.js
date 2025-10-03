@@ -240,7 +240,7 @@ class Player {
     }
 
     bindButtons(){
-        this.upButton.addEventListener("click", this.playerMove.bind(0));
+        this.upButton.addEventListener("click", function(){this.playerMove(0);});
         this.rightButton.addEventListener("click", this.playerMove.bind(1));
         this.downButton.addEventListener("click", this.playerMove.bind(2));
         this.rightButton.addEventListener("click", this.playerMove.bind(3));
