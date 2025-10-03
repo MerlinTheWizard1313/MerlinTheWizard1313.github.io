@@ -531,3 +531,28 @@ body {
   border-right: 4px solid;
   border-bottom: 4px solid;
 }
+
+.up-button{
+  color: black;
+  background-color: white;
+}
+
+.right-button{
+  color: black;
+  background-color: white;
+}
+
+.down-button{
+  color: black;
+  background-color: white;
+}
+
+.left-button{
+  color: black;
+  background-color: white;
+}
+
+.interact-button{
+  color: black;
+  background-color: white;
+}

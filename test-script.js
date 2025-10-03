@@ -189,6 +189,11 @@ class Player {
         this.westTile;
         this.hasSword = false;
         this.hasHammer = false;
+        this.upButton = document.querySelector(".up-button");
+        this.rightButton = document.querySelector(".right-button");
+        this.downButton = document.querySelector(".down-button");
+        this.rightButton = document.querySelector(".right-button");
+        this.interactButton = document.querySelector(".interact-button");
         this.initialisePlayer();
     }
 
@@ -231,6 +236,15 @@ class Player {
                     }
             }
         }
+        this.bindButtons();
+    }
+
+    bindButtons(){
+        this.upButton.addEventListener("click", this.playerMove(0));
+        this.rightButton.addEventListener("click", this.playerMove(1));
+        this.downButton.addEventListener("click", this.playerMove(2));
+        this.rightButton.addEventListener("click", this.playerMove(3));
+        this.interactButton.addEventListener("click", this.interact());
     }
 
     playerMove(tileNumber){
