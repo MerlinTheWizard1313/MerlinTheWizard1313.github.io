@@ -192,7 +192,7 @@ class Player {
         this.upButton = document.getElementById("up-button");
         this.rightButton = document.getElementById("right-button");
         this.downButton = document.getElementById("down-button");
-        this.rightButton = document.getElementById("right-button");
+        this.leftButton = document.getElementById("left-button");
         this.interactButton = document.getElementById("interact-button");
         this.initialisePlayer();
     }
