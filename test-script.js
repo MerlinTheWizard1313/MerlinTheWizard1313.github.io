@@ -244,7 +244,7 @@ class Player {
         this.rightButton.addEventListener("click", this.playerMove.bind(1));
         this.downButton.addEventListener("click", this.playerMove.bind(2));
         this.rightButton.addEventListener("click", this.playerMove.bind(3));
-        this.interactButton.addEventListener("click", this.interact().bind(this));
+        this.interactButton.addEventListener("click", this.interact.bind(this));
     }
 
     playerMove(tileNumber){
