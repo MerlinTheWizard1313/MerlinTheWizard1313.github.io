@@ -43,32 +43,33 @@ class MazeSquare {
         this.tileHasUnlitTorch = true;
     }
 
-    instantiateNPC(npcLocation){
-        console.log(npcLocation);
+    instantiateNPC(npcLocationR, npcLocationC){
+        console.log(npcLocationR);
+        console.log(npcLocationC);
         this.tileHasNPC = true;
-        switch (npcLocation){
-            case [1,1]:
+        switch ("npc" + npcLocationR + "-" + npcLocationC){
+            case "npc1-1":
                 this.npcDialogue = "'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat";
                 break;
-            case [2,9]:
+            case "npc2-9":
                 this.npcDialogue = "'HEATHEN!!' A deranged woman behind the bars with long spindly white hair scream at you. 'You will not survive in this place, but should you wish to continue, you look in need of a weapon, yes? You may find one if you follow up the east corridor I assure you.' You sense her words are true but can't shake this odd feeling. She continues to stare at you intently while grasping the bars of her cell"
                 break;
-            case [3,8]:
+            case "npc2-8":
                 this.npcDialogue = "This last cubby in the room had some hard to make out writing but it had another carved note which states 'F.C.G 1848'";
                 break;
-            case [3,9]:
+            case "npc3-9":
                 this.npcDialogue = "On the same wall as the carved 'A', there is a letter 'N' carved below it. What could this mean? ";
                 break;
-            case [4,9]:
+            case "npc4-9":
                 this.npcDialogue = "Stepping through the entrance, you notice a letter 'A' carved high on the large wall. You should explore this place more";
                 break;
-            case [5,2]:
+            case "npc5-2":
                 this.npcDialogue = "You enter an enclosed room with two statues either side of a written note. 'Though I am short, I only look up. My brother is taller, but he is always right.' The statues follow the descriptions on the notes, what could this mean?";
                 break;
-            case [5,6]:
+            case "npc5-6":
                 this.npcDialogue = "You enter the crumbled walls and see a pedestal in the center of the room. It is the destination you have searched for. Press button to continue your journey into the room";
                 break;
-            case [6,4]:
+            case "npc6-4":
                 this.npcDialogue = "A crazed man mumbles, his volume fluctuating as he speaks, his eyes white like he has was possessed. 'Exploration is key, do not flee. The length of moves you will see in the dead space, don't you agree?' What could he mean?";
                 break;
             default:
@@ -156,7 +157,7 @@ class Maze{
             this.gridSquareArray[this.torchArray[i][0]][this.torchArray[i][1]].instantiateTorch();
         }
         for(let i = 0; i < this.npcArray.length; i++){
-            this.gridSquareArray[this.npcArray[i][0]][this.npcArray[i][1]].instantiateNPC(this.npcArray[i]);
+            this.gridSquareArray[this.npcArray[i][0]][this.npcArray[i][1]].instantiateNPC(this.npcArray[i][0],this.npcArray[i][1]);
         }
         this.gridSquareArray[this.swordLocation[0]][this.swordLocation[1]].instantiateSword();
         this.gridSquareArray[this.hammerLocation[0]][this.hammerLocation[1]].instantiateHammer();
