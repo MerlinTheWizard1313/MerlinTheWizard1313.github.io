@@ -240,11 +240,11 @@ class Player {
     }
 
     bindButtons(){
-        this.upButton.addEventListener("click", function(){this.playerMove(0);});
-        this.rightButton.addEventListener("click", this.playerMove.bind(1));
-        this.downButton.addEventListener("click", this.playerMove.bind(2));
-        this.rightButton.addEventListener("click", this.playerMove.bind(3));
-        this.interactButton.addEventListener("click", this.interact.bind(this));
+        this.upButton.addEventListener("click", () => this.playerMove(0));
+        this.rightButton.addEventListener("click", () => this.playerMove(1));
+        this.downButton.addEventListener("click", () => this.playerMove(2));
+        this.rightButton.addEventListener("click", () => this.playerMove(3));
+        this.interactButton.addEventListener("click", () => this.interact());
     }
 
     playerMove(tileNumber){
