@@ -48,15 +48,16 @@ class MazeSquare {
         switch ("npc" + npcLocationR + "-" + npcLocationC){
             case "npc1-1":
                 this.npcDialogue = "'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat";
+                this.hasHammer = true;
                 break;
             case "npc2-9":
-                this.npcDialogue = "'HEATHEN!!' A deranged woman behind the bars with long spindly white hair scream at you. 'You will not survive in this place, but should you wish to continue, you look in need of a weapon, yes? You may find one if you follow up the east corridor I assure you.' You sense her words are true but can't shake this odd feeling. She continues to stare at you intently while grasping the bars of her cell"
+                this.npcDialogue = "'HEATHEN!!' A deranged woman behind the bars with long spindly white hair scream at you. 'You will not survive in this place, but should you wish to continue, you look in need of a weapon, yes? You may find one if you follow up the east corridor I assure you.' You sense her words are true but can't shake this odd feeling. She continues to stare at you intently while grasping the bars of her cell";
                 break;
             case "npc3-8":
                 this.npcDialogue = "This last cubby in the room had some hard to make out writing but it had another carved note which states 'F.C.G 1848'";
                 break;
             case "npc3-9":
-                this.npcDialogue = "On the same wall as the carved 'A', there is a letter 'N' carved below it. What could this mean? ";
+                this.npcDialogue = "On the same wall as the carved 'A', there is another letter 'A' carved below it. What could this mean? ";
                 break;
             case "npc4-9":
                 this.npcDialogue = "Stepping through the entrance, you notice a letter 'A' carved high on the large wall. You should explore this place more";
@@ -65,20 +66,19 @@ class MazeSquare {
                 this.npcDialogue = "You enter an enclosed room with two statues either side of a written note. 'Though I am short, I only look up. My brother is taller, but he is always right.' The statues follow the descriptions on the notes, what could this mean?";
                 break;
             case "npc5-6":
-                this.npcDialogue = "You enter the crumbled walls and see a pedestal in the center of the room. It is the destination you have searched for. Press button to continue your journey into the room";
+                this.npcDialogue = "Peering through the crumbled walls, you see a pedestal in the center of the room. It is the destination you have searched for. Press button to continue your journey into the room";
                 break;
             case "npc6-4":
                 this.npcDialogue = "A crazed man mumbles, his volume fluctuating as he speaks, his eyes white like he has was possessed. 'Exploration is key, do not flee. The length of moves you will see in the dead space, don't you agree?' What could he mean?";
                 break;
+            case "npc6-8":
+                this.npcDialogue = "Standing tall, a well kept sword is jammed into a skeleton's torso. You gained a sword, perfect for combat!";
+                this.hasSword = true;
+                break;
+            case "npc6-10":
+                this.npcDialogue = "As you turn the corner, you spot something metal at the end of the hall.";
+                break;
         }
-    }
-
-    instantiateSword(){
-        this.tileHasSword = true;
-    }
-
-    instantiateHammer(){
-        this.tileHasHammer = true;
     }
 
     lightMinimumUpdate(){
@@ -103,6 +103,7 @@ class MazeSquare {
         if(this.playerOnTile){
             if(this.npcDialogue != ""){
                 console.log(this.npcDialogue);
+                gridTest.eventUpdate(this.npcDialogue);
             }
         } else {
             //remove player icon
@@ -118,6 +119,8 @@ class Maze{
         this.npcArray = [[1,1],[2,9],[3,8],[3,9],[4,9],[5,2],[5,6],[6,4]];
         this.swordLocation = [6,8];
         this.hammerLocation = [1,1];
+        this.eventArray = [];
+        this.currentEvent = "";
         this.genGrid();
         this.placeObjects();
         this.player = new Player(this.gridSquareArray, this.gridSquareArray[2][6]);
@@ -158,12 +161,100 @@ class Maze{
         this.gridSquareArray[this.hammerLocation[0]][this.hammerLocation[1]].instantiateHammer();
     }
 
+    eventReturn(npcDialogue){
+        switch (npcDialogue){
+            case "Standing tall, a well kept sword is jammed into a skeleton's torso. You gained a sword, perfect for combat!":
+                this.currentEvent == "swordEvent";
+                break;
+            case "Standing tall, a well kept sword is jammed into a skeleton's torso. It seems that deranged woman was right, you should probably free her for the helpful tip. You gained a sword, perfect for combat!":
+                this.currentEvent == "swordEvent";
+                break;
+            case "'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat":
+                this.currentEvent == "hammerEvent";
+                break;
+            case "A recently deceased man lays there with open eyes and a sledgehammer lodged into his shoulder. You decide to take the hammer. It will not be helpful in combat, maybe it has another use?":
+                this.currentEvent == "hammerEvent";
+                break;
+            case "'HEATHEN!!' A deranged woman behind the bars with long spindly white hair scream at you. 'You will not survive in this place, but should you wish to continue, you look in need of a weapon, yes? You may find one if you follow up the east corridor I assure you.' You sense her words are true but can't shake this odd feeling. She continues to stare at you intently while grasping the bars of her cell":
+                this.currentEvent == "jailEvent";
+                break;
+            default: 
+                this.currentEvent = "";
+                break;
+        }
+        if(this.eventArray.length <=2 && this.currentEvent != ""){
+            this.eventArray.push(this.currentEvent);
+        }
+        console.log(currentEvent);
+        return this.currentEvent;
+    }
+
+    eventUpdate(npcDialogue){
+        if (this.npcDialogue.includes("HEATHEN") || this.npcDialogue.includes("sword") || this.npcDialogue.includes("sledgehammer") || this.npcDialogue.includes("metal")){
+            this.eventReturn(npcDialogue);
+        }
+        if(this.currentEvent != ""){
+            switch (this.event[0]){
+                case swordpickedup:
+                    if(this.currentEvent == swordpickedup){
+                        this.gridSquareArray[2][9].npcDialogue = "You notice the jail cell door has been broken through, it seems that woman that cornered you came from here. Lucky you found that blade!";
+                        this.gridSquareArray[2][9].gridWalls.actualWalls[2] = "none";
+                        this.gridSquareArray[1][1].npcDialogue = "A recently deceased man lays there with open eyes and a sledgehammer lodged into his shoulder. You decide to take the hammer. It will not be helpful in combat, maybe it has another use?";
+                        this.gridSquareArray[6][10].npcDialogue = "Suddenly, a white-haired crazed woman jumps out at you. She stares at you with intent to kill. You don't seem to be able to pass her, only one way through";
+                        this.gridSquareArray[6][10].hasEnemy = true;
+                        this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
+                        player.bindSword();
+                        this.gridSquareArray[6][8].hasSword = false;
+                    } else if(this.currentEvent == hammerpickedup){
+                        this.gridSquareArray[1][1].npcDialogue = "The man, like a lifeless puppet, sits aganst the wall with a dead eyed stare. We better move on";
+                        player.bindHammer();
+                        this.gridSquareArray[1][1].hasHammer = false;
+                    }
+                    break;
+                case jailladyspokento:
+                    if (this.currentEvent == jailladyspokento){
+                        this.gridSquareArray[6][8].npcDialogue = "Standing tall, a well kept sword is jammed into a skeleton's torso. It seems that deranged woman was right, you should probably free her for the helpful tip. You gained a sword, perfect for combat!";
+                        player.bindSword();
+                        this.gridSquareArray[6][8].hasSword = false;
+                        this.gridSquareArray[2][9].npcDialogue = "'Hear me well if you did not before! There lies a weapon to aid you if you follow the east corridor, now BEGONE HEATHEN' Probably best you steer clear of her"
+                    }
+                    if (this.event[1] == swordpickedup && this.currentEvent == swordpickedup){
+                        this.gridSquareArray[2][9].npcDialogue = "You notice the jail door has been broken through. The wretch should never have underestimated your skills with a blade cornering you like that.";
+                        this.gridSquareArray[2][9].gridWalls.actualWalls[2] = "none";
+                        this.gridSquareArray[1][1].npcDialogue = "A recently deceased man lays there with open eyes and a sledgehammer lodged into his shoulder. You decide to take the hammer. It will not be helpful in combat, maybe it has another use?";
+                        this.gridSquareArray[6][10].npcDialogue = "Suddenly, the jailed woman jumps out at you. She stares at you with intent to kill.'My trap worked perfectly, now you will suffer wretched knight' You don't seem to be able to pass her, only one way through";
+                        this.gridSquareArray[6][10].hasEnemy = true;
+                        this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
+                        player.bindSword();
+                        this.gridSquareArray[6][8].hasSword = false;
+                    } else if(this.event[1] == hammerpickedup && this.currentEvent == hammerpickedup){
+                        this.gridSquareArray[1][1].npcDialogue = "The man lays on the ground, eyes closed. Hopefully he reaches his loved one";
+                        player.bindHammer();
+                        this.gridSquareArray[1][1].hasHammer = false;
+                    } else if(this.event[1] == swordpickedup && this.currentEvent == hammerpickedup){
+                        this.gridSquareArray[1][1].npcDialogue = "The man, like a lifeless puppet, sits aganst the wall with a dead eyed stare. We better move on";
+                        player.bindHammer();
+                        this.gridSquareArray[1][1].hasHammer = false;
+                    }
+                    break;
+                case hammerpickedup:
+                    this.gridSquareArray[1][1].npcDialogue = "The man lays on the ground, eyes closed. Hopefully he reaches his loved one";
+                    player.bindHammer();
+                    this.gridSquareArray[1][1].hasHammer = false;
+                    break;
+                default:
+                return "error";
+            }
+        }
+    }
+
     gridSquareInfo(row, column){
         var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, 
                                 "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate(), 
                                 "ClassNames:" + this.gridSquareArray[row][column].classList, 
                                 "TileWalls:" + this.gridSquareArray[row][column].gridWalls.actualWalls,
                                 "TileColor:" + this.gridSquareArray[row][column].currentLightColour,
+                                "NPCDialogue" + this.gridSquareArray[row][column].npcDialogue,
                             ];
         return gridSquareInfo;
     }
@@ -246,6 +337,8 @@ class Player {
         this.downButton = document.getElementById("down-button");
         this.leftButton = document.getElementById("left-button");
         this.lightTorchButton = document.getElementById("lightTorch-button");
+        this.hammerButton = document.getElementById("hammer-button");
+        this.swordButton = document.getElementById("sword-button");
         this.initialisePlayer();
     }
 
@@ -297,6 +390,16 @@ class Player {
         this.downButton.addEventListener("click", () => this.playerMove(2));
         this.leftButton.addEventListener("click", () => this.playerMove(3));
         this.lightTorchButton.addEventListener("click", () => this.lightTorch());
+    }
+
+    bindSword(){
+        this.swordButton.addEventListener("click", () => this.attack());
+        this.swordButton.innerText = "Attack";
+    }
+
+    bindHammer(){
+        this.hammerButton.addEventListener("click", () => this.hammer());
+        this.hammerButton.innerText = "Hammer";
     }
 
     playerMove(tileNumber){
@@ -480,3 +583,4 @@ class TextTerminal{
 
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);
+gridTest.gridSquareInfo(1,1);
