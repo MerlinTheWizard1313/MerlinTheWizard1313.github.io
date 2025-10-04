@@ -425,99 +425,106 @@ body {
 
 .row7Column1{
   background-color: black;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
 }
 
 .row7Column2{
   background-color: black;
+  border-bottom: 4px solid;
 }
 
 .row7Column3{
   background-color: black;
+  border-bottom: 4px solid;
 }
 
 .row7Column4{
   border: black;
   background-color: purple;
-  border-top: 4px solid;
-  border-left: 4px solid;
 }
 
 .row7Column5{
   border: black;
   background-color: purple;
-  border-top: 4px solid;
   border-bottom: 4px solid;
 }
 
 .row7Column6{
   border: black;
   background-color: purple;
-  border-top: 4px solid;
   border-bottom: 4px solid;
 }
 
 .row7Column7{
   border: black;
   background-color: purple;
-  border-right: 4px solid;
   border-bottom: 4px solid;
 }
 
 .row7Column8{
   background-color: black;
+  border-bottom: 4px solid;
 }
 
 .row7Column9{
   background-color: black;
+  border-bottom: 4px solid;
 }
 
 .row7Column10{
   background-color: black;
+  border-bottom: 4px solid;
+  border-right: 4px solid;
 }
 
 .row8Column1{
   background-color: black;
+  border-top: 4px solid;
+  border-left: 4px solid;
 }
 
 .row8Column2{
   background-color: black;
+  border-top: 4px solid;
 }
 
 .row8Column3{
   background-color: black;
+  border-top: 4px solid;
 }
 
 .row8Column4{
   background-color: black;
+  border-top: 4px solid;
 }
 
 .row8Column5{
   background-color: black;
+  border-top: 4px solid;
 }
 
 .row8Column6{
   background-color: black;
+  border-top: 4px solid;
 }
 
 .row8Column7{
   border: black;
   background-color: purple;
   border-top: 4px solid;
-  border-left: 4px solid;
 }
 
 .row8Column8{
   border: black;
   background-color: purple;
   border-top: 4px solid;
-  border-bottom: 4px solid;
 }
 
 .row8Column9{
   border: black;
   background-color: purple;
   border-top: 4px solid;
-  border-bottom: 4px solid;
 }
 
 .row8Column10{
@@ -525,7 +532,6 @@ body {
   background-color: purple;
   border-top: 4px solid;
   border-right: 4px solid;
-  border-bottom: 4px solid;
 }
 
 #up-button{
