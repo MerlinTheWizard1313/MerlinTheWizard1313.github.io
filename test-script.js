@@ -189,35 +189,35 @@ class Maze{
     eventReturn(npcDialogue){
         switch (npcDialogue){
             case "Standing tall, a well kept sword is jammed into a skeleton's torso. It seems that deranged woman was right, you should probably free her for the helpful tip. You gained a sword, perfect for combat!":
-                if (this.eventArray.indexOf("swordEvent") = -1){
+                if (this.eventArray.indexOf("swordEvent") == -1){
                     this.currentEvent = "swordEvent";
                 } else {
                     this.currentEvent = "";
                 }
                 break;
             case "'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat":
-                if (this.eventArray.indexOf("hammerEvent") = -1){
+                if (this.eventArray.indexOf("hammerEvent") == -1){
                     this.currentEvent = "hammerEvent";
                 } else {
                     this.currentEvent = "";
                 }
                 break;
             case "A recently deceased man lays there with open eyes and a sledgehammer lodged into his shoulder. You decide to take the hammer. It will not be helpful in combat, maybe it has another use?":
-                if (this.eventArray.indexOf("hammerEvent") = -1){
+                if (this.eventArray.indexOf("hammerEvent") == -1){
                     this.currentEvent = "hammerEvent";
                 } else {
                     this.currentEvent = "";
                 }
                 break;
             case "'HEATHEN!!' A deranged woman behind the bars with long spindly white hair scream at you. 'You will not survive in this place, but should you wish to continue, you look in need of a weapon, yes? You may find one if you follow up the east corridor I assure you.' You sense her words are true but can't shake this odd feeling. She continues to stare at you intently while grasping the bars of her cell":
-                if (this.eventArray.indexOf("jailEvent") = -1){
+                if (this.eventArray.indexOf("jailEvent") == -1){
                     this.currentEvent = "jailEvent";
                 } else {
                     this.currentEvent = "";
                 }
                 break;
             case "Suddenly, a white-haired crazed woman jumps out at you. She stares at you with intent to kill. You don't seem to be able to pass her, only one way through":
-                if (this.eventArray.indexOf("jailEnemyEvent") = -1){
+                if (this.eventArray.indexOf("jailEnemyEvent") == -1){
                     this.currentEvent = "jailEnemyEvent";
                 } else {
                     this.currentEvent = "";
@@ -509,6 +509,19 @@ class Player {
                 }
             }
             console.log("Torch Lit");
+            if(this.currentTile == this.mazeArray[2][7]){
+                this.mazeArray[2][7].lightMinimumUpdate();
+                this.mazeArray[2][7].tileLightUpdate(1,false);
+            } else if(this.currentTile == this.mazeArray[2][8]){
+                this.mazeArray[2][8].lightMinimumUpdate();
+                this.mazeArray[2][8].tileLightUpdate(1,false);
+            } else if(this.currentTile == this.mazeArray[2][9]){
+                this.mazeArray[2][9].lightMinimumUpdate();
+                this.mazeArray[2][9].tileLightUpdate(1,false);
+            } else if(this.currentTile == this.mazeArray[2][10]){
+                this.mazeArray[2][10].lightMinimumUpdate();
+                this.mazeArray[2][10].tileLightUpdate(1,false);
+            }
         }
     }
 
