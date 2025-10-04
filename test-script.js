@@ -201,7 +201,7 @@ class Maze{
         if(this.eventArray.length <=2 && this.currentEvent != ""){
             this.eventArray.push(this.currentEvent);
         }
-        console.log(currentEvent);
+        console.log(this.currentEvent);
         return this.currentEvent;
     }
 
