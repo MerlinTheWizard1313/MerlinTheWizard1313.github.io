@@ -14,6 +14,7 @@ class MazeSquare {
         this.playerOnTile = false;
         this.tileHasUnlitTorch = false;
         this.tileHasLitTorch = false;
+        this.tileHasEnemy = false;
         this.tileHasNPC = false;
         this.npcDialogue = "";
         this.tileHasSword = false;
@@ -52,7 +53,7 @@ class MazeSquare {
     }
 
     instantiateEnemy(){
-        this.hasEnemy = true;
+        this.tileHasEnemy = true;
     }
 
     instantiateCrackedWall(){
@@ -221,7 +222,7 @@ class Maze{
                     this.gridSquareArray[2][9].gridSquare.style.borderBottomWidth = "0px";
                     this.gridSquareArray[2][9].gridSquare.style.borderBottomStyle = "none";
                     this.gridSquareArray[6][10].npcDialogue = "Suddenly, a white-haired crazed woman jumps out at you. She stares at you with intent to kill. You don't seem to be able to pass her, only one way through";
-                    this.gridSquareArray[5][10].hasEnemy = true;
+                    this.gridSquareArray[5][10].tileHasEnemy = true;
                     this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
                     this.player.bindSword();
                     this.gridSquareArray[6][8].hasSword = false;
@@ -422,9 +423,9 @@ class Player {
         }
         if(this.tileChoice == undefined || this.tileChoice == ""){
             console.log("Choose a vaild tile");
-        } else if (this.tileChoice.hasEnemy && (this.tileChoice.gridCoordinateR == 5 && this.tileChoice.gridCoordinateC == 10)){
+        } else if (this.tileChoice.tileHasEnemy && (this.tileChoice.gridCoordinateR == 5 && this.tileChoice.gridCoordinateC == 10)){
             console.log("The crazed woman is not going to let you pass, teach her not to mess with you ever again!");
-        } else if (this.tileChoice.hasEnemy){
+        } else if (this.tileChoice.tileHasEnemy){
             switch (Math.round(3 * Math.random())){
                 case 0:
                     console.log("You spot a hulking enemy blocking your path. You must defeat him if you are going to progress this way");
@@ -482,11 +483,11 @@ class Player {
     }
 
     attack(){
-        if(this.hasSword && (this.northTile.hasEnemy || this.eastTile.hasEnemy || this.southTile.hasEnemy || this.westTile.hasEnemy)){
-            this.northTile.hasEnemy = false;
-            this.eastTile.hasEnemy = false;
-            this.southTile.hasEnemy = false;
-            this.westTile.hasEnemy = false;
+        if(this.hasSword && (this.northTile.tileHasEnemy || this.eastTile.tileHasEnemy || this.southTile.tileHasEnemy || this.westTile.tileHasEnemy)){
+            this.northTile.tileHasEnemy = false;
+            this.eastTile.tileHasEnemy = false;
+            this.southTile.tileHasEnemy = false;
+            this.westTile.tileHasEnemy = false;
         } else if (this.hasSword){
             console.log("You wave your sword around aimlessly, but there is nothing nearby. I hope no-one is around to see that embarassing moment");
         } else {
