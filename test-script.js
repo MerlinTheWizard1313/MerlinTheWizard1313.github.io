@@ -178,23 +178,21 @@ class Maze{
     }
 
     eventReturn(npcDialogue){
-        console.log(npcDialogue);
-        console.log(npcDialogue == "'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat");
         switch (npcDialogue){
             case "Standing tall, a well kept sword is jammed into a skeleton's torso. You gained a sword, perfect for combat!":
-                this.currentEvent == "swordEvent";
+                this.currentEvent = "swordEvent";
                 break;
             case "Standing tall, a well kept sword is jammed into a skeleton's torso. It seems that deranged woman was right, you should probably free her for the helpful tip. You gained a sword, perfect for combat!":
-                this.currentEvent == "swordEvent";
+                this.currentEvent = "swordEvent";
                 break;
             case "'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat":
-                this.currentEvent == "hammerEvent";
+                this.currentEvent = "hammerEvent";
                 break;
             case "A recently deceased man lays there with open eyes and a sledgehammer lodged into his shoulder. You decide to take the hammer. It will not be helpful in combat, maybe it has another use?":
-                this.currentEvent == "hammerEvent";
+                this.currentEvent = "hammerEvent";
                 break;
             case "'HEATHEN!!' A deranged woman behind the bars with long spindly white hair scream at you. 'You will not survive in this place, but should you wish to continue, you look in need of a weapon, yes? You may find one if you follow up the east corridor I assure you.' You sense her words are true but can't shake this odd feeling. She continues to stare at you intently while grasping the bars of her cell":
-                this.currentEvent == "jailEvent";
+                this.currentEvent = "jailEvent";
                 break;
             default: 
                 this.currentEvent = "";
