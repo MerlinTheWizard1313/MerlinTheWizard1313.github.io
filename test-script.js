@@ -179,9 +179,6 @@ class Maze{
 
     eventReturn(npcDialogue){
         switch (npcDialogue){
-            case "Standing tall, a well kept sword is jammed into a skeleton's torso. You gained a sword, perfect for combat!":
-                this.currentEvent = "swordEvent";
-                break;
             case "Standing tall, a well kept sword is jammed into a skeleton's torso. It seems that deranged woman was right, you should probably free her for the helpful tip. You gained a sword, perfect for combat!":
                 this.currentEvent = "swordEvent";
                 break;
@@ -201,7 +198,6 @@ class Maze{
         if(this.eventArray.length <=2 && this.currentEvent != ""){
             this.eventArray.push(this.currentEvent);
         }
-        console.log(this.currentEvent);
         return this.currentEvent;
     }
 
@@ -210,53 +206,31 @@ class Maze{
             this.eventReturn(npcDialogue);
         }
         if(this.currentEvent != ""){
-            switch (this.eventArray[0]){
+            switch (this.currentEvent){
                 case "swordEvent":
-                    if(this.currentEvent == "swordEvent"){
-                        this.gridSquareArray[2][9].npcDialogue = "You notice the jail cell door has been broken through, it seems that woman that cornered you came from here. Lucky you found that blade!";
-                        this.gridSquareArray[2][9].gridWalls.actualWalls[2] = "none";
+                    this.gridSquareArray[2][9].npcDialogue = "You notice the jail cell door has been broken through, it seems that woman that cornered you came from here. Lucky you found that blade!";
+                    this.gridSquareArray[2][9].gridWalls.actualWalls[2] = "none";
+                    this.gridSquareArray[6][10].npcDialogue = "Suddenly, a white-haired crazed woman jumps out at you. She stares at you with intent to kill. You don't seem to be able to pass her, only one way through";
+                    this.gridSquareArray[5][10].hasEnemy = true;
+                    this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
+                    this.player.bindSword();
+                    this.gridSquareArray[6][8].hasSword = false;
+                    if(this.eventArray[1] == "swordEvent"){
                         this.gridSquareArray[1][1].npcDialogue = "A recently deceased man lays there with open eyes and a sledgehammer lodged into his shoulder. You decide to take the hammer. It will not be helpful in combat, maybe it has another use?";
-                        this.gridSquareArray[6][10].npcDialogue = "Suddenly, a white-haired crazed woman jumps out at you. She stares at you with intent to kill. You don't seem to be able to pass her, only one way through";
-                        this.gridSquareArray[5][10].hasEnemy = true;
-                        this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
-                        this.player.bindSword();
-                        this.gridSquareArray[6][8].hasSword = false;
-                    } else if(this.currentEvent == "hammerEvent"){
-                        this.gridSquareArray[1][1].npcDialogue = "The man, like a lifeless puppet, sits aganst the wall with a dead eyed stare. We better move on";
-                        this.player.bindHammer();
-                        this.gridSquareArray[1][1].hasHammer = false;
                     }
                     break;
                 case "jailEvent":
-                    if (this.currentEvent == "jailEvent"){
-                        this.gridSquareArray[6][8].npcDialogue = "Standing tall, a well kept sword is jammed into a skeleton's torso. It seems that deranged woman was right, you should probably free her for the helpful tip. You gained a sword, perfect for combat!";
-                        this.player.bindSword();
-                        this.gridSquareArray[6][8].hasSword = false;
-                        this.gridSquareArray[2][9].npcDialogue = "'Hear me well if you did not before! There lies a weapon to aid you if you follow the east corridor, now BEGONE HEATHEN' Probably best you steer clear of her"
-                    }
-                    if (this.event[1] == "swordEvent" && this.currentEvent == "swordEvent"){
-                        this.gridSquareArray[2][9].npcDialogue = "You notice the jail door has been broken through. The wretch should never have underestimated your skills with a blade cornering you like that.";
-                        this.gridSquareArray[2][9].gridWalls.actualWalls[2] = "none";
-                        this.gridSquareArray[1][1].npcDialogue = "A recently deceased man lays there with open eyes and a sledgehammer lodged into his shoulder. You decide to take the hammer. It will not be helpful in combat, maybe it has another use?";
-                        this.gridSquareArray[6][10].npcDialogue = "Suddenly, the jailed woman jumps out at you. She stares at you with intent to kill.'My trap worked perfectly, now you will suffer wretched knight' You don't seem to be able to pass her, only one way through";
-                        this.gridSquareArray[5][10].hasEnemy = true;
-                        this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
-                        this.player.bindSword();
-                        this.gridSquareArray[6][8].hasSword = false;
-                    } else if(this.event[1] == "hammerEvent" && this.currentEvent == "hammerEvent"){
-                        this.gridSquareArray[1][1].npcDialogue = "The man lays on the ground, eyes closed. Hopefully he reaches his loved one";
-                        this.player.bindHammer();
-                        this.gridSquareArray[1][1].hasHammer = false;
-                    } else if(this.event[1] == "swordEvent" && this.currentEvent == "hammerEvent"){
-                        this.gridSquareArray[1][1].npcDialogue = "The man, like a lifeless puppet, sits aganst the wall with a dead eyed stare. We better move on";
-                        this.player.bindHammer();
-                        this.gridSquareArray[1][1].hasHammer = false;
-                    }
+                    this.gridSquareArray[6][8].npcDialogue = "Standing tall, a well kept sword is jammed into a skeleton's torso. It seems that deranged woman was right, you should probably free her for the helpful tip. You gained a sword, perfect for combat!";
+                    this.gridSquareArray[2][9].npcDialogue = "'Hear me well if you did not before! There lies a weapon to aid you if you follow the east corridor, now BEGONE HEATHEN' Probably best you steer clear of her"
                     break;
                 case "hammerEvent":
-                    this.gridSquareArray[1][1].npcDialogue = "The man lays on the ground, eyes closed. Hopefully he reaches his loved one";
                     this.player.bindHammer();
                     this.gridSquareArray[1][1].hasHammer = false;
+                    if (this.eventArray.length <= 1){
+                        this.gridSquareArray[1][1].npcDialogue = "The man lays on the ground, eyes closed. Hopefully he reaches his loved one";
+                    } else {
+                        this.gridSquareArray[1][1].npcDialogue = "The man, like a lifeless puppet, sits against the wall with a dead eyed stare. We better move on";
+                    }
                     break;
                 default:
                 return "error";
@@ -437,8 +411,23 @@ class Player {
         }
         if(this.tileChoice == undefined || this.tileChoice == ""){
             console.log("Choose a vaild tile");
+        } else if (this.tileChoice.hasEnemy && (this.tileChoice.gridCoordinateR == 5 && this.tileChoice.gridCoordinateC == 10)){
+            console.log("The crazed woman is not going to let you pass, teach her not to mess with you ever again!");
         } else if (this.tileChoice.hasEnemy){
-            //looks like an enemy is blocking the path
+            switch (Math.round(3 * Math.random())){
+                case 0:
+                    console.log("You spot a hulking enemy blocking your path. You must defeat him if you are going to progress this way");
+                    break;
+                case 1:
+                    console.log("A large enemy stops you from moving this way. A good strike to it's chest would let you through");
+                    break;
+                case 2:
+                    console.log("You are blocked from moving this way by a hefty looking enemy. Vanquish them to progress");
+                    break;
+                case 3:
+                    console.log("'Whoa there, you can't pass through here' You are going to need to use a handy sword to get through here");
+                    break;
+            }
         } else {
             this.currentTile.playerOnTile = false;
             this.currentTile.playerUpdate();
