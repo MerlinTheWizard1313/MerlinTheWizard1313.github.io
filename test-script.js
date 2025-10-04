@@ -132,7 +132,7 @@ class Maze{
     constructor(grid){
         this.mainGrid = grid;
         this.gridSquareArray = [[],[],[],[],[],[],[],[],[]];
-        this.torchArray = [[1,3],[2,1],[2,5],[2,7],[2,8],[2,9],[2,10],[3,3],[3,8],[3,9],[4,2],[4,6],[4,9],[5,2],[5,3],[5,4],[5,6],[5,7],[5,8],[5,10],[6,1],[6,5],[6,9]];
+        this.torchArray = [[1,3],[2,1],[2,5],[2,7],[2,8],[2,9],[2,10],[3,3],[3,8],[3,9],[4,2],[4,6],[4,9],[5,2],[5,3],[5,4],[5,5],[5,7],[5,8],[5,10],[6,1],[6,5],[6,9]];
         this.npcArray = [[1,1],[2,9],[3,8],[3,9],[4,9],[5,2],[5,6],[6,4]];
         this.enemyArray = [[1,7],[1,10],[4,8],[5,1],[5,9],[6,3]];
         this.crackedWallArray = [[4,8],[5,4],[5,5],[6,2]];
@@ -521,6 +521,9 @@ class Player {
             } else if(this.currentTile == this.mazeArray[2][10]){
                 this.mazeArray[1][10].lightMinimumUpdate();
                 this.mazeArray[1][10].tileLightUpdate(1,false);
+            } else if(this.currentTile == this.mazeArray[5][5]){
+                this.mazeArray[5][6].lightMinimumUpdate();
+                this.mazeArray[5][6].tileLightUpdate(1,false);
             }
         } else if (this.currentTile == this.mazeArray[5][6]){
             window.location.href = "test-2.html";
@@ -702,12 +705,25 @@ class Player {
 
 class TextTerminal{
     constructor(){
-        this.currentMessage
+        this.currentMessage = "You find yourself deep in a dark dungeon with nothing but your armour and a lit torch to your name. You must navigate this place, lighting torches to help map out the area as you go. You will find what you seek on your journey here. Good luck...";
         this.messageStore = ["","",""];
+        this.messageBin = "";
+        this.messageOne;
+        this.messageTwo;
+        this.messageThree;
+        this.shiftMessageArray(this.currentMessage);
+    }
+
+    shiftMessageArray(message){
+        this.messageBin = this.messageStore.shift();
+        this.messageStore.push(message);
+        this.displayMessage();
     }
     
-    updateTerminal(){
-    
+    displayMessage(){
+        this.messageOne = this.messageStore[0];
+        this.messageTwo = this.messageStore[1];
+        this.messageThree = this.messageStore[2];
     }
 
     chooseTerminalColour(){
