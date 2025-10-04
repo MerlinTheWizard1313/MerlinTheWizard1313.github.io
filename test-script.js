@@ -219,18 +219,18 @@ class Maze{
                         this.gridSquareArray[6][10].npcDialogue = "Suddenly, a white-haired crazed woman jumps out at you. She stares at you with intent to kill. You don't seem to be able to pass her, only one way through";
                         this.gridSquareArray[5][10].hasEnemy = true;
                         this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
-                        player.bindSword();
+                        this.player.bindSword();
                         this.gridSquareArray[6][8].hasSword = false;
                     } else if(this.currentEvent == "hammerEvent"){
                         this.gridSquareArray[1][1].npcDialogue = "The man, like a lifeless puppet, sits aganst the wall with a dead eyed stare. We better move on";
-                        player.bindHammer();
+                        this.player.bindHammer();
                         this.gridSquareArray[1][1].hasHammer = false;
                     }
                     break;
                 case "jailEvent":
                     if (this.currentEvent == "jailEvent"){
                         this.gridSquareArray[6][8].npcDialogue = "Standing tall, a well kept sword is jammed into a skeleton's torso. It seems that deranged woman was right, you should probably free her for the helpful tip. You gained a sword, perfect for combat!";
-                        player.bindSword();
+                        this.player.bindSword();
                         this.gridSquareArray[6][8].hasSword = false;
                         this.gridSquareArray[2][9].npcDialogue = "'Hear me well if you did not before! There lies a weapon to aid you if you follow the east corridor, now BEGONE HEATHEN' Probably best you steer clear of her"
                     }
@@ -241,21 +241,21 @@ class Maze{
                         this.gridSquareArray[6][10].npcDialogue = "Suddenly, the jailed woman jumps out at you. She stares at you with intent to kill.'My trap worked perfectly, now you will suffer wretched knight' You don't seem to be able to pass her, only one way through";
                         this.gridSquareArray[5][10].hasEnemy = true;
                         this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
-                        player.bindSword();
+                        this.player.bindSword();
                         this.gridSquareArray[6][8].hasSword = false;
                     } else if(this.event[1] == "hammerEvent" && this.currentEvent == "hammerEvent"){
                         this.gridSquareArray[1][1].npcDialogue = "The man lays on the ground, eyes closed. Hopefully he reaches his loved one";
-                        player.bindHammer();
+                        this.player.bindHammer();
                         this.gridSquareArray[1][1].hasHammer = false;
                     } else if(this.event[1] == "swordEvent" && this.currentEvent == "hammerEvent"){
                         this.gridSquareArray[1][1].npcDialogue = "The man, like a lifeless puppet, sits aganst the wall with a dead eyed stare. We better move on";
-                        player.bindHammer();
+                        this.player.bindHammer();
                         this.gridSquareArray[1][1].hasHammer = false;
                     }
                     break;
                 case "hammerEvent":
                     this.gridSquareArray[1][1].npcDialogue = "The man lays on the ground, eyes closed. Hopefully he reaches his loved one";
-                    player.bindHammer();
+                    this.player.bindHammer();
                     this.gridSquareArray[1][1].hasHammer = false;
                     break;
                 default:
