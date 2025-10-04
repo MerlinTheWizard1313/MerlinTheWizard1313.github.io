@@ -178,6 +178,8 @@ class Maze{
     }
 
     eventReturn(npcDialogue){
+        console.log(npcDialogue);
+        console.log(npcDialogue == "'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat");
         switch (npcDialogue){
             case "Standing tall, a well kept sword is jammed into a skeleton's torso. You gained a sword, perfect for combat!":
                 this.currentEvent == "swordEvent";
