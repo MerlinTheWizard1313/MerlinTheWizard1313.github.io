@@ -83,7 +83,7 @@ class MazeSquare {
                 this.npcDialogue = "You enter an enclosed room with two statues either side of a written note. 'Though I am short, I only look up. My brother is taller, but he is always right.' The statues follow the descriptions on the notes, what could this mean?";
                 break;
             case "npc5-6":
-                this.npcDialogue = "Peering through the crumbled walls, you see a pedestal in the center of the room. It is the destination you have searched for. Press button to continue your journey into the room";
+                this.npcDialogue = "Peering through the crumbled walls, you see a pedestal in the center of the room. It is the destination you have searched for. There is an unlit torch in the room, but you sense if you light it, there is going back. Do you light the torch?";
                 break;
             case "npc6-4":
                 this.npcDialogue = "A crazed man mumbles, his volume fluctuating as he speaks, his eyes white like he has was possessed. 'Exploration is key, do not flee. The length of moves you will see in the dead space, don't you agree?' What could he mean?";
@@ -510,18 +510,20 @@ class Player {
             }
             console.log("Torch Lit");
             if(this.currentTile == this.mazeArray[2][7]){
-                this.mazeArray[2][7].lightMinimumUpdate();
-                this.mazeArray[2][7].tileLightUpdate(1,false);
+                this.mazeArray[1][7].lightMinimumUpdate();
+                this.mazeArray[1][7].tileLightUpdate(1,false);
             } else if(this.currentTile == this.mazeArray[2][8]){
-                this.mazeArray[2][8].lightMinimumUpdate();
-                this.mazeArray[2][8].tileLightUpdate(1,false);
+                this.mazeArray[1][8].lightMinimumUpdate();
+                this.mazeArray[1][8].tileLightUpdate(1,false);
             } else if(this.currentTile == this.mazeArray[2][9]){
-                this.mazeArray[2][9].lightMinimumUpdate();
-                this.mazeArray[2][9].tileLightUpdate(1,false);
+                this.mazeArray[1][9].lightMinimumUpdate();
+                this.mazeArray[1][9].tileLightUpdate(1,false);
             } else if(this.currentTile == this.mazeArray[2][10]){
-                this.mazeArray[2][10].lightMinimumUpdate();
-                this.mazeArray[2][10].tileLightUpdate(1,false);
+                this.mazeArray[1][10].lightMinimumUpdate();
+                this.mazeArray[1][10].tileLightUpdate(1,false);
             }
+        } else if (this.currentTile == this.mazeArray[5][6]){
+            window.location.href = "test-2.html";
         }
     }
 
@@ -717,4 +719,3 @@ class TextTerminal{
 
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);
-gridTest.gridSquareInfo(1,1);
