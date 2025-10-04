@@ -55,6 +55,10 @@ class MazeSquare {
         this.hasEnemy = true;
     }
 
+    instantiateCrackedWall(){
+        this.hasCrackedWall = true;
+    }
+
     instantiateNPC(npcLocationR, npcLocationC){
         this.tileHasNPC = true;
         switch ("npc" + npcLocationR + "-" + npcLocationC){
@@ -130,6 +134,7 @@ class Maze{
         this.torchArray = [[1,3],[2,1],[2,5],[2,7],[2,8],[2,9],[2,10],[3,3],[3,8],[3,9],[4,2],[4,6],[4,9],[5,2],[5,3],[5,4],[5,6],[5,7],[5,8],[5,10],[6,1],[6,5],[6,9]];
         this.npcArray = [[1,1],[2,9],[3,8],[3,9],[4,9],[5,2],[5,6],[6,4]];
         this.enemyArray = [[1,7],[1,10],[4,8],[5,1],[5,9],[6,3]];
+        this.crackedWallArray = [[4,8],[5,4],[5,5],[6,2]];
         this.swordLocation = [6,8];
         this.hammerLocation = [1,1];
         this.eventArray = [];
@@ -172,6 +177,9 @@ class Maze{
         }
         for(let i = 0; i < this.enemyArray.length; i++){
             this.gridSquareArray[this.enemyArray[i][0]][this.enemyArray[i][1]].instantiateEnemy(this.enemyArray[i][0],this.enemyArray[i][1]);
+        }
+        for(let i = 0; i < this.crackedWallArray.length; i++){
+            this.gridSquareArray[this.crackedWallArray[i][0]][this.crackedWallArray[i][1]].instantiateCrackedWall(this.crackedWallArray[i][0],this.crackedWallArray[i][1]);
         }
         this.gridSquareArray[this.swordLocation[0]][this.swordLocation[1]].instantiateSword();
         this.gridSquareArray[this.hammerLocation[0]][this.hammerLocation[1]].instantiateHammer();
@@ -489,6 +497,7 @@ class Player {
             for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
                 if (this.currentTile.gridWalls.actualWalls[i].includes("dashed")){
                     this.currentTile.gridWalls.actualWalls[i].replace(this.currentTile.gridWalls.actualWalls[i], "none");
+                    this.currentTile.hasCrackedWall = false;
                     switch (i){
                         case 0:
                             this.currentTile.gridSquare.style.borderTopWidth = "0px";
