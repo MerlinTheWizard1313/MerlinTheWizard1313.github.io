@@ -206,7 +206,7 @@ class Maze{
     }
 
     eventUpdate(npcDialogue){
-        if (this.npcDialogue.includes("HEATHEN") || this.npcDialogue.includes("sword") || this.npcDialogue.includes("sledgehammer") || this.npcDialogue.includes("metal")){
+        if (npcDialogue.includes("HEATHEN") || npcDialogue.includes("sword") || npcDialogue.includes("sledgehammer") || npcDialogue.includes("metal")){
             this.eventReturn(npcDialogue);
         }
         if(this.currentEvent != ""){
