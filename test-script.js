@@ -498,7 +498,7 @@ class Player {
         if(this.hasHammer && this.currentTile.hasCrackedWall){
             for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
                 if (this.currentTile.gridWalls.actualWalls[i].includes("dashed")){
-                    this.currentTile.gridWalls.actualWalls[i].replace(this.currentTile.gridWalls.actualWalls[i], "none");
+                    this.currentTile.gridWalls.actualWalls[i] = "none";
                     this.currentTile.hasCrackedWall = false;
                     switch (i){
                         case 0:
