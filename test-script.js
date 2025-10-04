@@ -211,8 +211,8 @@ class Maze{
         }
         if(this.currentEvent != ""){
             switch (this.event[0]){
-                case swordpickedup:
-                    if(this.currentEvent == swordpickedup){
+                case "swordEvent":
+                    if(this.currentEvent == "swordEvent"){
                         this.gridSquareArray[2][9].npcDialogue = "You notice the jail cell door has been broken through, it seems that woman that cornered you came from here. Lucky you found that blade!";
                         this.gridSquareArray[2][9].gridWalls.actualWalls[2] = "none";
                         this.gridSquareArray[1][1].npcDialogue = "A recently deceased man lays there with open eyes and a sledgehammer lodged into his shoulder. You decide to take the hammer. It will not be helpful in combat, maybe it has another use?";
@@ -221,20 +221,20 @@ class Maze{
                         this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
                         player.bindSword();
                         this.gridSquareArray[6][8].hasSword = false;
-                    } else if(this.currentEvent == hammerpickedup){
+                    } else if(this.currentEvent == "hammerEvent"){
                         this.gridSquareArray[1][1].npcDialogue = "The man, like a lifeless puppet, sits aganst the wall with a dead eyed stare. We better move on";
                         player.bindHammer();
                         this.gridSquareArray[1][1].hasHammer = false;
                     }
                     break;
-                case jailladyspokento:
-                    if (this.currentEvent == jailladyspokento){
+                case "jailEvent":
+                    if (this.currentEvent == "jailEvent"){
                         this.gridSquareArray[6][8].npcDialogue = "Standing tall, a well kept sword is jammed into a skeleton's torso. It seems that deranged woman was right, you should probably free her for the helpful tip. You gained a sword, perfect for combat!";
                         player.bindSword();
                         this.gridSquareArray[6][8].hasSword = false;
                         this.gridSquareArray[2][9].npcDialogue = "'Hear me well if you did not before! There lies a weapon to aid you if you follow the east corridor, now BEGONE HEATHEN' Probably best you steer clear of her"
                     }
-                    if (this.event[1] == swordpickedup && this.currentEvent == swordpickedup){
+                    if (this.event[1] == "swordEvent" && this.currentEvent == "swordEvent"){
                         this.gridSquareArray[2][9].npcDialogue = "You notice the jail door has been broken through. The wretch should never have underestimated your skills with a blade cornering you like that.";
                         this.gridSquareArray[2][9].gridWalls.actualWalls[2] = "none";
                         this.gridSquareArray[1][1].npcDialogue = "A recently deceased man lays there with open eyes and a sledgehammer lodged into his shoulder. You decide to take the hammer. It will not be helpful in combat, maybe it has another use?";
@@ -243,17 +243,17 @@ class Maze{
                         this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
                         player.bindSword();
                         this.gridSquareArray[6][8].hasSword = false;
-                    } else if(this.event[1] == hammerpickedup && this.currentEvent == hammerpickedup){
+                    } else if(this.event[1] == "hammerEvent" && this.currentEvent == "hammerEvent"){
                         this.gridSquareArray[1][1].npcDialogue = "The man lays on the ground, eyes closed. Hopefully he reaches his loved one";
                         player.bindHammer();
                         this.gridSquareArray[1][1].hasHammer = false;
-                    } else if(this.event[1] == swordpickedup && this.currentEvent == hammerpickedup){
+                    } else if(this.event[1] == "swordEvent" && this.currentEvent == "hammerEvent"){
                         this.gridSquareArray[1][1].npcDialogue = "The man, like a lifeless puppet, sits aganst the wall with a dead eyed stare. We better move on";
                         player.bindHammer();
                         this.gridSquareArray[1][1].hasHammer = false;
                     }
                     break;
-                case hammerpickedup:
+                case "hammerEvent":
                     this.gridSquareArray[1][1].npcDialogue = "The man lays on the ground, eyes closed. Hopefully he reaches his loved one";
                     player.bindHammer();
                     this.gridSquareArray[1][1].hasHammer = false;
