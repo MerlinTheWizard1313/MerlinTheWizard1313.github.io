@@ -484,10 +484,38 @@ class Player {
 
     attack(){
         if(this.hasSword && (this.northTile.tileHasEnemy || this.eastTile.tileHasEnemy || this.southTile.tileHasEnemy || this.westTile.tileHasEnemy)){
-            this.northTile.tileHasEnemy = false;
-            this.eastTile.tileHasEnemy = false;
-            this.southTile.tileHasEnemy = false;
-            this.westTile.tileHasEnemy = false;
+            for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
+                switch(i){
+                    case 0:
+                        if(this.northTile == "" || this.northTile == undefined){
+                            break;
+                        } else {
+                            this.northTile.tileHasEnemy = false;
+                            break;
+                        }
+                    case 1:
+                        if(this.eastTile == "" || this.eastTile == undefined){
+                            break;
+                        } else {
+                            this.eastTile.tileHasEnemy = false;
+                            break;
+                        }
+                    case 2:
+                        if(this.southTile == "" || this.southTile == undefined){
+                            break;
+                        } else {
+                            this.southTile.tileHasEnemy = false;
+                            break;
+                        }
+                    case 3:
+                        if(this.westTile == "" || this.westTile == undefined){
+                            break;
+                        } else {
+                            this.westTile.tileHasEnemy = false;
+                            break;
+                        }
+                }
+            }
         } else if (this.hasSword){
             console.log("You wave your sword around aimlessly, but there is nothing nearby. I hope no-one is around to see that embarassing moment");
         } else {
