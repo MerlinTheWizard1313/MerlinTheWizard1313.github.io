@@ -262,7 +262,7 @@ class Walls{
         this.initialiseWalls();
     }
 
-    /*dotted and dashed make cracked wall, double for jail wall*/
+    /*dashed and solid make cracked wall, double for jail wall*/
     initialiseWalls(){
         for (let i = 0; i < this.propertyArray.length; i++){
             var styleCheck = window.getComputedStyle(this.gridSquareElement, null).getPropertyValue(this.propertyArray[i]);
@@ -322,6 +322,7 @@ class Player {
         this.westTile;
         this.hasSword = false;
         this.hasHammer = false;
+        this.uselessHammerCount = 0;
         this.upButton = document.getElementById("up-button");
         this.rightButton = document.getElementById("right-button");
         this.downButton = document.getElementById("down-button");
@@ -406,8 +407,6 @@ class Player {
                 case 3:
                     this.tileChoice = this.westTile;
                     break;
-                default:
-                    console.log("Choose a vaild tile");
         }
         if(this.tileChoice == undefined || this.tileChoice == ""){
             console.log("Choose a vaild tile");
@@ -478,16 +477,30 @@ class Player {
             this.westTile.hasEnemy = false;
         } else if (this.hasSword){
             console.log("You wave your sword around aimlessly, but there is nothing nearby. I hope no-one is around to see that embarassing moment");
-        } else if (this.hasSword == false){
+        } else {
             console.log("Your hand clenches the air. You feel like you require something");
         }
     }
     
     hammer(){
         if(this.hasHammer && this.currentTile.hasCrackedWall){
-            //do breaking and light the torch in the room cracked open
+            //find cracked wall out of the 4 walls
+            //remove cracked wall
+            //update wall
+            //update light levels
         } else if (this.hasHammer && this.currentTile.hasCrackedWall == false){
-            //you swing the hammer around but you there is nothing to break
+            if (this.uselessHammerCount <= 4){
+                console.log("You swing the hammer around but there is nothing to break. Better not tire yourself out swinging it")
+                this.uselessHammerCount += 1;
+            } else if (this.uselessHammerCount <= 12){
+                console.log("You slowly swing the hammer around but there is nothing to break. You are starting to become sluggish");
+                this.uselessHammerCount += 1;
+            } else if(this.uselessHammerCount == 13){
+                console.log("The knight stares up at you, pressing that hammer button. 'Can you just hammer the walls when they are breakable? I am really tired'");
+                this.uselessHammerCount += 1;
+            } else {
+                console.log("You swing the hammer around but there is nothing to break.");
+            }
         } else if (this.hasHammer == false){
             console.log("You reach your hand over your shoulder and grasp at air. You feel like you require something");
         }
