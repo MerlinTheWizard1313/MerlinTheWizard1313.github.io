@@ -384,11 +384,13 @@ class Player {
     }
 
     bindSword(){
+        this.hasSword = true;
         this.swordButton.addEventListener("click", () => this.attack());
         this.swordButton.innerText = "Attack";
     }
 
     bindHammer(){
+        this.hasHammer = true;
         this.hammerButton.addEventListener("click", () => this.hammer());
         this.hammerButton.innerText = "Hammer";
     }
@@ -484,10 +486,33 @@ class Player {
     
     hammer(){
         if(this.hasHammer && this.currentTile.hasCrackedWall){
-            //find cracked wall out of the 4 walls
-            //remove cracked wall
-            //update wall
-            //update light levels
+            for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
+                if (this.currentTile.gridWalls.actualWalls[i].includes("dashed")){
+                    this.currentTile.gridWalls.actualWalls[i].replace(this.currentTile.gridWalls.actualWalls[i], "0px none");
+                    switch (i){
+                        case 0:
+                            this.currentTile.style.borderTopWidth = "0px";
+                            this.currentTile.style.borderTopStyle = "none";
+                            this.northTile.tileLightUpdate(1, false);
+                            break;
+                        case 1:
+                            this.currentTile.style.borderRightWidth = "0px";
+                            this.currentTile.style.borderRightStyle = "none";
+                            this.eastTile.tileLightUpdate(1, false);
+                            break;
+                        case 2:
+                            this.currentTile.style.borderBottomWidth = "0px";
+                            this.currentTile.style.borderBottomStyle = "none";
+                            this.southTile.tileLightUpdate(1, false);
+                            break;
+                        case 3:
+                            this.currentTile.style.borderLeftWidth = "0px";
+                            this.currentTile.style.borderLeftStyle = "none";
+                            this.westTile.tileLightUpdate(1, false);
+                            break;
+                    }
+                }
+            }
         } else if (this.hasHammer && this.currentTile.hasCrackedWall == false){
             if (this.uselessHammerCount <= 4){
                 console.log("You swing the hammer around but there is nothing to break. Better not tire yourself out swinging it")
