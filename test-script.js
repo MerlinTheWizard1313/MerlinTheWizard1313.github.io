@@ -210,7 +210,7 @@ class Maze{
             this.eventReturn(npcDialogue);
         }
         if(this.currentEvent != ""){
-            switch (this.event[0]){
+            switch (this.eventArray[0]){
                 case "swordEvent":
                     if(this.currentEvent == "swordEvent"){
                         this.gridSquareArray[2][9].npcDialogue = "You notice the jail cell door has been broken through, it seems that woman that cornered you came from here. Lucky you found that blade!";
