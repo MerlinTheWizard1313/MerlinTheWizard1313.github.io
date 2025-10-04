@@ -218,6 +218,8 @@ class Maze{
                 case "swordEvent":
                     this.gridSquareArray[2][9].npcDialogue = "You notice the jail cell door has been broken through, it seems that woman that cornered you came from here. Lucky you found that blade!";
                     this.gridSquareArray[2][9].gridWalls.actualWalls[2] = "none";
+                    this.gridSquareArray[2][9].gridSquare.style.borderBottomWidth = "0px";
+                    this.gridSquareArray[2][9].gridSquare.style.borderBottomStyle = "none";
                     this.gridSquareArray[6][10].npcDialogue = "Suddenly, a white-haired crazed woman jumps out at you. She stares at you with intent to kill. You don't seem to be able to pass her, only one way through";
                     this.gridSquareArray[5][10].hasEnemy = true;
                     this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
