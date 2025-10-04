@@ -43,6 +43,18 @@ class MazeSquare {
         this.tileHasUnlitTorch = true;
     }
 
+    instantiateSword(){
+        this.hasSword = true;
+    }
+
+    instantiateHammer(){
+        this.hasHammer = true;
+    }
+
+    instantiateEnemy(){
+        this.hasEnemy = true;
+    }
+
     instantiateNPC(npcLocationR, npcLocationC){
         this.tileHasNPC = true;
         switch ("npc" + npcLocationR + "-" + npcLocationC){
@@ -117,6 +129,7 @@ class Maze{
         this.gridSquareArray = [[],[],[],[],[],[],[],[],[]];
         this.torchArray = [[1,3],[2,1],[2,5],[2,7],[2,8],[2,9],[2,10],[3,3],[3,8],[3,9],[4,2],[4,6],[4,9],[5,2],[5,3],[5,4],[5,6],[5,7],[5,8],[5,10],[6,1],[6,5],[6,9]];
         this.npcArray = [[1,1],[2,9],[3,8],[3,9],[4,9],[5,2],[5,6],[6,4]];
+        this.enemyArray = [[1,7],[1,10],[4,8],[5,1],[5,9],[6,3]];
         this.swordLocation = [6,8];
         this.hammerLocation = [1,1];
         this.eventArray = [];
@@ -156,6 +169,9 @@ class Maze{
         }
         for(let i = 0; i < this.npcArray.length; i++){
             this.gridSquareArray[this.npcArray[i][0]][this.npcArray[i][1]].instantiateNPC(this.npcArray[i][0],this.npcArray[i][1]);
+        }
+        for(let i = 0; i < this.enemyArray.length; i++){
+            this.gridSquareArray[this.enemyArray[i][0]][this.enemyArray[i][1]].instantiateEnemy(this.enemyArray[i][0],this.enemyArray[i][1]);
         }
         this.gridSquareArray[this.swordLocation[0]][this.swordLocation[1]].instantiateSword();
         this.gridSquareArray[this.hammerLocation[0]][this.hammerLocation[1]].instantiateHammer();
@@ -201,7 +217,7 @@ class Maze{
                         this.gridSquareArray[2][9].gridWalls.actualWalls[2] = "none";
                         this.gridSquareArray[1][1].npcDialogue = "A recently deceased man lays there with open eyes and a sledgehammer lodged into his shoulder. You decide to take the hammer. It will not be helpful in combat, maybe it has another use?";
                         this.gridSquareArray[6][10].npcDialogue = "Suddenly, a white-haired crazed woman jumps out at you. She stares at you with intent to kill. You don't seem to be able to pass her, only one way through";
-                        this.gridSquareArray[6][10].hasEnemy = true;
+                        this.gridSquareArray[5][10].hasEnemy = true;
                         this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
                         player.bindSword();
                         this.gridSquareArray[6][8].hasSword = false;
@@ -223,7 +239,7 @@ class Maze{
                         this.gridSquareArray[2][9].gridWalls.actualWalls[2] = "none";
                         this.gridSquareArray[1][1].npcDialogue = "A recently deceased man lays there with open eyes and a sledgehammer lodged into his shoulder. You decide to take the hammer. It will not be helpful in combat, maybe it has another use?";
                         this.gridSquareArray[6][10].npcDialogue = "Suddenly, the jailed woman jumps out at you. She stares at you with intent to kill.'My trap worked perfectly, now you will suffer wretched knight' You don't seem to be able to pass her, only one way through";
-                        this.gridSquareArray[6][10].hasEnemy = true;
+                        this.gridSquareArray[5][10].hasEnemy = true;
                         this.gridSquareArray[6][8].npcDialogue = "A skeleton lays limp on the floor with small cut marks on the torso where the blade was jammed";
                         player.bindSword();
                         this.gridSquareArray[6][8].hasSword = false;
@@ -466,12 +482,15 @@ class Player {
     }
 
     attack(){
-        if(this.hasSword && this.currentTile.hasEnemy){
-            //do killing
-        } else if (this.hasSword && this.currentTile.hasEnemy == false){
-            //flavortext
+        if(this.hasSword && (this.northTile.hasEnemy || this.eastTile.hasEnemy || this.southTile.hasEnemy || this.westTile.hasEnemy)){
+            this.northTile.hasEnemy = false;
+            this.eastTile.hasEnemy = false;
+            this.southTile.hasEnemy = false;
+            this.westTile.hasEnemy = false;
+        } else if (this.hasSword){
+            console.log("You wave your sword around aimlessly, but there is nothing nearby. I hope no-one is around to see that embarassing moment");
         } else if (this.hasSword == false){
-            //flavortext
+            console.log("Your hand clenches the air. You feel like you require something");
         }
     }
     
@@ -481,7 +500,7 @@ class Player {
         } else if (this.hasHammer && this.currentTile.hasCrackedWall == false){
             //you swing the hammer around but you there is nothing to break
         } else if (this.hasHammer == false){
-            //flavortext
+            console.log("You reach your hand over your shoulder and grasp at air. You feel like you require something");
         }
     }
 
