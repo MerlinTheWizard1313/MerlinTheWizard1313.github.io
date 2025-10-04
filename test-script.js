@@ -488,26 +488,30 @@ class Player {
         if(this.hasHammer && this.currentTile.hasCrackedWall){
             for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
                 if (this.currentTile.gridWalls.actualWalls[i].includes("dashed")){
-                    this.currentTile.gridWalls.actualWalls[i].replace(this.currentTile.gridWalls.actualWalls[i], "0px none");
+                    this.currentTile.gridWalls.actualWalls[i].replace(this.currentTile.gridWalls.actualWalls[i], "none");
                     switch (i){
                         case 0:
-                            this.currentTile.style.borderTopWidth = "0px";
-                            this.currentTile.style.borderTopStyle = "none";
+                            this.currentTile.gridSquare.style.borderTopWidth = "0px";
+                            this.currentTile.gridSquare.style.borderTopStyle = "none";
+                            this.northTile = this.mazeArray[(this.currentTile.gridCoordinateR + 1)][this.currentTile.gridCoordinateC];
                             this.northTile.tileLightUpdate(1, false);
                             break;
                         case 1:
-                            this.currentTile.style.borderRightWidth = "0px";
-                            this.currentTile.style.borderRightStyle = "none";
+                            this.currentTile.gridSquare.style.borderRightWidth = "0px";
+                            this.currentTile.gridSquare.style.borderRightStyle = "none";
+                            this.eastTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC + 1)];
                             this.eastTile.tileLightUpdate(1, false);
                             break;
                         case 2:
-                            this.currentTile.style.borderBottomWidth = "0px";
-                            this.currentTile.style.borderBottomStyle = "none";
+                            this.currentTile.gridSquare.style.borderBottomWidth = "0px";
+                            this.currentTile.gridSquare.style.borderBottomStyle = "none";
+                            this.southTile = this.mazeArray[(this.currentTile.gridCoordinateR - 1)][this.currentTile.gridCoordinateC];
                             this.southTile.tileLightUpdate(1, false);
                             break;
                         case 3:
-                            this.currentTile.style.borderLeftWidth = "0px";
-                            this.currentTile.style.borderLeftStyle = "none";
+                            this.currentTile.gridSquare.style.borderLeftWidth = "0px";
+                            this.currentTile.gridSquare.style.borderLeftStyle = "none";
+                            this.westTile = this.mazeArray[this.currentTile.gridCoordinateR][(this.currentTile.gridCoordinateC - 1)];
                             this.westTile.tileLightUpdate(1, false);
                             break;
                     }
