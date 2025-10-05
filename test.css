@@ -44,7 +44,7 @@ body {
     height: 100vh;
     width: 37vw;
     left: 1vw;
-    top: -2vh;
+    top: -1vh;
   }
 
   .game-buttons{
@@ -132,7 +132,7 @@ body {
     height: 100vh;
     width: 37vw;
     left: 1vw;
-    top: -3vh;
+    top: -1vh;
   }
 
   .game-buttons{
@@ -684,50 +684,57 @@ body {
 }
 
 #up-button{
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: var(--tile-high-colour);
+  border-color: var(--wall-high-colour);
   font-size: 1.6vw;
   padding: 0px;
 }
 
 #right-button{
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: var(--tile-high-colour);
+  border-color: var(--wall-high-colour);
   font-size: 1.6vw;
   padding: 0px;
 }
 
 #down-button{
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: var(--tile-high-colour);
+  border-color: var(--wall-high-colour);
   font-size: 1.6vw;
   padding: 0px;
 }
 
 #left-button{
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: var(--tile-high-colour);
+  border-color: var(--wall-high-colour);
   font-size: 1.6vw;
   padding: 0px;
 }
 
 #lightTorch-button{
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: var(--tile-high-colour);
+  border-color: var(--wall-high-colour);
   font-size: 1.6vw;
   padding: 0px;
 }
 
 #hammer-button{
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: var(--tile-high-colour);
+  border-color: var(--wall-high-colour);
   font-size: 1.6vw;
   padding: 0px;
 }
 
 #sword-button{
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: var(--tile-high-colour);
+  border-color: var(--wall-high-colour);
   font-size: 1.6vw;
   padding: 0px;
 }
