@@ -6,6 +6,7 @@ body {
 
 .maze-container {
   display: grid;
+  justify-self: right;
   grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
   grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
   width: 1100px;
@@ -567,4 +568,16 @@ body {
 #sword-button{
   color: black;
   background-color: white;
+}
+
+#controls-and-text{
+  justify-self: left;
+  height: 900px;
+  width: 500px;
+  top: -900px;
+}
+
+.text-terminal{
+  background-color: red;
+  color: black;
 }

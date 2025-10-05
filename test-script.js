@@ -707,6 +707,7 @@ class TextTerminal{
     constructor(){
         this.currentMessage = "You find yourself deep in a dark dungeon with nothing but your armour and a lit torch to your name. You must navigate this place, lighting torches to help map out the area as you go. You will find what you seek on your journey here. Good luck...";
         this.messageStore = ["","",""];
+        this.terminalBox = document.querySelector(".text-terminal");
         this.messageBin = "";
         this.messageOne;
         this.messageTwo;
@@ -724,6 +725,9 @@ class TextTerminal{
         this.messageOne = this.messageStore[0];
         this.messageTwo = this.messageStore[1];
         this.messageThree = this.messageStore[2];
+        this.terminalBox.children[0].innerText = this.messageOne;
+        this.terminalBox.children[1].innerText = this.messageTwo;
+        this.terminalBox.children[2].innerText = this.messageThree;
     }
 
     chooseTerminalColour(){
@@ -732,6 +736,7 @@ class TextTerminal{
     }
 }
 
-
+const terminal = new TextTerminal();
+terminal.shiftMessageArray("i am a test message");
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);
