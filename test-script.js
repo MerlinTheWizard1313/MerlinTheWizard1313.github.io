@@ -706,18 +706,19 @@ class Player {
 class TextTerminal{
     constructor(){
         this.currentMessage = "You find yourself deep in a dark dungeon with nothing but your armour and a lit torch to your name. You must navigate this place, lighting torches to help map out the area as you go. You will find what you seek on your journey here. Good luck...";
-        this.messageStore = ["","",""];
+        this.messageStore = ["...","...","..."];
         this.terminalBox = document.querySelector(".text-terminal");
         this.messageBin = "";
-        this.messageOne = "...";
-        this.messageTwo = "...";
-        this.messageThree = "...";
+        this.messageOne = "";
+        this.messageTwo = "";
+        this.messageThree = "";
         this.shiftMessageArray(this.currentMessage);
     }
 
     shiftMessageArray(message){
         this.messageBin = this.messageStore.shift();
         this.messageStore.push(message);
+        this.messageThree = message;
         this.displayMessage();
     }
     

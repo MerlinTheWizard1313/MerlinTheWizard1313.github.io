@@ -593,4 +593,5 @@ body {
 .text-terminal{
   background-color: red;
   color: black;
+  padding: 4px;
 }
