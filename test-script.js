@@ -119,7 +119,7 @@ class MazeSquare {
     playerUpdate(){
         if(this.playerOnTile){
             if(this.npcDialogue != ""){
-                console.log(this.npcDialogue);
+                terminal.shiftMessageArray(this.npcDialogue);
                 gridTest.eventUpdate(this.npcDialogue);
             }
         } else {
@@ -452,22 +452,22 @@ class Player {
                     break;
         }
         if(this.tileChoice == undefined || this.tileChoice == ""){
-            console.log("Choose a vaild tile");
+            terminal.shiftMessageArray("Choose a vaild tile");
         } else if (this.tileChoice.tileHasEnemy && (this.tileChoice.gridCoordinateR == 5 && this.tileChoice.gridCoordinateC == 10)){
-            console.log("The crazed woman is not going to let you pass, teach her not to mess with you ever again!");
+            terminal.shiftMessageArray("The crazed woman is not going to let you pass, teach her not to mess with you ever again!");
         } else if (this.tileChoice.tileHasEnemy){
             switch (Math.round(3 * Math.random())){
                 case 0:
-                    console.log("You spot a hulking enemy blocking your path. You must defeat him if you are going to progress this way");
+                    terminal.shiftMessageArray("You spot a hulking enemy blocking your path. You must defeat him if you are going to progress this way");
                     break;
                 case 1:
-                    console.log("A large enemy stops you from moving this way. A good strike to it's chest would let you through");
+                    terminal.shiftMessageArray("A large enemy stops you from moving this way. A good strike to it's chest would let you through");
                     break;
                 case 2:
-                    console.log("You are blocked from moving this way by a hefty looking enemy. Vanquish them to progress");
+                    terminal.shiftMessageArray("You are blocked from moving this way by a hefty looking enemy. Vanquish them to progress");
                     break;
                 case 3:
-                    console.log("'Whoa there, you can't pass through here' You are going to need to use a handy sword to get through here");
+                    terminal.shiftMessageArray("'Whoa there, you can't pass through here' You are going to need to use a handy sword to get through here");
                     break;
             }
         } else {
@@ -564,11 +564,11 @@ class Player {
                         }
                 }
             }
-            console.log("SLASH! You defeat the enemy blocking your path!");
+            terminal.shiftMessageArray("SLASH! You defeat the enemy blocking your path!");
         } else if (this.hasSword){
-            console.log("You wave your sword around aimlessly, but there is nothing nearby. I hope no-one is around to see that embarassing moment");
+            terminal.shiftMessageArray("You wave your sword around aimlessly, but there is nothing nearby. I hope no-one is around to see that embarassing moment");
         } else {
-            console.log("Your hand clenches the air. You feel like you require something");
+            terminal.shiftMessageArray("Your hand clenches the air. You feel like you require something");
         }
     }
     
@@ -608,19 +608,19 @@ class Player {
             }
         } else if (this.hasHammer && this.currentTile.hasCrackedWall == false){
             if (this.uselessHammerCount <= 4){
-                console.log("You swing the hammer around but there is nothing to break. Better not tire yourself out swinging it")
+                terminal.shiftMessageArray("You swing the hammer around but there is nothing to break. Better not tire yourself out swinging it")
                 this.uselessHammerCount += 1;
             } else if (this.uselessHammerCount <= 12){
-                console.log("You slowly swing the hammer around but there is nothing to break. You are starting to become sluggish");
+                terminal.shiftMessageArray("You slowly swing the hammer around but there is nothing to break. You are starting to become sluggish");
                 this.uselessHammerCount += 1;
             } else if(this.uselessHammerCount == 13){
-                console.log("The knight stares up at you, pressing that hammer button. 'Can you just hammer the walls when they are breakable? I am really tired'");
+                terminal.shiftMessageArray("The knight stares up at you, pressing that hammer button. 'Can you just hammer the walls when they are breakable? I am really tired'");
                 this.uselessHammerCount += 1;
             } else {
-                console.log("You swing the hammer around but there is nothing to break.");
+                terminal.shiftMessageArray("You swing the hammer around but there is nothing to break.");
             }
         } else if (this.hasHammer == false){
-            console.log("You reach your hand over your shoulder and grasp at air. You feel like you require something");
+            terminal.shiftMessageArray("You reach your hand over your shoulder and grasp at air. You feel like you require something");
         }
     }
 
@@ -773,7 +773,5 @@ class TextTerminal{
 }
 
 const terminal = new TextTerminal();
-terminal.shiftMessageArray("'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat");
-terminal.shiftMessageArray("'HEATHEN!!' A deranged woman behind the bars with long spindly white hair scream at you. 'You will not survive in this place, but should you wish to continue, you look in need of a weapon, yes? You may find one if you follow up the east corridor I assure you.' You sense her words are true but can't shake this odd feeling. She continues to stare at you intently while grasping the bars of her cell");
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);

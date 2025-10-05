@@ -9,11 +9,11 @@ body {
   .maze-container {
     display: inline-grid;
     position: relative;
-    grid-template-columns: 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw;
-    grid-template-rows: 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw;
-    width: 59.4vw;
+    grid-template-columns: 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw;
+    grid-template-rows: 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw 5.3vw;
+    width: 58.3vw;
     top: 11vh;
-    right: -1vw;
+    right: -2vw;
     background-color: white;
     color: black;
     outline: 0.4vw green solid;
@@ -22,8 +22,8 @@ body {
   .maze-square {
     background-color: black;
     color: white;
-    width: 5.4vw;
-    height: 5.4vw;
+    width: 5.3vw;
+    height: 5.3vw;
     font-size: 14px;
     display: flex;
     justify-content: center;
@@ -581,7 +581,8 @@ body {
     align-content: center;
     height: 100vh;
     width: 37vw;
-    top: -3vh;
+    left: 1vw;
+    top: -2vh;
   }
 
   .game-buttons{
@@ -1297,7 +1298,7 @@ body {
   #terminal-header-title{
     display: inline-block;
     font-size: 2.3vh;
-    width: 23vw;
+    width: 22vw;
     margin: 0px;
     padding-left: 4px;
     padding-top: 2px;
