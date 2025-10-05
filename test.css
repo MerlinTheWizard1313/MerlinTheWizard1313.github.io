@@ -535,6 +535,16 @@ body {
   border-right: 4px solid;
 }
 
+.game-buttons{
+  display: grid;
+  justify-self: center;
+  grid-template-columns: 80px 80px 80px 80px 80px;
+  grid-template-rows: 50px 50px 50px;
+  column-gap: 4px;
+  row-gap: 4px;
+  width: 420px;
+}
+
 #up-button{
   color: black;
   background-color: white;

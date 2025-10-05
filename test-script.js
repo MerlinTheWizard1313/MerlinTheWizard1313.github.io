@@ -422,17 +422,17 @@ class Player {
         this.downButton.addEventListener("click", () => this.playerMove(2));
         this.leftButton.addEventListener("click", () => this.playerMove(3));
         this.lightTorchButton.addEventListener("click", () => this.lightTorch());
+        this.swordButton.addEventListener("click", () => this.attack());
+        this.hammerButton.addEventListener("click", () => this.hammer());
     }
 
     bindSword(){
         this.hasSword = true;
-        this.swordButton.addEventListener("click", () => this.attack());
         this.swordButton.innerText = "Attack";
     }
 
     bindHammer(){
         this.hasHammer = true;
-        this.hammerButton.addEventListener("click", () => this.hammer());
         this.hammerButton.innerText = "Hammer";
     }
 
