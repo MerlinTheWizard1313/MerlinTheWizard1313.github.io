@@ -733,11 +733,14 @@ class TextTerminal{
 
     chooseTerminalColour(){
         // r g or b colour schemes, g default (maybe add a light mode which is white back and black for text and borders)
+        //gonna need to look at css variables
         //maybe have this update the grid?
     }
 }
 
 const terminal = new TextTerminal();
-terminal.shiftMessageArray("i am a test message");
+terminal.shiftMessageArray("'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat");
+terminal.shiftMessageArray("'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat");
+terminal.shiftMessageArray("'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat");
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);

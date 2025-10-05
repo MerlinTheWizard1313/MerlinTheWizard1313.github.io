@@ -585,13 +585,22 @@ body {
   position: relative;
   justify-self: left;
   align-content: center;
-  height: 900px;
-  width: 500px;
-  top: -900px;
+  height: 100vh;
+  width: 40vw;
+  top: -908px;
 }
 
 .text-terminal{
-  background-color: red;
-  color: black;
-  padding: 4px;
+  background-color: black;
+  outline: 4px green;
+  color: white;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  box-sizing: border-box;
+}
+
+#terminal-message{
+  border-top: 2px green;
 }
