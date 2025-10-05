@@ -4,6 +4,22 @@ body {
   color: white;
 }
 
+:root{
+  --red-high-colour: red;
+  --red-medium-colour: red;
+  --red-low-colour: red;
+  --blue-high-colour: blue;
+  --blue-medium-colour: blue;
+  --blue-low-colour: blue;
+  --green-high-colour: green;
+  --green-medium-colour: green;
+  --green-low-colour: green;
+  --light-high-colour: white;
+  --light-medium-colour: white;
+  --light-low-colour: white;
+  --background-colour: black;
+}
+
 @media (max-aspect-ratio: 3/2){
   .maze-container {
     display: inline-grid;

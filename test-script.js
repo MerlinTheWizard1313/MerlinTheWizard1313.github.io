@@ -524,6 +524,16 @@ class Player {
             } else if(this.currentTile == this.mazeArray[5][5]){
                 this.mazeArray[5][6].lightMinimumUpdate();
                 this.mazeArray[5][6].tileLightUpdate(1,false);
+            } else if(this.currentTile == this.mazeArray[5][4] && this.currentTile.hasCrackedWall == false){
+                this.mazeArray[6][4].lightMinimumUpdate();
+                this.mazeArray[6][4].tileLightUpdate(1,false);
+            } else if(this.currentTile == this.mazeArray[5][4] && this.currentTile.hasCrackedWall == true){
+                this.mazeArray[6][4].lightMinimumUpdate();
+            } else if(this.currentTile == this.mazeArray[5][5] && this.currentTile.hasCrackedWall == false){
+                this.mazeArray[5][6].lightMinimumUpdate();
+                this.mazeArray[5][6].tileLightUpdate(1,false);
+            } else if(this.currentTile == this.mazeArray[5][5] && this.currentTile.hasCrackedWall == true){
+                this.mazeArray[5][6].lightMinimumUpdate();
             }
         } else if (this.currentTile == this.mazeArray[5][6]){
             window.location.href = "test-2.html";
