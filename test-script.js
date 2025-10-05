@@ -712,7 +712,20 @@ class TextTerminal{
         this.messageOne = "";
         this.messageTwo = "";
         this.messageThree = "";
+        this.currentTerminalColour = "green";
+        this.redButton = document.getElementById("color-button-red");
+        this.greenButton = document.getElementById("color-button-green");
+        this.blueButton = document.getElementById("color-button-blue");
+        this.darkButton = document.getElementById("color-button-dark");
         this.shiftMessageArray(this.currentMessage);
+        this.bindColourButtons();
+    }
+
+    bindColourButtons(){
+        this.redButton.addEventListener("click", () => this.chooseTerminalColour("red"));
+        this.greenButton.addEventListener("click", () => this.chooseTerminalColour("green"));
+        this.blueButton.addEventListener("click", () => this.chooseTerminalColour("blue"));
+        this.darkButton.addEventListener("click", () => this.chooseTerminalColour("dark"));
     }
 
     shiftMessageArray(message){
@@ -731,7 +744,25 @@ class TextTerminal{
         this.terminalBox.children[2].innerText = this.messageThree;
     }
 
-    chooseTerminalColour(){
+    chooseTerminalColour(colour){
+        if(this.currentTerminalColour != colour){
+            switch (colour){
+                case "red":
+                    console.log("changed to red");
+                    break;
+                case "green":
+                    console.log("changed to red");
+                    break;
+                case "blue":
+                    console.log("changed to red");
+                    break;
+                case "dark":
+                    console.log("changed to red");
+                    break;
+            }
+        } else {
+            console.log("Colour paletter is already" + colour);
+        }
         // r g or b colour schemes, g default (maybe add a light mode which is white back and black for text and borders)
         //gonna need to look at css variables
         //maybe have this update the grid?
