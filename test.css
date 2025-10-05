@@ -1,3 +1,4 @@
+/*Building this for 1024x768 initially*/
 body {
   font-family: Verdana, sans-serif;
   background-color:black; 
@@ -5,7 +6,7 @@ body {
 }
 
 .maze-container {
-  display: grid;
+  display: inline-grid;
   justify-self: right;
   grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
   grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
@@ -571,7 +572,7 @@ body {
 }
 
 #controls-and-text{
-  display: block;
+  display: inline-grid;
   position: relative;
   justify-self: left;
   align-content: center;
@@ -581,7 +582,7 @@ body {
 }
 
 .game-buttons{
-  display: grid;
+  display: inline-grid;
   justify-self: center;
   grid-template-columns: 80px 80px 80px 80px 80px;
   grid-template-rows: 50px 50px 50px;
@@ -611,11 +612,16 @@ body {
   background-color: black;
   outline: 4px green solid;
   display: inline-block;
+  height: 3vh;
+  width: 42vw;
+  margin-bottom: 4px;
 }
 
 #terminal-header-title{
   color: white;
-  width: 20vw;
+  display: inline-block;
+  font-size: 16px;
+  width: 26vw;
   margin: 0px;
   padding-left: 4px;
   padding-top: 2px;
@@ -624,32 +630,36 @@ body {
 
 #color-button-red{
   background-color: red;
+  display: inline-block;
   box-sizing: border-box;
   border: 1px white solid;
-  width: 10px;
-  height: 10px;
+  width: 3vw;
+  height: 2vh;
 }
 
 #color-button-green{
   background-color: green;
+  display: inline-block;
   box-sizing: border-box;
   border: 1px white solid;
-  width: 10px;
-  height: 10px;
+  width: 3vw;
+  height: 2vh;
 }
 
 #color-button-blue{
   background-color: blue;
+  display: inline-block;
   box-sizing: border-box;
   border: 1px white solid;
-  width: 10px;
-  height: 10px;
+  width: 3vw;
+  height: 2vh;
 }
 
 #color-button-dark{
   background-color: black;
+  display: inline-block;
   box-sizing: border-box;
   border: 1px white solid;
-  width: 10px;
-  height: 10px;
+  width: 3vw;
+  height: 2vh;
 }

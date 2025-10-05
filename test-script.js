@@ -749,15 +749,19 @@ class TextTerminal{
             switch (colour){
                 case "red":
                     console.log("changed to red");
+                    this.currentTerminalColour = "red";
                     break;
                 case "green":
-                    console.log("changed to red");
+                    console.log("changed to green");
+                    this.currentTerminalColour = "green";
                     break;
                 case "blue":
-                    console.log("changed to red");
+                    console.log("changed to blue");
+                    this.currentTerminalColour = "blue";
                     break;
                 case "dark":
-                    console.log("changed to red");
+                    console.log("changed to dark");
+                    this.currentTerminalColour = "dark";
                     break;
             }
         } else {
