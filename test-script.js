@@ -116,6 +116,18 @@ class MazeSquare {
         }
     }
 
+    tileColourUpdate(highColour, lowColour){
+        if(this.currentColour != "rgb(0,0,0)"){
+            if(this.currentColour == this.lightColours[1]){
+                this.currentLightColour = lowColour;
+            } else {
+                this.currentLightColour = highColour;
+            }
+        }
+        this.lightColours[1] = lowColour;
+        this.lightColours[2] = highColour;
+    }
+
     playerUpdate(){
         if(this.playerOnTile){
             if(this.npcDialogue != ""){
@@ -278,6 +290,15 @@ class Maze{
         }
     }
 
+    colourPaletteUpdate(colourArray){
+        for(let i = 1; i < this.gridSquareArray.length; i++){
+            for(let j = 1; j < this.gridSquareArray[i].length; j++){
+                this.gridSquareArray[i][j].tileColourUpdate(colourArray[2],colourArray[3]);
+                this.gridSquareArray[i][j].gridWalls.wallColourUpdate(colourArray[0],colourArray[1]);
+            }
+        }
+    }
+
     gridSquareInfo(row, column){
         var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, 
                                 "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate(), 
@@ -350,6 +371,18 @@ class Walls{
                 }
             }
         }
+    }
+
+    wallColourUpdate(highColour, lowColour){
+        if(this.currentColour != "rgb(0,0,0)"){
+            if(this.currentColour == this.wallColours[1]){
+                this.currentColour = lowColour;
+            } else {
+                this.currentColour = highColour;
+            }
+        }
+        this.wallColours[1] = lowColour;
+        this.wallColours[2] = highColour;
     }
 }
 
@@ -723,6 +756,10 @@ class TextTerminal{
         this.messageTwo = "";
         this.messageThree = "";
         this.currentTerminalColour = "green";
+        this.redColourPalette = ["rgb(128,0,0)","rgb(64,0,0)","rgb(72,0,0)","rgb(32,0,0)"];
+        this.blueColourPalette = ["rgb(0,0,128)","rgb(0,0,64)","rgb(0,0,72)","rgb(0,0,32)"];
+        this.greenColourPalette = ["rgb(0,128,0)","rgb(0,64,0)","rgb(0,72,0)","rgb(0,32,0)"];
+        this.monochromeColourPalette = ["rgb(128,128,128)","rgb(64,64,64)","rgb(72,72,72)","rgb(32,32,32)"];
         this.redButton = document.getElementById("color-button-red");
         this.greenButton = document.getElementById("color-button-green");
         this.blueButton = document.getElementById("color-button-blue");
@@ -758,18 +795,22 @@ class TextTerminal{
         if(this.currentTerminalColour != colour){
             switch (colour){
                 case "red":
+                    gridTest.colourPaletteUpdate(this.redColourPalette);
                     console.log("changed to red");
                     this.currentTerminalColour = "red";
                     break;
                 case "green":
+                    gridTest.colourPaletteUpdate(this.greenColourPalette);
                     console.log("changed to green");
                     this.currentTerminalColour = "green";
                     break;
                 case "blue":
+                    gridTest.colourPaletteUpdate(this.blueColourPalette);
                     console.log("changed to blue");
                     this.currentTerminalColour = "blue";
                     break;
                 case "monochrome":
+                    gridTest.colourPaletteUpdate(this.monochromeColourPalette);
                     console.log("changed to monochrome");
                     this.currentTerminalColour = "monochrome";
                     break;

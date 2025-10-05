@@ -5,23 +5,10 @@ body {
 }
 
 :root{
-  --red-wall-high-colour: rgb(128,0,0);
-  --red-wall-low-colour: rgb(64,0,0);
-  --red-tile-high-colour: rgb(72,0,0);
-  --red-tile-low-colour: rgb(32,0,0);
-  --blue-wall-high-colour: rgb(0,0,128);
-  --blue-wall-low-colour: rgb(0,0,64);
-  --blue-tile-high-colour: rgb(0,0,72);
-  --blue-tile-low-colour: rgb(0,0,32);
-  --green-wall-high-colour: rgb(0,128,0);
-  --green-wall-low-colour: rgb(0,64,0);
-  --green-tile-high-colour: rgb(0,72,0);
-  --green-tile-low-colour: rgb(0,32,0);
-  --monochrome-wall-high-colour: rgb(128,128,128);
-  --monochrome-wall-low-colour: rgb(64,64,64);
-  --monochrome-tile-high-colour: rgb(72,72,72);
-  --monochrome-tile-low-colour: rgb(32,32,32);
-  --background-colour: rgb(0,0,0);
+  --wall-high-colour: rgb(0,128,0);
+  --wall-low-colour: rgb(0,64,0);
+  --tile-high-colour: rgb(0,72,0);
+  --tile-low-colour: rgb(0,32,0);
 }
 
 @media (max-aspect-ratio: 3/2){
@@ -35,7 +22,7 @@ body {
     right: -2vw;
     background-color: white;
     color: black;
-    outline: 0.4vw var(--green-tile-high-colour) solid;
+    outline: 0.4vw var(--wall-high-colour) solid;
   }
 
   .maze-square {
@@ -74,7 +61,7 @@ body {
   }
 
   .text-terminal{
-    outline: 0.4vw var(--green-tile-high-colour) solid;
+    outline: 0.4vw var(--wall-high-colour) solid;
     display: inline-block;
     position: relative;
     height: 55vh;
@@ -84,7 +71,7 @@ body {
   }
 
   #terminal-message{
-    border-top: 2px var(--green-tile-high-colour) solid;
+    border-top: 2px var(--wall-high-colour) solid;
     max-width: 37vw;
     font-size: 1.8vh;
     padding-top: 2px;
@@ -94,7 +81,7 @@ body {
   }
 
   #terminal-header{
-    outline: 0.4vw var(--green-tile-high-colour) solid;
+    outline: 0.4vw var(--wall-high-colour) solid;
     display: inline-block;
     height: 3.3vh;
     width: 37vw;
@@ -123,7 +110,7 @@ body {
     right: -3.5vw;
     background-color: white;
     color: black;
-    outline: 0.4vw var(--green-tile-high-colour) solid;
+    outline: 0.4vw var(--wall-high-colour) solid;
   }
 
   .maze-square {
@@ -163,7 +150,7 @@ body {
   }
 
   .text-terminal{
-    outline: 0.4vw var(--green-tile-high-colour) solid;
+    outline: 0.4vw var(--wall-high-colour) solid;
     display: inline-block;
     position: relative;
     height: 55vh;
@@ -174,7 +161,7 @@ body {
   }
 
   #terminal-message{
-    border-top: 2px var(--green-tile-high-colour) solid;
+    border-top: 2px var(--wall-high-colour) solid;
     max-width: 37vw;
     font-size: 2.1vh;
     padding-top: 2px;
@@ -184,7 +171,7 @@ body {
   }
 
   #terminal-header{
-    outline: 0.4vw var(--green-tile-high-colour) solid;
+    outline: 0.4vw var(--wall-high-colour) solid;
     display: inline-block;
     position: relative;
     top: 1vh;
@@ -207,23 +194,23 @@ body {
 [data-id="Label"]{
   background-color: black;
   text-align: center;
-  color: var(--green-tile-high-colour);
+  color: var(--wall-high-colour);
   outline: none;
   font-size: 32px;
-  border-right: 0.4vw var(--green-tile-high-colour) solid;
-  border-top: 0.4vw var(--green-tile-high-colour) solid;
+  border-right: 0.4vw var(--wall-high-colour) solid;
+  border-top: 0.4vw var(--wall-high-colour) solid;
 }
 
 .rowLabel{
-  border-right: 0.4vw var(--green-tile-high-colour) solid;
-  border-top: 0.1vw var(--green-tile-high-colour) dashed;
-  border-bottom: 0.1vw var(--green-tile-high-colour) dashed;
+  border-right: 0.4vw var(--wall-high-colour) solid;
+  border-top: 0.1vw var(--wall-high-colour) dashed;
+  border-bottom: 0.1vw var(--wall-high-colour) dashed;
 }
 
 .columnLabel{
-  border-top: 0.4vw var(--green-tile-high-colour) solid;
-  border-right: 0.1vw var(--green-tile-high-colour) dashed;
-  border-left: 0.1vw var(--green-tile-high-colour) dashed;
+  border-top: 0.4vw var(--wall-high-colour) solid;
+  border-right: 0.1vw var(--wall-high-colour) dashed;
+  border-left: 0.1vw var(--wall-high-colour) dashed;
 }
 
 .topLabel{
@@ -734,7 +721,7 @@ body {
 }
 
 #color-button-red{
-  background-color: var(--red-tile-high-colour);
+  background-color: rgb(128,0,0);
   display: inline-block;
   box-sizing: border-box;
   border: 1px white solid;
@@ -743,7 +730,7 @@ body {
 }
 
 #color-button-green{
-  background-color: var(--green-tile-high-colour);
+  background-color: rgb(0,128,0);
   display: inline-block;
   box-sizing: border-box;
   border: 1px white solid;
@@ -752,7 +739,7 @@ body {
 }
 
 #color-button-blue{
-  background-color: var(--blue-tile-high-colour);
+  background-color: rgb(0,0,128);
   display: inline-block;
   box-sizing: border-box;
   border: 1px white solid;
@@ -761,7 +748,7 @@ body {
 }
 
 #color-button-light{
-  background-color: var(--monochrome-tile-high-colour);
+  background-color: rgb(128,128,128);
   display: inline-block;
   box-sizing: border-box;
   border: 1px white solid;
