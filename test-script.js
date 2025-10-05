@@ -761,7 +761,7 @@ class TextTerminal{
                     break;
             }
         } else {
-            console.log("Colour paletter is already" + colour);
+            console.log("Colour palette is already" + colour);
         }
         // r g or b colour schemes, g default (maybe add a light mode which is white back and black for text and borders)
         //gonna need to look at css variables
@@ -771,7 +771,6 @@ class TextTerminal{
 
 const terminal = new TextTerminal();
 terminal.shiftMessageArray("'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat");
-terminal.shiftMessageArray("'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat");
-terminal.shiftMessageArray("'*coughs* Hello there brav- *splurts* knight.' He struggles to speak as he lays against the wall with a sledgehammer through his shoulder. 'I am not long for this world *coughs* please take my presence as a warning for exploring this place. I venture to see my lady on high.' The hopeful light from his eyes fade so you decide to lay his body in a better condition, closing his eyes and removing the hammer. You gained a hammer but it is too heavy for combat");
+terminal.shiftMessageArray("'HEATHEN!!' A deranged woman behind the bars with long spindly white hair scream at you. 'You will not survive in this place, but should you wish to continue, you look in need of a weapon, yes? You may find one if you follow up the east corridor I assure you.' You sense her words are true but can't shake this odd feeling. She continues to stare at you intently while grasping the bars of her cell");
 const gridBox = document.querySelector("#mazeBox");
 const gridTest = new Maze(gridBox);

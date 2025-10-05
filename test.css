@@ -535,16 +535,6 @@ body {
   border-right: 4px solid;
 }
 
-.game-buttons{
-  display: grid;
-  justify-self: center;
-  grid-template-columns: 80px 80px 80px 80px 80px;
-  grid-template-rows: 50px 50px 50px;
-  column-gap: 4px;
-  row-gap: 4px;
-  width: 420px;
-}
-
 #up-button{
   color: black;
   background-color: white;
@@ -590,17 +580,29 @@ body {
   top: -908px;
 }
 
+.game-buttons{
+  display: grid;
+  justify-self: center;
+  grid-template-columns: 80px 80px 80px 80px 80px;
+  grid-template-rows: 50px 50px 50px;
+  column-gap: 4px;
+  row-gap: 4px;
+  width: 420px;
+}
+
 .text-terminal{
   background-color: black;
-  outline: 4px green;
+  outline: 4px green solid;
   color: white;
-  padding-top: 2px;
-  padding-bottom: 2px;
   padding-left: 4px;
   padding-right: 4px;
   box-sizing: border-box;
 }
 
 #terminal-message{
-  border-top: 2px green;
+  border-top: 2px green solid;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
