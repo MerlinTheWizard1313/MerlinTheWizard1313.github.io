@@ -178,7 +178,7 @@ class Maze{
         this.enemyArray = [[1,7],[1,10],[4,8],[5,1],[5,9],[6,3]];
         this.crackedWallArray = [[4,8],[5,4],[5,5],[6,2]];
         this.fogCheckArray = [];
-        this.fogArray = [];
+        this.fogArray = [[7,4],[7,5],[7,6],[7,7],[8,7],[8,8],[8,9],[8,10]];
         this.fogCheck = false;
         this.fogRandom = 0;
         this.swordLocation = [6,8];
