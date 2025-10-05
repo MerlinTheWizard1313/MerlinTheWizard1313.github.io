@@ -709,9 +709,9 @@ class TextTerminal{
         this.messageStore = ["","",""];
         this.terminalBox = document.querySelector(".text-terminal");
         this.messageBin = "";
-        this.messageOne;
-        this.messageTwo;
-        this.messageThree;
+        this.messageOne = "...";
+        this.messageTwo = "...";
+        this.messageThree = "...";
         this.shiftMessageArray(this.currentMessage);
     }
 

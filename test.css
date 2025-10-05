@@ -571,7 +571,10 @@ body {
 }
 
 #controls-and-text{
+  display: block;
+  position: relative;
   justify-self: left;
+  align-content: center;
   height: 900px;
   width: 500px;
   top: -900px;
