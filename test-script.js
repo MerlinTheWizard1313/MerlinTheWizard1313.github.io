@@ -716,7 +716,7 @@ class TextTerminal{
         this.redButton = document.getElementById("color-button-red");
         this.greenButton = document.getElementById("color-button-green");
         this.blueButton = document.getElementById("color-button-blue");
-        this.darkButton = document.getElementById("color-button-dark");
+        this.lightButton = document.getElementById("color-button-light");
         this.shiftMessageArray(this.currentMessage);
         this.bindColourButtons();
     }
@@ -725,7 +725,7 @@ class TextTerminal{
         this.redButton.addEventListener("click", () => this.chooseTerminalColour("red"));
         this.greenButton.addEventListener("click", () => this.chooseTerminalColour("green"));
         this.blueButton.addEventListener("click", () => this.chooseTerminalColour("blue"));
-        this.darkButton.addEventListener("click", () => this.chooseTerminalColour("dark"));
+        this.lightButton.addEventListener("click", () => this.chooseTerminalColour("light"));
     }
 
     shiftMessageArray(message){
@@ -759,9 +759,9 @@ class TextTerminal{
                     console.log("changed to blue");
                     this.currentTerminalColour = "blue";
                     break;
-                case "dark":
+                case "light":
                     console.log("changed to light");
-                    this.currentTerminalColour = "dark";
+                    this.currentTerminalColour = "light";
                     break;
             }
         } else {
