@@ -89,12 +89,38 @@ class MazeSquare {
             case "npc6-4":
                 this.npcDialogue = "A crazed man mumbles, his volume fluctuating as he speaks, his eyes white like he has was possessed. 'Exploration is key, do not flee. The length of moves you will see in the dead space, don't you agree?' What could he mean?";
                 break;
+            case "npc7-4":
+                this.npcDialogue = "You step forward into a thick fog that clouds your eyesight, there is more to explore here but it feels nauseating";
+                break;
             case "npc6-8":
                 this.npcDialogue = "Standing tall, a well kept sword is jammed into a skeleton's torso. You gained a sword, perfect for combat!";
                 this.hasSword = true;
                 break;
             case "npc6-10":
                 this.npcDialogue = "As you turn the corner, you spot something metal at the end of the hall.";
+                break;
+            case "npc7-1":
+            case "npc7-2":
+            case "npc7-3":
+            case "npc7-5":
+            case "npc7-6":
+            case "npc7-7":
+            case "npc7-8":
+            case "npc7-9":
+            case "npc7-10":
+            case "npc8-1":
+            case "npc8-2":
+            case "npc8-3":
+            case "npc8-4":
+            case "npc8-5":
+            case "npc8-6":
+            case "npc8-7":
+            case "npc8-8":
+            case "npc8-9":
+            case "npc8-10":
+                this.npcDialogue = "The fog is dense and it is hard to breathe. You wonder how long you will last here";
+                break;
+            default:
                 break;
         }
     }
@@ -132,6 +158,7 @@ class MazeSquare {
 
     playerUpdate(){
         if(this.playerOnTile){
+            //place player icon
             if(this.npcDialogue != ""){
                 terminal.shiftMessageArray(this.npcDialogue);
                 gridTest.eventUpdate(this.npcDialogue);
@@ -147,9 +174,13 @@ class Maze{
         this.mainGrid = grid;
         this.gridSquareArray = [[],[],[],[],[],[],[],[],[]];
         this.torchArray = [[1,3],[2,1],[2,5],[2,7],[2,8],[2,9],[2,10],[3,3],[3,8],[3,9],[4,2],[4,6],[4,9],[5,2],[5,3],[5,4],[5,5],[5,7],[5,8],[5,10],[6,1],[6,5],[6,9]];
-        this.npcArray = [[1,1],[2,9],[3,8],[3,9],[4,9],[5,2],[5,6],[6,4]];
+        this.npcArray = [[1,1],[2,9],[3,8],[3,9],[4,9],[5,2],[5,6],[6,4],[7,4]];
         this.enemyArray = [[1,7],[1,10],[4,8],[5,1],[5,9],[6,3]];
         this.crackedWallArray = [[4,8],[5,4],[5,5],[6,2]];
+        this.fogCheckArray = [];
+        this.fogArray = [];
+        this.fogCheck = false;
+        this.fogRandom = 0;
         this.swordLocation = [6,8];
         this.hammerLocation = [1,1];
         this.eventArray = [];
@@ -237,19 +268,30 @@ class Maze{
                     this.currentEvent = "";
                 }
                 break;
+            case "You step forward into a thick fog that clouds your eyesight, there is more to explore here but it feels nauseating":
+                this.currentEvent = "fogEvent";
+                break;
+            case "A crazed man mumbles, his volume fluctuating as he speaks, his eyes white like he has was possessed. 'Exploration is key, do not flee. The length of moves you will see in the dead space, don't you agree?' What could he mean?":
+                this.currentEvent = "stopFogEvent";
+                break;
             default: 
                 this.currentEvent = "";
                 break;
         }
-        if(this.eventArray.length <=3 && this.currentEvent != ""){
+        if(this.eventArray.length <=3 && this.currentEvent != "" && this.currentEvent != "fogEvent"){
             this.eventArray.push(this.currentEvent);
         }
         return this.currentEvent;
     }
 
     eventUpdate(npcDialogue){
-        if (npcDialogue.includes("HEATHEN") || npcDialogue.includes("sword") || npcDialogue.includes("sledgehammer") || npcDialogue.includes("metal")){
+        if (npcDialogue.includes("HEATHEN") || npcDialogue.includes("sword") || npcDialogue.includes("sledgehammer") || npcDialogue.includes("metal") || npcDialogue.includes("clouds")|| npcDialogue.includes("mumbles")){
             this.eventReturn(npcDialogue);
+        } else if(npcDialogue.includes("dense") && this.currentEvent == "fogEvent"){
+            this.currentEvent = "";
+        } 
+        if(npcDialogue.includes("dense")){
+            this.fogTracker();
         }
         if(this.currentEvent != ""){
             switch (this.currentEvent){
@@ -286,8 +328,18 @@ class Maze{
                 case "jailEnemyEvent":
                     this.gridSquareArray[6][10].npcDialogue = "";
                     break;
+                case "fogEvent":
+                    this.fogCheck = true;
+                    this.fogTracker();
+                    this.gridSquareArray[7][4].npcDialogue = "The fog is dense and it is hard to breathe. You wonder how long you will last here";
+                    break;
+                case "stopFogEvent":
+                    this.fogCheck = false;
+                    this.fogCheckArray = [];
+                    this.gridSquareArray[7][4].npcDialogue = "You step forward into a thick fog that clouds your eyesight, there is more to explore here but it feels nauseating";
+                    break;
                 default:
-                return "error";
+                    return "error";
             }
         }
     }
@@ -298,6 +350,29 @@ class Maze{
                 this.gridSquareArray[i][j].tileColourUpdate(colourArray[2],colourArray[3]);
                 this.gridSquareArray[i][j].gridWalls.wallColourUpdate(colourArray[0],colourArray[1]);
             }
+        }
+    }
+
+    fogTracker(){
+        if(this.fogCheck == true){
+            this.fogCheckArray.push([this.player.currentTile.gridCoordinateR,this.player.currentTile.gridCoordinateC])
+            if (this.fogArray[this.fogArray.length - 1] != this.fogCheckArray[this.fogArray.length - 1]){
+                this.fogRandom = Math.ceil(8 * Math.random());
+                this.fogCheck = false;
+            } else if (this.fogArray[this.fogArray.length - 1] != this.fogCheckArray[this.fogArray.length - 1] && this.currentTile == this.mazeArray[8][10]){
+                terminal.shiftMessageArray("You see the end of the fog labyrinth! You are being transported to-");
+                window.location.href = "test-3.html";
+            }
+        } else if(this.fogCheck == false && this.fogRandom > 0){
+            this.fogRandom -= 1;
+        } else if(this.fogCheck == false && this.fogRandom == 0){
+            this.player.tileChoice = this.gridSquareArray[7][4];
+            this.player.currentTile.playerOnTile = false;
+            this.player.currentTile.playerUpdate();
+            this.player.tileUpdate(this.player.tileChoice);
+            this.player.currentTile.playerOnTile = true;
+            this.player.currentTile.playerUpdate();
+            terminal.shiftMessageArray("You fainted from being lost in the thick fog but awoke next to the crazed man. How bizarre");
         }
     }
 
