@@ -8,6 +8,47 @@
 </head>
 <body>
     <!--Needs to be at least 6*10 grid squares, but may need to be 8*10-->
+    <div id="controls-and-text">
+        <div id="terminal-header">
+            <p id="terminal-header-title">Message Terminal</p>
+            <button id="color-button-red"></button>
+            <button id="color-button-green"></button>
+            <button id="color-button-blue"></button>
+            <button id="color-button-dark"></button>
+        </div>
+        <div class="text-terminal">
+            <p id="terminal-message">
+                first message
+            </p>
+            <p id="terminal-message">
+                second message
+            </p>
+            <p id="terminal-message">
+                third message
+            </p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="game-buttons">
+            <br>
+            <button id="up-button">Up</button>
+            <br>
+            <p></p>
+            <button id="hammer-button">Left Hand</button>
+            <button id="left-button">Left</button>
+            <button id="lightTorch-button">Light Torch</button>
+            <button id="right-button">Right</button>
+            <br>
+            <p></p>
+            <br>
+            <button id="down-button">Down</button>
+            <br>
+            <p></p>
+            <button id="sword-button">Right Hand</button>
+        </div>
+    </div>
     <div class="maze-container" id="mazeBox">
         <div data-id="Label" class="maze-square rowLabel topLabel">H</div>
         <div data-id="1" class="maze-square">1</div>
@@ -108,47 +149,6 @@
         <div data-id="Label" class="maze-square columnLabel">8</div>
         <div data-id="Label" class="maze-square columnLabel">9</div>
         <div data-id="Label" class="maze-square columnLabel rightLabel">10</div>
-    </div>
-    <div id="controls-and-text">
-        <div id="terminal-header">
-            <p id="terminal-header-title">Message Terminal</p>
-            <button id="color-button-red"></button>
-            <button id="color-button-green"></button>
-            <button id="color-button-blue"></button>
-            <button id="color-button-dark"></button>
-        </div>
-        <div class="text-terminal">
-            <p id="terminal-message">
-                first message
-            </p>
-            <p id="terminal-message">
-                second message
-            </p>
-            <p id="terminal-message">
-                third message
-            </p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="game-buttons">
-            <br>
-            <button id="up-button">Up</button>
-            <br>
-            <p></p>
-            <button id="hammer-button">Left Hand</button>
-            <button id="left-button">Left</button>
-            <button id="lightTorch-button">Light Torch</button>
-            <button id="right-button">Right</button>
-            <br>
-            <p></p>
-            <br>
-            <button id="down-button">Down</button>
-            <br>
-            <p></p>
-            <button id="sword-button">Right Hand</button>
-        </div>
     </div>
     <script src="test-script.js"></script>
 </body>
