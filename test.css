@@ -5,26 +5,12 @@ body {
   color: white;
 }
 
-#width-warning-message{
-  width: 100vw;
-  height: 100vh;
-  font-size: 32px;
-  text-align: center;
-  justify-self: center;
-  opacity: 1;
-  transition: opacity 2s;
-}
-
-.fade-out{
-  opacity: 0;
-}
-
 @media (max-aspect-ratio: 3/2){
   .maze-container {
     display: inline-grid;
     position: relative;
     grid-template-columns: 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw;
-    grid-template-rows: 6vw 6vw 6vw 6vw 6vw 6vw 6vw 6vw 6vw;
+    grid-template-rows: 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw;
     width: 59.4vw;
     top: 11vh;
     right: -1vw;
@@ -37,7 +23,7 @@ body {
     background-color: black;
     color: white;
     width: 5.4vw;
-    height: 6vw;
+    height: 5.4vw;
     font-size: 14px;
     display: flex;
     justify-content: center;
@@ -601,18 +587,18 @@ body {
   .game-buttons{
     display: inline-grid;
     justify-self: center;
-    grid-template-columns: 6.5vw 6.5vw 6.5vw 6.5vw 6.5vw;
-    grid-template-rows: 6.5vw 6.5vw 6.5vw;
+    grid-template-columns: 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw;
+    grid-template-rows: 5.4vw 5.4vw 5.4vw;
     column-gap: 0.8vw;
     row-gap: 0.8vw;
     height: 30vh;
-    width: 37vw;
+    width: 28.7vw;
   }
 
   .text-terminal{
-    background-color: black;
     outline: 0.4vw green solid;
-    color: white;
+    display: inline-block;
+    position: relative;
     height: 55vh;
     padding-left: 4px;
     padding-right: 4px;
@@ -622,7 +608,7 @@ body {
   #terminal-message{
     border-top: 2px green solid;
     max-width: 37vw;
-    font-size: 14px;
+    font-size: 1.8vh;
     padding-top: 2px;
     padding-bottom: 2px;
     margin-top: 4px;
@@ -630,18 +616,16 @@ body {
   }
 
   #terminal-header{
-    background-color: black;
     outline: 0.4vw green solid;
     display: inline-block;
-    height: 3vh;
+    height: 3.3vh;
     width: 37vw;
     margin-bottom: 4px;
   }
 
   #terminal-header-title{
-    color: white;
     display: inline-block;
-    font-size: 16px;
+    font-size: 2.1vh;
     width: 22vw;
     margin: 0px;
     padding-left: 4px;
@@ -690,11 +674,11 @@ body {
   .maze-container {
     display: inline-grid;
     position: relative;
-    grid-template-columns: 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw 5.4vw;
-    grid-template-rows: 6vw 6vw 6vw 6vw 6vw 6vw 6vw 6vw 6vw;
-    width: 59.4vw;
-    top: 11vh;
-    right: -1vw;
+    grid-template-columns: 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw;
+    grid-template-rows: 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw;
+    width: 56.1vw;
+    top: 5vw;
+    right: -3.5vw;
     background-color: white;
     color: black;
     outline: 0.4vw green solid;
@@ -703,8 +687,8 @@ body {
   .maze-square {
     background-color: black;
     color: white;
-    width: 5.4vw;
-    height: 6vw;
+    width: 5.1vw;
+    height: 5.1vw;
     font-size: 14px;
     display: flex;
     justify-content: center;
@@ -1262,25 +1246,29 @@ body {
     align-content: center;
     height: 100vh;
     width: 37vw;
+    left: 1vw;
     top: -3vh;
   }
 
   .game-buttons{
-    display: inline-grid;
+    display: grid;
+    position: relative;
     justify-self: center;
-    grid-template-columns: 6.5vw 6.5vw 6.5vw 6.5vw 6.5vw;
-    grid-template-rows: 6.5vw 6.5vw 6.5vw;
+    grid-template-columns: 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw;
+    grid-template-rows: 5.1vw 5.1vw 5.1vw;
     column-gap: 0.8vw;
     row-gap: 0.8vw;
     height: 30vh;
-    width: 37vw;
+    width: 28.7vw;
   }
 
   .text-terminal{
     background-color: black;
     outline: 0.4vw green solid;
-    color: white;
+    display: inline-block;
+    position: relative;
     height: 55vh;
+    top: 1vh;
     padding-left: 4px;
     padding-right: 4px;
     box-sizing: border-box;
@@ -1289,7 +1277,7 @@ body {
   #terminal-message{
     border-top: 2px green solid;
     max-width: 37vw;
-    font-size: 14px;
+    font-size: 2.1vh;
     padding-top: 2px;
     padding-bottom: 2px;
     margin-top: 4px;
@@ -1297,19 +1285,19 @@ body {
   }
 
   #terminal-header{
-    background-color: black;
     outline: 0.4vw green solid;
     display: inline-block;
-    height: 3vh;
+    position: relative;
+    top: 1vh;
+    height: 4vh;
     width: 37vw;
     margin-bottom: 4px;
   }
 
   #terminal-header-title{
-    color: white;
     display: inline-block;
-    font-size: 16px;
-    width: 22vw;
+    font-size: 2.3vh;
+    width: 23vw;
     margin: 0px;
     padding-left: 4px;
     padding-top: 2px;
