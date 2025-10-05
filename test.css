@@ -99,7 +99,7 @@ body {
     grid-template-columns: 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw;
     grid-template-rows: 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw 5.1vw;
     width: 56.1vw;
-    top: 5vw;
+    top: 7vh;
     right: -3.5vw;
     background-color: white;
     color: black;
