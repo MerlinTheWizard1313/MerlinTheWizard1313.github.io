@@ -747,7 +747,7 @@ body {
   height: 2vh;
 }
 
-#color-button-light{
+#color-button-monochrome{
   background-color: rgb(128,128,128);
   display: inline-block;
   box-sizing: border-box;

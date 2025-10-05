@@ -1,3 +1,4 @@
+
 class MazeSquare {
     constructor(box, rowValue, columnValue){
         this.gridSquare = box;
@@ -126,6 +127,7 @@ class MazeSquare {
         }
         this.lightColours[1] = lowColour;
         this.lightColours[2] = highColour;
+        this.gridSquare.style.backgroundColor = this.currentLightColour;
     }
 
     playerUpdate(){
@@ -291,6 +293,7 @@ class Maze{
     }
 
     colourPaletteUpdate(colourArray){
+        console.log("called");
         for(let i = 1; i < this.gridSquareArray.length; i++){
             for(let j = 1; j < this.gridSquareArray[i].length; j++){
                 this.gridSquareArray[i][j].tileColourUpdate(colourArray[2],colourArray[3]);
@@ -383,6 +386,7 @@ class Walls{
         }
         this.wallColours[1] = lowColour;
         this.wallColours[2] = highColour;
+        this.updateWalls();
     }
 }
 
@@ -818,8 +822,6 @@ class TextTerminal{
         } else {
             console.log("Colour palette is already " + colour);
         }
-        //gonna need to look at css variables
-        //maybe have this update the grid?
     }
 }
 
