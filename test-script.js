@@ -118,8 +118,8 @@ class MazeSquare {
     }
 
     tileColourUpdate(highColour, lowColour){
-        if(this.currentColour != "rgb(0,0,0)"){
-            if(this.currentColour == this.lightColours[1]){
+        if(this.currentLightColour != "rgb(0,0,0)"){
+            if(this.currentLightColour == this.lightColours[1]){
                 this.currentLightColour = lowColour;
             } else {
                 this.currentLightColour = highColour;
@@ -293,7 +293,6 @@ class Maze{
     }
 
     colourPaletteUpdate(colourArray){
-        console.log("called");
         for(let i = 1; i < this.gridSquareArray.length; i++){
             for(let j = 1; j < this.gridSquareArray[i].length; j++){
                 this.gridSquareArray[i][j].tileColourUpdate(colourArray[2],colourArray[3]);
@@ -764,6 +763,7 @@ class TextTerminal{
         this.blueColourPalette = ["rgb(0,0,128)","rgb(0,0,64)","rgb(0,0,72)","rgb(0,0,32)"];
         this.greenColourPalette = ["rgb(0,128,0)","rgb(0,64,0)","rgb(0,72,0)","rgb(0,32,0)"];
         this.monochromeColourPalette = ["rgb(128,128,128)","rgb(64,64,64)","rgb(72,72,72)","rgb(32,32,32)"];
+        this.cssColourRoot = document.querySelector(':root');
         this.redButton = document.getElementById("color-button-red");
         this.greenButton = document.getElementById("color-button-green");
         this.blueButton = document.getElementById("color-button-blue");
@@ -800,21 +800,37 @@ class TextTerminal{
             switch (colour){
                 case "red":
                     gridTest.colourPaletteUpdate(this.redColourPalette);
+                    this.cssColourRoot.style.setProperty('--wall-high-colour', this.redColourPalette[0]);
+                    this.cssColourRoot.style.setProperty('--wall-low-colour', this.redColourPalette[1]);
+                    this.cssColourRoot.style.setProperty('--tile-high-colour', this.redColourPalette[2]);
+                    this.cssColourRoot.style.setProperty('--tile-low-colour', this.redColourPalette[3]);
                     console.log("changed to red");
                     this.currentTerminalColour = "red";
                     break;
                 case "green":
                     gridTest.colourPaletteUpdate(this.greenColourPalette);
+                    this.cssColourRoot.style.setProperty('--wall-high-colour', this.greenColourPalette[0]);
+                    this.cssColourRoot.style.setProperty('--wall-low-colour', this.greenColourPalette[1]);
+                    this.cssColourRoot.style.setProperty('--tile-high-colour', this.greenColourPalette[2]);
+                    this.cssColourRoot.style.setProperty('--tile-low-colour', this.greenColourPalette[3]);
                     console.log("changed to green");
                     this.currentTerminalColour = "green";
                     break;
                 case "blue":
                     gridTest.colourPaletteUpdate(this.blueColourPalette);
+                    this.cssColourRoot.style.setProperty('--wall-high-colour', this.blueColourPalette[0]);
+                    this.cssColourRoot.style.setProperty('--wall-low-colour', this.blueColourPalette[1]);
+                    this.cssColourRoot.style.setProperty('--tile-high-colour', this.blueColourPalette[2]);
+                    this.cssColourRoot.style.setProperty('--tile-low-colour', this.blueColourPalette[3]);
                     console.log("changed to blue");
                     this.currentTerminalColour = "blue";
                     break;
                 case "monochrome":
                     gridTest.colourPaletteUpdate(this.monochromeColourPalette);
+                    this.cssColourRoot.style.setProperty('--wall-high-colour', this.monochromeColourPalette[0]);
+                    this.cssColourRoot.style.setProperty('--wall-low-colour', this.monochromeColourPalette[1]);
+                    this.cssColourRoot.style.setProperty('--tile-high-colour', this.monochromeColourPalette[2]);
+                    this.cssColourRoot.style.setProperty('--tile-low-colour', this.monochromeColourPalette[3]);
                     console.log("changed to monochrome");
                     this.currentTerminalColour = "monochrome";
                     break;
