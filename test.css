@@ -606,3 +606,50 @@ body {
   margin-top: 4px;
   margin-bottom: 4px;
 }
+
+#terminal-header{
+  background-color: black;
+  outline: 4px green solid;
+  display: inline-block;
+}
+
+#terminal-header-title{
+  color: white;
+  width: 20vw;
+  margin: 0px;
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#color-button-red{
+  background-color: red;
+  box-sizing: border-box;
+  border: 1px white solid;
+  width: 10px;
+  height: 10px;
+}
+
+#color-button-green{
+  background-color: green;
+  box-sizing: border-box;
+  border: 1px white solid;
+  width: 10px;
+  height: 10px;
+}
+
+#color-button-blue{
+  background-color: blue;
+  box-sizing: border-box;
+  border: 1px white solid;
+  width: 10px;
+  height: 10px;
+}
+
+#color-button-dark{
+  background-color: black;
+  box-sizing: border-box;
+  border: 1px white solid;
+  width: 10px;
+  height: 10px;
+}
