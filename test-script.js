@@ -278,7 +278,7 @@ class Maze{
                 this.currentEvent = "";
                 break;
         }
-        if(this.eventArray.length <=3 && this.currentEvent != "" && this.currentEvent != "fogEvent"){
+        if(this.eventArray.length <=3 && this.currentEvent != "" && (this.currentEvent != "fogEvent" || this.currentEvent != "stopFogEvent")){
             this.eventArray.push(this.currentEvent);
         }
         return this.currentEvent;
@@ -357,7 +357,7 @@ class Maze{
         if(this.fogCheck == true){
             var fogTile = [this.player.currentTile.gridCoordinateR,this.player.currentTile.gridCoordinateC];
             this.fogCheckArray.push(fogTile);
-            if (this.fogArray[this.fogCheckArray.length - 1] != this.fogCheckArray[this.fogCheckArray.length - 1]){
+            if ((this.fogArray[this.fogCheckArray.length - 1][0] != this.fogCheckArray[this.fogCheckArray.length - 1][0]) && (this.fogArray[this.fogCheckArray.length - 1][1] != this.fogCheckArray[this.fogCheckArray.length - 1][1])){
                 this.fogRandom = Math.ceil(8 * Math.random());
                 this.fogCheck = false;
             } else if (this.fogArray[this.fogArray.length - 1] != this.fogCheckArray[this.fogArray.length - 1] && this.currentTile == this.mazeArray[8][10]){
