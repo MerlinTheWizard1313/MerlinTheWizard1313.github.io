@@ -27,11 +27,10 @@ function handleCodeAnswer(event){
 }
 
 function codeValidation(code) {
-    let codeCheck = 0;
+    var codeCheck;
     fetch('images/SecretAssets/Code.txt')
         .then(response => response.text())
         .then(text => {
-            console.log(text);
             codeCheck = text;
         })
     if (code == codeCheck) {
@@ -52,12 +51,14 @@ function setReward(check){
 }
 
 function fetchTest(){
+    var test;
     fetch('images/SecretAssets/Code.txt')
         .then(response => response.text())
         .then(text => {
             console.log(text);
+            test = text;
         })
+    return test;
 }
 
 const fTest = fetchTest();
-typeof fTest;
