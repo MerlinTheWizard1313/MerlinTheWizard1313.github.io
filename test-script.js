@@ -141,7 +141,7 @@ class MazeSquare {
             this.gridSquare.style.backgroundColor = this.currentLightColour;
         }
         if (torchUpdate == true){
-            this.currentTile.style.color = this.currentTile.gridWalls.wallColours[2];
+            this.gridSquare.style.color = this.gridSquare.gridWalls.wallColours[2];
         }
     }
 
@@ -171,7 +171,7 @@ class MazeSquare {
             }
         } else {
             //remove player icon <i class="fa-solid fa-diamond">
-            this.gridSquare.innerHTML.replace(`<i class="fa-solid fa-diamond"></i>`,"");
+            this.gridSquare.innerHTML = this.gridSquare.innerHTML.replace(`<i class="fa-solid fa-diamond"></i>`,"");
         }
     }
 }
@@ -495,6 +495,7 @@ class Player {
 
     initialisePlayer(){
         this.currentTile.playerOnTile = true;
+        this.currentTile.playerUpdate();
         this.currentTile.tileLightUpdate(2, false);
         for (let i = 0; i < this.currentTile.gridWalls.actualWalls.length; i++){
             switch(i){
