@@ -360,7 +360,7 @@ class Maze{
             if ((this.fogArray[this.fogCheckArray.length - 1][0] != this.fogCheckArray[this.fogCheckArray.length - 1][0]) && (this.fogArray[this.fogCheckArray.length - 1][1] != this.fogCheckArray[this.fogCheckArray.length - 1][1])){
                 this.fogRandom = Math.ceil(8 * Math.random());
                 this.fogCheck = false;
-            } else if (this.fogArray[this.fogArray.length - 1] != this.fogCheckArray[this.fogArray.length - 1] && this.currentTile == this.mazeArray[8][10]){
+            } else if ((this.fogArray[this.fogCheckArray.length - 1][0] == this.fogCheckArray[this.fogCheckArray.length - 1][0]) && (this.fogArray[this.fogCheckArray.length - 1][1] == this.fogCheckArray[this.fogCheckArray.length - 1][1]) && this.currentTile == this.gridSquareArray[8][10]){
                 terminal.shiftMessageArray("You see the end of the fog labyrinth! You are being transported to-");
                 window.location.href = "test-3.html";
             }
