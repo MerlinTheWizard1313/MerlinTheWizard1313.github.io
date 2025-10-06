@@ -140,6 +140,9 @@ class MazeSquare {
             this.currentLightColour = this.lightColours[this.lightLevelNumber]
             this.gridSquare.style.backgroundColor = this.currentLightColour;
         }
+        if (torchUpdate == true){
+            this.currentTile.style.color = this.currentTile.gridWalls.wallColours[2];
+        }
     }
 
     tileColourUpdate(highColour, lowColour){
@@ -150,6 +153,9 @@ class MazeSquare {
                 this.currentLightColour = highColour;
             }
         }
+        if (this.tileHasLitTorch == true){
+            this.currentTile.style.color = this.currentTile.gridWalls.wallColours[2];
+        }
         this.lightColours[1] = lowColour;
         this.lightColours[2] = highColour;
         this.gridSquare.style.backgroundColor = this.currentLightColour;
@@ -157,13 +163,15 @@ class MazeSquare {
 
     playerUpdate(){
         if(this.playerOnTile){
-            //place player icon
+            //place player icon <i class="fa-solid fa-diamond">
+            this.gridSquare.innerHTML += `<i class="fa-solid fa-diamond"></i>`;
             if(this.npcDialogue != ""){
                 terminal.shiftMessageArray(this.npcDialogue);
                 gridTest.eventUpdate(this.npcDialogue);
             }
         } else {
-            //remove player icon
+            //remove player icon <i class="fa-solid fa-diamond">
+            this.gridSquare.innerHTML.replace(`<i class="fa-solid fa-diamond"></i>`,"");
         }
     }
 }
@@ -402,7 +410,6 @@ class Walls{
         this.initialiseWalls();
     }
 
-    /*dashed and solid make cracked wall, double for jail wall*/
     initialiseWalls(){
         for (let i = 0; i < this.propertyArray.length; i++){
             var styleCheck = window.getComputedStyle(this.gridSquareElement, null).getPropertyValue(this.propertyArray[i]);
