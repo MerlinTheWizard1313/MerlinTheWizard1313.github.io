@@ -30,10 +30,7 @@ function codeValidation(code) {
     let codeCheck = 0;
     fetch('images/SecretAssets/Code.txt')
         .then(response => response.text())
-        .then(text => {
-            console.log(text);
-            codeCheck = Integer.parseInt(text)
-        })
+        .then(text => codeCheck = parseInt(text, 10))
     if (code == codeCheck) {
         return true;
     } else {
@@ -50,11 +47,3 @@ function setReward(check){
         errorBox.innerText = "Incorrect Code. Try Again";
     }
 }
-
-function fetchTest(){
-    fetch('images/SecretAssets/Code.txt')
-        .then(response => response.text())
-        .then(text => console.log(text))
-}
-
-fetchTest();

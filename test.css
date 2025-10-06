@@ -774,22 +774,48 @@ body {
 #introduction-text{
   display: flex;
   position: relative;
+  justify-self: center;
+  font-size: 16px;
   width: 600px;
-  height: 300px;
+  padding: 4px;
   background-color: var(--tile-high-colour);
   outline: 4px var(--wall-high-colour) solid;
   color: white;
 }
 
+.wall-button-grid{
+  display: grid;
+  justify-self: center;
+}
+
 .wall-choice{
   display: inline-block;
   position: relative;
+  justify-self: center;
   color: white;
   background-color: var(--tile-high-colour);
   border-color: var(--wall-high-colour);
   width: 100px;
   height: 100px;
+  font-size: 24px;
   padding: 0px;
+}
+
+#error-code{
+  display: flex;
+  width: 300px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  justify-self: center;
+}
+
+#code-submit-button{
+  display:flex; 
+  margin-left:auto; 
+  margin-right:auto; 
+  margin-top: 4px;
+  background-color: var(--tile-high-colour);
+  border-color: var(--wall-high-colour);
 }
 
 .wall-holder{
