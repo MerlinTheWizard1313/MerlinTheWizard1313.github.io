@@ -21,14 +21,12 @@ class MazeSquare {
         this.tileHasSword = false;
         this.tileHasHammer = false;
         this.genGridContent();
-        this.gridContent = this.gridSquare.innerText;
     }
 
     genGridContent(){
         if(this.columnNumber != 0){
             this.gridCoordinateR = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
             this.gridCoordinateC = this.columnNumber;
-            this.gridSquare.innerText = "(" + this.gridCoordinateR + "," + this.gridCoordinateC + ")";
             this.gridSquareClassName = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
             this.gridSquare.classList.add(this.gridSquareClassName);
             this.gridWalls = new Walls(("." + this.gridSquareClassName));
@@ -379,7 +377,7 @@ class Maze{
     }
 
     gridSquareInfo(row, column){
-        var gridSquareInfo = ["Content:" + this.gridSquareArray[row][column].gridContent, 
+        var gridSquareInfo = [ 
                                 "Coordinates:" + this.gridSquareArray[row][column].getGridCoordinate(), 
                                 "ClassNames:" + this.gridSquareArray[row][column].classList, 
                                 "TileWalls:" + this.gridSquareArray[row][column].gridWalls.actualWalls,

@@ -24,8 +24,7 @@ body {
   }
 
   .maze-square {
-    background-color: black;
-    color: white;
+    color: black;
     width: 5.3vw;
     height: 5.3vw;
     font-size: 14px;
@@ -106,14 +105,11 @@ body {
     width: 56.1vw;
     top: 7vh;
     right: -3.5vw;
-    background-color: white;
-    color: black;
     outline: 0.4vw var(--wall-high-colour) solid;
   }
 
   .maze-square {
-    background-color: black;
-    color: white;
+    color: black;
     width: 5.1vw;
     height: 5.1vw;
     font-size: 14px;
