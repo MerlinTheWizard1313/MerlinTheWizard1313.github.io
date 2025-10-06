@@ -7,5 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-    text here
+    <div id="introduction-text">
+        The door slams shut behind you and you see a small pedestal in the center of the room. 
+        "For those smart enough to find the code, they will be granted the greatest honor!" 
+        You look around the room and see that each wall has its own puzzle.
+    </div>
+    <form onsubmit="handleCodeAnswer(event)" style="width: 40%; margin:auto; text-align: right; position: relative">
+        <label style="color:white">Input Code:</label>
+        <input id="code" type="number" name="code" required><br>
+        <button type="submit" id="CodeSubmitButton" style="display:flex; margin-left:auto; margin-right:auto; margin-top: 4px ">Submit</button>
+    </form> 
+    <div id="error-code"></div>
+    <button class="wall-choice" onclick="changeWall(0)">North Wall</button>
+    <button class="wall-choice" onclick="changeWall(1)">East Wall</button>
+    <button class="wall-choice" onclick="changeWall(2)">South Wall</button>
+    <button class="wall-choice" onclick="changeWall(3)">West Wall</button>
+    <div class="wall-holder"></div>
+    <script src="test-2-script.js"></script>
 </body>

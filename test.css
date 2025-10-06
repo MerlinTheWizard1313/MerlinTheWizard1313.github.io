@@ -770,3 +770,30 @@ body {
   width: 3vw;
   height: 2vh;
 }
+
+#introduction-text{
+  display: flex;
+  position: relative;
+  width: 600px;
+  height: 300px;
+  background-color: var(--tile-high-colour);
+  outline: 4px var(--wall-high-colour) solid;
+  color: white;
+}
+
+.wall-choice{
+  display: inline-block;
+  position: relative;
+  color: white;
+  background-color: var(--tile-high-colour);
+  border-color: var(--wall-high-colour);
+  width: 100px;
+  height: 100px;
+  padding: 0px;
+}
+
+.wall-holder{
+  display: flex;
+  position: relative;
+  width: 100%;
+}
