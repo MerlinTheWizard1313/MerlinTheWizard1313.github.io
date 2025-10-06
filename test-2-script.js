@@ -27,18 +27,19 @@ function handleCodeAnswer(event){
 }
 
 function codeValidation(code) {
-    var codeCheck;
     fetch('images/SecretAssets/Code.txt')
         .then(response => response.text())
         .then(text => {
-            codeCheck = text;
+            console.log(code);
+            console.log(code === number);
+            console.log(text);
+            console.log(text === number);
+            if (text == code) {
+                return true;
+            } else {
+                return false;
+            }
         })
-    if (code == codeCheck) {
-        return true;
-    } else {
-        console.log(codeCheck);
-        return false;
-    }
 }
 
 function setReward(check){
@@ -49,16 +50,3 @@ function setReward(check){
         errorBox.innerText = "Incorrect Code. Try Again";
     }
 }
-
-function fetchTest(){
-    var test;
-    fetch('images/SecretAssets/Code.txt')
-        .then(response => response.text())
-        .then(text => {
-            console.log(text);
-            test = text;
-        })
-    return test;
-}
-
-const fTest = fetchTest();
