@@ -153,17 +153,17 @@ class MazeSquare {
                 this.currentLightColour = highColour;
             }
         }
+        this.lightColours[1] = lowColour;
+        this.lightColours[2] = highColour;
         if (this.tileHasLitTorch == true){
             this.gridSquare.style.color = this.gridWalls.wallColours[2];
         }
-        this.lightColours[1] = lowColour;
-        this.lightColours[2] = highColour;
         this.gridSquare.style.backgroundColor = this.currentLightColour;
     }
 
     playerUpdate(){
         if(this.playerOnTile){
-            this.gridSquare.innerHTML += `<i class="fa-solid fa-diamond"></i>`;
+            this.gridSquare.innerHTML += `<i class="fa-solid fa-diamond" style="color: black"></i>`;
             if(this.npcDialogue != ""){
                 terminal.shiftMessageArray(this.npcDialogue);
                 gridTest.eventUpdate(this.npcDialogue);
@@ -352,8 +352,8 @@ class Maze{
     colourPaletteUpdate(colourArray){
         for(let i = 1; i < this.gridSquareArray.length; i++){
             for(let j = 1; j < this.gridSquareArray[i].length; j++){
-                this.gridSquareArray[i][j].tileColourUpdate(colourArray[2],colourArray[3]);
                 this.gridSquareArray[i][j].gridWalls.wallColourUpdate(colourArray[0],colourArray[1]);
+                this.gridSquareArray[i][j].tileColourUpdate(colourArray[2],colourArray[3]);
             }
         }
     }
