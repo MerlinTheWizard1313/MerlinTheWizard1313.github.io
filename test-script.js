@@ -154,7 +154,7 @@ class MazeSquare {
             }
         }
         if (this.tileHasLitTorch == true){
-            this.currentTile.style.color = this.currentTile.gridWalls.wallColours[2];
+            this.gridSquare.style.color = this.gridWalls.wallColours[2];
         }
         this.lightColours[1] = lowColour;
         this.lightColours[2] = highColour;
