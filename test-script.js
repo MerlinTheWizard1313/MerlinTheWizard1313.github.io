@@ -355,7 +355,8 @@ class Maze{
 
     fogTracker(){
         if(this.fogCheck == true){
-            this.fogCheckArray.push([this.player.currentTile.gridCoordinateR,this.player.currentTile.gridCoordinateC])
+            var fogTile = [this.player.currentTile.gridCoordinateR,this.player.currentTile.gridCoordinateC];
+            this.fogCheckArray.push(fogTile);
             if (this.fogArray[this.fogArray.length - 1] != this.fogCheckArray[this.fogArray.length - 1]){
                 this.fogRandom = Math.ceil(8 * Math.random());
                 this.fogCheck = false;
@@ -372,6 +373,7 @@ class Maze{
             this.player.tileUpdate(this.player.tileChoice);
             this.player.currentTile.playerOnTile = true;
             this.player.currentTile.playerUpdate();
+            this.player.currentTile.lightUpdate(1,false);
             terminal.shiftMessageArray("You fainted from being lost in the thick fog but awoke next to the crazed man. How bizarre");
         }
     }
