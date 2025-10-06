@@ -141,7 +141,7 @@ class MazeSquare {
             this.gridSquare.style.backgroundColor = this.currentLightColour;
         }
         if (torchUpdate == true){
-            this.gridSquare.style.color = this.gridSquare.gridWalls.wallColours[2];
+            this.gridSquare.style.color = this.gridWalls.wallColours[2];
         }
     }
 
