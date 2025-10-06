@@ -366,7 +366,7 @@ class Maze{
         } else if(this.fogCheck == false && this.fogRandom > 0){
             this.fogRandom -= 1;
         } else if(this.fogCheck == false && this.fogRandom == 0){
-            this.player.tileChoice = this.gridSquareArray[7][4];
+            this.player.tileChoice = this.gridSquareArray[6][4];
             this.player.currentTile.playerOnTile = false;
             this.player.currentTile.playerUpdate();
             this.player.tileUpdate(this.player.tileChoice);
