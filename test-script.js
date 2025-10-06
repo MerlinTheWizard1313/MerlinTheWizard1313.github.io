@@ -163,15 +163,13 @@ class MazeSquare {
 
     playerUpdate(){
         if(this.playerOnTile){
-            //place player icon <i class="fa-solid fa-diamond">
             this.gridSquare.innerHTML += `<i class="fa-solid fa-diamond"></i>`;
             if(this.npcDialogue != ""){
                 terminal.shiftMessageArray(this.npcDialogue);
                 gridTest.eventUpdate(this.npcDialogue);
             }
         } else {
-            //remove player icon <i class="fa-solid fa-diamond">
-            this.gridSquare.innerHTML = this.gridSquare.innerHTML.replace(`<i class="fa-solid fa-diamond"></i>`,"");
+            this.gridSquare.removeChild(this.gridSquare.firstElementChild);
         }
     }
 }
