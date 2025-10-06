@@ -27,6 +27,7 @@ class MazeSquare {
         if(this.columnNumber != 0){
             this.gridCoordinateR = ["A","B","C","D","E","F","G","H"].indexOf(this.rowLetter)+1;
             this.gridCoordinateC = this.columnNumber;
+            this.gridSquare.innerText = ""; //may cause bottom labels to break
             this.gridSquareClassName = "row" + this.gridCoordinateR + "Column" + this.gridCoordinateC;
             this.gridSquare.classList.add(this.gridSquareClassName);
             this.gridWalls = new Walls(("." + this.gridSquareClassName));
