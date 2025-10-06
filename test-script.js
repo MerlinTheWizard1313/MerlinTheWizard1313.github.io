@@ -357,7 +357,7 @@ class Maze{
         if(this.fogCheck == true){
             var fogTile = [this.player.currentTile.gridCoordinateR,this.player.currentTile.gridCoordinateC];
             this.fogCheckArray.push(fogTile);
-            if ((this.fogArray[this.fogCheckArray.length - 1][0] != this.fogCheckArray[this.fogCheckArray.length - 1][0]) && (this.fogArray[this.fogCheckArray.length - 1][1] != this.fogCheckArray[this.fogCheckArray.length - 1][1])){
+            if ((this.fogArray[this.fogCheckArray.length - 1][0] != this.fogCheckArray[this.fogCheckArray.length - 1][0]) || (this.fogArray[this.fogCheckArray.length - 1][1] != this.fogCheckArray[this.fogCheckArray.length - 1][1])){
                 this.fogRandom = Math.ceil(8 * Math.random());
                 this.fogCheck = false;
             } else if ((this.fogArray[this.fogCheckArray.length - 1][0] == this.fogCheckArray[this.fogCheckArray.length - 1][0]) && (this.fogArray[this.fogCheckArray.length - 1][1] == this.fogCheckArray[this.fogCheckArray.length - 1][1]) && (this.player.currentTile.gridCoordinateR == 8 && this.player.currentTile.gridCoordinateC == 10)){
