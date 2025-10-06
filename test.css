@@ -785,7 +785,11 @@ body {
 
 .wall-button-grid{
   display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 100px;
+  column-gap: 30px;
   justify-self: center;
+  margin-bottom: 10px;
 }
 
 .wall-choice{
@@ -805,14 +809,16 @@ body {
   display: flex;
   width: 300px;
   margin-top: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
   justify-self: center;
+  justify-content: center;
 }
 
 #code-submit-button{
   display:flex; 
   margin-left:auto; 
-  margin-right:auto; 
+  margin-right:auto;
+  color: white;
   margin-top: 4px;
   background-color: var(--tile-high-colour);
   border-color: var(--wall-high-colour);

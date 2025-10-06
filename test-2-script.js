@@ -30,7 +30,7 @@ function codeValidation(code) {
     let codeCheck = 0;
     fetch('images/SecretAssets/Code.txt')
         .then(response => response.text())
-        .then(text => codeCheck = parseInt(text, 10))
+        .then(text => codeCheck = text)
     if (code == codeCheck) {
         return true;
     } else {
