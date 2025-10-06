@@ -181,6 +181,7 @@ class Maze{
         this.fogArray = [[7,4],[7,5],[7,6],[7,7],[8,7],[8,8],[8,9],[8,10]];
         this.fogCheck = false;
         this.fogRandom = 0;
+        this.fogTile;
         this.swordLocation = [6,8];
         this.hammerLocation = [1,1];
         this.eventArray = [];
@@ -355,9 +356,8 @@ class Maze{
 
     fogTracker(){
         if(this.fogCheck == true){
-            var fogTile = [this.player.currentTile.gridCoordinateR,this.player.currentTile.gridCoordinateC];
-            console.log(fogTile);
-            this.fogCheckArray.push(fogTile);
+            this.fogTile = [this.player.currentTile.gridCoordinateR,this.player.currentTile.gridCoordinateC];
+            this.fogCheckArray.push(this.fogTile);
             if (this.fogArray[this.fogArray.length - 1] != this.fogCheckArray[this.fogArray.length - 1]){
                 this.fogRandom = Math.ceil(8 * Math.random());
                 this.fogCheck = false;
