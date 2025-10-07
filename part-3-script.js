@@ -848,7 +848,7 @@ class TextTerminal{
         this.messageThree = "";
         this.currentTerminalColour = "green";
         this.redColourPalette = ["rgb(128,0,0)","rgb(64,0,0)","rgb(72,0,0)","rgb(32,0,0)"];
-        this.blueColourPalette = ["rgb(0,255,255)","rgb(0,184,184)","rgb(0,102,102)","rgb(0,61,61)"];
+        this.blueColourPalette = ["rgb(0,255,255)","rgb(0,128,128)","rgb(0,102,102)","rgb(0,61,61)"];
         this.greenColourPalette = ["rgb(0,128,0)","rgb(0,64,0)","rgb(0,72,0)","rgb(0,32,0)"];
         this.monochromeColourPalette = ["rgb(128,128,128)","rgb(64,64,64)","rgb(72,72,72)","rgb(32,32,32)"];
         this.cssColourRoot = document.querySelector(':root');
