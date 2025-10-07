@@ -839,4 +839,5 @@ body {
   background-color: var(--tile-high-colour);
   outline: 4px var(--wall-high-colour) solid;
   color: white;
+  margin-bottom: 10px;
 }
