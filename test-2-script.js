@@ -31,9 +31,9 @@ function codeValidation(code) {
         .then(response => response.text())
         .then(text => {
             console.log(code);
-            console.log(code === 2);
+            console.log(typeof code);
             console.log(text);
-            console.log(text === 2);
+            console.log(typeof text);
             if (text == code) {
                 return true;
             } else {
