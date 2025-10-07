@@ -1,3 +1,12 @@
+var codeCheck;
+
+fetch('images/SecretAssets/Code.txt')
+    .then(response => response.text())
+    .then(text => {
+        codeCheck = text;
+        console.log("called");
+    })
+
 function changeWall(wallChoice){
     let holder = document.querySelector(".wall-holder");
     holder.removeChild(holder.firstElementChild);
@@ -27,19 +36,14 @@ function handleCodeAnswer(event){
 }
 
 function codeValidation(code) {
-    fetch('images/SecretAssets/Code.txt')
-        .then(response => response.text())
-        .then(text => {
-            console.log(code);
-            console.log(typeof code);
-            console.log(text);
-            console.log(typeof text);
-            if (text == code) {
-                return true;
-            } else {
-                return false;
-            }
-        })
+    console.log(codeCheck);
+    if (codeCheck == code) {
+        console.log("true");
+        return true;
+    } else {
+        console.log("false");
+        return false;
+    }
 }
 
 function setReward(check){
