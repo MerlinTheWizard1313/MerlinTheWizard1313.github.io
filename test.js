@@ -140,8 +140,10 @@ class MazeSquare {
             this.currentLightColour = this.lightColours[this.lightLevelNumber]
             this.gridSquare.style.backgroundColor = this.currentLightColour;
         }
-        if (this.lightLevelNumber > 0){
+        if (this.lightLevelNumber > 0 && this.tileHasLitTorch == false){
             this.gridSquare.style.color = "white";
+        } else if(this.lightLevelNumber > 0 && this.tileHasLitTorch == true){
+            this.gridSquare.style.color = this.gridWalls.wallColours[2];
         } else {
             this.gridSquare.style.color = "black";
         }
