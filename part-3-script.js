@@ -166,7 +166,7 @@ class MazeSquare {
             this.gridSquare.innerHTML += `<i class="fa-solid fa-diamond" style="color: black"></i>`;
             if(this.npcDialogue != ""){
                 terminal.shiftMessageArray(this.npcDialogue);
-                gridTest.eventUpdate(this.npcDialogue);
+                mazeGame.eventUpdate(this.npcDialogue);
             }
         } else {
             this.gridSquare.removeChild(this.gridSquare.firstElementChild);
@@ -626,7 +626,6 @@ class Player {
                         }
                 }
             }
-            console.log("Torch Lit");
             if(this.currentTile == this.mazeArray[2][7]){
                 this.mazeArray[1][7].lightMinimumUpdate();
                 this.mazeArray[1][7].tileLightUpdate(1,false);
@@ -881,48 +880,42 @@ class TextTerminal{
         if(this.currentTerminalColour != colour){
             switch (colour){
                 case "red":
-                    gridTest.colourPaletteUpdate(this.redColourPalette);
+                    mazeGame.colourPaletteUpdate(this.redColourPalette);
                     this.cssColourRoot.style.setProperty('--wall-high-colour', this.redColourPalette[0]);
                     this.cssColourRoot.style.setProperty('--wall-low-colour', this.redColourPalette[1]);
                     this.cssColourRoot.style.setProperty('--tile-high-colour', this.redColourPalette[2]);
                     this.cssColourRoot.style.setProperty('--tile-low-colour', this.redColourPalette[3]);
-                    console.log("changed to red");
                     this.currentTerminalColour = "red";
                     break;
                 case "green":
-                    gridTest.colourPaletteUpdate(this.greenColourPalette);
+                    mazeGame.colourPaletteUpdate(this.greenColourPalette);
                     this.cssColourRoot.style.setProperty('--wall-high-colour', this.greenColourPalette[0]);
                     this.cssColourRoot.style.setProperty('--wall-low-colour', this.greenColourPalette[1]);
                     this.cssColourRoot.style.setProperty('--tile-high-colour', this.greenColourPalette[2]);
                     this.cssColourRoot.style.setProperty('--tile-low-colour', this.greenColourPalette[3]);
-                    console.log("changed to green");
                     this.currentTerminalColour = "green";
                     break;
                 case "blue":
-                    gridTest.colourPaletteUpdate(this.blueColourPalette);
+                    mazeGame.colourPaletteUpdate(this.blueColourPalette);
                     this.cssColourRoot.style.setProperty('--wall-high-colour', this.blueColourPalette[0]);
                     this.cssColourRoot.style.setProperty('--wall-low-colour', this.blueColourPalette[1]);
                     this.cssColourRoot.style.setProperty('--tile-high-colour', this.blueColourPalette[2]);
                     this.cssColourRoot.style.setProperty('--tile-low-colour', this.blueColourPalette[3]);
-                    console.log("changed to blue");
                     this.currentTerminalColour = "blue";
                     break;
                 case "monochrome":
-                    gridTest.colourPaletteUpdate(this.monochromeColourPalette);
+                    mazeGame.colourPaletteUpdate(this.monochromeColourPalette);
                     this.cssColourRoot.style.setProperty('--wall-high-colour', this.monochromeColourPalette[0]);
                     this.cssColourRoot.style.setProperty('--wall-low-colour', this.monochromeColourPalette[1]);
                     this.cssColourRoot.style.setProperty('--tile-high-colour', this.monochromeColourPalette[2]);
                     this.cssColourRoot.style.setProperty('--tile-low-colour', this.monochromeColourPalette[3]);
-                    console.log("changed to monochrome");
                     this.currentTerminalColour = "monochrome";
                     break;
             }
-        } else {
-            console.log("Colour palette is already " + colour);
-        }
+        } 
     }
 }
 
 const terminal = new TextTerminal();
 const gridBox = document.querySelector("#mazeBox");
-const gridTest = new Maze(gridBox);
+const mazeGame = new Maze(gridBox);

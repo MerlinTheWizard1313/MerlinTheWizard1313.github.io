@@ -3,11 +3,149 @@
 
 <head>
     <script src="https://kit.fontawesome.com/cefa5b4116.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="arg.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<body style="background-color:black; color: white">
-    <div style="width: 80%; font-size:36px; margin: auto; word-wrap: break-word">
-        There is something here, but it's hazy, might need to come back later
+<body>
+    <div id="controls-and-text">
+        <div id="terminal-header">
+            <p id="terminal-header-title">Message Terminal</p>
+            <button id="color-button-red"></button>
+            <button id="color-button-green"></button>
+            <button id="color-button-blue"></button>
+            <button id="color-button-monochrome"></button>
+        </div>
+        <div class="text-terminal">
+            <p id="terminal-message">
+                first message
+            </p>
+            <p id="terminal-message">
+                second message
+            </p>
+            <p id="terminal-message">
+                third message
+            </p>
+        </div>
+        <br>
+        <br>
+        <div class="game-buttons">
+            <br>
+            <button id="up-button">Up</button>
+            <br>
+            <p></p>
+            <button id="hammer-button">Left Hand</button>
+            <button id="left-button">Left</button>
+            <button id="lightTorch-button">Light Torch</button>
+            <button id="right-button">Right</button>
+            <br>
+            <p></p>
+            <br>
+            <button id="down-button">Down</button>
+            <br>
+            <p></p>
+            <button id="sword-button">Right Hand</button>
+        </div>
     </div>
+    <div class="maze-container" id="mazeBox">
+        <div data-id="Label" class="maze-square rowLabel topLabel">H</div>
+        <div data-id="1" class="maze-square fa-solid fa-smog">1</div>
+        <div data-id="2" class="maze-square fa-solid fa-smog">2</div>
+        <div data-id="3" class="maze-square fa-solid fa-smog">3</div>
+        <div data-id="4" class="maze-square fa-solid fa-smog">4</div>
+        <div data-id="5" class="maze-square fa-solid fa-smog">5</div>
+        <div data-id="6" class="maze-square fa-solid fa-smog">6</div>
+        <div data-id="7" class="maze-square fa-solid fa-smog">7</div>
+        <div data-id="8" class="maze-square fa-solid fa-smog">8</div>
+        <div data-id="9" class="maze-square fa-solid fa-smog">9</div>
+        <div data-id="10" class="maze-square fa-solid fa-smog">10</div>
+        <div data-id="Label" class="maze-square rowLabel">G</div>
+        <div data-id="1" class="maze-square fa-solid fa-smog">1</div>
+        <div data-id="2" class="maze-square fa-solid fa-smog">2</div>
+        <div data-id="3" class="maze-square fa-solid fa-smog">3</div>
+        <div data-id="4" class="maze-square fa-solid fa-smog">4</div>
+        <div data-id="5" class="maze-square fa-solid fa-smog">5</div>
+        <div data-id="6" class="maze-square fa-solid fa-smog">6</div>
+        <div data-id="7" class="maze-square fa-solid fa-smog">7</div>
+        <div data-id="8" class="maze-square fa-solid fa-smog">8</div>
+        <div data-id="9" class="maze-square fa-solid fa-smog">9</div>
+        <div data-id="10" class="maze-square fa-solid fa-smog">10</div>
+        <div data-id="Label" class="maze-square rowLabel">F</div>
+        <div data-id="1" class="maze-square fa-solid fa-fire">1</div>
+        <div data-id="2" class="maze-square">2</div>
+        <div data-id="3" class="maze-square fa-solid fa-ghost">3</div>
+        <div data-id="4" class="maze-square fa-solid fa-question">4</div>
+        <div data-id="5" class="maze-square fa-solid fa-fire">5</div>
+        <div data-id="6" class="maze-square">6</div>
+        <div data-id="7" class="maze-square">7</div>
+        <div data-id="8" class="maze-square fa-solid fa-question">8</div>
+        <div data-id="9" class="maze-square fa-solid fa-fire">9</div>
+        <div data-id="10" class="maze-square">10</div>
+        <div data-id="Label" class="maze-square rowLabel">E</div>
+        <div data-id="1" class="maze-square fa-solid fa-ghost">1</div>
+        <div data-id="2" class="maze-square fa-solid fa-fire">2</div>
+        <div data-id="3" class="maze-square fa-solid fa-fire">3</div>
+        <div data-id="4" class="maze-square fa-solid fa-fire">4</div>
+        <div data-id="5" class="maze-square fa-solid fa-fire">5</div>
+        <div data-id="6" class="maze-square fa-solid fa-fire">6</div>
+        <div data-id="7" class="maze-square fa-solid fa-fire">7</div>
+        <div data-id="8" class="maze-square fa-solid fa-fire">8</div>
+        <div data-id="9" class="maze-square fa-solid fa-ghost">9</div>
+        <div data-id="10" class="maze-square fa-solid fa-fire">10</div>
+        <div data-id="Label" class="maze-square rowLabel">D</div>
+        <div data-id="1" class="maze-square">1</div>
+        <div data-id="2" class="maze-square fa-solid fa-fire">2</div>
+        <div data-id="3" class="maze-square">3</div>
+        <div data-id="4" class="maze-square">4</div>
+        <div data-id="5" class="maze-square">5</div>
+        <div data-id="6" class="maze-square fa-solid fa-fire">6</div>
+        <div data-id="7" class="maze-square">7</div>
+        <div data-id="8" class="maze-square fa-solid fa-ghost">8</div>
+        <div data-id="9" class="maze-square fa-solid fa-fire">9</div>
+        <div data-id="10" class="maze-square">10</div>
+        <div data-id="Label" class="maze-square rowLabel">C</div>
+        <div data-id="1" class="maze-square">1</div>
+        <div data-id="2" class="maze-square">2</div>
+        <div data-id="3" class="maze-square fa-solid fa-fire">3</div>
+        <div data-id="4" class="maze-square">4</div>
+        <div data-id="5" class="maze-square">5</div>
+        <div data-id="6" class="maze-square">6</div>
+        <div data-id="7" class="maze-square">7</div>
+        <div data-id="8" class="maze-square fa-solid fa-fire">8</div>
+        <div data-id="9" class="maze-square fa-solid fa-fire">9</div>
+        <div data-id="10" class="maze-square">10</div>
+        <div data-id="Label" class="maze-square rowLabel">B</div>
+        <div data-id="1" class="maze-square fa-solid fa-fire">1</div>
+        <div data-id="2" class="maze-square">2</div>
+        <div data-id="3" class="maze-square">3</div>
+        <div data-id="4" class="maze-square">4</div>
+        <div data-id="5" class="maze-square fa-solid fa-fire">5</div>
+        <div data-id="6" class="maze-square">6</div>
+        <div data-id="7" class="maze-square fa-solid fa-fire">7</div>
+        <div data-id="8" class="maze-square fa-solid fa-fire">8</div>
+        <div data-id="9" class="maze-square fa-solid fa-fire">9</div>
+        <div data-id="10" class="maze-square fa-solid fa-fire">10</div>
+        <div data-id="Label" class="maze-square rowLabel bottomLabel">A</div>
+        <div data-id="1" class="maze-square fa-solid fa-question">1</div>
+        <div data-id="2" class="maze-square">2</div>
+        <div data-id="3" class="maze-square fa-solid fa-fire">3</div>
+        <div data-id="4" class="maze-square">4</div>
+        <div data-id="5" class="maze-square">5</div>
+        <div data-id="6" class="maze-square">6</div>
+        <div data-id="7" class="maze-square fa-solid fa-ghost">7</div>
+        <div data-id="8" class="maze-square">8</div>
+        <div data-id="9" class="maze-square fa-solid fa-question">9</div>
+        <div data-id="10" class="maze-square fa-solid fa-ghost">10</div>
+        <div data-id="Label" class="maze-square"></div>
+        <div data-id="Label" class="maze-square columnLabel leftLabel">1</div>
+        <div data-id="Label" class="maze-square columnLabel">2</div>
+        <div data-id="Label" class="maze-square columnLabel">3</div>
+        <div data-id="Label" class="maze-square columnLabel">4</div>
+        <div data-id="Label" class="maze-square columnLabel">5</div>
+        <div data-id="Label" class="maze-square columnLabel">6</div>
+        <div data-id="Label" class="maze-square columnLabel">7</div>
+        <div data-id="Label" class="maze-square columnLabel">8</div>
+        <div data-id="Label" class="maze-square columnLabel">9</div>
+        <div data-id="Label" class="maze-square columnLabel rightLabel">10</div>
+    </div>
+    <script src="part-3-script.js"></script>
 </body>
