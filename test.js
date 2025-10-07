@@ -140,6 +140,11 @@ class MazeSquare {
             this.currentLightColour = this.lightColours[this.lightLevelNumber]
             this.gridSquare.style.backgroundColor = this.currentLightColour;
         }
+        if (this.lightLevelNumber > 0){
+            this.gridSquare.style.color = "white";
+        } else {
+            this.gridSquare.style.color = "black";
+        }
         if (torchUpdate == true){
             this.gridSquare.style.color = this.gridWalls.wallColours[2];
         }
@@ -163,7 +168,7 @@ class MazeSquare {
 
     playerUpdate(){
         if(this.playerOnTile){
-            this.gridSquare.innerHTML += `<i class="fa-solid fa-diamond" style="color: black"></i>`;
+            this.gridSquare.innerHTML += `<i class="fa-solid fa-diamond" style="color: white"></i>`;
             if(this.npcDialogue != ""){
                 terminal.shiftMessageArray(this.npcDialogue);
                 mazeGame.eventUpdate(this.npcDialogue);
@@ -841,7 +846,7 @@ class TextTerminal{
         this.messageThree = "";
         this.currentTerminalColour = "green";
         this.redColourPalette = ["rgb(128,0,0)","rgb(64,0,0)","rgb(72,0,0)","rgb(32,0,0)"];
-        this.blueColourPalette = ["rgb(0,0,200)","rgb(0,0,150)","rgb(0,0,135)","rgb(0,0,100)"];
+        this.blueColourPalette = ["rgb(0,255,255)","rgb(0,184,184)","rgb(0,102,102)","rgb(0,61,61)"];
         this.greenColourPalette = ["rgb(0,128,0)","rgb(0,64,0)","rgb(0,72,0)","rgb(0,32,0)"];
         this.monochromeColourPalette = ["rgb(128,128,128)","rgb(64,64,64)","rgb(72,72,72)","rgb(32,32,32)"];
         this.cssColourRoot = document.querySelector(':root');
