@@ -2,10 +2,7 @@ var codeCheck;
 
 fetch('images/SecretAssets/Code.txt')
     .then(response => response.text())
-    .then(text => {
-        codeCheck = text;
-        console.log("called");
-    })
+    .then(text => codeCheck = text)
 
 function changeWall(wallChoice){
     let holder = document.querySelector(".wall-holder");
@@ -36,12 +33,9 @@ function handleCodeAnswer(event){
 }
 
 function codeValidation(code) {
-    console.log(codeCheck);
     if (codeCheck == code) {
-        console.log("true");
         return true;
     } else {
-        console.log("false");
         return false;
     }
 }
@@ -49,7 +43,7 @@ function codeValidation(code) {
 function setReward(check){
     let errorBox = document.getElementById("error-code");
     if (check){
-        window.location.href = "test-4.html";
+        window.location.href = "thefinaldestination.html";
     } else {
         errorBox.innerText = "Incorrect Code. Try Again";
     }

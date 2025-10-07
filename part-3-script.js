@@ -367,7 +367,7 @@ class Maze{
                 this.fogCheck = false;
             } else if ((this.fogArray[this.fogCheckArray.length - 1][0] == this.fogCheckArray[this.fogCheckArray.length - 1][0]) && (this.fogArray[this.fogCheckArray.length - 1][1] == this.fogCheckArray[this.fogCheckArray.length - 1][1]) && (this.player.currentTile.gridCoordinateR == 8 && this.player.currentTile.gridCoordinateC == 10)){
                 terminal.shiftMessageArray("You see the end of the fog labyrinth! You are being transported to-");
-                window.location.href = "test-3.html";
+                window.location.href = "secret-hidden-in-the-fog.html";
             }
         } else if(this.fogCheck == false && this.fogRandom > 0){
             this.fogRandom -= 1;
@@ -654,7 +654,7 @@ class Player {
                 this.mazeArray[5][6].lightMinimumUpdate();
             }
         } else if (this.currentTile == this.mazeArray[5][6]){
-            window.location.href = "test-2.html";
+            window.location.href = "fourWalls.html";
         }
     }
 

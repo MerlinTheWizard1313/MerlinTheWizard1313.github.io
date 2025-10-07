@@ -829,3 +829,14 @@ body {
   position: relative;
   width: 100%;
 }
+
+.victory-message{
+  display: flex;
+  position: relative;
+  justify-self: center;
+  font-size: 16px;
+  padding: 4px;
+  background-color: var(--tile-high-colour);
+  outline: 4px var(--wall-high-colour) solid;
+  color: white;
+}
