@@ -1,8 +1,13 @@
 var codeCheck;
+var hrefCode;
 
 fetch('images/SecretAssets/Code.txt')
     .then(response => response.text())
     .then(text => codeCheck = text)
+
+fetch('images/SecretAssets/href.txt')
+    .then(response => response.text())
+    .then(text => hrefCode = text)
 
 function changeWall(wallChoice){
     let holder = document.querySelector(".wall-holder");
@@ -43,7 +48,7 @@ function codeValidation(code) {
 function setReward(check){
     let errorBox = document.getElementById("error-code");
     if (check){
-        window.location.href = "thefinaldestination.html";
+        window.location.href = hrefCode;
     } else {
         errorBox.innerText = "Incorrect Code. Try Again";
     }
