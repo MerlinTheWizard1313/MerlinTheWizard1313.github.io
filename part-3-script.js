@@ -20,6 +20,7 @@ class MazeSquare {
         this.npcDialogue = "";
         this.tileHasSword = false;
         this.tileHasHammer = false;
+        this.hasCrackedWall = false;
         this.genGridContent();
     }
 
